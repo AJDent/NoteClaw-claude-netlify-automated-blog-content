@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Submit your note buyer buy box to Take Notes Capital — tell us what deals you're looking for and we'll notify you when we have notes that match.">
+<title>Submit Your Buy Box — Take Notes Capital</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23212c52'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-weight='700' font-size='11' fill='%235ba4e6'%3ETNC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --navy: #212c52;
+    --gold: #5ba4e6;
+    --gold-light: #7bbef0;
+    --white: #ffffff;
+    --blue: #5ba4e6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Inter", -apple-system, sans-serif; background: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 8px 48px; background: rgba(8,8,8,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(91,164,230,0.15); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-logo img { height: 130px; width: auto; object-fit: contain; }
+  .nav-back { color: rgba(250,248,244,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+  .nav-back:hover { color: var(--blue); }
+
+  /* WRAPPER */
+  .page-wrap { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 140px 24px 80px; }
+
+  /* INTRO HERO */
+  .intro-wrap { max-width: 600px; text-align: center; }
+  .intro-label { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--blue); opacity: 0.8; margin-bottom: 20px; }
+  .intro-title { font-family: "Playfair Display", serif; font-size: clamp(28px, 5vw, 48px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+  .intro-body { font-size: clamp(15px, 2vw, 18px); font-weight: 300; line-height: 1.85; color: rgba(250,248,244,0.65); margin-bottom: 38px; }
+  .intro-btn { background: var(--blue); color: #fff; border: none; border-radius: 50px; padding: 18px 52px; font-family: "Inter", sans-serif; font-size: 17px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+  .intro-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(91,164,230,0.25); }
+
+  /* PROGRESS */
+  .progress-bar-wrap { width: 100%; max-width: 580px; margin-bottom: 40px; }
+  .progress-label { font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; margin-bottom: 10px; }
+  .progress-track { width: 100%; height: 3px; background: rgba(255,255,255,0.1); border-radius: 2px; }
+  .progress-fill { height: 3px; background: var(--blue); border-radius: 2px; transition: width 0.4s ease; }
+
+  /* STEPS */
+  .step { display: none; width: 100%; max-width: 580px; animation: fadeUp 0.4s ease; }
+  .step.active { display: block; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .step-question { font-family: "Playfair Display", serif; font-size: clamp(24px, 4vw, 38px); font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
+  .step-sub { font-size: 14px; opacity: 0.45; margin-bottom: 32px; font-weight: 300; }
+
+  /* OPTIONS */
+  .options-grid { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .options-grid.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .option-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(91,164,230,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    color: var(--white);
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .option-btn:hover { border-color: rgba(91,164,230,0.5); background: rgba(91,164,230,0.06); }
+  .option-btn.selected { border-color: var(--blue); background: rgba(91,164,230,0.12); color: var(--white); }
+  .option-btn .check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(91,164,230,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; font-size: 11px; }
+  .option-btn.selected .check { background: var(--blue); border-color: var(--blue); }
+
+  /* STATES GRID */
+  .states-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 32px; max-height: 360px; overflow-y: auto; padding-right: 4px; }
+  .states-grid::-webkit-scrollbar { width: 4px; }
+  .states-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 2px; }
+  .states-grid::-webkit-scrollbar-thumb { background: rgba(91,164,230,0.3); border-radius: 2px; }
+  .state-btn { background: rgba(255,255,255,0.04); border: 1px solid rgba(91,164,230,0.15); border-radius: 8px; padding: 10px 8px; color: rgba(250,248,244,0.75); font-size: 13px; font-weight: 500; cursor: pointer; text-align: center; transition: all 0.2s; font-family: "Inter", sans-serif; }
+  .state-btn:hover { border-color: rgba(91,164,230,0.45); color: var(--white); }
+  .state-btn.selected { border-color: var(--blue); background: rgba(91,164,230,0.12); color: var(--white); }
+  .state-btn.nationwide { grid-column: 1 / -1; font-weight: 700; color: var(--blue); border-color: rgba(91,164,230,0.35); letter-spacing: 1px; font-size: 14px; padding: 14px; }
+  .state-btn.nationwide.selected { background: rgba(91,164,230,0.15); }
+
+  /* TEXT INPUT */
+  .text-input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 12px; padding: 16px; color: var(--white); font-family: "Inter", sans-serif; font-size: 15px; font-weight: 300; outline: none; transition: border-color 0.2s; resize: vertical; min-height: 100px; margin-bottom: 32px; }
+  .text-input:focus { border-color: var(--blue); }
+  .text-input::placeholder { opacity: 0.35; }
+
+  /* CONTACT FORM */
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 11px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.5; text-transform: uppercase; }
+  .form-group input { background: rgba(255,255,255,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 10px; padding: 14px 16px; color: var(--white); font-family: "Inter", sans-serif; font-size: 15px; font-weight: 300; outline: none; transition: border-color 0.2s; }
+  .form-group input:focus { border-color: var(--blue); }
+  .form-group input::placeholder { opacity: 0.35; }
+
+  /* BUTTONS */
+  .btn-next { background: var(--blue); color: #fff; border: none; border-radius: 50px; padding: 16px 40px; font-family: "Inter", sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+  .btn-next:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,164,230,0.22); }
+  .btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-skip { background: none; border: none; color: rgba(250,248,244,0.35); font-family: "Inter", sans-serif; font-size: 14px; cursor: pointer; margin-left: 16px; transition: color 0.2s; }
+  .btn-skip:hover { color: rgba(250,248,244,0.6); }
+  .btn-back { background: none; border: none; color: rgba(250,248,244,0.35); font-family: "Inter", sans-serif; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 6px; margin-bottom: 24px; transition: color 0.2s; padding: 0; }
+  .btn-back:hover { color: rgba(250,248,244,0.7); }
+
+  /* SUCCESS */
+  .success-wrap { display: none; text-align: center; max-width: 500px; }
+  .success-icon { font-size: 56px; margin-bottom: 24px; }
+  .success-title { font-family: "Playfair Display", serif; font-size: clamp(28px, 5vw, 44px); font-weight: 700; margin-bottom: 16px; }
+  .success-body { font-size: 17px; font-weight: 300; opacity: 0.65; line-height: 1.8; margin-bottom: 32px; }
+  .success-back { display: inline-block; color: var(--blue); text-decoration: none; font-size: 15px; font-weight: 600; }
+
+  @media (max-width: 600px) {
+    nav { padding: 8px 20px; }
+    .nav-logo img { height: 80px; }
+    .options-grid.two-col { grid-template-columns: 1fr; }
+    .states-grid { grid-template-columns: repeat(3, 1fr); }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="TNC_Logo.png" alt="Take Notes Capital" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#5ba4e6;">TNC</span>
+  </a>
+  <a class="nav-back" href="index.html">← Back to site</a>
+</nav>
+
+<div class="page-wrap">
+
+  <!-- INTRO -->
+  <div class="intro-wrap" id="introWrap">
+    <p class="intro-label">For Note Buyers</p>
+    <h1 class="intro-title">Get Notified When We Have Notes That Fit Your Buy Box.</h1>
+    <p class="intro-body">Tell us what you're looking for — asset type, lien position, target states, and investment range — and we'll reach out the moment we have a note that matches. No spam. Just deal flow that fits <em>your</em> criteria.</p>
+    <button class="intro-btn" onclick="document.getElementById('introWrap').style.display='none'; document.getElementById('formWrap').style.display='flex';">Submit My Buy Box →</button>
+  </div>
+
+  <!-- FORM WRAP (hidden until intro CTA clicked) -->
+  <div id="formWrap" style="display:none; flex-direction:column; align-items:center; width:100%;">
+
+  <!-- PROGRESS -->
+  <div class="progress-bar-wrap" id="progressWrap">
+    <div class="progress-label" id="progressLabel">Step 1 of 6</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:16.6%"></div></div>
+  </div>
+
+  <!-- STEP 1: Asset Types -->
+  <div class="step active" id="step1">
+    <h2 class="step-question">What type of assets are you interested in?</h2>
+    <p class="step-sub">Select all that apply</p>
+    <div class="options-grid two-col">
+      <button class="option-btn" data-value="performing" onclick="toggleOption(this, 'assetTypes')">
+        <span class="check">✓</span> Performing
+      </button>
+      <button class="option-btn" data-value="non_performing" onclick="toggleOption(this, 'assetTypes')">
+        <span class="check">✓</span> Non-Performing
+      </button>
+    </div>
+    <div>
+      <button class="btn-next" id="btn1" onclick="nextStep(1)" disabled>Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Lien Position -->
+  <div class="step" id="step2">
+    <button class="btn-back" onclick="prevStep(2)">← Back</button>
+    <h2 class="step-question">What lien position do you prefer?</h2>
+    <p class="step-sub">Select all that apply</p>
+    <div class="options-grid">
+      <button class="option-btn" data-value="senior_1st" onclick="toggleOption(this, 'lienPositions')">
+        <span class="check">✓</span> Senior (1st)
+      </button>
+      <button class="option-btn" data-value="junior_2nd" onclick="toggleOption(this, 'lienPositions')">
+        <span class="check">✓</span> Junior (2nd)
+      </button>
+      <button class="option-btn" data-value="unsecured" onclick="toggleOption(this, 'lienPositions')">
+        <span class="check">✓</span> Unsecured
+      </button>
+    </div>
+    <div>
+      <button class="btn-next" id="btn2" onclick="nextStep(2)" disabled>Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Target States -->
+  <div class="step" id="step3">
+    <button class="btn-back" onclick="prevStep(3)">← Back</button>
+    <h2 class="step-question">Which states do you target assets in?</h2>
+    <p class="step-sub">If no preference, choose Nationwide</p>
+    <div class="states-grid" id="statesGrid">
+      <button class="state-btn nationwide" data-value="nationwide" onclick="toggleState(this)">🌎 NATIONWIDE</button>
+      <button class="state-btn" data-value="AL" onclick="toggleState(this)">AL</button>
+      <button class="state-btn" data-value="AK" onclick="toggleState(this)">AK</button>
+      <button class="state-btn" data-value="AZ" onclick="toggleState(this)">AZ</button>
+      <button class="state-btn" data-value="AR" onclick="toggleState(this)">AR</button>
+      <button class="state-btn" data-value="CA" onclick="toggleState(this)">CA</button>
+      <button class="state-btn" data-value="CO" onclick="toggleState(this)">CO</button>
+      <button class="state-btn" data-value="CT" onclick="toggleState(this)">CT</button>
+      <button class="state-btn" data-value="DE" onclick="toggleState(this)">DE</button>
+      <button class="state-btn" data-value="FL" onclick="toggleState(this)">FL</button>
+      <button class="state-btn" data-value="GA" onclick="toggleState(this)">GA</button>
+      <button class="state-btn" data-value="HI" onclick="toggleState(this)">HI</button>
+      <button class="state-btn" data-value="ID" onclick="toggleState(this)">ID</button>
+      <button class="state-btn" data-value="IL" onclick="toggleState(this)">IL</button>
+      <button class="state-btn" data-value="IN" onclick="toggleState(this)">IN</button>
+      <button class="state-btn" data-value="IA" onclick="toggleState(this)">IA</button>
+      <button class="state-btn" data-value="KS" onclick="toggleState(this)">KS</button>
+      <button class="state-btn" data-value="KY" onclick="toggleState(this)">KY</button>
+      <button class="state-btn" data-value="LA" onclick="toggleState(this)">LA</button>
+      <button class="state-btn" data-value="ME" onclick="toggleState(this)">ME</button>
+      <button class="state-btn" data-value="MD" onclick="toggleState(this)">MD</button>
+      <button class="state-btn" data-value="MA" onclick="toggleState(this)">MA</button>
+      <button class="state-btn" data-value="MI" onclick="toggleState(this)">MI</button>
+      <button class="state-btn" data-value="MN" onclick="toggleState(this)">MN</button>
+      <button class="state-btn" data-value="MS" onclick="toggleState(this)">MS</button>
+      <button class="state-btn" data-value="MO" onclick="toggleState(this)">MO</button>
+      <button class="state-btn" data-value="MT" onclick="toggleState(this)">MT</button>
+      <button class="state-btn" data-value="NE" onclick="toggleState(this)">NE</button>
+      <button class="state-btn" data-value="NV" onclick="toggleState(this)">NV</button>
+      <button class="state-btn" data-value="NH" onclick="toggleState(this)">NH</button>
+      <button class="state-btn" data-value="NJ" onclick="toggleState(this)">NJ</button>
+      <button class="state-btn" data-value="NM" onclick="toggleState(this)">NM</button>
+      <button class="state-btn" data-value="NY" onclick="toggleState(this)">NY</button>
+      <button class="state-btn" data-value="NC" onclick="toggleState(this)">NC</button>
+      <button class="state-btn" data-value="ND" onclick="toggleState(this)">ND</button>
+      <button class="state-btn" data-value="OH" onclick="toggleState(this)">OH</button>
+      <button class="state-btn" data-value="OK" onclick="toggleState(this)">OK</button>
+      <button class="state-btn" data-value="OR" onclick="toggleState(this)">OR</button>
+      <button class="state-btn" data-value="PA" onclick="toggleState(this)">PA</button>
+      <button class="state-btn" data-value="RI" onclick="toggleState(this)">RI</button>
+      <button class="state-btn" data-value="SC" onclick="toggleState(this)">SC</button>
+      <button class="state-btn" data-value="SD" onclick="toggleState(this)">SD</button>
+      <button class="state-btn" data-value="TN" onclick="toggleState(this)">TN</button>
+      <button class="state-btn" data-value="TX" onclick="toggleState(this)">TX</button>
+      <button class="state-btn" data-value="UT" onclick="toggleState(this)">UT</button>
+      <button class="state-btn" data-value="VT" onclick="toggleState(this)">VT</button>
+      <button class="state-btn" data-value="VA" onclick="toggleState(this)">VA</button>
+      <button class="state-btn" data-value="WA" onclick="toggleState(this)">WA</button>
+      <button class="state-btn" data-value="WV" onclick="toggleState(this)">WV</button>
+      <button class="state-btn" data-value="WI" onclick="toggleState(this)">WI</button>
+      <button class="state-btn" data-value="WY" onclick="toggleState(this)">WY</button>
+    </div>
+    <div>
+      <button class="btn-next" id="btn3" onclick="nextStep(3)" disabled>Continue →</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Investment Amount -->
+  <div class="step" id="step4">
+    <button class="btn-back" onclick="prevStep(4)">← Back</button>
+    <h2 class="step-question">How much are you planning to invest on your next deal?</h2>
+    <p class="step-sub">Select one</p>
+    <div class="options-grid">
+      <button class="option-btn" data-value="under_5k"   onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> &lt; $5,000</button>
+      <button class="option-btn" data-value="5k_10k"     onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $5,000 – $10,000</button>
+      <button class="option-btn" data-value="10k_25k"    onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $10,000 – $25,000</button>
+      <button class="option-btn" data-value="25k_50k"    onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $25,000 – $50,000</button>
+      <button class="option-btn" data-value="50k_100k"   onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $50,000 – $100,000</button>
+      <button class="option-btn" data-value="100k_250k"  onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $100,000 – $250,000</button>
+      <button class="option-btn" data-value="250k_500k"  onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> $250,000 – $500,000</button>
+      <button class="option-btn" data-value="over_500k"  onclick="selectSingle(this, 'investmentAmount', 4)"><span class="check">✓</span> &gt; $500,000</button>
+    </div>
+  </div>
+
+  <!-- STEP 5: Preferences -->
+  <div class="step" id="step5">
+    <button class="btn-back" onclick="prevStep(5)">← Back</button>
+    <h2 class="step-question">Any additional preferences?</h2>
+    <p class="step-sub">Optional — tell us anything else about your buy box</p>
+    <textarea class="text-input" id="preferencesInput" placeholder="e.g. Prefer owner-occupied properties, no rural areas, minimum property value $50K..."></textarea>
+    <div>
+      <button class="btn-next" onclick="nextStep(5)">Continue →</button>
+      <button class="btn-skip" onclick="nextStep(5)">Skip</button>
+    </div>
+  </div>
+
+  <!-- STEP 6: Contact Info -->
+  <div class="step" id="step6">
+    <button class="btn-back" onclick="prevStep(6)">← Back</button>
+    <h2 class="step-question">How can we reach you?</h2>
+    <p class="step-sub">We'll notify you when we have notes that match your buy box</p>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>First Name *</label>
+        <input type="text" id="firstName" placeholder="John" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name *</label>
+        <input type="text" id="lastName" placeholder="Smith" required>
+      </div>
+      <div class="form-group">
+        <label>Phone *</label>
+        <input type="tel" id="phone" placeholder="(555) 000-0000" required>
+      </div>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" id="email" placeholder="john@example.com" required>
+      </div>
+    </div>
+    <button class="btn-next" id="submitBtn" onclick="submitForm()">Submit My Buy Box →</button>
+  </div>
+
+  </div><!-- /formWrap -->
+
+  <!-- SUCCESS -->
+  <div class="success-wrap" id="successWrap">
+    <div class="success-icon">🎯</div>
+    <h2 class="success-title">You're on the list.</h2>
+    <p class="success-body">Thanks! We'll notify you when we have notes that match your buy box. Keep an eye on your inbox.</p>
+    <a class="success-back" href="index.html">← Back to Take Notes Capital</a>
+  </div>
+
+</div>
+
+<script>
+  const formData = {
+    assetTypes: [],
+    lienPositions: [],
+    targetStates: [],
+    investmentAmount: '',
+    preferences: ''
+  };
+
+  const TOTAL_STEPS = 6;
+
+  function updateProgress(step) {
+    document.getElementById('progressLabel').textContent = `Step ${step} of ${TOTAL_STEPS}`;
+    document.getElementById('progressFill').style.width = ((step / TOTAL_STEPS) * 100) + '%';
+  }
+
+  function showStep(n) {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById('step' + n).classList.add('active');
+    updateProgress(n);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function nextStep(current) {
+    showStep(current + 1);
+  }
+
+  function prevStep(current) {
+    showStep(current - 1);
+  }
+
+  // Multi-select toggle
+  function toggleOption(btn, field) {
+    const val = btn.dataset.value;
+    btn.classList.toggle('selected');
+    if (btn.classList.contains('selected')) {
+      if (!formData[field].includes(val)) formData[field].push(val);
+    } else {
+      formData[field] = formData[field].filter(v => v !== val);
+    }
+    // Enable/disable next button
+    const stepNum = btn.closest('.step').id.replace('step', '');
+    const btn_next = document.getElementById('btn' + stepNum);
+    if (btn_next) btn_next.disabled = formData[field].length === 0;
+  }
+
+  // Single-select and auto-advance
+  function selectSingle(btn, field, stepNum) {
+    btn.closest('.options-grid').querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    formData[field] = btn.dataset.value;
+    setTimeout(() => nextStep(stepNum), 300);
+  }
+
+  // State toggle
+  function toggleState(btn) {
+    const val = btn.dataset.value;
+    if (val === 'nationwide') {
+      const isSelected = btn.classList.contains('selected');
+      // Deselect all states
+      document.querySelectorAll('.state-btn').forEach(b => b.classList.remove('selected'));
+      if (!isSelected) {
+        btn.classList.add('selected');
+        formData.targetStates = ['nationwide'];
+      } else {
+        formData.targetStates = [];
+      }
+    } else {
+      // Deselect nationwide if it was selected
+      const nationwide = document.querySelector('.state-btn.nationwide');
+      if (nationwide.classList.contains('selected')) {
+        nationwide.classList.remove('selected');
+        formData.targetStates = [];
+      }
+      btn.classList.toggle('selected');
+      if (btn.classList.contains('selected')) {
+        if (!formData.targetStates.includes(val)) formData.targetStates.push(val);
+      } else {
+        formData.targetStates = formData.targetStates.filter(v => v !== val);
+      }
+    }
+    document.getElementById('btn3').disabled = formData.targetStates.length === 0;
+  }
+
+  async function submitForm() {
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName  = document.getElementById('lastName').value.trim();
+    const phone     = document.getElementById('phone').value.trim();
+    const email     = document.getElementById('email').value.trim();
+
+    if (!firstName || !lastName || !phone || !email) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const payload = {
+      _form: 'buybox',
+      asset_types: formData.assetTypes,
+      lien_positions: formData.lienPositions,
+      target_states: formData.targetStates,
+      investment_amount: formData.investmentAmount,
+      preferences: document.getElementById('preferencesInput').value.trim(),
+      first_name: firstName,
+      last_name: lastName,
+      phone: phone,
+      email: email
+    };
+
+    try {
+      const res = await fetch('/.netlify/functions/intake', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error('Submission failed');
+
+      document.getElementById('progressWrap').style.display = 'none';
+      document.getElementById('step6').style.display = 'none';
+      document.getElementById('successWrap').style.display = 'block';
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Submit My Buy Box →';
+    }
+  }
+</script>
+</body>
+</html>
