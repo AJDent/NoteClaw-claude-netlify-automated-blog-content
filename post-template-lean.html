@@ -3,15 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- REPLACE: Update title, description, and og:* tags per post -->
-<title>POST TITLE HERE | Take Notes Capital Blog</title>
-<meta name="description" content="POST DESCRIPTION HERE">
+<title>[POST TITLE] | Take Notes Capital Blog</title>
+<meta name="description" content="[META DESCRIPTION - 155 chars max, include primary keyword + long-tail search phrases]">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="blog.css">
 <style>
-/* ── POST TEMPLATE STYLES ── */
-
 .post-hero {
   padding: 5rem 2rem 3.5rem; text-align: center;
   background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
@@ -157,19 +154,19 @@
   <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
 </nav>
 
+
 <!-- ══ POST HERO ══ -->
-<!-- REPLACE: Update category, date, read time, title, excerpt -->
 <header class="post-hero">
   <div class="post-meta-row">
-    <span class="post-cat-tag cat-note">Note Investing</span>
+    <span class="post-cat-tag" style="background:[CATEGORY_BG];color:[CATEGORY_COLOR];">[CATEGORY NAME]</span>
     <span class="meta-sep">·</span>
-    <span class="meta-date">March 18, 2026</span>
+    <span class="meta-date">[DATE]</span>
     <span class="meta-sep">·</span>
-    <span class="meta-read">14 min read</span>
+    <span class="meta-read">[X] min read</span>
     <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
   </div>
-  <h1>POST TITLE GOES HERE — Replace This With Your Article Headline</h1>
-  <p class="post-excerpt">This is the post excerpt — a 1-2 sentence summary of what the reader will get from this article. Replace this with your actual excerpt.</p>
+  <h1>[POST TITLE]</h1>
+  <p class="post-excerpt">[1-2 sentence excerpt]</p>
   <div class="post-author-row">
     <div class="author-avatar">AJ</div>
     <span class="author-name">AJ Dent · Take Notes Capital</span>
@@ -177,85 +174,74 @@
 </header>
 
 <!-- ══ POST CONTENT ══ -->
-<!-- REPLACE: Replace everything inside .post-content with your actual article -->
 <div class="post-layout">
   <div class="post-content">
 
-    <p>This is where your article body goes. Replace this placeholder content with the actual post. Each section below shows you the available formatting.</p>
+<!-- REPLACE: Your article content goes here -->
+<p>[ARTICLE BODY — use h2, h3, p, ul, ol, blockquote, hr class="post-divider"]</p>
 
-    <h2>Section Heading</h2>
-    <p>Body paragraph text goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<hr class="post-divider">
 
-    <blockquote>This is a pull quote or key insight — use it to highlight a powerful line from the article that deserves extra attention.</blockquote>
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
 
-    <h3>Sub-section Heading</h3>
-    <ul>
-      <li>Bullet point one — keep these concise</li>
-      <li>Bullet point two — one idea per bullet</li>
-      <li>Bullet point three — use <strong>bold</strong> for emphasis</li>
-    </ul>
+  </div><!-- .post-content -->
 
-    <p>Continue the article here. Add as many sections as needed using h2, h3, p, ul, ol, and blockquote elements.</p>
-
-    <hr class="post-divider">
-
-  </div>
-
-  <!-- ══ QUIZ SECTION ══ -->
-  <!-- REPLACE: Update questions, options, correct answers, and explanations per post -->
-  <div class="quiz-section">
-    <div class="quiz-header">🧠 Test What You Learned</div>
-    <p class="quiz-sub">Quick check — let's see what stuck. Pick the best answer for each question.</p>
-
-    <div id="quizContainer">
-      <!-- Quiz renders here via JS — see quizData below -->
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
     </div>
-
-    <div id="quizResults"></div>
-
-    <!-- Quiz email capture -->
     <div id="quizCapture">
-      <p class="quiz-capture-title">Want more insights like this?</p>
-      <p class="quiz-capture-sub">Get the free playbook — How to Earn Real Estate Returns Without Owning Property.</p>
-      <form class="quiz-capture-form" onsubmit="submitMiniCTA(event)">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
         <div class="quiz-capture-row">
-          <input class="tnc-input" type="text" id="miniName" placeholder="First Name">
-          <input class="tnc-input" type="email" id="miniEmail" placeholder="Email Address" required>
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
         </div>
-        <select class="tnc-select" id="miniProfile">
+        <select class="tnc-select" id="quizProfile">
           <option value="">Which best describes you?</option>
           <option value="sdira">Self-Directed IRA Holder</option>
           <option value="401k">401(k) / Solo 401(k) Holder</option>
           <option value="private">Private Capital / Cash Investor</option>
           <option value="learning">Just Learning About Note Investing</option>
         </select>
-        <button class="primary-btn" type="submit" style="align-self:flex-start;border:none;">Send Me the Playbook →</button>
-      </form>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
     </div>
   </div>
 
-  <!-- ══ COMMENT SECTION ══ -->
+  <!-- ══ COMMENTS ══ -->
   <div class="comment-section" id="comments">
     <div class="comment-section-header">
-      <h3>💬 Share Your Thoughts</h3>
+      <h3>💬 Comments</h3>
     </div>
-    <p class="comment-sub">Questions, insights, pushback — all welcome. Comments are reviewed before posting.</p>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
     <form id="commentForm" onsubmit="submitComment(event)">
-      <input class="tnc-input" type="text" id="commentName" placeholder="Your name (optional)">
-      <textarea class="tnc-textarea" id="commentText" placeholder="Your question or comment..." required style="min-height:120px;"></textarea>
-      <button class="primary-btn comment-submit" type="submit">Post Comment →</button>
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
     </form>
-    <div id="commentSuccess">Thanks for sharing! Your comment is being reviewed. 👍</div>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
   </div>
 
   <!-- ══ BOTTOM CTA ══ -->
-  <div style="text-align:center; padding: 3rem 0 2rem; border-top: 1px solid var(--navy-border); margin-top: 2rem;">
-    <p style="color:var(--gray-light); margin-bottom:1.25rem; font-size:0.95rem;">Ready to go deeper? Let's talk about what note investing could do for your portfolio.</p>
-    <a class="primary-btn" href="index.html#contact">Still Have Questions? Let's Talk →</a>
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
   </div>
 
-</div>
-
+</div><!-- .post-layout -->
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-logo">
@@ -371,42 +357,27 @@
   <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
 </div>
 
-<!-- ══ QUIZ DATA — REPLACE PER POST ══ -->
-<!-- REPLACE: Add your actual questions, options, correct index (0-based), and explanations -->
+
+<!-- ══ QUIZ DATA ══ -->
 <script>
 const quizData = [
   {
-    question: "What does a mortgage note investor actually own?",
-    options: [
-      "The physical property",
-      "The debt secured by the property",
-      "A share of the property's equity",
-      "The title to the home"
-    ],
-    correct: 1,
-    explanation: "Note investors own the debt — not the property. You step into the lender's seat, collecting payments backed by real estate as collateral."
+    question: "[QUIZ QUESTION 1]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   },
   {
-    question: "Why do banks sell non-performing notes at a discount?",
-    options: [
-      "To generate tax write-offs",
-      "They are required to by law",
-      "To free up capital and remove problem loans from their books",
-      "Because the properties are worthless"
-    ],
-    correct: 2,
-    explanation: "Banks sell NPNs to clean up their balance sheets and redeploy capital into new lending. The discount is your opportunity."
+    question: "[QUIZ QUESTION 2]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   },
   {
-    question: "What is the primary downside protection in note investing?",
-    options: [
-      "FDIC insurance on the note",
-      "The physical real estate securing the debt",
-      "A government guarantee program",
-      "The borrower's credit score"
-    ],
-    correct: 1,
-    explanation: "Every note is backed by a physical property. Even in a worst case, foreclosure and resale can return your capital — often with profit."
+    question: "[QUIZ QUESTION 3]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   }
 ];
 
