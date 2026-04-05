@@ -26,9 +26,25 @@ I need you to build a blog post for takenotescapital.com.
 - Title tag: Use a "How to" or "What is" format that matches how people search
 - Meta description: 155 chars max, include the primary keyword
 - Add 10 long-tail keywords in the meta description focused on HOW people search (not industry jargon)
-  - Example: "How to invest my retirement account in real estate"
-  - Example: "What to do with my IRA to get higher returns"
 - Use H2s and H3s with keyword-rich headings
+- Pull relevant keywords from the Master Keyword Bank below AND generate 3-5 fresh ones specific to this topic
+
+**Master Keyword Bank (use what's relevant per post):**
+1. "How to invest in real estate without buying property"
+2. "What is a non-performing mortgage note"
+3. "How to get higher returns on my 401k"
+4. "Can I use my IRA to invest in real estate"
+5. "How to invest my retirement account in real estate"
+6. "What to do with my IRA to get higher returns"
+7. "Can I roll over 401k to buy mortgage notes"
+8. "How to make passive income from real estate"
+9. "What is the safest real estate investment"
+10. "How do I start investing in mortgage notes"
+11. "Is note investing better than rental properties"
+12. "How to earn cash flow without being a landlord"
+13. "What are the best alternatives to stock market investing"
+14. "How to build generational wealth with real estate"
+15. "What is a self-directed IRA and how does it work"
 
 **Category (pick one):**
 - 🏠 Real Estate — market trends, updates, housing market insights
