@@ -65,6 +65,60 @@
     <p>If you start with $50,000 and earn 20% annually through note investing, your money grows to over $1.9 million in 20 years — tax-free in a Roth.</p>
     <p><strong>The vehicle matters. The asset class matters more.</strong></p>
   </div>
+  <!-- ══ QUIZ SECTION ══ -->
+  <div class="quiz-section">
+    <div class="quiz-header">🧠 Test What You Learned</div>
+    <p class="quiz-sub">Quick check — let's see what stuck. Pick the best answer for each question.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults"></div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">Want more insights like this?</p>
+      <p class="quiz-capture-sub">Get the free playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENT SECTION ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Share Your Thoughts</h3>
+    </div>
+    <p class="comment-sub">Questions, insights, pushback — all welcome.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your name (optional)">
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment →</button>
+    </form>
+  </div>
 </div>
-</body>
-</html>
+
+<script>
+const quizData = [
+  {
+    question: "What is the main benefit of a Roth SDIRA for note investing?",
+    options: ["Tax-deductible contributions", "Tax-free withdrawals in retirement", "Higher contribution limits", "No asset restrictions"],
+    correct: 1,
+    explanation: "Profit from notes in a Roth grows and is withdrawn completely tax-free."
+  },
+  {
+    question: "What is a 'Checkbook IRA'?",
+    options: ["A bank account with a checkbook", "An IRA owning an LLC that you manage", "An IRA with no custodian", "An IRA for trading stocks"],
+    correct: 1,
+    explanation: "Your IRA owns an LLC, and you manage the LLC's bank account for faster transactions."
+  }
+];
+document.addEventListener('DOMContentLoaded', () => initQuiz(quizData));
+</script>
