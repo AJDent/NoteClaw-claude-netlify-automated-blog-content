@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rental Properties vs Note Investing: The Honest Comparison | Take Notes Capital Blog</title>
+<meta name="description" content="Rental properties vs mortgage notes — honest side-by-side comparison of returns, risk, hassle, and scalability. No hype, just real math.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero{padding:5rem 2rem 3.5rem;text-align:center;background:linear-gradient(180deg,#0a0a1a 0%,var(--navy) 100%);border-bottom:1px solid var(--navy-border)}
+.post-meta-row{display:flex;align-items:center;justify-content:center;gap:.75rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.post-cat-tag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .65rem;border-radius:999px}
+.meta-date,.meta-read{font-size:.82rem;color:var(--gray)}
+.meta-sep{color:var(--navy-border)}
+.post-hero h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;line-height:1.12;max-width:820px;margin:0 auto 1.25rem}
+.post-hero .post-excerpt{color:var(--gray-light);font-size:1.05rem;font-weight:300;max-width:600px;margin:0 auto 1.75rem;line-height:1.7}
+.post-author-row{display:flex;align-items:center;justify-content:center;gap:.6rem}
+.author-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(180deg,var(--accent-light),var(--accent));display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--navy)}
+.author-name{font-size:.82rem;color:var(--gray)}
+.discuss-badge{display:inline-flex;align-items:center;gap:.35rem;background:var(--accent-dim);border:1px solid rgba(91,164,230,.25);color:var(--accent-light);font-size:.78rem;font-weight:600;padding:.3rem .85rem;border-radius:999px;text-decoration:none;margin-left:1rem;transition:background .2s}
+.discuss-badge:hover{background:rgba(91,164,230,.22)}
+.post-layout{max-width:760px;margin:0 auto;padding:3rem 2rem 2rem}
+.post-content{color:var(--gray-light);font-size:1.02rem;line-height:1.85}
+.post-content h2{font-family:var(--font-display);font-size:1.65rem;font-weight:700;color:var(--white);margin:2.5rem 0 1rem;line-height:1.25}
+.post-content h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:var(--white);margin:2rem 0 .75rem}
+.post-content p{margin-bottom:1.4rem}
+.post-content ul,.post-content ol{padding-left:1.5rem;margin-bottom:1.4rem}
+.post-content li{margin-bottom:.5rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content a{color:var(--accent-light);text-decoration:underline}
+.post-content blockquote{border-left:3px solid var(--accent);padding:1rem 1.5rem;margin:1.75rem 0;background:var(--navy-card);border-radius:0 8px 8px 0;font-style:italic;color:var(--gray-light)}
+.post-content table{width:100%;border-collapse:collapse;margin:2rem 0;font-size:.95rem}
+.post-content th{background:rgba(91,164,230,.12);color:var(--white);font-weight:600;padding:.75rem 1rem;text-align:left;border:1px solid var(--navy-border)}
+.post-content td{padding:.65rem 1rem;border:1px solid var(--navy-border);color:var(--gray-light)}
+.post-content tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.post-divider{border:none;border-top:1px solid var(--navy-border);margin:3rem 0}
+.quiz-section{background:var(--navy-card);border:1px solid var(--navy-border);border-radius:16px;padding:2.25rem;margin:3rem 0}
+.quiz-header{font-family:var(--font-display);font-size:1.35rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.quiz-sub{color:var(--gray);font-size:.88rem;margin-bottom:2rem}
+.quiz-question{margin-bottom:1.75rem}
+.quiz-q-text{font-weight:600;font-size:.97rem;margin-bottom:.9rem;color:var(--white)}
+.quiz-options{display:grid;gap:.6rem}
+.quiz-opt-btn{background:rgba(255,255,255,.04);border:1px solid var(--navy-border);color:var(--gray-light);text-align:left;padding:.75rem 1rem;border-radius:8px;font-family:var(--font-body);font-size:.9rem;cursor:pointer;transition:all .2s}
+.quiz-opt-btn:hover:not(:disabled){border-color:rgba(91,164,230,.4);color:var(--white);background:var(--accent-dim)}
+.quiz-opt-btn.correct{background:rgba(78,203,113,.15);border-color:#4ecb71;color:#4ecb71}
+.quiz-opt-btn.wrong{background:rgba(232,93,93,.12);border-color:#e85d5d;color:#e85d5d}
+.quiz-opt-btn:disabled{cursor:default}
+.quiz-explanation{font-size:.85rem;margin-top:.65rem;padding:.6rem .9rem;border-radius:6px}
+.expl-correct{color:#4ecb71;background:rgba(78,203,113,.08)}
+.expl-wrong{color:#e85d5d;background:rgba(232,93,93,.08)}
+#quizResults{display:none;padding:1.5rem;background:rgba(91,164,230,.07);border-radius:10px;margin-top:1rem;border:1px solid rgba(91,164,230,.2)}
+.quiz-score{font-size:1.15rem;font-weight:700;margin-bottom:.5rem;color:var(--white)}
+.quiz-verdict{color:var(--gray-light);font-size:.92rem;margin-bottom:1rem}
+.quiz-cta-btn{margin-top:.75rem;font-size:.88rem;padding:.7rem 1.3rem}
+#quizCapture{display:none;margin-top:1.75rem;padding-top:1.75rem;border-top:1px solid var(--navy-border)}
+.quiz-capture-title{font-family:var(--font-display);font-size:1.1rem;margin-bottom:.4rem}
+.quiz-capture-sub{color:var(--gray);font-size:.86rem;margin-bottom:1rem}
+.quiz-capture-form{display:flex;flex-direction:column;gap:.65rem}
+.quiz-capture-row{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.comment-section{margin:3rem 0}
+.comment-section-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem}
+.comment-section-header h3{font-family:var(--font-display);font-size:1.35rem}
+.comment-sub{color:var(--gray);font-size:.88rem;margin-bottom:1.75rem}
+#commentForm{display:flex;flex-direction:column;gap:.85rem}
+.comment-submit{align-self:flex-start;border:none}
+#commentSuccess{display:none;padding:1.25rem;background:rgba(78,203,113,.1);border:1px solid rgba(78,203,113,.25);border-radius:10px;color:#4ecb71;font-size:.95rem}
+@media(max-width:600px){.quiz-capture-row{grid-template-columns:1fr}.post-hero h1{font-size:1.9rem}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="Take Notes Capital"></a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#mission">About</a></li><li><a href="blog.html">Blog</a></li><li><a href="index.html#contact">Invest With Us</a></li></ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(156,168,184,.15);color:#9ca8b8;">🔗 Other</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">April 10, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">12 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Rental Properties vs Note Investing: The Honest Comparison</h1>
+  <p class="post-excerpt">Same $50K. Two different paths. Here's exactly what happens in Year 1 — no guru math, no best-case scenarios, just real numbers.</p>
+  <div class="post-author-row"><div class="author-avatar">AJ</div><span class="author-name">AJ Dent · Take Notes Capital</span></div>
+</header>
+<div class="post-layout"><div class="post-content">
+
+<p>I'm not going to trash rental properties. Plenty of people have built real wealth with rentals, and I respect the grind. But I'm also not going to pretend they're the only — or even the best — way to invest in real estate.</p>
+
+<p>If you're comparing rental properties to mortgage note investing, you deserve the <strong>honest numbers</strong>. Not the "best case scenario" from a guru selling a course. Not the "it's totally passive" pitch from someone who's never taken a 2 AM phone call about a broken water heater.</p>
+
+<p>Here's the real comparison.</p>
+
+<h2>The Setup: Same $50,000, Two Different Paths</h2>
+
+<p>To make this fair, let's say you have $50,000 to invest. You're choosing between a rental property and a portfolio of mortgage notes. Let's track what actually happens over Year 1.</p>
+
+<h3>Path A: Rental Property</h3>
+
+<p><strong>The Buy:</strong></p>
+<ul>
+<li>Purchase price: $180,000</li>
+<li>Down payment (20%): $36,000</li>
+<li>Closing costs: $5,000</li>
+<li>Initial repairs/make-ready: $8,000</li>
+<li>Reserves set aside: $1,000</li>
+<li><strong>Total cash deployed: $50,000</strong></li>
+<li>Mortgage: $144,000 at 7.2% = ~$978/month</li>
+</ul>
+
+<p><strong>Monthly Income:</strong></p>
+<ul>
+<li>Rent collected: $1,500/month</li>
+<li>Mortgage payment: -$978</li>
+<li>Property taxes (escrowed): -$175</li>
+<li>Insurance: -$100</li>
+<li>Property management (10%): -$150</li>
+<li>Maintenance reserve (5%): -$75</li>
+<li>Vacancy reserve (8%): -$120</li>
+<li><strong>Net monthly cash flow: -$98</strong> (yes, negative)</li>
+</ul>
+
+<p>Wait — negative cash flow? On paper, the deal looks great. But when you account for all actual expenses, management fees, and reserves for vacancy and maintenance, many rentals in today's market cash flow negative or barely break even.</p>
+
+<p><strong>Year 1 Reality:</strong></p>
+<ul>
+<li>Cash flow: -$1,176 (let's call it break-even with some optimistic months)</li>
+<li>Principal paydown: ~$2,400</li>
+<li>Appreciation (3%): ~$5,400</li>
+<li>Tax benefits: ~$2,000 (depreciation)</li>
+<li><strong>Total Year 1 return: ~$8,624 on $50K = 17.2%</strong></li>
+</ul>
+
+<p>Not bad on paper. But that 17.2% includes appreciation you can't spend, principal paydown you can't access, and tax benefits that vary by your situation. Your <strong>actual cash in pocket</strong> is roughly zero.</p>
+
+<p>And we haven't talked about the call at 11 PM when the AC breaks ($4,000), the tenant who stops paying in month 8 (2 months to evict + $3,000 in legal fees), or the cap-ex surprise (roof needs replacing in year 3 for $12,000).</p>
+
+<h3>Path B: Mortgage Note Portfolio</h3>
+
+<p><strong>The Buy:</strong></p>
+<ul>
+<li>Note 1: Non-performing 1st at $25,000 (UPB $65,000, FMV $95,000)</li>
+<li>Note 2: Non-performing 2nd at $8,000 (UPB $28,000, FMV $140,000)</li>
+<li>Note 3: Non-performing 2nd at $6,000 (UPB $22,000, FMV $110,000)</li>
+<li>Due diligence costs: ~$3,000</li>
+<li>Servicer setup: $500</li>
+<li>Reserves: $7,500</li>
+<li><strong>Total cash deployed: $50,000</strong></li>
+</ul>
+
+<p><strong>Year 1 Outcomes:</strong></p>
+<ul>
+<li>Note 1: Loan mod completed month 3. Borrower paying $425/month. 9 months of payments = $3,825. Note now re-performing — could sell for ~$48,000.</li>
+<li>Note 2: DPO negotiated month 5. Borrower settled for $14,000. <strong>Profit: $6,000</strong> in 5 months.</li>
+<li>Note 3: Modification attempted, borrower unresponsive. Sold the note at month 8 for $9,500. <strong>Profit: $3,500.</strong></li>
+</ul>
+
+<p><strong>Year 1 Reality:</strong></p>
+<ul>
+<li>Cash received: $3,825 (payments) + $14,000 (DPO) + $9,500 (note sale) = $27,325</li>
+<li>Minus costs: $50,000 invested</li>
+<li>Note 1 still held (performing asset worth ~$48,000)</li>
+<li><strong>Portfolio value + cash: $75,325</strong></li>
+<li><strong>Year 1 return: ~50.7% on $50K</strong></li>
+</ul>
+
+<p>No tenants. No maintenance calls. No property taxes. No insurance headaches. Three deals instead of one — if one goes sideways, the others carry.</p>
+
+<hr class="post-divider">
+
+<h2>The Side-by-Side Comparison</h2>
+
+<h3>Returns</h3>
+
+<table>
+<tr><th>Metric</th><th>Rental Property</th><th>Note Portfolio</th></tr>
+<tr><td>Year 1 cash flow</td><td>~$0</td><td>$27,325</td></tr>
+<tr><td>Year 1 total return</td><td>~17% (mostly paper)</td><td>~50% (mostly cash)</td></tr>
+<tr><td>Cash-on-cash return</td><td>0–5%</td><td>15–50%</td></tr>
+<tr><td>When you get paid</td><td>Monthly (if tenant pays)</td><td>Varies (DPOs can be month 1)</td></tr>
+</table>
+
+<p>Rentals build wealth slowly through appreciation and principal paydown. Notes build wealth through actual cash returns. Both work — but if you need the money to work <em>now</em>, notes have the edge.</p>
+
+<h3>Hassle Factor</h3>
+
+<p><strong>Rental property — what you're signing up for:</strong></p>
+<ul>
+<li>Finding and screening tenants</li>
+<li>Handling maintenance requests</li>
+<li>Dealing with property management (or doing it yourself)</li>
+<li>Eviction proceedings when tenants don't pay</li>
+<li>Insurance claims, property inspections, code violations</li>
+<li>Being a landlord (whether you call yourself one or not)</li>
+</ul>
+
+<p><strong>Note investing — what you're signing up for:</strong></p>
+<ul>
+<li>Reviewing loan tapes and doing due diligence</li>
+<li>Working with a servicer (they handle borrower contact)</li>
+<li>Making strategic decisions (modify, DPO, foreclose)</li>
+<li>Monitoring your portfolio</li>
+<li>No properties to manage. No tenants. No physical assets to maintain.</li>
+</ul>
+
+<p>I won't pretend note investing is zero effort. There's a learning curve, and active deal management takes time. But you're making <strong>financial decisions, not plumbing decisions</strong>.</p>
+
+<h3>Risk Profile</h3>
+
+<p><strong>Rental risks:</strong></p>
+<ul>
+<li>Tenant damage / non-payment / eviction</li>
+<li>Market downturn reduces property value and rent potential</li>
+<li>Cap-ex surprises (HVAC, roof, foundation)</li>
+<li>Regulatory risk (rent control, eviction moratoriums)</li>
+<li>Concentration risk — one property, one market, one tenant</li>
+<li>Liability risk — someone slips on your property, you get sued</li>
+</ul>
+
+<p><strong>Note investing risks:</strong></p>
+<ul>
+<li>Borrower doesn't respond (longer timeline to resolution)</li>
+<li>Property value declines below your basis</li>
+<li>Foreclosure costs and timelines in judicial states</li>
+<li>Regulatory changes to lending/servicing rules</li>
+<li>2nd position notes can be wiped out if the 1st forecloses</li>
+</ul>
+
+<p>Both have risk. The difference is <strong>diversification</strong>. $50,000 buys you ONE rental. $50,000 buys you 3–5 notes across different states, borrowers, and exit strategies. One bad outcome doesn't sink your portfolio.</p>
+
+<h3>Scalability</h3>
+
+<p><strong>Rentals:</strong> Every new property requires a new down payment, new financing, new insurance, new management. At some point, banks stop lending to you (debt-to-income limits). Scaling requires increasingly creative financing.</p>
+
+<p><strong>Notes:</strong> Every new note requires capital and due diligence. That's it. No loan qualification. No inspections. No insurance requirements. You can buy notes in any state from your laptop. Scale with your own capital, SDIRAs, private investors, or JV partners.</p>
+
+<h3>Tax Treatment</h3>
+
+<p><strong>Rentals:</strong></p>
+<ul>
+<li>Depreciation deductions (major benefit)</li>
+<li>Mortgage interest deduction</li>
+<li>1031 exchange on sale (defer capital gains)</li>
+<li>Passive income rules can limit deductibility</li>
+</ul>
+
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Interest income (ordinary income tax rates)</li>
+<li>Short-term capital gains on quick flips</li>
+<li>Long-term capital gains if held 12+ months</li>
+<li>Can be held inside SDIRAs for tax-free/tax-deferred growth</li>
+<li>No depreciation benefit (you don't own property)</li>
+</ul>
+
+<p>Rentals win on tax efficiency through depreciation. Notes win when held in retirement accounts (all growth tax-free in a Roth SDIRA).</p>
+
+<h3>Capital Requirements</h3>
+
+<table>
+<tr><th>Requirement</th><th>Rental Property</th><th>Note Investing</th></tr>
+<tr><td>Minimum entry</td><td>$30,000–$60,000</td><td>$3,000–$25,000</td></tr>
+<tr><td>Financing available</td><td>Yes (mortgage)</td><td>No (cash only)</td></tr>
+<tr><td>Leverage</td><td>Yes (5:1 typical)</td><td>No</td></tr>
+<tr><td>Additional costs</td><td>Taxes, insurance, maintenance</td><td>Servicer fees ($25–$50/mo)</td></tr>
+</table>
+
+<p>Rentals allow leverage, which amplifies both returns and losses. Notes require cash but have far lower operating costs and no ongoing liabilities.</p>
+
+<hr class="post-divider">
+
+<h2>When Rentals Make More Sense</h2>
+
+<p>I'm not anti-rental. Here's when rentals are the better play:</p>
+
+<ul>
+<li><strong>You want maximum leverage</strong> — $50K controls a $250K asset with a mortgage. Notes don't offer that.</li>
+<li><strong>You want depreciation</strong> for tax benefits against active income.</li>
+<li><strong>You're in a high-appreciation market</strong> and betting on property value growth.</li>
+<li><strong>You want a tangible asset</strong> you can see, touch, and improve with sweat equity.</li>
+<li><strong>You already have infrastructure</strong> — property management, contractors, systems.</li>
+</ul>
+
+<h2>When Note Investing Makes More Sense</h2>
+
+<ul>
+<li><strong>You're tired of tenant headaches</strong> and want real estate returns without property management.</li>
+<li><strong>You have limited capital</strong> and want diversification across multiple assets.</li>
+<li><strong>You have retirement funds</strong> (SDIRA/401k) you want to actively invest. <a href="invest-ira-mortgage-notes.html">See how to invest your IRA in mortgage notes.</a></li>
+<li><strong>You want cash flow NOW</strong>, not 10 years from now when the mortgage is paid off.</li>
+<li><strong>You value flexibility</strong> — <a href="non-performing-note-exit-strategies.html">14 exit strategies</a> vs. rent or sell.</li>
+<li><strong>You want geographic diversification</strong> — buy notes in any state.</li>
+<li><strong>You want to scale without banks</strong> — no loan qualification needed.</li>
+</ul>
+
+<hr class="post-divider">
+
+<h2>The Real Answer: They're Not Mutually Exclusive</h2>
+
+<p>The smartest real estate investors use both strategies. Rentals for long-term wealth building and tax benefits. Notes for cash flow, diversification, and capital recycling.</p>
+
+<p>But if you've only ever considered rentals because that's all anyone talks about? <strong>You owe it to yourself to learn what the other side looks like.</strong></p>
+
+<p>No tenants. No toilets. No calls at 2 AM. Just math, strategy, and monthly cash flow.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>. After years in real estate, he discovered that the best returns often come from owning the debt, not the building. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a> to learn how note investing might fit your portfolio.</em></p>
+
+</div><!-- .post-content -->
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header"><h3>💬 Comments</h3></div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">✅ Thanks for your comment! It's been submitted for review and will appear shortly.</div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt="Take Notes Capital"></div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>LinkedIn</a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>Facebook</a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>Instagram</a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="index.html#mission">About</a><a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a><a href="cookie-policy.html">Cookie Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">📞 Book a Free Call</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+<script>
+const quizData = [
+  {
+    question: "In the Year 1 comparison, what was the rental property's actual cash flow after all expenses and reserves?",
+    options: ["+$1,500/month", "~$0 (break-even)", "-$98/month (negative)", "+$422/month"],
+    correct: 2,
+    explanation: "After mortgage, taxes, insurance, property management (10%), maintenance reserves (5%), and vacancy reserves (8%), the rental in the example cash flows at -$98/month. Many rentals in today's market are similar — the 'great deal' on paper disappears fast once you account for real-world costs."
+  },
+  {
+    question: "What was the approximate Year 1 total return on the $50,000 note portfolio vs. the rental property?",
+    options: ["Rental: 50% | Notes: 17%", "Rental: 17% (mostly paper) | Notes: 50.7% (mostly cash)", "Rental: 35% | Notes: 22%", "Rental: 8% | Notes: 31%"],
+    correct: 1,
+    explanation: "The rental showed ~17.2% total return on paper (appreciation + principal paydown + tax benefits), but almost no actual cash in pocket. The note portfolio returned ~50.7% through actual cash: DPO profits, note sale proceeds, and monthly payments — all while still holding a performing asset."
+  },
+  {
+    question: "Which of the following is NOT a key advantage note investing has over rental properties?",
+    options: ["Geographic diversification across multiple states from your laptop", "No property management, tenants, or maintenance calls", "No loan qualification needed to scale", "Leverage via mortgage financing (5:1 typical)"],
+    correct: 3,
+    explanation: "Leverage via mortgage financing is a rental advantage, not a note investing advantage. Notes require all-cash purchases with no mortgage available. However, notes compensate with lower entry costs ($3K–$25K per note vs. $30K–$60K for rentals), no ongoing liabilities, and far more diversification."
+  }
+];
+
+document.addEventListener("DOMContentLoaded", () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
