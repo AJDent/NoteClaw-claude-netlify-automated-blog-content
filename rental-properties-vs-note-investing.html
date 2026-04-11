@@ -1,111 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="view<p>I'm not going to trash rental properties. Plenty of people have built real wealth with rentals, and I respect the grind. But I'm also not going to pretend they're the only — or even the best — way to invest in real estate.</p>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[POST TITLE] | Take Notes Capital Blog</title>
+<meta name="description" content="[META DESCRIPTION - 155 chars max, include primary keyword + long-tail search phrases]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
 
+/* Discussion badge */
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+/* Post content */
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+/* Quiz email capture */
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+/* ── COMMENT SECTION ── */
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(156,168,184,.15);color:#9ca8b8;">🔗 Other</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">April 11, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">12 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Rental Properties vs Note Investing: The Honest Comparison</h1>
+  <p class="post-excerpt">Same $50K. Two different paths. Here's exactly what happens in Year 1 using real 2026 Atlanta market data — no guru math, just real numbers.</p>
+  <div class="post-author-row"><div class="author-avatar">AJ</div><span class="author-name">AJ Dent · Take Notes Capital</span></div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout"><div class="post-content">
+<p>I'm not going to trash rental properties. Plenty of people have built real wealth with rentals, and I respect the grind. But I'm also not going to pretend they're the only — or even the best — way to invest in real estate.</p>
 <p>If you're comparing rental properties to mortgage note investing, you deserve the <strong>honest numbers</strong>. Not the best case scenario from a guru selling a course. Not the its totally passive pitch from someone who's never taken a 2 AM phone call about a broken water heater.</p>
-
 <p>Here's the real comparison — using <strong>actual 2026 market data</strong> from one of the hottest rental markets in the country: <strong>Atlanta, Georgia</strong>.</p>
-
-<h2>The Setup: Same 50,000, Two Different Paths</h2>
-
-<p>Atlanta's housing market in 2026: median home price of <strong>388,000</strong>, average rents for a single-family home around <strong>2,000/month</strong>, and 30-year mortgage rates near <strong>6.5%</strong>. Home values up 2% year-over-year. Sounds like a great rental market, right?</p>
-
-<p>Let's say you have 50,000 to invest. You're choosing between an Atlanta rental and a mortgage note portfolio. We track what actually happens in <strong>Year 1</strong>.</p>
-
+<h2>The Setup: Same $50,000, Two Different Paths</h2>
+<p>Atlanta's housing market in 2026: median home price of <strong>$388,000</strong>, average rents for a single-family home around <strong>$2,000/month</strong>, and 30-year mortgage rates near <strong>6.5%</strong>. Home values are up 2% year-over-year (Redfin, February 2026). Sounds like a great rental market, right?</p>
+<p>Let's say you have $50,000 to invest. You're choosing between buying a rental in the Atlanta market or building a mortgage note portfolio. We track what actually happens in <strong>Year 1</strong>.</p>
 <h3>Path A: Rental Property — Atlanta, Georgia</h3>
-
 <p><strong>The Buy (Atlanta investment property, 2026):</strong></p>
 <ul>
 <li>Purchase price: 280,000 (realistic Atlanta investment property in a growth suburb)</li>
-<li>Down payment (20%): 56,000</li>
+<li>Down payment (20%): 5$6,000</li>
 <li>Closing costs: 7,000</li>
 <li>Initial repairs/make-ready: 7,000</li>
-<li><strong>Total cash deployed: 70,000</strong> (you need more than 50K in this market)</li>
-<li>Mortgage: 224,000 at 6.5% = ~1,416/month</li>
+<li><strong>Total cash deployed: 70,000</strong> (you need more than $50K for this market)</li>
+<li>Mortgage: 22$4,000 at 6.5% = ~$1,416/month</li>
 </ul>
-
 <p><strong>Monthly Income and Expenses:</strong></p>
 <ul>
-<li>Market rent collected: 2,000/month</li>
-<li>Mortgage payment: -1,416</li>
-<li>Property taxes (1.2% of 280K, escrowed): -280</li>
+<li>Market rent collected: $2,000/month</li>
+<li>Mortgage payment: -$1,416</li>
+<li>Property taxes (1.2% of $280K, escrowed): -280</li>
 <li>Insurance: -110</li>
 <li>Property management (10%): -200</li>
 <li>Maintenance reserve (5%): -100</li>
 <li>Vacancy reserve (8%): -160</li>
 <li><strong>Net monthly cash flow: -266</strong></li>
 </ul>
-
-<p>Yes, negative. In Atlanta's 2026 market, even with rents at 2,000/month, the math does not work after you account for the actual cost of financing a 280K property at 6.5%. The mortgage payment alone is 71% of the gross rent — before taxes, insurance, or management.</p>
-
+<p>Yes, negative. In Atlanta's 2026 market, even with rents at $2,000/month, the math does not work after you account for the actual cost of financing a $280K property at 6.5%. The mortgage payment alone is 71% of the gross rent — before taxes, insurance, or management.</p>
 <p><strong>Year 1 Reality:</strong></p>
 <ul>
-<li>Cash flow: -3,192 (negative — but lets call it 0 after a few optimistic months)</li>
-<li>Principal paydown: ~2,200</li>
-<li>Appreciation (2% on 280K): ~5,600</li>
-<li>Tax benefits (depreciation): ~2,100</li>
-<li><strong>Total Year 1 return: ~9,900 on 70K = ~14.1%</strong></li>
+<li>Cash flow: -$3,192 (negative — but lets call it 0 after a few optimistic months)</li>
+<li>Principal paydown: ~$2,200</li>
+<li>Appreciation (2% on $280K): ~$5,600</li>
+<li>Tax benefits (depreciation): ~$2,100</li>
+<li><strong>Total Year 1 return: ~$9,900 on $$70K = ~14.1%</strong></li>
 </ul>
-
-<p>Most of that 14.1% is appreciation you cannot spend today and tax benefits that only help if you have enough passive income to offset. Your <strong>actual cash in pocket after Year 1: roughly 0</strong>. You also still have a 224K mortgage hanging over your head.</p>
-
-<p>And we have not talked about: the call at midnight when the HVAC goes out (5,000), the tenant who stops paying in month 7 (3 months to evict + 3,500 in legal fees in Georgia), or the surprise cap-ex bill (new roof in Year 4 at 11,000).</p>
-
-<h3>Path B: Mortgage Note Portfolio — Same 50K</h3>
-
-<p>While the landlord is scraping by in Atlanta, here is what 50,000 deployed across a mortgage note portfolio looks like — using <strong>actual 2026 note market data</strong>.</p>
-
+<p>Again — most of that 14.1% is appreciation you cannot spend today and tax benefits that only help if you have enough passive income to offset. Your <strong>actual cash in pocket after Year 1: roughly 0</strong>. You also still have a $224K mortgage hanging over your head.</p>
+<p>And we have not talked about: the call at midnight when the HVAC goes out ($5,000), the tenant who stops paying in month 7 (3 months to evict + $3,500 in legal fees in Georgia), or the surprise cap-ex bill (new roof in Year 4 at $11,000).</p>
+<h3>Path B: Mortgage Note Portfolio — Same $50K</h3>
+<p>While the landlord is scraping by in Atlanta, here is what $50,000 deployed across a mortgage note portfolio looks like — using <strong>actual 2026 note market data</strong>.</p>
 <p><strong>The Buy (2026 note market — Georgia and Southeast):</strong></p>
 <ul>
-<li>Note 1: Non-performing 1st position — Purchased for 22,000 (UPB 130,000, property value 260,000 — 50% LTV). Atlanta metro property, borrower stopped paying after job loss.</li>
-<li>Note 2: Non-performing 2nd position — Purchased for 15,000 (UPB 38,000, 1st mortgage 175,000, property value 235,000). Georgia property, borrower attempted modification but failed.</li>
-<li>Note 3: Non-performing 2nd position — Purchased for 6,000 (UPB 22,000, 1st mortgage 165,000, property value 195,000). Alabama property, 1st is in foreclosure.</li>
-<li>Due diligence and closing costs: 4,000</li>
-<li>Servicer setup + reserves: 3,000</li>
-<li><strong>Total cash deployed: 50,000</strong></li>
+<li>Note 1: Non-performing 1st position — Purchased for $$22,000 (UPB $130,000, property value $260,000 — 50% LTV). Atlanta metro property, borrower stopped paying after job loss.</li>
+<li>Note 2: Non-performing 2nd position — Purchased for $1$5,000 (UPB $38,000, 1st mortgage $17$5,000, property value $23$5,000). Georgia property, borrower attempted modification but failed.</li>
+<li>Note 3: Non-performing 2nd position — Purchased for $6,000 (UPB $$22,000, 1st mortgage $16$5,000, property value $19$5,000). Alabama property, 1st is in foreclosure.</li>
+<li>Due diligence and closing costs: $4,000</li>
+<li>Servicer setup + reserves: $3,000</li>
+<li><strong>Total cash deployed: $50,000</strong></li>
 </ul>
-
 <p><strong>Year 1 Outcomes (2026 market conditions):</strong></p>
 <ul>
-<li><strong>Note 1:</strong> Successful loan modification in Month 3. Interest rate reduced from 7.5% to 5.25%, term extended to 360 months. Borrower resumes payments of 721/month. Collected 9 months of payments = 6,489. Note is now re-performing — current market value ~115,000 (based on current RPL pricing at ~88 cents on UPB for a performing 1st).</li>
-<li><strong>Note 2:</strong> DPO (Discounted Payoff) negotiated in Month 4. Borrower settled for 19,500. <strong>Profit: 4,500</strong> in 4 months.</li>
-<li><strong>Note 3:</strong> 1st mortgage holder foreclosed on the property. Our 2nd position was wiped out. <strong>Total loss: -6,000.</strong></li>
+<li><strong>Note 1:</strong> Successful loan modification in Month 3. Interest rate reduced from 7.5% to 5.25%, term extended to 360 months. Borrower resumes payments of $721/month. Collected 9 months of payments = $6,489. Note is now re-performing — current market value ~1$1$5,000 (based on current RPL pricing at ~88 cents on UPB for a performing 1st).</li>
+<li><strong>Note 2:</strong> DPO (Discounted Payoff) negotiated in Month 4. Borrower settled for $19,500. <strong>Profit: $4,500</strong> in 4 months.</li>
+<li><strong>Note 3:</strong> 1st mortgage holder foreclosed on the property. Our 2nd position was wiped out. <strong>Total loss: -$6,000.</strong></li>
 </ul>
-
 <p><strong>Year 1 Reality:</strong></p>
 <ul>
-<li>Cash received: 6,489 (Note 1 payments) + 19,500 (Note 2 DPO) = 25,989</li>
-<li>Cash paid out: 50,000 invested</li>
-<li>Note 1 still held: performing asset worth ~115,000</li>
-<li>Note 3 loss: -6,000</li>
-<li><strong>Total portfolio value: 115,000 (Note 1) + 19,500 (Note 2 cash) - 6,000 (Note 3 loss) = 128,500</strong></li>
-<li><strong>Year 1 return: ~157% on 50K</strong></li>
+<li>Cash received: $6,489 (Note 1 payments) + $19,500 (Note 2 DPO) = 25,989</li>
+<li>Note 1 still held: performing asset worth ~1$1$5,000</li>
+<li>Note 3 loss: -$6,000</li>
+<li><strong>Total portfolio value: 1$1$5,000 (Note 1) + $19,500 (Note 2 cash) - $6,000 (Note 3 loss) = $128,500</strong></li>
+<li><strong>Year 1 return: ~157% on $50K</strong></li>
 </ul>
-
-<p>No tenants. No property taxes to escrow. No insurance claims. No 3 AM calls. And if Note 3 is bothers you — that is what diversification is for. The other two notes more than carried the weight.</p>
-
+<p>No tenants. No property taxes to escrow. No insurance claims. No 3 AM calls. And if Note 3 bothers you — that is what diversification is for. The other two notes more than carried the weight.</p>
 <hr class="post-divider">
-
 <h2>The Side-by-Side — Atlanta 2026</h2>
-
 <h3>Returns</h3>
-
 <table>
 <tr><th>Metric</th><th>Atlanta Rental</th><th>Note Portfolio</th></tr>
-<tr><td>Year 1 cash flow</td><td>-266/mo (negative)</td><td>25,989 cash received</td></tr>
+<tr><td>Year 1 cash flow</td><td>-$266/mo (negative)</td><td>25,989 cash received</td></tr>
 <tr><td>Year 1 total return</td><td>~14% (mostly paper)</td><td>~157% (mostly cash + hard asset)</td></tr>
 <tr><td>Cash-on-cash return</td><td>~0%</td><td>~52%</td></tr>
 <tr><td>When you get paid</td><td>Monthly (if tenant pays)</td><td>Varies (DPOs can be month 1)</td></tr>
-<tr><td>Capital needed</td><td>70,000</td><td>50,000</td></tr>
+<tr><td>Capital needed</td><td>70,000</td><td>$50,000</td></tr>
 <tr><td>Leverage</td><td>Yes (5:1)</td><td>No</td></tr>
 </table>
-
 <p>Rentals build wealth slowly through appreciation and principal paydown. Notes build wealth through actual cash returns and asset appreciation. In Atlanta 2026, the note portfolio outperformed by over 10x on cash-on-cash return — while requiring 20K less capital.</p>
-
 <h3>Hassle Factor</h3>
-
 <p><strong>Atlanta rental — what you are signing up for:</strong></p>
 <ul>
 <li>Finding and screening tenants (in one of the most competitive rental markets in the Southeast)</li>
@@ -115,7 +255,6 @@
 <li>Insurance claims from storm damage, burst pipes, tenant injuries</li>
 <li>Property taxes, code inspections, HOA compliance</li>
 </ul>
-
 <p><strong>Note investing — what you are signing up for:</strong></p>
 <ul>
 <li>Reviewing loan tapes and doing due diligence on note packages</li>
@@ -124,11 +263,8 @@
 <li>Monitoring your portfolio from your laptop</li>
 <li>No properties to manage. No tenants. No physical assets to maintain.</li>
 </ul>
-
 <p>I will not pretend note investing is zero effort. There is a learning curve, and active deal management takes time. But you are making <strong>financial decisions, not plumbing decisions</strong>.</p>
-
 <h3>Risk Profile</h3>
-
 <p><strong>Atlanta rental risks:</strong></p>
 <ul>
 <li>Tenant damage / non-payment / eviction (Georgia judicial eviction = 60-90+ days)</li>
@@ -138,7 +274,6 @@
 <li>Concentration risk — one property, one market, one tenant</li>
 <li>Liability risk — someone slips on your property, you get sued</li>
 </ul>
-
 <p><strong>Note investing risks:</strong></p>
 <ul>
 <li>Borrower does not respond (longer timeline to resolution)</li>
@@ -147,63 +282,46 @@
 <li>2nd position notes can be wiped out if the 1st forecloses (Note 3 scenario above)</li>
 <li>Regulatory changes to servicing rules</li>
 </ul>
-
-<p>Both have risk. The difference is <strong>diversification</strong>. 50,000 buys you ONE rental in one city. 50,000 buys you 3-5 notes across different states, borrowers, and exit strategies. One bad outcome does not sink your portfolio.</p>
-
+<p>Both have risk. The difference is <strong>diversification</strong>. $50,000 buys you ONE rental in one city. $50,000 buys you 3-5 notes across different states, borrowers, and exit strategies. One bad outcome does not sink your portfolio.</p>
 <h3>Capital Requirements</h3>
-
 <table>
 <tr><th>Requirement</th><th>Atlanta Rental</th><th>Note Investing</th></tr>
-<tr><td>Minimum entry</td><td>70,000+</td><td>3,00025,000</td></tr>
+<tr><td>Minimum entry</td><td>70,000+</td><td>$3,000-2$5,000</td></tr>
 <tr><td>Financing available</td><td>Yes (mortgage)</td><td>No (cash only)</td></tr>
 <tr><td>Leverage</td><td>Yes (5:1 typical)</td><td>No</td></tr>
 <tr><td>Ongoing costs</td><td>Taxes, insurance, maintenance, management</td><td>Servicer fees (25-50/mo)</td></tr>
 </table>
-
 <p>Atlanta rentals require 40% more capital to enter and carry ongoing liabilities that notes simply do not have. Rentals allow leverage, which amplifies both returns and losses. Notes require cash but have far lower operating costs and no property-level liabilities.</p>
-
 <hr class="post-divider">
-
 <h2>When Rentals Make More Sense</h2>
-
 <p>I'm not anti-rental. Here is when rentals are the better play:</p>
-
 <ul>
-<li><strong>You want maximum leverage</strong> — 70K controls a 280K asset with a mortgage. Notes do not offer that.</li>
+<li><strong>You want maximum leverage</strong> — $$70K controls a $280K asset with a mortgage. Notes do not offer that.</li>
 <li><strong>You want depreciation</strong> for tax benefits against active income.</li>
 <li><strong>You are in a high-appreciation market</strong> and betting on property value growth long-term.</li>
 <li><strong>You want a tangible asset</strong> you can see, touch, and improve with sweat equity.</li>
 <li><strong>You already have infrastructure</strong> — property management, contractors, systems, and deep local market knowledge.</li>
 </ul>
-
 <h2>When Note Investing Makes More Sense</h2>
-
 <ul>
 <li><strong>You are tired of tenant headaches</strong> and want real estate returns without property management.</li>
-<li><strong>You have limited capital</strong> and want diversification across multiple assets starting at 3,000-25,000 per note.</li>
-<li><strong>You have retirement funds</strong> <a href="invest-ira-mortgage-notes.html">SDIRA/401k</a> you want to actively invest with tax-free growth.</li>
+<li><strong>You have limited capital</strong> and want diversification across multiple assets starting at $3,000-2$5,000 per note.</li>
+<li><strong>You have retirement funds</strong> (<a href="invest-ira-mortgage-notes.html">SDIRA/401k</a>) you want to actively invest with tax-free growth.</li>
 <li><strong>You want cash flow NOW</strong>, not 10-15 years from now when the mortgage is paid off.</li>
-<li><strong>You value flexibility</strong> — <a href=non-performing-note-exit-strategies.html>14 exit strategies</a> vs. rent or sell.</li>
+<li><strong>You value flexibility</strong> — <a href="non-performing-note-exit-strategies.html">14 exit strategies</a> vs. rent or sell.</li>
 <li><strong>You want geographic diversification</strong> — buy notes in any state, not just your backyard.</li>
 <li><strong>You want to scale without banks</strong> — no loan qualification needed.</li>
 </ul>
-
 <hr class="post-divider">
-
 <h2>The Real Answer: They Are Not Mutually Exclusive</h2>
-
 <p>The smartest real estate investors use both strategies. Rentals for long-term wealth building and tax benefits. Notes for cash flow, diversification, and capital recycling.</p>
-
 <p>But if you have only ever considered rentals because that is all anyone talks about? <strong>You owe it to yourself to learn what the other side looks like.</strong></p>
-
 <p>No tenants. No toilets. No calls at 2 AM. Just math, strategy, and monthly cash flow.</p>
-
 <hr class="post-divider">
-
 <p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>. After years in real estate, he discovered that the best returns often come from owning the debt, not the building. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a> to learn how note investing might fit your portfolio.</em></p>
-
 </div><!-- .post-content -->
-<!-- ══ QUIZ ══ -->
+
+  <!-- ══ QUIZ ══ -->
   <div class="quiz-section" id="quizSection">
     <div class="quiz-header">🧠 Test Your Knowledge</div>
     <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
@@ -238,14 +356,18 @@
 
   <!-- ══ COMMENTS ══ -->
   <div class="comment-section" id="comments">
-    <div class="comment-section-header"><h3>💬 Comments</h3></div>
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
     <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
     <form id="commentForm" onsubmit="submitComment(event)">
       <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
       <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
       <button class="primary-btn comment-submit" type="submit">Post Comment</button>
     </form>
-    <div id="commentSuccess">✅ Thanks for your comment! It's been submitted for review and will appear shortly.</div>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
   </div>
 
   <!-- ══ BOTTOM CTA ══ -->
@@ -255,27 +377,44 @@
   </div>
 
 </div><!-- .post-layout -->
-
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-logo"><img src="logo.png" alt="Take Notes Capital"></div>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
   <div class="footer-socials">
-    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>LinkedIn</a>
-    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>Facebook</a>
-    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>Instagram</a>
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
   </div>
   <div class="footer-links">
-    <a href="index.html">Home</a><a href="blog.html">Blog</a><a href="index.html#mission">About</a><a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
   </div>
   <div class="footer-legal">
-    <a href="privacy-policy.html">Privacy Policy</a><a href="cookie-policy.html">Cookie Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
   </div>
   <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
   <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
 </footer>
 
 <!-- ══ FLOATING BOOK A CALL ══ -->
-<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">📞 Book a Free Call</a>
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
 
 <!-- ══ PLAYBOOK BANNER ══ -->
 <div class="playbook-banner" id="playbookBanner">
@@ -319,7 +458,8 @@
   <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
   <div class="cookie-banner-text">
     <p>We use cookies to improve your experience and analyze traffic.
-    <a href="privacy-policy.html">Privacy Policy</a> &middot; <a href="cookie-policy.html">Cookie Policy</a></p>
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
   </div>
   <div class="cookie-banner-btns">
     <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
@@ -352,29 +492,31 @@
   <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
 </div>
 
+
+<!-- ══ QUIZ DATA ══ -->
 <script>
 const quizData = [
   {
-    question: "In the Year 1 comparison, what was the rental property's actual cash flow after all expenses and reserves?",
-    options: ["+$1,500/month", "~$0 (break-even)", "-$98/month (negative)", "+$422/month"],
-    correct: 2,
-    explanation: "After mortgage, taxes, insurance, property management (10%), maintenance reserves (5%), and vacancy reserves (8%), the rental in the example cash flows at -$98/month. Many rentals in today's market are similar — the 'great deal' on paper disappears fast once you account for real-world costs."
+    question: "[QUIZ QUESTION 1]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   },
   {
-    question: "What was the approximate Year 1 total return on the $50,000 note portfolio vs. the rental property?",
-    options: ["Rental: 50% | Notes: 17%", "Rental: 17% (mostly paper) | Notes: 50.7% (mostly cash)", "Rental: 35% | Notes: 22%", "Rental: 8% | Notes: 31%"],
-    correct: 1,
-    explanation: "The rental showed ~17.2% total return on paper (appreciation + principal paydown + tax benefits), but almost no actual cash in pocket. The note portfolio returned ~50.7% through actual cash: DPO profits, note sale proceeds, and monthly payments — all while still holding a performing asset."
+    question: "[QUIZ QUESTION 2]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   },
   {
-    question: "Which of the following is NOT a key advantage note investing has over rental properties?",
-    options: ["Geographic diversification across multiple states from your laptop", "No property management, tenants, or maintenance calls", "No loan qualification needed to scale", "Leverage via mortgage financing (5:1 typical)"],
-    correct: 3,
-    explanation: "Leverage via mortgage financing is a rental advantage, not a note investing advantage. Notes require all-cash purchases with no mortgage available. However, notes compensate with lower entry costs ($3K–$25K per note vs. $30K–$60K for rentals), no ongoing liabilities, and far more diversification."
+    question: "[QUIZ QUESTION 3]",
+    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+    correct: 0,
+    explanation: "[Explanation for correct answer]"
   }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   initQuiz(quizData);
 });
 </script>
