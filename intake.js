@@ -11,7 +11,9 @@ const FIELD_IDS = {
   investment_range:   'MZFeCmH9CESDS1NqJZX3',
   note_type_interest: 'BReVlQeBPBGyIemAYyD8',
   lien_position:      'WmIwBeFqDCtgVVIk49Qb',
-  target_state:       '5AtOBCG5D48tPMPVqDAV'
+  target_state:       '5AtOBCG5D48tPMPVqDAV',
+  decision_speed:     'lGuYsUdaLx1gSV4Rsxwl',
+  max_ltv:            'loRbnFa67biv3fxegt4i'
 };
 
 const INVESTING_WITH_MAP = {
@@ -32,6 +34,21 @@ const INVESTMENT_RANGE_MAP = {
 };
 
 const LIEN_MAP = { 'senior_1st': '1st', 'junior_2nd': '2nd', 'unsecured': 'Other' };
+
+const DECISION_SPEED_MAP = {
+  '24_48_hours':    '24-48 hours',
+  'within_a_week':  'Within a week',
+  'flexible':       'Flexible'
+};
+
+const MAX_LTV_MAP = {
+  'under_50':      'Under 50%',
+  '50_65':         '50-65%',
+  '65_75':         '65-75%',
+  '75_85':         '75-85%',
+  '85_plus':       '85%+',
+  'no_preference': 'No Preference'
+};
 
 const BUYBOX_INVESTMENT_MAP = {
   'under_5k':   '< $5,000',
@@ -101,6 +118,10 @@ async function handleBuyBox(data) {
   if (isNationwide) bbParts.push('Target States: NATIONWIDE');
   else if (states.length) bbParts.push('Target States: ' + states.join(', '));
   if (investValue) bbParts.push('Investment Per Deal: ' + investValue);
+  const decisionSpeedValue = DECISION_SPEED_MAP[data.decision_speed] || '';
+  const maxLtvValue = MAX_LTV_MAP[data.max_ltv] || '';
+  if (decisionSpeedValue) bbParts.push('Decision Speed: ' + decisionSpeedValue);
+  if (maxLtvValue) bbParts.push('Max LTV: ' + maxLtvValue);
   if (data.preferences) bbParts.push('Additional Preferences: ' + data.preferences);
 
   const ghlPayload = {
@@ -119,6 +140,8 @@ async function handleBuyBox(data) {
   if (targetStateValue) ghlPayload.customFields.push({ id: FIELD_IDS.target_state,       field_value: targetStateValue });
   if (investValue)      ghlPayload.customFields.push({ id: FIELD_IDS.investment_range,   field_value: investValue });
   if (data.preferences) ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes,         field_value: data.preferences });
+  if (decisionSpeedValue) ghlPayload.customFields.push({ id: FIELD_IDS.decision_speed,   field_value: decisionSpeedValue });
+  if (maxLtvValue)        ghlPayload.customFields.push({ id: FIELD_IDS.max_ltv,           field_value: maxLtvValue });
   return createGHLContact(ghlPayload);
 }
 

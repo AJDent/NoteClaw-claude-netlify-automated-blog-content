@@ -848,7 +848,7 @@
 </div>
 <div class="nb-form-wrap" id="nbFormWrap">
 <div class="nb-progress" id="nbProgressWrap">
-<div class="nb-progress-label" id="nbProgressLabel">Step 1 of 6</div>
+<div class="nb-progress-label" id="nbProgressLabel">Step 1 of 8</div>
 <div class="nb-progress-track"><div class="nb-progress-fill" id="nbProgressFill"></div></div>
 </div>
 <div class="nb-step active" id="nbStep1">
@@ -953,16 +953,39 @@
 </div>
 <div class="nb-step" id="nbStep5">
 <button class="nb-back" onclick="nbPrev(5)" type="button">← Back</button>
-<h3 class="nb-question">Any additional preferences?</h3>
-<p class="nb-sub">Optional — tell us anything else about your buy box.</p>
-<textarea class="nb-textarea" id="nbPreferences" placeholder="e.g. Prefer owner-occupied properties, no rural areas, minimum property value $50K..."></textarea>
-<div class="nb-actions">
-<button class="nb-btn" onclick="nbNext(5)" type="button">Continue →</button>
-<button class="nb-skip" onclick="nbNext(5)" type="button">Skip</button>
+<h3 class="nb-question">How quickly can you move on a deal?</h3>
+<p class="nb-sub">Select one. This helps us prioritize deal flow for you.</p>
+<div class="nb-options">
+<button class="nb-option" data-value="24_48_hours" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>24–48 hours</button>
+<button class="nb-option" data-value="within_a_week" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>Within a week</button>
+<button class="nb-option" data-value="flexible" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>Flexible</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep6">
 <button class="nb-back" onclick="nbPrev(6)" type="button">← Back</button>
+<h3 class="nb-question">What's the maximum LTV you're comfortable with?</h3>
+<p class="nb-sub">Loan-to-value ratio on the collateral property.</p>
+<div class="nb-options">
+<button class="nb-option" data-value="under_50" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>Under 50%</button>
+<button class="nb-option" data-value="50_65" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>50–65%</button>
+<button class="nb-option" data-value="65_75" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>65–75%</button>
+<button class="nb-option" data-value="75_85" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>75–85%</button>
+<button class="nb-option" data-value="85_plus" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>85%+</button>
+<button class="nb-option" data-value="no_preference" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>No Preference</button>
+</div>
+</div>
+<div class="nb-step" id="nbStep7">
+<button class="nb-back" onclick="nbPrev(7)" type="button">← Back</button>
+<h3 class="nb-question">Any additional preferences?</h3>
+<p class="nb-sub">Optional — tell us anything else about your buy box.</p>
+<textarea class="nb-textarea" id="nbPreferences" placeholder="e.g. Prefer owner-occupied properties, no rural areas, minimum property value $50K..."></textarea>
+<div class="nb-actions">
+<button class="nb-btn" onclick="nbNext(7)" type="button">Continue →</button>
+<button class="nb-skip" onclick="nbNext(7)" type="button">Skip</button>
+</div>
+</div>
+<div class="nb-step" id="nbStep8">
+<button class="nb-back" onclick="nbPrev(8)" type="button">← Back</button>
 <h3 class="nb-question">How can we reach you?</h3>
 <p class="nb-sub">We'll notify you when we have notes that match your buy box.</p>
 <div class="nb-grid">
@@ -1158,9 +1181,11 @@
     assetTypes: [],
     lienPositions: [],
     targetStates: [],
-    investmentAmount: ''
+    investmentAmount: '',
+    decisionSpeed: '',
+    maxLtv: ''
   };
-  const NB_TOTAL_STEPS = 6;
+  const NB_TOTAL_STEPS = 8;
 
   function nbStart() {
     document.getElementById('nbIntro').style.display = 'none';
@@ -1243,6 +1268,8 @@
       lien_positions: nbData.lienPositions,
       target_states: nbData.targetStates,
       investment_amount: nbData.investmentAmount,
+      decision_speed: nbData.decisionSpeed,
+      max_ltv: nbData.maxLtv,
       preferences: document.getElementById('nbPreferences').value.trim(),
       first_name: firstName,
       last_name: lastName,
