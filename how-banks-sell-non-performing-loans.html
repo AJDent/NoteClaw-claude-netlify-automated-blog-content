@@ -660,22 +660,37 @@
 <script>
 const quizData = [
   {
-    question: "[QUIZ QUESTION 1]",
-    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
-    correct: 0,
-    explanation: "[Explanation for correct answer]"
+    question: "Why do banks sell non-performing loans?",
+    options: [
+      "They're feeling generous and want to help borrowers",
+      "Regulatory pressure requires them to hold capital against NPLs — selling frees that capital up",
+      "Banks make more money selling loans than servicing them",
+      "Regulators require banks to sell within 90 days of default"
+    ],
+    correct: 1,
+    explanation: "Banks are required to hold capital reserves against non-performing assets. The more NPLs on their books, the more capital they must set aside — capital that can't be used for new, profitable lending. Selling NPLs is a regulatory and balance sheet necessity, not a generous act."
   },
   {
-    question: "[QUIZ QUESTION 2]",
-    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
-    correct: 0,
-    explanation: "[Explanation for correct answer]"
+    question: "What is a 'loan tape' in the bank note sale process?",
+    options: [
+      "A legal document the borrower signs when applying for a loan modification",
+      "A verbal recording of a foreclosure auction",
+      "A spreadsheet containing key data on every loan in a portfolio — UPB, LTV, delinquency status, property info",
+      "A regulatory filing banks submit to the FDIC quarterly"
+    ],
+    correct: 2,
+    explanation: "A loan tape is a spreadsheet that lists all the key data points on every loan in a portfolio — unpaid principal balance, interest rate, months delinquent, property value estimate, lien position, occupancy status, and more. It's your primary tool for initial screening before you ever bid."
   },
   {
-    question: "[QUIZ QUESTION 3]",
-    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
-    correct: 0,
-    explanation: "[Explanation for correct answer]"
+    question: "You review a tape and find a loan with LTV over 100% in a judicial foreclosure state. What should you do?",
+    options: [
+      "Bid aggressively — the borrower is underwater which means they're highly motivated to work with you",
+      "Skip it — underwater loans in slow foreclosure states have the worst risk-adjusted returns",
+      "Immediately make an offer at 20% of UPB to lock in a discount",
+      "Contact the servicer to negotiate directly before bidding"
+    ],
+    correct: 1,
+    explanation: "LTV over 100% means the property is underwater — even if you foreclose, there's nothing left for a junior lien holder. Combined with a judicial foreclosure state (which can take 2-3+ years), this loan has some of the worst risk-adjusted returns in the note business. Red light filter: skip."
   }
 ];
 
