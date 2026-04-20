@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Spot a Bad Note Deal in 30 Seconds or Less | Take Notes Capital Blog</title>
+<meta name="description" content="Learn the 30-second filter that separates profitable note deals from money pits. Spot red flags in LTV, title, and pricing fast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+
+/* Discussion badge */
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+/* Post content */
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+/* Quiz email capture */
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+/* ── COMMENT SECTION ── */
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(232,93,93,.15);color:#e85d5d;">🎯 Note Strategies</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">April 20, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">9 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>How to Spot a Bad Note Deal in 30 Seconds or Less</h1>
+  <p class="post-excerpt">Most bad deals announce themselves early. Here are the five red flags that separate profitable notes from expensive mistakes — before you spend a dollar on due diligence.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<h2>Why 30 Seconds Is All You Need</h2>
+
+<p>Most investors spend hours digging into deals before they realize the deal was dead on arrival. They pull credit reports, order BPOs, run title searches — and then find out the LTV is 110% and the borrower filed Chapter 13 last month.</p>
+
+<p>That’s a lot of wasted time and money.</p>
+
+<p>Here’s the truth: <strong>a bad note deal announces itself early.</strong> The red flags aren’t buried in complicated legal documents. They’re sitting right on the tape, screaming at you — if you know what to look for.</p>
+
+<p>If you’re new to this world, start with <a href="what-is-non-performing-note-investing.html">What Is Non-Performing Note Investing?</a> first. If you already know the basics, let’s get into the filter.</p>
+
+<p>We call it <strong>the 30-Second Drill</strong>: five checks that take less than half a minute and can save you from catastrophic losses. Let’s walk through them.</p>
+
+<h2>The 30-Second Drill: Five Red Flags to Check First</h2>
+
+<h3>1. LTV Above 80% — Walk Away Immediately</h3>
+
+<p>Loan-to-value is the single most important number in <a href="what-is-non-performing-note-investing.html">note investing</a>. Full stop.</p>
+
+<p>When you’re buying a non-performing note, you’re buying at a <em>discount</em> that reflects the risk. But if the LTV is above 80%, your safety cushion has evaporated. The moment you need to foreclose and sell the property, you’re eating into principal.</p>
+
+<p>Here’s the math that should scare you:</p>
+
+<ul>
+  <li><strong>Property value:</strong> $150,000</li>
+  <li><strong>Outstanding balance (UPB):</strong> $135,000</li>
+  <li><strong>LTV:</strong> 90%</li>
+  <li><strong>Your buying price (60% of UPB):</strong> $81,000</li>
+  <li><strong>Cost to foreclose (Georgia example):</strong> $4,500–$7,500 + legal + 6–12 months</li>
+  <li><strong>REO sale costs:</strong> ~8% realtor fees + $2,000 closing costs</li>
+</ul>
+
+<p>By the time you’re done, your $81,000 investment returns maybe $125,000 after all costs. That’s 18% in the most optimistic scenario — and that’s assuming the property doesn’t lose value. In a down market? You’re underwater.</p>
+
+<p><strong>Our rule:</strong> We don’t touch anything above 80% LTV. We’re looking for 65% or better — enough cushion to absorb a bad exit and still walk away with profit. For a deeper look at what those exits actually look like, check out our <a href="non-performing-note-exit-strategies.html">5 Exit Strategies (With Real Math)</a>.</p>
+
+<blockquote>If the LTV doesn’t math, nothing else matters. Save your due diligence dollars for a deal that pencils.</blockquote>
+
+<h3>2. Tax Liens — The Silent Deal Killer</h3>
+
+<p>Before you even look at the borrower’s credit, pull the property tax record. This takes 30 seconds on any county assessor website.</p>
+
+<p>Here’s what you’re hunting:</p>
+
+<ul>
+  <li><strong>Delinquent taxes:</strong> Years of unpaid property taxes mean the borrower is in serious financial trouble — and the government doesn’t negotiate.</li>
+  <li><strong>Tax sale status:</strong> If the property is already in a tax sale cycle, your timeline to work with the borrower just got dramatically shorter.</li>
+  <li><strong>HOA super-liens:</strong> In Florida, HOA liens can jump <em>ahead</em> of your first mortgage position. A $20,000 HOA lien can wipe out your investment.</li>
+</ul>
+
+<p>In our target states, here’s the reality:</p>
+
+<ul>
+  <li><strong>Georgia:</strong> Non-judicial foreclosure, but tax liens follow judicial process. Years of back taxes = serious complications.</li>
+  <li><strong>Texas:</strong> Homestead exemptions complicate liens. Tax sales are fast once triggered.</li>
+  <li><strong>Florida:</strong> HOA super-priority liens are a unique risk most out-of-state investors miss entirely.</li>
+  <li><strong>North Carolina:</strong> Tax lien sales can happen within 90 days of delinquency. Speed matters.</li>
+</ul>
+
+<p>If there are tax liens, quantify them precisely: How much? How many years? Redeemable? What’s the penalty rate? Get answers before you spend another dollar.</p>
+
+<h3>3. Property Condition — When the BPO Lies to You</h3>
+
+<p>We always order a Broker Price Opinion (BPO) early in due diligence. But BPOs can be wrong — sometimes wildly so.</p>
+
+<p>Watch for these condition red flags:</p>
+
+<ul>
+  <li><strong>Vacant 12+ months:</strong> Vacant properties deteriorate fast — pipes freeze, roofs leak, squatters move in. A BPO done on a “maintained” property looks nothing like reality 18 months later.</li>
+  <li><strong>Manufactured homes on leased land:</strong> One of the most overlooked red flags. If the home is on leased land and you foreclose, you own a mobile home — not real estate. Florida and Georgia have huge manufactured housing stock. Know what you’re buying.</li>
+  <li><strong>Rural properties:</strong> BPOs on rural properties are notoriously unreliable because there are fewer comparables. A $120,000 AVM on a rural Alabama property might be fiction.</li>
+  <li><strong>Code violations:</strong> City or county code enforcement records are public. Open violations can cost thousands to fix before the property can be sold.</li>
+</ul>
+
+<p><strong>Our rule:</strong> Cross-reference the BPO with county assessor records, Google Street View, and at least two comparable sales within the last 90 days. If the numbers don’t agree, dig deeper — or walk.</p>
+
+<h3>4. Borrower Situation — The Stop Signs</h3>
+
+<p>Some borrower situations are simply not recoverable. Before you spend time structuring a workout, check for these deal-killers:</p>
+
+<ul>
+  <li><strong>Active Chapter 13 bankruptcy:</strong> The automatic stay prevents any foreclosure action. You’ll wait months — sometimes years — for the bankruptcy to resolve. Meanwhile, the property deteriorates.</li>
+  <li><strong>Chapter 7 with no reaffirmation:</strong> The borrower walked away and has zero personal liability. They have no incentive to cooperate with a loan modification or payoff. Why would they?</li>
+  <li><strong>Active litigation:</strong> If the note is already in foreclosure litigation, you’re buying someone else’s legal battle — with all the costs that come with it.</li>
+  <li><strong>Estate/probate situations:</strong> Borrower deceased, property in probate? You can’t foreclose and can’t negotiate until the estate resolves. That can take years.</li>
+</ul>
+
+<p>The borrower you <em>want</em>: still in the home, current on other debts, just hit a rough patch. Everyone else is a time sink that drains capital and energy. Understanding how <a href="how-banks-sell-non-performing-loans.html">banks package and sell these loans</a> helps you spot which ones got dumped for a reason.</p>
+
+<h3>5. The Pricing Test — If You Can’t See Two Exits, Walk</h3>
+
+<p>Here’s the simplest test in note investing: can you name <em>two profitable exits</em> before you buy?</p>
+
+<p>We always buy with <a href="non-performing-note-exit-strategies.html">exit strategies</a> in mind. Every note we look at, we ask: what are our two best paths to getting capital back plus profit? If we can’t answer that in 30 seconds of looking at the tape, the deal doesn’t move forward.</p>
+
+<p>Our five standard exits as a framework:</p>
+
+<ol>
+  <li><strong>Loan Modification:</strong> Restructure terms, get the borrower paying, hold for cash flow.</li>
+  <li><strong>Discounted Payoff (DPO):</strong> Borrower or heir pays a lump sum to clear the debt at a discount.</li>
+  <li><strong>Cash for Keys / Deed in Lieu:</strong> Borrower walks away cleanly, you get the property without a full foreclosure.</li>
+  <li><strong>Sell as Re-Performing Note:</strong> Once payments resume, sell the note at a premium to another investor.</li>
+  <li><strong>Foreclosure → REO Sale:</strong> Absolute last resort. We don’t want to take anyone’s home. But if all cooperative exits fail, this is the backstop.</li>
+</ol>
+
+<p>If you can’t see at least two of these working based on the tape data alone, the deal is dead. Move on. There are always more tapes. For a real-world example of how this math plays out, see our <a href="deal-breakdown-34-percent-return.html">Deal Breakdown: 34% Return</a>.</p>
+
+<blockquote>If the deal looks too good to be true, zoom in on the collateral. That’s where the truth lives.</blockquote>
+
+<h2>Putting It All Together: The 30-Second Checklist</h2>
+
+<p>Here’s your rapid-fire checklist. Run this on every deal before you spend a single dollar on due diligence:</p>
+
+<ol>
+  <li><strong>LTV ≤ 80%?</strong> If no → pass.</li>
+  <li><strong>Tax liens or HOA super-liens?</strong> If yes and unquantified → flag or pass.</li>
+  <li><strong>Property type and condition check:</strong> Manufactured on leased land? Vacant 12+ months? Rural with no comps? → Flag or pass.</li>
+  <li><strong>Borrower status:</strong> Active BK, litigation, or estate? → Pass.</li>
+  <li><strong>Two profitable exits visible?</strong> If no → pass.</li>
+</ol>
+
+<p>Five checks. Thirty seconds. If a deal survives all five, <em>then</em> you spend the $300–$500 on a full title search, BPO, and borrower outreach. Not before.</p>
+
+<h2>The Mindset Shift: Volume Over Attachment</h2>
+
+<p>New investors fall in love with deals. They see one note on a tape and start imagining the cash flow, the IRR, the exit. They get emotionally invested before they’ve done a single check.</p>
+
+<p>Experienced investors fall in love with <em>deal flow</em>. They know that for every 100 notes they screen, maybe 10–15 survive the 30-Second Drill, and 3–5 make it through full due diligence. That’s the game.</p>
+
+<p>The 30-Second Drill isn’t about finding reasons to buy. It’s about finding reasons to say no — fast — so you can spend your time and money on the deals that actually pencil.</p>
+
+<p>If you’re comparing this to other real estate strategies, note investing already has a major advantage: you’re not managing toilets, tenants, or contractors. But that only works if you buy right. Check out <a href="rental-properties-vs-note-investing.html">Rental Properties vs. Note Investing</a> to see why the due diligence upfront is worth it.</p>
+
+<h2>One Last Thing: Trust the Math, Not the Story</h2>
+
+<p>Sellers will tell you stories. “The borrower just needs a little time.” “The property is in a great area.” “This one’s a sleeper.”</p>
+
+<p>Ignore the story. Run the numbers. If the LTV is too high, the taxes are delinquent, the property is questionable, the borrower is in bankruptcy, and you can’t see two exits — it doesn’t matter how good the story sounds.</p>
+
+<p>The numbers either work or they don’t. The 30-Second Drill tells you which one it is — before you waste a dime finding out the hard way.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+
+<!-- ══ QUIZ DATA ══ -->
+<script>
+const quizData = [
+  {
+    question: "You're screening a tape and see a non-performing note with 92% LTV. What should you do?",
+    options: ["Order a BPO to confirm the value", "Pass immediately — LTV is too high", "Negotiate a lower purchase price", "Check the borrower's credit first"],
+    correct: 1,
+    explanation: "At 92% LTV, there's almost no equity cushion. Even at a steep purchase discount, foreclosure costs and market risk can wipe out your profit. Pass and move to the next deal."
+  },
+  {
+    question: "Why are manufactured homes on leased land a red flag for note investors?",
+    options: ["They depreciate faster than site-built homes", "If you foreclose, you own a mobile home — not real estate", "They can't be financed with conventional loans", "Insurance costs are too high"],
+    correct: 1,
+    explanation: "When the home sits on leased land, foreclosure gives you the structure but not the dirt underneath. You end up owning personal property (a mobile home), not real estate — drastically reducing your collateral value and exit options."
+  },
+  {
+    question: "What's the minimum number of profitable exit strategies you should identify before buying a note?",
+    options: ["One strong exit is enough", "At least two", "At least three", "All five standard exits must work"],
+    correct: 1,
+    explanation: "You need at least two viable exits before you buy. If your primary strategy falls through — borrower won't cooperate, property condition surprises you — you need a backup that still pencils. One exit is a gamble; two exits is a strategy."
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
