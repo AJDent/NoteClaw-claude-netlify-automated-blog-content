@@ -171,6 +171,25 @@
 .bottom-cta-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
 @media (max-width: 900px) { .posts-preview-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── CATEGORY FILTER ── */
+.category-filter {
+  max-width: 1060px; margin: 2rem auto 0; padding: 0 2rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+}
+.filter-btn {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  color: var(--gray-light); font-family: var(--font-body); font-size: 0.82rem;
+  font-weight: 600; padding: 0.5rem 1rem; border-radius: 999px;
+  cursor: pointer; transition: all .2s; letter-spacing: 0.02em;
+}
+.filter-btn:hover { border-color: rgba(91,164,230,0.4); color: var(--white); }
+.filter-btn.active {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--navy); font-weight: 700;
+}
+.preview-card-wrap { transition: opacity .25s, transform .25s; }
+.preview-card-wrap.hidden { display: none; }
 @media (max-width: 600px) {
   .posts-preview-grid { grid-template-columns: 1fr; }
   .newsletter-row { grid-template-columns: 1fr; }
@@ -230,6 +249,17 @@
 <!-- ══ SEARCH BAR ══ -->
 <div class="search-bar-wrap">
   <input class="search-input" type="text" placeholder="Search posts... (coming soon)" disabled>
+</div>
+
+<!-- ══ CATEGORY FILTER ══ -->
+<div class="category-filter" id="categoryFilter">
+  <button class="filter-btn active" data-category="all">All Posts</button>
+  <button class="filter-btn" data-category="cat-note">📓 Note Investing</button>
+  <button class="filter-btn" data-category="cat-strategy">🎯 Note Strategies</button>
+  <button class="filter-btn" data-category="cat-retire">💰 Retirement Investing</button>
+  <button class="filter-btn" data-category="cat-re">🏠 Real Estate</button>
+  <button class="filter-btn" data-category="cat-deal">📊 Deal Breakdowns</button>
+  <button class="filter-btn" data-category="cat-other">🔗 Other</button>
 </div>
 
 <!-- ══ COMING SOON POSTS ══ -->
@@ -467,6 +497,31 @@
   document.getElementById('barEmail')?.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') handleNewsletterBar(e);
   });
+
+  // Category filter
+  (function(){
+    const filterBtns = document.querySelectorAll('.category-filter .filter-btn');
+    const cards = document.querySelectorAll('.posts-preview-grid > a');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        cards.forEach(card => {
+          if (cat === 'all') {
+            card.style.display = '';
+          } else {
+            const tag = card.querySelector('.preview-cat-tag');
+            if (tag && tag.classList.contains(cat)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  })();
 </script>
 <script src="blog.js"></script>
 </body>
