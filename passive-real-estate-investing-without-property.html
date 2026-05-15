@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Can You Really Invest in Real Estate Without Managing Property? | Take Notes Capital Blog</title>
+<meta name="description" content="Explore 5 real estate strategies ranked by actual passivity. Mortgage note investing removes tenants, toilets, and 3 AM calls from the equation.">
+<meta name="keywords" content="passive real estate investing without property management, hands-off real estate investment strategies, invest in real estate without tenants, truly passive real estate income 2026, mortgage note investing passive income, real estate investing without maintenance, how to invest in real estate passively, passive income real estate no property management, real estate returns without owning property, note investing vs rental properties passive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+
+/* Discussion badge */
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+/* Post content */
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+/* Quiz email capture */
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+/* ── COMMENT SECTION ── */
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(91,164,230,0.15);color:#5ba4e6;">EDUCATION</span>
+    <span class="meta-sep">&middot;</span>
+    <span class="meta-date">May 15, 2026</span>
+    <span class="meta-sep">&middot;</span>
+    <span class="meta-read">8 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Can You Really Invest in Real Estate Without Managing Property?</h1>
+  <p class="post-excerpt">Five real estate strategies ranked by actual passivity — and the one that removes tenants, toilets, and 3 AM calls from the equation entirely.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent &middot; Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<p>Priya spent 18 months building a rental portfolio — three duplexes in the Midwest. On paper, $2,400 a month in net cash flow. In reality, after vacancy in Unit 2, a $6,000 HVAC replacement in Unit 5, and a property manager who "forgot" to screen the last tenant, she was netting $600 a month for what felt like 20 hours a week of emotional labor.</p>
+
+<p>She started Googling "passive real estate that's actually passive."</p>
+
+<p>Here's the thing most real estate gurus won't tell you: every "passive" strategy has an active component somebody's hiding. Syndications lock your money for seven years and pray the operator doesn't blow it. Turnkey rentals still hand you the liability, the cap-ex surprises, and the 2 AM phone calls. REITs are basically mutual funds wearing a hard hat.</p>
+
+<p>But there is one strategy that removes you from the physical asset entirely — and it's been hiding in plain sight. <a href="what-is-non-performing-note-investing.html">Mortgage note investing</a> lets you own the debt, not the dirt. The borrower maintains the property. A licensed servicer handles collections. You make strategic decisions, not plumbing decisions.</p>
+
+<p>Let's break down every option honestly and see which ones actually earn the word "passive."</p>
+
+<h2>The Passivity Spectrum — Rating Every Real Estate Strategy</h2>
+
+<p>Not all real estate investments demand the same amount of your time, energy, and sanity. Here's an honest ranking of five common strategies — scored on how much of your life they actually consume.</p>
+
+<h3>REITs — Truly Passive, Truly Limited</h3>
+
+<p>Real Estate Investment Trusts are the easiest entry point. Buy shares, collect dividends, never think about a roof. The problem? They're correlated to the stock market, yields typically run 4–6%, and you have zero control over what properties the fund buys, sells, or mismanages. It's passive the same way an index fund is passive — you're along for the ride, not driving.</p>
+
+<h3>Syndications — Mostly Passive, Mostly Locked</h3>
+
+<p>You write a check, a sponsor operates the deal, and you collect quarterly distributions. Sounds great until you realize your capital is locked for 5–7 years, you have no say in operational decisions, and your returns depend entirely on one operator's competence. When it works, it's beautiful. When it doesn't, you're a limited partner watching your equity evaporate with no exit button.</p>
+
+<h3>Turnkey Rentals — Less Work, Still Your Problem</h3>
+
+<p>Turnkey companies sell you a renovated property with a tenant already in place. Less work than finding and rehabbing a deal yourself, sure. But the property is still yours. The liability is still yours. When the AC dies in August, that $4,500 bill has your name on it. The property manager helps — but they don't own the risk. You do.</p>
+
+<h3>Self-Managed Rentals — The "Passive Income" Lie</h3>
+
+<p>Let's be honest: managing rentals is a job. Tenant screening, lease enforcement, maintenance coordination, eviction filings, insurance claims, property tax appeals. Studies show active landlords spend 5–15 hours per week managing their portfolio. That's not passive income — that's a side hustle with a terrible hourly rate.</p>
+
+<h3>Mortgage Notes — Financial Asset, Strategic Decisions Only</h3>
+
+<p>When you <a href="being-the-bank-vs-being-a-landlord.html">become the bank instead of the landlord</a>, your asset is a piece of paper — a promissory note secured by a lien on real property. The borrower maintains the property, pays the taxes, and carries the insurance. A licensed servicer collects payments, communicates with the borrower, and sends you monthly reports. Your job? Review reports, make quarterly strategic decisions, and collect checks. Total time: <strong>15–30 minutes per note per month</strong>.</p>
+
+<h2>Why "Hire a Property Manager" Isn't the Answer</h2>
+
+<p>This is the first thing every rental investor hears when they complain about the workload: "Just hire a PM." It sounds like the solution. It's not.</p>
+
+<p>A property manager charges 8–10% of gross rent. For that fee, they handle tenant placement, rent collection, and basic maintenance coordination. What they <strong>don't</strong> handle: your liability.</p>
+
+<p>You still approve major repairs. You still make cap-ex decisions. You still deal with insurance claims, code violations, and the occasional lawsuit. When a tenant slips on an icy sidewalk or discovers mold behind the drywall, that's your name on the legal documents — not the PM's.</p>
+
+<p>There's also an incentive problem. Property managers get paid when units are occupied. That means they're incentivized to fill vacancies fast — sometimes at the expense of thorough screening. The tenant who looked great on a rushed background check becomes the tenant who stops paying in month three and knows exactly how long the eviction process takes in your state.</p>
+
+<p>Here's the real math: if you own five rental units generating $1,000 each in gross rent, your PM takes $500 a month. You're still spending 3–5 hours a week on approvals, decisions, and fires. That means you're paying someone <strong>and</strong> still working. The "passive" part never actually arrives.</p>
+
+<blockquote>A property manager is a middleman, not a magic wand. They reduce the workload — they don't eliminate the liability, the decisions, or the stress.</blockquote>
+
+<p>Compare that to a note investor with five performing notes: the servicer handles everything operational for $25–50 per note per month. No repair approvals. No tenant disputes. No code inspections. The only decisions you make are strategic ones — hold, modify, sell — and you make them on your schedule, not when the furnace dies.</p>
+
+<h2>The Note Investor's Version of "Passive"</h2>
+
+<p>Let's walk through what note investing actually looks like day-to-day, because the word "passive" gets thrown around so loosely in real estate that it's lost all meaning.</p>
+
+<h3>The Active Part: Buying the Note</h3>
+
+<p>Upfront due diligence is where you put in the work. You're spending 5–10 hours per deal reviewing the collateral file, ordering a BPO or desktop valuation, running title, checking borrower payment history, and analyzing your exit strategies. This is the homework phase, and <a href="how-to-spot-a-bad-note-deal.html">cutting corners here is how people lose money</a>.</p>
+
+<p>But here's the key difference: this work happens <strong>once</strong>, at acquisition. With a rental property, the work happens every month for as long as you own it.</p>
+
+<h3>The One-Time Setup: Boarding with a Servicer</h3>
+
+<p>After closing, you board the note with a licensed loan servicer. This takes about an hour of paperwork. The servicer becomes your operational backbone — they collect payments, send borrower statements, handle escrow, manage borrower communication, and send you monthly reports.</p>
+
+<p>Servicing costs run $25–50 per month per note. Compare that to a property manager taking 8–10% of gross rent ($80–$200+ per month on a typical rental) and still leaving you with the liability.</p>
+
+<h3>The Ongoing Reality: 15–30 Minutes Per Month</h3>
+
+<p>Once the note is boarded, your monthly routine looks like this:</p>
+
+<ol>
+<li><strong>Review the servicer report</strong> — payment received? On time? Any borrower communication?</li>
+<li><strong>Check your account</strong> — payment deposited correctly?</li>
+<li><strong>Flag anything unusual</strong> — missed payment, borrower request, insurance lapse</li>
+</ol>
+
+<p>That's it. Fifteen minutes if everything is normal. Thirty minutes if there's something to investigate. No contractor bids. No tenant screening. No eviction court. No insurance adjuster meetings.</p>
+
+<h3>The Strategic Decisions (Quarterly)</h3>
+
+<p>Every quarter, you step back and assess: Is this note performing as expected? Should I hold for continued cash flow? Is there a better exit — a discounted payoff, a loan modification, a note sale? These are <strong>strategic</strong> decisions, not operational fires. You make them when you're ready, with data in front of you, not at 6 AM because a pipe burst.</p>
+
+<h2>Risk Mitigation — Passive Doesn't Mean Unmonitored</h2>
+
+<p>Passive doesn't mean you close your eyes and hope. It means your monitoring system is lightweight and efficient, not consuming your life.</p>
+
+<h3>What Your Servicer Watches For You</h3>
+
+<ul>
+<li><strong>Payment status</strong> — current, 30-day late, 60-day late, default</li>
+<li><strong>Borrower communication</strong> — hardship requests, modification inquiries</li>
+<li><strong>Escrow and insurance</strong> — property taxes paid, hazard insurance active</li>
+<li><strong>Regulatory compliance</strong> — proper notices, RESPA requirements, state-specific rules</li>
+</ul>
+
+<h3>What You Watch Yourself</h3>
+
+<ul>
+<li><strong>Property value trends</strong> — is your collateral holding value? A quick annual check.</li>
+<li><strong>Borrower payment patterns</strong> — are they consistently on time, or is a pattern developing?</li>
+<li><strong>Senior lien activity</strong> — if you hold a 2nd lien, is the 1st lien current?</li>
+<li><strong>Exit timing</strong> — has the note seasoned enough to sell at a premium?</li>
+</ul>
+
+<h3>The Diversification Safety Net</h3>
+
+<p>With rentals, one bad property can wreck your portfolio. A single $15,000 foundation repair or a 6-month eviction battle can turn a profitable year into a loss.</p>
+
+<p>With notes, the math works differently. Spread $75,000 across five notes in different states and different property types. If one borrower defaults, you still have four performing. And even the default isn't a total loss — you're secured by the property. Your exit options include <a href="non-performing-note-exit-strategies.html">loan modification, discounted payoff, deed in lieu, note sale, or foreclosure as a last resort</a>.</p>
+
+<p>Geographic diversification is also simpler. Buying a rental in another state means finding a local team, trusting a remote PM, and praying the market holds. Buying a note in another state means reviewing a file. The property doesn't care who holds the lien.</p>
+
+<h2>How to Start Without Giving Up What You Have</h2>
+
+<p>You don't have to sell your rentals to try note investing. In fact, the smartest move might be keeping them while you test the waters.</p>
+
+<h3>If You Already Own Rentals</h3>
+
+<p>Keep them. They're producing income. Instead of deploying your next available capital into another rental (and another round of cap-ex surprises, tenant screening, and management headaches), put it into a note. Run both strategies side by side for six months. Compare the time spent, the stress level, and the actual net returns. Most people don't go back.</p>
+
+<h3>If You Have an SDIRA or 401(k)</h3>
+
+<p>This is the fastest path to truly passive real estate returns. <a href="invest-ira-mortgage-notes.html">A self-directed IRA can purchase mortgage notes directly</a>, and all the income flows back into the account tax-deferred or tax-free (Roth). Your retirement money earns real estate-grade returns without you lifting a hammer or screening a tenant.</p>
+
+<h3>If You're Starting from Zero</h3>
+
+<p>Notes actually require less capital and less infrastructure than rentals. You don't need a contractor network, a property manager, or a real estate agent. Your first note — a performing or re-performing 1st lien — can be acquired for $15,000–$25,000 with nothing more than due diligence, a servicer, and a wire transfer.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is mortgage note investing really passive?</h3>
+<p>It's the closest thing to truly passive in real estate. After the initial due diligence (5–10 hours per deal), a licensed servicer handles all day-to-day operations. Most note investors spend 15–30 minutes per note per month reviewing reports and making strategic decisions. There are no tenants to manage, no properties to maintain, and no 3 AM phone calls.</p>
+
+<h3>How much money do I need to buy my first mortgage note?</h3>
+<p>Entry points vary. Performing 1st lien notes typically start around $15,000–$25,000. Non-performing 2nd lien positions can be found for $5,000–$10,000. The capital requirement is often lower than a down payment on a rental property, and you skip closing costs, rehab budgets, and vacancy reserves entirely.</p>
+
+<h3>What happens if the borrower stops paying?</h3>
+<p>You have multiple exit strategies — loan modification, discounted payoff, deed in lieu of foreclosure, note sale to another investor, or foreclosure as a last resort. The property securing the note acts as your safety net. Unlike a stock that can go to zero, your investment is backed by a physical asset with real market value.</p>
+
+<h3>Can I invest in mortgage notes through a self-directed IRA?</h3>
+<p>Yes. SDIRAs are one of the most common vehicles for note investing. Your IRA acts as the lender, the income flows back into the account tax-advantaged, and the entire operation is managed by your servicer. <a href="invest-ira-mortgage-notes.html">Here's our full guide on IRA note investing</a>.</p>
+
+<h3>How do mortgage note returns compare to rental property returns?</h3>
+<p>Performing notes typically yield 8–12% annually. Non-performing notes bought at a discount can yield significantly higher depending on the exit strategy. Rental properties average 6–10% cash-on-cash before accounting for vacancy, maintenance, and management fees — expenses that don't exist in note investing.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. With a background in hands-on construction and real estate, AJ brings a practical, numbers-first approach to building wealth through debt instruments — no tenants, no toilets, no calls at 2 AM. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a> to see if note investing fits your portfolio.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to invest in real estate without managing property?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">&copy; 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-actions">
+    <button class="cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+    <button class="cookie-btn-settings" onclick="toggleCookiePanel()">Settings</button>
+  </div>
+</div>
+
+<!-- Cookie settings panel -->
+<div class="cookie-panel" id="cookiePanel">
+  <div class="cookie-panel-header">
+    <h3>Cookie Settings</h3>
+    <button class="cookie-panel-close" onclick="toggleCookiePanel()" aria-label="Close">✕</button>
+  </div>
+  <div class="cookie-toggle-group">
+    <div class="cookie-toggle-row">
+      <div>
+        <strong>Essential</strong>
+        <p>Required for the website to function.</p>
+      </div>
+      <label class="cookie-switch"><input type="checkbox" checked disabled><span class="cookie-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div>
+        <strong>Analytics</strong>
+        <p>Help us understand how visitors use the site.</p>
+      </div>
+      <label class="cookie-switch"><input type="checkbox" id="cookieAnalytics"><span class="cookie-slider"></span></label>
+    </div>
+    <div class="cookie-toggle-row">
+      <div>
+        <strong>Marketing</strong>
+        <p>Used to deliver relevant ads and track campaigns.</p>
+      </div>
+      <label class="cookie-switch"><input type="checkbox" id="cookieMarketing"><span class="cookie-slider"></span></label>
+    </div>
+  </div>
+  <div class="cookie-panel-actions">
+    <button class="cookie-btn-accept" onclick="saveCookieSettings()">Save Preferences</button>
+  </div>
+</div>
+
+<!-- ══ QUIZ DATA + SCRIPTS ══ -->
+<script>
+const quizData = [
+  {
+    question: "Which real estate strategy typically requires the LEAST monthly time from the investor?",
+    options: [
+      "Turnkey rentals",
+      "Real estate syndications",
+      "Mortgage note investing",
+      "REITs"
+    ],
+    correct: 2,
+    explanation: "With a licensed servicer handling collections and borrower communication, most note investors spend 15\u201330 minutes per note per month. REITs are passive to hold but behave like stock market investments with limited yields and zero control."
+  },
+  {
+    question: "What is the main problem with hiring a property manager to make rentals \u2018passive\u2019?",
+    options: [
+      "They charge too much",
+      "You still own the liability and make most decisions",
+      "They don't collect rent on time",
+      "They only work in certain markets"
+    ],
+    correct: 1,
+    explanation: "A property manager is a middleman, not a magic wand. Slip-and-fall lawsuits, code violations, and major repair decisions still land on your desk. The 8\u201310% fee doesn't buy you freedom \u2014 it buys you a buffer."
+  },
+  {
+    question: "An investor owns 5 mortgage notes with a licensed servicer. Approximately how much time per month do they spend managing the portfolio?",
+    options: [
+      "20\u201330 hours",
+      "10\u201315 hours",
+      "1\u20132.5 hours",
+      "0 hours \u2014 it's fully automated"
+    ],
+    correct: 2,
+    explanation: "At 15\u201330 minutes per note with 5 notes, you're spending about 1.25\u20132.5 hours a month on strategic decisions \u2014 not operational fires. Passive doesn't mean invisible, but it's close."
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
