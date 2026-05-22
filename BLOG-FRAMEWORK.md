@@ -151,13 +151,26 @@ Then:
 
 ## 🏷️ CATEGORIES
 
-| Category | Background Color | Text Color |
-|----------|-----------------|------------|
-| Education | `rgba(91,164,230,0.15)` | `#5ba4e6` |
-| Strategy | `rgba(78,203,113,0.15)` | `#4ecb71` |
-| Deals | `rgba(255,183,77,0.15)` | `#ffb74d` |
-| Capital | `rgba(186,104,200,0.15)` | `#ba68c8` |
-| Market Intel | `rgba(255,138,101,0.15)` | `#ff8a65` |
+⚠️ **THESE ARE THE ONLY ALLOWED CATEGORIES. DO NOT invent new ones unless AJ explicitly asks.**
+
+| # | Category | CSS Class | Emoji | Card Gradient | Hero Gradient |
+|---|----------|-----------|-------|---------------|---------------|
+| 1 | Note Investing | `cat-note` | 📓 | `#0d1428 → #1a3a6b` | same |
+| 2 | Note Strategies | `cat-strategy` | 🎯 | `#0d1428 → #3d0a0a` | same |
+| 3 | Retirement Investing | `cat-retire` | 💰 | `#0d1428 → #3d2e0a` | same |
+| 4 | Real Estate | `cat-re` | 🏠 | `#0d1428 → #0f3d1e` | same |
+| 5 | Deal Breakdowns | `cat-deal` | 📊 | `#0d1428 → #2d1f5e` | same |
+| 6 | Education | `cat-edu` | 📚 | `#0d1428 → #0d2a4a` | same |
+| 7 | Other | `cat-other` | 🔗 | `#0d1428 → #2a2f38` | same |
+
+**How to pick a category:**
+- RMDs, SDIRAs, 401k, IRA investing → **💰 Retirement Investing** (`cat-retire`)
+- General note concepts, what is a note, NPNs → **📓 Note Investing** (`cat-note`)
+- Exit strategies, pricing, underwriting tactics → **🎯 Note Strategies** (`cat-strategy`)
+- Real deal walkthroughs with numbers → **📊 Deal Breakdowns** (`cat-deal`)
+- Broader RE concepts, landlord comparisons, market stuff → **🏠 Real Estate** (`cat-re`)
+- Educational/explainer content that doesn't fit above → **📚 Education** (`cat-edu`)
+- Anything else → **🔗 Other** (`cat-other`)
 
 ---
 
