@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMD Rules in 2026: What Retirees Must Know Before It's Too Late | Take Notes Capital Blog</title>
+<meta name="description" content="RMD rules changed in 2026. Learn required minimum distribution ages, penalties, strategies to reduce your tax bill, and why mortgage notes beat forced withdrawals.">
+<meta name="keywords" content="rmd rules 2026, required minimum distribution 2026, rmd age 73 vs 75, secure act 2.0 rmd changes, how to reduce rmd taxes, rmd penalty 2026, rmd alternatives for retirement income, self-directed ira rmd rules, mortgage notes vs rmd withdrawals, rmd calculator 2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+.comment-section { margin: 3rem 0; }
+.comment-section-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag cat-retire">💰 Retirement Investing</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">May 22, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">8 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>RMD Rules in 2026: What Retirees Must Know Before It's Too Late</h1>
+  <p class="post-excerpt">The IRS changed the withdrawal rules — and most retirees have no idea. Here's what the new RMD ages, penalties, and strategies actually mean for your retirement income.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<p>Linda retired in 2024 with $1.2 million in her traditional IRA. She figured she'd let it grow tax-deferred for a few more years — no rush. Then she turned 73 and the IRS sent her a notice: take out $47,000 this year, or we'll take 25% of what you should have withdrawn. That's not a tax bill. That's a penalty <em>on top</em> of the tax bill.</p>
+
+<p>Most retirees don't think about Required Minimum Distributions until the letter arrives. By then, the damage is already baked in — you're liquidating assets at whatever the market gives you, paying ordinary income tax on every dollar, and potentially bumping yourself into a higher bracket that triggers Medicare surcharges.</p>
+
+<p>The rules changed. Twice. And if you're still operating off what your advisor told you in 2019, you're working with outdated numbers. Here's what actually applies in 2026.</p>
+
+<h2>What Is a Required Minimum Distribution (RMD)?</h2>
+
+<p>An RMD is the minimum amount the IRS forces you to withdraw from tax-deferred retirement accounts each year once you hit a certain age. It applies to <strong>traditional IRAs, SEP IRAs, SIMPLE IRAs, 401(k)s, 403(b)s, and 457 plans</strong>. The logic is simple: the government gave you a tax break going in. Now they want their cut coming out.</p>
+
+<p>The amount you must withdraw is calculated by dividing your account balance (as of December 31 of the prior year) by a life expectancy factor from the IRS Uniform Lifetime Table. The older you get, the bigger the percentage — because the IRS assumes you have fewer years to spread it across.</p>
+
+<p>Here's the part most people miss: <strong>RMDs are taxed as ordinary income.</strong> Not capital gains. Not qualified dividends. Ordinary income — at whatever bracket that withdrawal pushes you into. A $50,000 RMD on top of Social Security and a pension can easily land you in the 22% or 24% bracket.</p>
+
+<blockquote>"The IRS doesn't care if the market is down 30%. Your RMD is based on last year's balance, and you're selling at today's price. That's forced liquidation with a tax bill attached."</blockquote>
+
+<p><strong>Roth IRAs are the exception.</strong> The original owner of a Roth IRA never has to take RMDs during their lifetime. That's one of the most powerful features of a Roth — your money compounds tax-free with no forced withdrawals. (Inherited Roths are a different story — beneficiaries do have distribution requirements under the <a href="/invest-ira-mortgage-notes">SECURE Act rules</a>.)</p>
+
+<h2>The 2026 RMD Age Chart: 73, 75, and the SECURE 2.0 Timeline</h2>
+
+<p>The starting age for RMDs has shifted three times in the past six years. If you're confused, you're not alone — the rules literally depend on what year you were born.</p>
+
+<p>Here's the current breakdown:</p>
+
+<ul>
+  <li><strong>Born 1950 or earlier:</strong> RMDs started at age 70½ (old rules, already in effect)</li>
+  <li><strong>Born 1951–1959:</strong> RMDs start at age 73 (SECURE Act 2.0, effective 2023)</li>
+  <li><strong>Born 1960 or later:</strong> RMDs start at age 75 (SECURE Act 2.0, effective 2033)</li>
+</ul>
+
+<p>That two-year bump from 73 to 75 is a big deal. If you were born in 1960, you get <strong>two extra years</strong> of tax-deferred growth compared to someone born in 1959. On a $1 million IRA growing at 7%, that's roughly $150,000 more compounding before the government forces your hand.</p>
+
+<h3>The First-Year Trap</h3>
+
+<p>There's a special rule for your first RMD: you can delay it until April 1 of the year <em>after</em> you turn 73 (or 75). Sounds generous — but there's a catch. If you delay your first RMD into the following year, <strong>you'll take two RMDs in one calendar year</strong> — the delayed first-year distribution plus your regular second-year distribution. That double hit can spike your taxable income and push you into a higher bracket, trigger <a href="/how-does-an-sdira-work">IRMAA surcharges</a> on Medicare premiums, and increase the portion of your Social Security that gets taxed.</p>
+
+<p>Most advisors recommend taking your first RMD in the actual year you turn 73 (or 75) to avoid the double-up. Spread the pain.</p>
+
+<h2>The Penalty for Missing an RMD (And How It Dropped From 50% to 25%)</h2>
+
+<p>Before 2023, the penalty for missing an RMD was <strong>50% of the amount you should have withdrawn</strong>. That was one of the harshest penalties in the entire tax code. Miss a $40,000 RMD? The IRS took $20,000. On top of the income tax you still owed on the withdrawal.</p>
+
+<p>SECURE Act 2.0 cut that penalty to <strong>25%</strong>. And if you correct the mistake within two years (by taking the missed distribution and filing an amended return), the penalty drops further to <strong>10%</strong>.</p>
+
+<p>That's still not pocket change. A missed $50,000 RMD costs you $12,500 at the 25% rate — or $5,000 if you catch it quickly. But it's a massive improvement over the old regime where the same mistake would have cost $25,000.</p>
+
+<h3>How to Correct a Missed RMD</h3>
+
+<ol>
+  <li><strong>Take the missed distribution immediately</strong> — withdraw the amount you should have taken</li>
+  <li><strong>File IRS Form 5329</strong> (Additional Taxes on Qualified Plans) with your tax return</li>
+  <li><strong>Request a penalty waiver</strong> — attach a letter explaining the reason for the shortfall. The IRS routinely waives the penalty for "reasonable cause" (illness, advisor error, honest mistake)</li>
+  <li><strong>If corrected within 2 years:</strong> penalty auto-reduces to 10% under SECURE 2.0</li>
+</ol>
+
+<p>The IRS has actually been lenient on RMD penalty waivers historically — especially for first-time misses. But "I forgot" is a much weaker argument than "my custodian miscalculated." Document everything.</p>
+
+<h2>5 Legal Strategies to Reduce Your RMD Tax Hit</h2>
+
+<p>You can't avoid RMDs entirely (unless you're in a Roth). But you can <strong>shrink them, time them, and redirect them</strong> to minimize the damage. Here are five strategies that actually work:</p>
+
+<h3>1. Roth Conversions Before RMDs Start</h3>
+
+<p>Convert traditional IRA dollars to a Roth IRA in your 60s — ideally during the gap years between retirement and your RMD start date when your taxable income is lowest. You'll pay income tax on the conversion now, but every dollar that moves to the Roth is <strong>permanently exempt from future RMDs</strong>. If you convert $100,000 over four years before age 73, that's $100,000 (plus growth) that never hits your RMD calculation.</p>
+
+<h3>2. Qualified Charitable Distributions (QCDs)</h3>
+
+<p>If you're 70½ or older, you can send up to <strong>$105,000 per year</strong> (2024 limit, indexed for inflation) directly from your IRA to a qualified charity. The distribution counts toward your RMD but <strong>is not included in your taxable income</strong>. This is the single best tax hack for charitably-inclined retirees. The money goes from your IRA to the charity — it never touches your bank account, and it never shows up on your 1040.</p>
+
+<h3>3. Qualified Longevity Annuity Contracts (QLACs)</h3>
+
+<p>A QLAC lets you move up to <strong>$200,000</strong> from your IRA into a deferred annuity that starts paying at a later age (up to 85). The QLAC amount is <strong>excluded from your RMD calculation</strong> until the annuity payments begin. This effectively shrinks your RMD base today while guaranteeing income later. It's not for everyone — you're locking up money — but for longevity risk, it works.</p>
+
+<h3>4. Strategic Timing and "Bracket Surfing"</h3>
+
+<p>Take distributions in years when your income is lower — maybe you had large medical deductions, or your spouse stopped working, or you're between Social Security filing and RMD age. The goal is to fill up lower tax brackets on purpose, so your RMDs don't push you into higher ones later. This pairs well with Roth conversions: convert enough each year to fill the 12% or 22% bracket, then stop.</p>
+
+<h3>5. Asset Location: Put High-Growth Assets in the Roth</h3>
+
+<p>If you have both traditional and Roth accounts, hold your <strong>highest-growth investments in the Roth</strong> (where gains are tax-free) and keep lower-growth or income-producing assets in the traditional IRA. This naturally slows the growth of your traditional IRA balance — which means smaller RMDs over time. It's not a magic bullet, but over 10+ years the difference compounds.</p>
+
+<h2>Why Mortgage Notes Inside an IRA Change the RMD Equation</h2>
+
+<p>Here's where most retirement content stops: "reduce your RMDs with these five tricks." Fine. But what if the <em>asset</em> inside your IRA was doing more of the heavy lifting?</p>
+
+<p>Most IRAs are stuffed with mutual funds, ETFs, and maybe some bonds. When it's time to take an RMD, you sell shares at whatever the market gives you. If the S&P is down 20%, you're selling low and paying taxes on the withdrawal. That's the forced liquidation problem.</p>
+
+<p><strong>Mortgage notes work differently.</strong> A note inside a <a href="/how-does-an-sdira-work">self-directed IRA</a> generates <strong>monthly cash flow</strong> — borrower payments come into the IRA as interest income. When it's RMD time, the cash is already sitting there. You're not selling an asset at a loss. You're distributing cash that the note already produced.</p>
+
+<ul>
+  <li><strong>Traditional SDIRA + notes:</strong> Borrower payments grow tax-deferred. RMDs come from accumulated cash flow — no forced asset sales.</li>
+  <li><strong>Roth SDIRA + notes:</strong> Borrower payments grow <strong>tax-free</strong>. No RMDs during your lifetime. The interest compounds forever inside the Roth, and your heirs inherit the income stream.</li>
+  <li><strong>Typical yields:</strong> <a href="/what-is-non-performing-note-investing">Non-performing notes</a> bought at 30–60 cents on the dollar can yield 8–15% annually once re-performed — far above the 4–5% most bond-heavy IRAs generate.</li>
+</ul>
+
+<blockquote>"The best RMD strategy isn't just about reducing the withdrawal — it's about making sure the asset inside your IRA is producing enough cash that the withdrawal doesn't hurt."</blockquote>
+
+<p>You're still subject to RMD rules in a traditional SDIRA. But when the note is throwing off $800/month in payments and your annual RMD is $35,000, you've already got $9,600 sitting in cash before you touch the principal. The math just works cleaner.</p>
+
+<h2>RMDs vs. Living Off Note Income: A Side-by-Side</h2>
+
+<p>Let's compare two retirees. Both are 74, both have $500,000 in retirement accounts.</p>
+
+<p><strong>Retiree A: Traditional IRA with index funds</strong></p>
+<ul>
+  <li>RMD at 74: approximately $19,230 (using IRS Uniform Table divisor of 26.0)</li>
+  <li>Must sell shares to generate the cash</li>
+  <li>If market is down, selling at a loss</li>
+  <li>Full amount taxed as ordinary income</li>
+  <li>Portfolio yield: ~2% dividends = $10,000/year passive cash</li>
+  <li>Gap to cover: $9,230 in forced liquidation</li>
+</ul>
+
+<p><strong>Retiree B: Self-directed IRA with 4 performing mortgage notes</strong></p>
+<ul>
+  <li>Same RMD requirement: $19,230</li>
+  <li>Notes generating ~10% blended yield = $50,000/year in payments flowing into the IRA</li>
+  <li>RMD covered entirely by cash flow — zero assets sold</li>
+  <li>Still taxed as ordinary income (traditional IRA), but no forced liquidation</li>
+  <li>Excess cash ($30,770) stays in the IRA, compounding tax-deferred</li>
+</ul>
+
+<p>Same RMD. Same tax treatment. Completely different experience. Retiree A is a forced seller. Retiree B is a cash-flow collector who happens to move some of that cash outside the IRA once a year.</p>
+
+<p>And if Retiree B had those notes in a <strong>Roth SDIRA</strong>? No RMD at all. That $50,000 in annual note payments just keeps compounding — tax-free — until they choose to take it out. Or don't.</p>
+
+<p>That's the real power play: <a href="/non-performing-note-exit-strategies">notes inside a Roth</a> don't just reduce the RMD problem. They eliminate it entirely.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. If you're exploring SDIRA investing, note income strategies, or retirement cash flow alternatives, <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">book a free strategy call</a> — no pitch, just math.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to make your retirement money work harder?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">&copy; 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+
+<!-- ══ QUIZ DATA ══ -->
+<script>
+const quizData = [
+  {
+    question: "Starting in 2033, at what age must people born in 1960 or later begin taking RMDs?",
+    options: ["Age 73", "Age 75", "Age 72", "Age 70½"],
+    correct: 1,
+    explanation: "Under SECURE Act 2.0, people born in 1960 or later won't need to start RMDs until age 75 (effective 2033). Those born 1951\u20131959 start at 73."
+  },
+  {
+    question: "What is the current penalty for missing a Required Minimum Distribution?",
+    options: ["50% of the missed amount", "25% of the missed amount", "10% of the missed amount", "No penalty \u2014 just back taxes"],
+    correct: 1,
+    explanation: "SECURE Act 2.0 reduced the RMD penalty from 50% to 25%. If corrected within two years, it drops further to just 10%."
+  },
+  {
+    question: "Which strategy lets you donate up to $105,000 from your IRA directly to charity, reducing your taxable RMD?",
+    options: ["Roth conversion", "Qualified Longevity Annuity Contract (QLAC)", "Qualified Charitable Distribution (QCD)", "Backdoor Roth IRA"],
+    correct: 2,
+    explanation: "A QCD lets those 70\u00bd+ send up to $105,000/year directly from their IRA to charity. It counts toward the RMD but isn't included in taxable income."
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
