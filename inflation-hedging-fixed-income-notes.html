@@ -1,878 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices | Take Notes Capital</title>
-    <meta name="description" content="See the real numbers on whether mortgage notes protect against inflation. Compare notes vs bonds, real estate, and stocks — with math.">
-    <meta name="keywords" content="inflation hedge mortgage notes, fixed income investing inflation protection, real assets inflation protection 2026, mortgage notes vs bonds inflation, portfolio diversification inflation risk, financial security rising prices, passive income inflation adjusted, real estate investing inflation hedge, note investing returns inflation, protecting wealth from inflation">
-    <meta name="author" content="Take Notes Capital">
-    <meta property="og:title" content="Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices | Take Notes Capital Blog</title>
+    <meta property="og:title" content="Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices | Take Notes Capital Blog">
     <meta property="og:description" content="See the real numbers on whether mortgage notes protect against inflation. Compare notes vs bonds, real estate, and stocks — with math.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://takenotescapital.com/inflation-hedging-fixed-income-notes.html">
     <link rel="canonical" href="https://takenotescapital.com/inflation-hedging-fixed-income-notes.html">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="blog.css">
-    
-    <style>
-        :root {
-            --cat-color: #f0a500;
-            --cat-gradient: linear-gradient(135deg, #0d1428 0%, #3d2e0a 100%);
-            --accent: #5ba4e6;
-            --navy: #0a0e1a;
-            --navy-mid: #0f1320;
-            --navy-card: #141a2e;
-            --navy-border: #1f2638;
-            --gray: #8b94a8;
-            --gray-light: #a8b0c0;
-            --white: #e8eaf0;
-            --font-display: 'Playfair Display', serif;
-            --font-body: 'DM Sans', sans-serif;
-        }
-        
-        body {
-            background: var(--navy);
-            color: var(--white);
-            font-family: var(--font-body);
-        }
-        
-        .post-hero {
-            background: var(--cat-gradient);
-            padding: 4rem 2rem 3rem;
-            border-bottom: 1px solid var(--navy-border);
-            text-align: center;
-        }
-        
-        .hero-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .category-badge {
-            display: inline-block;
-            background: rgba(240, 165, 0, 0.2);
-            color: var(--cat-color);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.4rem 0.8rem;
-            border-radius: 999px;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(240, 165, 0, 0.3);
-        }
-        
-        .post-hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 5vw, 2.8rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin: 0 0 1rem 0;
-            color: var(--white);
-        }
-        
-        .post-excerpt {
-            font-size: 1.05rem;
-            color: var(--gray-light);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-        
-        .post-meta {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-        }
-        
-        .post-discuss-badge {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .author-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .author-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 999px;
-            background: var(--navy-card);
-            border: 2px solid var(--navy-border);
-        }
-        
-        .author-info {
-            text-align: left;
-        }
-        
-        .author-name {
-            font-weight: 600;
-            margin: 0;
-            color: var(--white);
-        }
-        
-        .author-title {
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin: 0.2rem 0 0 0;
-        }
-        
-        .post-layout {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        
-        .post-content {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--white);
-        }
-        
-        .post-content h2 {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-top: 2.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--white);
-            line-height: 1.2;
-        }
-        
-        .post-content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--white);
-        }
-        
-        .post-content p {
-            margin: 0 0 1.2rem 0;
-        }
-        
-        .post-content ul, .post-content ol {
-            margin: 1.2rem 0 1.2rem 1.5rem;
-        }
-        
-        .post-content li {
-            margin-bottom: 0.6rem;
-        }
-        
-        .post-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: var(--navy-card);
-            border: 1px solid var(--navy-border);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .post-content table th {
-            background: var(--navy-mid);
-            color: var(--accent);
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            border-bottom: 1px solid var(--navy-border);
-        }
-        
-        .post-content table td {
-            padding: 0.9rem 1rem;
-            border-bottom: 1px solid var(--navy-border);
-        }
-        
-        .post-content table tr:last-child td {
-            border-bottom: none;
-        }
-        
-        .post-divider {
-            margin: 3rem 0;
-            border: none;
-            border-top: 1px solid var(--navy-border);
-        }
-        
-        .author-bio {
-            background: var(--navy-card);
-            border: 1px solid var(--navy-border);
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .author-bio h3 {
-            margin-top: 0;
-        }
-        
-        .quiz-section {
-            background: var(--navy-card);
-            border: 1px solid var(--navy-border);
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .quiz-section h2 {
-            margin-top: 0;
-        }
-        
-        .quiz-question {
-            margin-bottom: 2rem;
-        }
-        
-        .quiz-question h3 {
-            margin-top: 0;
-        }
-        
-        .quiz-options {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        
-        .quiz-options label {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            padding: 0.8rem;
-            border-radius: 6px;
-            cursor: pointer;
-            background: var(--navy);
-            border: 1px solid var(--navy-border);
-            transition: all 0.2s;
-        }
-        
-        .quiz-options label:hover {
-            background: var(--navy-mid);
-            border-color: var(--accent);
-        }
-        
-        .quiz-options input {
-            margin-top: 0.2rem;
-            cursor: pointer;
-        }
-        
-        .quiz-results {
-            background: var(--navy);
-            border: 2px solid var(--accent);
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .bottom-cta {
-            text-align: center;
-            margin: 3rem 0;
-            padding: 2rem;
-            background: var(--navy-card);
-            border-radius: 8px;
-        }
-        
-        .bottom-cta h3 {
-            margin-top: 0;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--navy);
-            padding: 0.9rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.2s;
-        }
-        
-        .cta-button:hover {
-            background: #7bb8f0;
-            transform: translateY(-2px);
-        }
-        
-        .blog-footer {
-            background: var(--navy-mid);
-            border-top: 1px solid var(--navy-border);
-            padding: 3rem 2rem 1rem;
-            margin-top: 4rem;
-        }
-        
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-section h4 {
-            color: var(--white);
-            margin-top: 0;
-        }
-        
-        .footer-section a {
-            color: var(--gray);
-            text-decoration: none;
-        }
-        
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid var(--navy-border);
-            padding-top: 2rem;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-        
-        .tagline {
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-    </style>
+<meta name="description" content="See the real numbers on whether mortgage notes protect against inflation. Compare notes vs bonds, real estate, and stocks — with math.">
+<meta name="keywords" content="inflation hedge mortgage notes, fixed income investing inflation protection, real assets inflation protection 2026, mortgage notes vs bonds inflation, portfolio diversification inflation risk, financial security rising prices, passive income inflation adjusted, real estate investing inflation hedge, note investing returns inflation, protecting wealth from inflation">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+.comment-section { margin: 3rem 0; }
+.comment-section-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav class="blog-nav" style="background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); padding: 1rem 2rem;">
-    <div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-        <a href="https://takenotescapital.com" style="color: var(--white); text-decoration: none; font-weight: 700; font-size: 1.1rem;">Take Notes Capital</a>
-        <div style="display: flex; gap: 2rem;">
-            <a href="https://takenotescapital.com" style="color: var(--gray); text-decoration: none;">Home</a>
-            <a href="https://takenotescapital.com/blog.html" style="color: var(--gray); text-decoration: none;">Blog</a>
-            <a href="https://calendly.com/takenotescapital" target="_blank" style="color: var(--accent); text-decoration: none; font-weight: 600;">Book a Call</a>
-        </div>
-    </div>
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
 </nav>
 
-<!-- POST HERO HEADER -->
+<!-- ══ POST HERO ══ -->
 <header class="post-hero">
-    <div class="hero-container">
-        <div class="category-badge">💰 Retirement Investing</div>
-        <h1>Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices</h1>
-        <p class="post-excerpt">Happy Memorial Day. The truth about protecting what matters most — your family's financial security in an inflationary world.</p>
-        <div class="post-meta">
-            <span class="post-date">May 27, 2026</span>
-            <span class="post-read-time">8 min read</span>
-            <a href="https://discord.gg/clawd" class="post-discuss-badge" target="_blank">💬 Discuss</a>
-        </div>
-        <div class="author-row">
-            <img src="https://takenotescapital.com/aj-avatar.jpg" alt="AJ" class="author-avatar">
-            <div class="author-info">
-                <p class="author-name">By AJ</p>
-                <p class="author-title">Real Estate Note Investor & Founder, Take Notes Capital</p>
-            </div>
-        </div>
-    </div>
+  <div class="post-meta-row">
+    <span class="post-cat-tag cat-retire">💰 Retirement Investing</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">May 27, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">8 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Inflation-Hedging: Why Fixed-Income Notes Are (Or Aren't) a Hedge Against Rising Prices</h1>
+  <p class="post-excerpt">Happy Memorial Day. The truth about protecting what matters most — your family's financial security in an inflationary world.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
 </header>
 
-<!-- POST LAYOUT -->
+<!-- ══ POST CONTENT ══ -->
 <div class="post-layout">
-<div class="post-content">
+  <div class="post-content">
 
-<!-- INTRO -->
-<p><strong>Here's the uncomfortable truth:</strong> If you're holding cash or traditional bonds right now, inflation is quietly stealing your purchasing power every single month.</p>
+<p>Here's the uncomfortable truth: if you're holding cash or traditional bonds right now, inflation is quietly stealing your purchasing power every single month. A dollar today isn't worth a dollar tomorrow — and if you're relying on fixed-income investments to build wealth for your family, you need to understand exactly how inflation attacks your portfolio.</p>
 
-<p>A dollar today isn't worth a dollar tomorrow. And if you're relying on fixed-income investments to build wealth for your family, you need to understand exactly how inflation attacks your portfolio — and whether mortgage notes actually protect you.</p>
+<p>The question that matters: do mortgage notes actually protect you? Or are they just bonds with extra steps?</p>
 
 <p>This post breaks down the real math. We'll compare notes to bonds, stocks, real estate, and inflation itself. You'll see why some investors use notes as an inflation hedge (and why they're partially right), and why others realize too late that fixed income can be a trap.</p>
 
-<p><em>Let's dig in.</em></p>
-
-<!-- SECTION 1 -->
 <h2>What Is Inflation & Why It Matters Right Now</h2>
 
-<p>Inflation is the rate at which the general level of prices for goods and services rises. When inflation is high, your money buys less.</p>
+<p>Inflation is the rate at which the general level of prices for goods and services rises. When inflation is high, your money buys less. Simple in concept, brutal in practice.</p>
 
-<p>Here's what matters for investors:</p>
+<p>Here's what actually matters for investors:</p>
 
 <ul>
-<li><strong>Your "real return"</strong> = Your investment return MINUS inflation.</li>
-<li><strong>If you earn 5% but inflation is 6%,</strong> you're actually losing 1% of purchasing power per year.</li>
-<li><strong>If you earn 7% and inflation is 3%,</strong> your real return is 4%.</li>
+<li><strong>Real return</strong> = Your investment return MINUS inflation</li>
+<li><strong>If you earn 5% but inflation is 6%:</strong> You're losing 1% of purchasing power per year</li>
+<li><strong>If you earn 7% and inflation is 3%:</strong> Your real return is 4%</li>
 </ul>
 
-<p>In 2026, inflation has cooled from the 2021-2023 highs, but it's still running above 3%. That means any fixed-income investment paying less than 3-4% is losing money in real terms.</p>
+<p>In 2026, inflation has cooled from the 2021-2023 highs, but it's still running above 3%. That means any fixed-income investment paying less than 3-4% is losing money in real terms. The number on your account statement is going up. Your actual buying power is going down.</p>
 
-<p><strong>Why families should care:</strong> If you're building wealth to fund retirement, pay for kids' college, or leave an inheritance, inflation is the silent thief. It doesn't matter if you have "a lot of money" if that money buys less every year.</p>
+<blockquote>"Inflation is the silent thief. It doesn't matter if you have 'a lot of money' if that money buys less every year."</blockquote>
 
-<!-- SECTION 2 -->
+<p>If you're building wealth to fund retirement, pay for kids' college, or leave an inheritance, this isn't academic. The dollar you save at 40 needs to still mean something at 65 — and the only way that happens is if your investments outpace inflation.</p>
+
 <h2>How Inflation Eats Into Different Asset Classes</h2>
 
-<p>Different investments respond to inflation very differently. Let's break it down:</p>
+<p>Different investments respond to inflation in very different ways. Some adapt. Some get crushed. Here's the breakdown:</p>
 
 <h3>Cash (Savings Accounts)</h3>
-<ul>
-<li><strong>Inflation protection:</strong> Zero. Negative, actually.</li>
-<li><strong>Current rates:</strong> 4-5% APY on high-yield savings</li>
-<li><strong>If inflation is 3.5%:</strong> Real return = 0.5-1.5% (barely beating inflation)</li>
-<li><strong>Bottom line:</strong> Cash is a parking spot, not an investment.</li>
-</ul>
+
+<p>Inflation protection: <strong>Zero. Negative, actually.</strong></p>
+
+<p>Even at 4-5% APY on high-yield savings, you're barely treading water when inflation runs at 3.5%. Real return: 0.5-1.5%. Cash is a parking spot, not an investment.</p>
 
 <h3>Bonds (Traditional)</h3>
-<ul>
-<li><strong>Inflation protection:</strong> Poor.</li>
-<li><strong>Fixed rate bonds:</strong> Lock in a rate at purchase. If inflation rises after you buy, you're stuck with a lower return.</li>
-<li><strong>Example:</strong> You buy a 10-year bond at 4.5%. Two years later, inflation spikes to 5.5%. Your 4.5% return is now below inflation, but you can't change it without selling at a loss.</li>
-<li><strong>Bottom line:</strong> Bonds are terrible inflation hedges because they lock in fixed returns.</li>
-</ul>
+
+<p>Inflation protection: <strong>Poor.</strong></p>
+
+<p>Fixed-rate bonds lock in a rate at purchase. If inflation rises after you buy, you're stuck with a lower return — and selling early means realizing a capital loss because new bonds are being issued at higher rates. You're trapped: hold and lose purchasing power, or sell and book a loss.</p>
 
 <h3>Stocks</h3>
-<ul>
-<li><strong>Inflation protection:</strong> Moderate to strong (long-term).</li>
-<li><strong>Why:</strong> Companies can raise prices, so earnings often keep pace with inflation.</li>
-<li><strong>But:</strong> Short-term volatility can be brutal. You might underperform inflation for 3-5 years.</li>
-<li><strong>Bottom line:</strong> Stocks are an inflation hedge if you have a long time horizon (10+ years).</li>
-</ul>
+
+<p>Inflation protection: <strong>Moderate to strong (long-term).</strong></p>
+
+<p>Companies can raise prices, so earnings often keep pace with inflation. But short-term volatility can be brutal. You might underperform inflation for 3-5 years before catching up. Stocks work if you have a 10+ year horizon and the stomach to ride out the dips.</p>
 
 <h3>Real Estate (Physical Property)</h3>
-<ul>
-<li><strong>Inflation protection:</strong> Strong.</li>
-<li><strong>Why:</strong> Rents and property values tend to rise with inflation. If you own a rental, your income grows even if your mortgage stays fixed.</li>
-<li><strong>But:</strong> Requires active management, tenant headaches, and maintenance costs.</li>
-<li><strong>Bottom line:</strong> Real estate is an inflation hedge, but it's a job.</li>
-</ul>
+
+<p>Inflation protection: <strong>Strong.</strong></p>
+
+<p>Rents and property values tend to rise with inflation. If you own a rental, your income grows even as your mortgage payment stays fixed. The downside? Active management, tenant headaches, maintenance costs, vacancy risk. It's a hedge, but it's also a job.</p>
 
 <h3>Mortgage Notes</h3>
-<ul>
-<li><strong>Inflation protection:</strong> Depends on structure. (More on this below.)</li>
-<li><strong>Fixed-rate notes:</strong> Same problem as bonds — locked-in rates.</li>
-<li><strong>Adjustable-rate notes:</strong> Rate adjusts with market, so you benefit from inflation-driven rate increases.</li>
-<li><strong>Bottom line:</strong> Notes can be an inflation hedge — but only if structured correctly.</li>
-</ul>
 
-<!-- SECTION 3 -->
+<p>Inflation protection: <strong>Depends on structure.</strong></p>
+
+<p>Fixed-rate notes have the same problem as bonds — locked-in rates. But unlike bonds, notes are backed by real collateral that appreciates with inflation. And unlike bonds, you have multiple exit strategies. We'll get into the math in a minute.</p>
+
 <h2>Why Traditional Bonds Fail as an Inflation Hedge</h2>
 
-<p>This is the critical insight that most financial advisors skip over.</p>
+<p>This is the critical insight most financial advisors skip over.</p>
 
-<p>A traditional bond is a contract that says: "I (the bond issuer) will pay you X% interest per year for Y years, then return your principal." That rate is <strong>locked in forever.</strong></p>
+<p>A traditional bond is a contract: "I'll pay you X% interest per year for Y years, then return your principal." That rate is <strong>locked in forever.</strong> No adjustments. No upside. Just a promise.</p>
 
-<p><strong>The problem:</strong> If inflation rises after you buy the bond, you're stuck receiving the original rate. Your purchasing power erodes.</p>
+<p>The problem: if inflation rises after you buy the bond, you're stuck receiving the original rate. Your purchasing power erodes month after month, and there's nothing you can do about it — except sell the bond at a loss in the secondary market.</p>
 
-<p><strong>Real example (2023):</strong></p>
+<p><strong>Real example from 2023:</strong></p>
+
 <ul>
-<li>You buy a 10-year Treasury bond at 3.5% (thinking it's good).</li>
-<li>Inflation is 4% at purchase (you're already slightly underwater).</li>
-<li>Inflation spikes to 5.5% a year later.</li>
-<li>Your 3.5% rate is now worth 2% real return (or -2% if inflation goes to 5.5%).</li>
-<li>You can sell the bond, but the market value drops because new bonds are being issued at higher rates.</li>
-<li><strong>You're trapped:</strong> Hold and lose purchasing power, or sell and realize a capital loss.</li>
+<li>Buy a 10-year Treasury bond at 3.5% (thinking it's solid)</li>
+<li>Inflation is 4% at purchase — you're already slightly underwater</li>
+<li>Inflation spikes to 5.5% a year later</li>
+<li>Your 3.5% return is now worth -2% in real terms</li>
+<li>Try to sell? The market value drops because new bonds are being issued at higher rates</li>
+<li>You're trapped: hold and lose purchasing power, or sell and realize a capital loss</li>
 </ul>
 
-<p><strong>That's why bonds fail:</strong> They don't adapt to inflation. They're a one-way bet on low interest rates.</p>
+<p>That's why bonds fail. They don't adapt to inflation. They're a one-way bet on low interest rates — and when rates rise (which they do during inflation), bondholders get hammered from both sides.</p>
 
-<p>Mortgage notes are different — if structured correctly.</p>
-
-<!-- SECTION 4 -->
 <h2>How Mortgage Notes Are Different (The 3 Reasons)</h2>
 
-<p>Here's why note investors can use mortgage notes as an inflation hedge when bonds can't:</p>
+<p>Here's why note investors can use mortgage notes as an inflation hedge when bonds can't.</p>
 
-<h3>Reason #1: Higher Baseline Yield</h3>
-<p>A typical mortgage note pays 8-12% annually. A Treasury bond pays 4-5%. Even with a cushion for inflation and risk, notes pay significantly more. If inflation runs to 4-5%, a 10% note still leaves you ahead.</p>
+<h3>1. Higher Baseline Yield</h3>
 
-<h3>Reason #2: You Own the Collateral</h3>
-<p>When you own a mortgage note, you hold a lien on real property. That property has a real-world value that tends to rise with inflation. If inflation spikes, the collateral backing your note appreciates. That's not true for a bond — the bond doesn't own anything except the promise of future cash.</p>
+<p>A typical performing mortgage note pays 8-12% annually. A Treasury bond pays 4-5%. Even with a cushion for inflation and risk, notes pay significantly more. If inflation runs at 4-5%, a 10% note still leaves you ahead. A 4.5% bond doesn't.</p>
 
-<h3>Reason #3: Multiple Exit Strategies (Including Appreciation)</h3>
-<p>With a note, you have choices:</p>
+<h3>2. You Own the Collateral</h3>
+
+<p>When you own a mortgage note, you hold a lien on real property. That property has a real-world value that tends to rise with inflation. If inflation spikes, the collateral backing your note appreciates — meaning your downside scenario (foreclosure and sale) actually gets better, not worse.</p>
+
+<p>A bond doesn't own anything except the promise of future cash. If the issuer defaults, you're an unsecured creditor in line behind everyone else. With a note, you're senior-secured to physical real estate.</p>
+
+<h3>3. Multiple Exit Strategies</h3>
+
+<p>With a note, you have options:</p>
+
 <ul>
-<li><strong>Hold for yield</strong> — collect 10% interest annually (beats inflation)</li>
-<li><strong>Foreclose and sell the property</strong> — capture appreciation if market rises</li>
-<li><strong>Modify and sell</strong> — workout the borrower, resale the "reperformed" note at a premium</li>
+<li><strong>Hold for yield</strong> — collect 8-12% interest annually</li>
+<li><strong>Foreclose and sell the property</strong> — capture appreciation if the market rises</li>
+<li><strong>Modify and re-perform</strong> — work out the borrower, sell the "re-performing" note at a premium</li>
 <li><strong>Re-hypothecate</strong> — use the note as collateral for leverage</li>
 </ul>
-<p>With a bond, you hold it or sell it. That's it.</p>
 
-<!-- SECTION 5 -->
+<p>With a bond, you hold it or sell it. That's it. No flexibility. No upside outside the coupon.</p>
+
+<blockquote>"Notes give you 80% of the inflation protection of real estate with 20% of the headache. That's the trade most investors are missing."</blockquote>
+
 <h2>Real Numbers: Notes vs Bonds vs Real Estate vs Stocks</h2>
 
-<p>Let's compare four investors, each with $50,000, over 5 years with 4% average inflation:</p>
+<p>Let's compare four investors. Each starts with $50,000. Five-year time horizon. Average inflation: 4%.</p>
 
 <h3>Investor #1: Traditional Bond</h3>
+
 <ul>
-<li><strong>Investment:</strong> $50K in Treasury bonds at 4.5%</li>
-<li><strong>Annual yield:</strong> $2,250 (4.5%)</li>
-<li><strong>5-year total return:</strong> $11,250 + principal</li>
-<li><strong>Real return (adjusted for 4% inflation):</strong> 0.5% (basically nothing)</li>
-<li><strong>Purchasing power of $50K after 5 years:</strong> ~$41,000</li>
-<li><strong>Bottom line:</strong> Money grows nominally but loses in real terms.</li>
+<li>$50K in Treasury bonds at 4.5%</li>
+<li>Annual yield: $2,250</li>
+<li>5-year total: $11,250 + principal</li>
+<li>Real return (4% inflation): 0.5% — basically nothing</li>
+<li>Purchasing power of $50K after 5 years: ~$41,000</li>
 </ul>
 
 <h3>Investor #2: Mortgage Note</h3>
+
 <ul>
-<li><strong>Investment:</strong> $50K down payment on a $100K mortgage note at 10%</li>
-<li><strong>Annual yield:</strong> $10,000 (10% on the $100K note UPB)</li>
-<li><strong>5-year total return:</strong> $50K interest collected + collateral appreciation (let's say 3%/year = ~$8K)</li>
-<li><strong>Real return (adjusted for 4% inflation):</strong> ~5-6% real</li>
-<li><strong>Purchasing power of returns:</strong> ~$29,000 (after inflation adjustment)</li>
-<li><strong>Bottom line:</strong> Interest beats inflation, collateral appreciation is upside.</li>
+<li>$50K invested in a performing note at 10% yield</li>
+<li>Annual yield: $5,000</li>
+<li>5-year total: $25,000 in interest + ~$8K collateral appreciation</li>
+<li>Real return (4% inflation): 5-6% real</li>
+<li>Bonus: collateral hedge if foreclosure becomes the exit</li>
 </ul>
 
 <h3>Investor #3: Rental Property</h3>
+
 <ul>
-<li><strong>Investment:</strong> $50K down payment on $200K rental property</li>
-<li><strong>Annual rental income:</strong> ~$12,000 (6% gross yield)</li>
-<li><strong>Less expenses (taxes, insurance, maintenance):</strong> ~$6,000 (50% of rent)</li>
-<li><strong>Net cash flow:</strong> $6,000/year</li>
-<li><strong>5-year total:</strong> $30K cash flow + property appreciation (~3% = $30K) + mortgage paydown (~$20K) = $80K gain</li>
-<li><strong>Real return (adjusted for 4% inflation):</strong> ~7-8% real</li>
-<li><strong>But:</strong> Requires active management, tenant headaches, capital calls for repairs.</li>
-<li><strong>Bottom line:</strong> Strongest hedge, but not passive.</li>
+<li>$50K down on $200K rental</li>
+<li>Net cash flow after expenses: ~$6,000/year</li>
+<li>5-year total: $30K cash flow + $30K appreciation + $20K mortgage paydown = $80K gain</li>
+<li>Real return (4% inflation): 7-8% real</li>
+<li>Cost: active management, tenant management, capital reserves</li>
 </ul>
 
 <h3>Investor #4: Stock Index Fund</h3>
+
 <ul>
-<li><strong>Investment:</strong> $50K in S&P 500 index fund</li>
-<li><strong>Historical average return:</strong> ~10% annually (including dividends)</li>
-<li><strong>5-year total (bull market scenario):</strong> ~$80K gain</li>
-<li><strong>Real return (adjusted for 4% inflation):</strong> ~6% real</li>
-<li><strong>But:</strong> Highly volatile. In a bear market, could be -20% in year 2.</li>
-<li><strong>Bottom line:</strong> Good long-term hedge, bad short-term visibility.</li>
+<li>$50K in S&P 500 index fund</li>
+<li>Historical average: ~10% annually with dividends</li>
+<li>5-year total (bull market): ~$80K gain</li>
+<li>Real return (4% inflation): ~6% real</li>
+<li>Risk: in a bear market, could be -20% in year 2</li>
 </ul>
 
-<h3>Comparison Table</h3>
-<table>
-<tr>
-<th>Asset</th>
-<th>Nominal Return (5yr)</th>
-<th>Real Return</th>
-<th>Passivity</th>
-<th>Hedge Quality</th>
-</tr>
-<tr>
-<td>Treasury Bond</td>
-<td>4.5%</td>
-<td>0.5%</td>
-<td>Passive</td>
-<td>❌ Poor</td>
-</tr>
-<tr>
-<td>Mortgage Note</td>
-<td>10%</td>
-<td>5-6%</td>
-<td>Mostly passive</td>
-<td>✅ Strong</td>
-</tr>
-<tr>
-<td>Rental Property</td>
-<td>9-10%</td>
-<td>7-8%</td>
-<td>Active</td>
-<td>✅✅ Excellent</td>
-</tr>
-<tr>
-<td>Stock Index</td>
-<td>10%</td>
-<td>6%</td>
-<td>Passive</td>
-<td>✅ Good (long-term)</td>
-</tr>
-</table>
+<p><strong>Key insight:</strong> Mortgage notes beat bonds by a huge margin. They rival stocks for long-term returns but with less volatility. Rental properties are best — but require active work. Notes hit the sweet spot of strong real return + passive structure.</p>
 
-<p><strong>Key insight:</strong> Mortgage notes beat bonds by a huge margin. They rival stocks for long-term returns but with less volatility. Rental properties are best but require work.</p>
-
-<!-- SECTION 6 -->
 <h2>The Inflation Sweet Spot for Note Investors</h2>
 
-<p>Here's where note investors have an edge:</p>
+<p>Here's where note investors have a real edge. Different inflation environments call for different strategies.</p>
 
-<p><strong>When inflation is 2-3%:</strong> A 10% note is fantastic. You're earning 7-8% real return. Easy call.</p>
+<ul>
+<li><strong>Inflation 2-3%:</strong> A 10% note is fantastic. 7-8% real return. Easy call.</li>
+<li><strong>Inflation 4-5%:</strong> A 10% note is still solid. 5-6% real return. Better than bonds or cash.</li>
+<li><strong>Inflation 6-7%:</strong> A 10% note becomes marginal. 3-4% real return. You'd be tempted to pass and wait for higher-yielding deals.</li>
+<li><strong>Inflation 8%+:</strong> A 10% note is NOT a hedge. Only 2% real return (negative after taxes). This is where fixed-income strategies break down.</li>
+</ul>
 
-<p><strong>When inflation is 4-5%:</strong> A 10% note is still solid. You're earning 5-6% real return. Still better than bonds or cash.</p>
+<p>The sweet spot: <strong>inflation below 5%, note yields above 8-9%.</strong> That's where you get 4-5%+ real returns, beat the market, and sleep at night.</p>
 
-<p><strong>When inflation is 6-7%:</strong> A 10% note becomes marginal. You're earning 3-4% real return. You'd be tempted to pass and wait for better rates.</p>
-
-<p><strong>When inflation is 8%+:</strong> A 10% note is NOT a hedge. You're only earning 2% real return (maybe negative after taxes). This is where fixed-income fails.</p>
-
-<p><strong>The sweet spot:</strong> Inflation below 5%, fixed-rate notes above 8-9%. That's where you get 4-5%+ real returns, beat the market, and sleep at night.</p>
-
-<!-- SECTION 7 -->
 <h2>What Inflation Rate Actually Kills Your Returns?</h2>
 
-<p>Let's be precise. Here's the breakeven analysis:</p>
+<p>Let's be precise about the breakeven math. Your real return = Note yield - Inflation rate.</p>
 
-<table>
-<tr>
-<th>Note Yield</th>
-<th>Breakeven Inflation</th>
-<th>Real Return at 4% Inflation</th>
-<th>Real Return at 6% Inflation</th>
-</tr>
-<tr>
-<td>8%</td>
-<td>8%</td>
-<td>4%</td>
-<td>2%</td>
-</tr>
-<tr>
-<td>10%</td>
-<td>10%</td>
-<td>6%</td>
-<td>4%</td>
-</tr>
-<tr>
-<td>12%</td>
-<td>12%</td>
-<td>8%</td>
-<td>6%</td>
-</tr>
-</table>
-
-<p><strong>The pattern:</strong> Your real return = Note yield - Inflation rate.</p>
-
-<p>If you buy a 10% note and inflation runs at 6%, your real return is 4%. If inflation jumps to 8%, your real return is 2%. If inflation hits 10%, your real return is 0% (you're just keeping pace).</p>
-
-<p><strong>The critical takeaway:</strong> Fixed-rate notes ARE hedges against moderate inflation (2-4%), but they FAIL as inflation hedges if inflation exceeds your note's yield.</p>
-
-<p>That's the difference between notes and real estate:</p>
 <ul>
-<li><strong>Real estate:</strong> Rents adjust upward with inflation. Your 10% yield in year 1 becomes 11% in year 3 because rents rise.</li>
-<li><strong>Fixed notes:</strong> 10% stays 10%. If inflation rises, your real return shrinks.</li>
+<li><strong>8% note yield:</strong> Breakeven at 8% inflation. Real return at 4% inflation = 4%. At 6% inflation = 2%.</li>
+<li><strong>10% note yield:</strong> Breakeven at 10% inflation. Real return at 4% inflation = 6%. At 6% inflation = 4%.</li>
+<li><strong>12% note yield:</strong> Breakeven at 12% inflation. Real return at 4% inflation = 8%. At 6% inflation = 6%.</li>
 </ul>
 
-<!-- SECTION 8 -->
+<p>The critical takeaway: fixed-rate notes ARE hedges against moderate inflation (2-4%), but they FAIL if inflation exceeds your note's yield. There's no magic. The math is the math.</p>
+
+<p>That's the difference between notes and real estate. Real estate's rents adjust upward with inflation — your 10% yield in year 1 might become 11% in year 3 because rents rose. Fixed notes don't adjust. 10% stays 10%, even as inflation chews through your real return.</p>
+
 <h2>How to Actually Build an Inflation Hedge With Notes</h2>
 
-<p>If you want to use notes as an inflation hedge (not just a yield vehicle), here's the framework:</p>
+<p>If you want to use notes as a real inflation hedge (not just a yield play), here's the framework:</p>
 
 <h3>1. Buy Low-Basis Notes (High Real Discount)</h3>
-<p>Target notes at 30-50 cents on the dollar, not par. Why? Because when (not if) you foreclose or modify, you capture appreciation on the collateral. That appreciation is your inflation hedge.</p>
-<ul>
-<li>Buy a $100K UPB property for $30K</li>
-<li>Collect 8% yield ($8K/year)</li>
-<li>Property appreciates 3% annually (inflation-driven)</li>
-<li>Total return: 8% + 3% appreciation = 11% nominal, well ahead of inflation</li>
-</ul>
+
+<p>Target <a href="/what-is-non-performing-note-investing">non-performing notes</a> at 30-50 cents on the dollar, not par. When (not if) you foreclose or modify, you capture appreciation on the collateral. That appreciation is your real inflation hedge — it adjusts with the market in a way the coupon can't.</p>
+
+<p>Example: buy a $100K UPB note for $30K. Collect 8% yield ($8K/year). Property appreciates 3% annually. Total return: 8% income + 3% appreciation = 11% nominal, well ahead of inflation.</p>
 
 <h3>2. Focus on Properties in Appreciating Markets</h3>
-<p>Not all real estate appreciates the same. Buy notes backed by property in markets with strong fundamentals: population growth, job growth, low supply. These markets typically appreciate 4-6% annually, which compounds your inflation hedge.</p>
+
+<p>Not all real estate appreciates the same. Buy notes backed by property in markets with strong fundamentals: population growth, job growth, low supply. These markets typically appreciate 4-6% annually — which compounds your inflation hedge over time.</p>
 
 <h3>3. Mix Short-Term and Long-Term Notes</h3>
-<p>Hold some notes to maturity (yield focus). Refinance or resale others within 2-3 years (appreciation capture). This gives you optionality. If inflation spikes, you're not locked into a low-yield note.</p>
 
-<h3>4. Consider Adjustable-Rate Notes (If Available)</h3>
-<p>Some note portfolios have adjustable rates that step up after a fixed period. These are rare in consumer mortgages, but they exist in commercial notes. Your yield increases as rates rise, which is perfect for inflation hedging.</p>
+<p>Hold some notes to maturity for yield. Refinance or resell others within 2-3 years to capture appreciation. This gives you optionality. If inflation spikes, you're not locked into a single low-yield position.</p>
 
-<h3>5. Use an SDIRA for Tax Efficiency</h3>
-<p>Build a note portfolio inside a Roth SDIRA. Your 10% yields compound tax-free. Your collateral appreciation isn't taxed until you sell. This dramatically improves your real return because you're not losing 25-37% of gains to taxes.</p>
+<h3>4. Use an SDIRA for Tax Efficiency</h3>
+
+<p>Build a note portfolio inside a <a href="/how-does-an-sdira-work">Roth SDIRA</a>. Your 10% yield compounds tax-free. Your collateral appreciation isn't taxed until you sell. This dramatically improves your real return because you're not losing 25-37% of gains to taxes.</p>
+
 <ul>
-<li>10% yield in taxable account (after 30% tax) = 7% real</li>
-<li>10% yield in Roth SDIRA (0% tax) = 10% real</li>
-<li><strong>That 3% difference compounds into enormous wealth over 20 years.</strong></li>
+<li>10% yield in taxable account (after 30% tax): 7% real</li>
+<li>10% yield in Roth SDIRA (0% tax): 10% real</li>
 </ul>
 
-<!-- SECTION 9 -->
+<p>That 3% difference compounds into enormous wealth over 20 years. The tax shelter does more for your inflation hedge than chasing a higher coupon.</p>
+
+<h3>5. Diversify Across Markets and Note Types</h3>
+
+<p>Don't concentrate in one geography or one note structure. Mix performing and non-performing. Mix 1st and 2nd liens. Spread across 3-5 markets. Inflation hedging works best when no single failure can take you out.</p>
+
 <h2>The Bottom Line (What Families Need to Know)</h2>
 
-<p>Mortgage notes are NOT a perfect inflation hedge. But they're dramatically better than bonds or cash.</p>
+<p>Mortgage notes are NOT a perfect inflation hedge. But they're dramatically better than bonds or cash — and they hit the sweet spot of passive income + collateral protection that most other asset classes miss.</p>
 
-<p><strong>The truth:</strong></p>
+<p>Here's the truth:</p>
+
 <ul>
-<li><strong>Bonds fail as inflation hedges.</strong> They lock in low rates. Avoid them unless you want capital preservation with no growth.</li>
-<li><strong>Notes are solid hedges IF structured right.</strong> Low basis + appreciating collateral + yield focus = real returns that beat inflation.</li>
-<li><strong>Real estate is the best inflation hedge, but it's work.</strong> Notes give you 80% of the benefit with 20% of the headache.</li>
-<li><strong>Your tax structure matters as much as your returns.</strong> A 10% yield in a Roth SDIRA beats a 12% yield in a taxable account.</li>
+<li><strong>Bonds fail as inflation hedges.</strong> They lock in low rates. Avoid them unless you want capital preservation with zero growth.</li>
+<li><strong>Notes are solid hedges if structured correctly.</strong> Low basis + appreciating collateral + yield focus = real returns that beat inflation.</li>
+<li><strong>Real estate is the strongest hedge, but it's work.</strong> Notes give you most of the benefit without the tenant calls.</li>
+<li><strong>Tax structure matters as much as raw yield.</strong> 10% in a Roth SDIRA beats 12% in a taxable account.</li>
 </ul>
 
-<p><strong>For families building wealth:</strong> If you're serious about inflation protection, notes are worth considering. They beat traditional portfolios, they're easier than landlording, and they let you sleep at night knowing your wealth isn't being quietly stolen by inflation.</p>
+<p>For families building real wealth — not just chasing portfolio statements that look good on paper — notes are worth a serious look. They beat traditional fixed-income, they're easier than landlording, and they let you sleep at night knowing your money isn't being quietly stolen by inflation.</p>
 
-<p><strong>Next step:</strong> If you want to understand whether notes make sense for YOUR situation, let's talk. <a href="https://calendly.com/takenotescapital" style="color: var(--accent); text-decoration: none; font-weight: 600;">Book a call</a> and we'll walk through the numbers together.</p>
+<p>This Memorial Day, while we honor those who sacrificed so we could build the lives we have, take a hard look at what you're doing to protect what you've built. Cash and bonds aren't doing the job. <a href="/being-the-bank-vs-being-a-landlord">Being the bank</a> might be.</p>
 
 <hr class="post-divider">
-<div class="author-bio">
-    <h3>About the Author</h3>
-    <p><strong>AJ</strong> is a real estate note investor and founder of Take Notes Capital. He helps families and entrepreneurs build passive income through non-performing mortgage notes. When he's not underwriting deals, he's sharing what he's learned in the trenches on TikTok, YouTube, and LinkedIn.</p>
-    <p><strong><a href="https://takenotescapital.com" style="color: var(--accent); text-decoration: none;">Learn more at takenotescapital.com</a></strong></p>
-</div>
 
-</div> <!-- close .post-content -->
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. If you're exploring how note investing fits into your inflation strategy or retirement plan, <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">book a free strategy call</a> — no pitch, just math.</em></p>
 
-<!-- QUIZ SECTION -->
-<section id="quizSection" class="quiz-section">
-    <h2>Test Your Knowledge</h2>
-    <div id="quizContainer" class="quiz-container"></div>
-    <div id="quizResults" class="quiz-results" style="display:none;">
-        <h3 id="quizScore"></h3>
-        <p id="quizFeedback"></p>
-        <div class="quiz-email-capture">
-            <label for="quizEmail">Get the full inflation hedging playbook:</label>
-            <input type="email" id="quizEmail" placeholder="your@email.com" style="padding: 0.6rem; border-radius: 6px; border: 1px solid var(--navy-border); background: var(--navy); color: var(--white);">
-            <button onclick="submitQuizEmail()" style="padding: 0.6rem 1.2rem; background: var(--accent); color: var(--navy); border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Send It</button>
-        </div>
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
     </div>
-</section>
-
-<!-- COMMENTS SECTION -->
-<section id="comments" class="comments-section" style="margin-top: 3rem; background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 8px; padding: 2rem;">
-    <h2 style="margin-top: 0;">Join the Discussion</h2>
-    <p>What's your strategy for protecting wealth from inflation? Comment below and let's learn from each other.</p>
-    <div class="comments-form">
-        <textarea id="commentText" placeholder="Share your thoughts..." style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid var(--navy-border); background: var(--navy); color: var(--white); font-family: var(--font-body); min-height: 100px; resize: vertical;"></textarea>
-        <button onclick="submitComment()" style="margin-top: 1rem; padding: 0.6rem 1.5rem; background: var(--accent); color: var(--navy); border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Post Comment</button>
-    </div>
-    <div id="commentsList" class="comments-list" style="margin-top: 2rem;"></div>
-</section>
-
-<!-- BOTTOM CTA -->
-<div class="bottom-cta">
-    <h3>Ready to explore note investing?</h3>
-    <p>Let's walk through the numbers for YOUR situation.</p>
-    <a href="https://calendly.com/takenotescapital" target="_blank" class="cta-button">Book a Free Call</a>
-</div>
-
-</div> <!-- close .post-layout -->
-
-<!-- FOOTER -->
-<footer class="blog-footer">
-    <div class="footer-container">
-        <div class="footer-section">
-            <h4>Take Notes Capital</h4>
-            <p>Building wealth through non-performing mortgage notes.</p>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
         </div>
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><a href="https://takenotescapital.com">Home</a></li>
-                <li><a href="https://takenotescapital.com/blog.html">Blog</a></li>
-                <li><a href="https://calendly.com/takenotescapital">Book a Call</a></li>
-                <li><a href="https://takenotescapital.com/invest-ira-mortgage-notes.html">IRA Note Investing</a></li>
-            </ul>
-        </div>
-        <div class="footer-section">
-            <h4>Follow Us</h4>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-                <li><a href="https://tiktok.com/@takenotescapital" target="_blank">TikTok</a></li>
-                <li><a href="https://youtube.com/takenotescapital" target="_blank">YouTube</a></li>
-                <li><a href="https://linkedin.com/company/takenotescapital" target="_blank">LinkedIn</a></li>
-                <li><a href="https://instagram.com/takenotescapital" target="_blank">Instagram</a></li>
-            </ul>
-        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
     </div>
-    <div class="footer-bottom">
-        <p>&copy; 2026 Take Notes Capital. All rights reserved.</p>
-        <p class="tagline">Earn like you own the building. Live like you never bought one.</p>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
     </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to make your retirement money work harder?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">&copy; 2026 Take Notes Capital. All rights reserved.</p>
 </footer>
 
-<!-- FLOATING BOOK A CALL BUTTON -->
-<div style="position: fixed; bottom: 2rem; right: 2rem; z-index: 999;">
-    <a href="https://calendly.com/takenotescapital" target="_blank" style="display: inline-block; background: var(--accent); color: var(--navy); padding: 0.9rem 1.8rem; border-radius: 999px; text-decoration: none; font-weight: 700; box-shadow: 0 4px 12px rgba(91, 164, 230, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 16px rgba(91, 164, 230, 0.5)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(91, 164, 230, 0.3)';">Book a Free Call</a>
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
 </div>
 
-<!-- QUIZ DATA & SCRIPTS -->
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+
+<!-- ══ QUIZ DATA ══ -->
 <script>
 const quizData = [
-    {
-        question: "A mortgage note with a 7% fixed rate is a good inflation hedge when inflation is:",
-        options: [
-            { text: "2% (strong hedge)", correct: false },
-            { text: "4% (okay hedge)", correct: false },
-            { text: "8%+ (broken hedge)", correct: true },
-            { text: "Any rate above 3% (wrong assumption)", correct: false }
-        ],
-        explanation: "Once inflation exceeds your fixed note rate, your real returns go negative. A 7% note with 8% inflation means you're only earning -1% in real terms."
-    },
-    {
-        question: "Which of these is NOT an inflation hedge?",
-        options: [
-            { text: "A note with a 12% interest rate", correct: false },
-            { text: "A rental property with adjustable rent", correct: false },
-            { text: "A 2% bond held to maturity", correct: true },
-            { text: "A note with principal paid down over time", correct: false }
-        ],
-        explanation: "Fixed bonds lock in poor returns when inflation rises. A 2% bond with 4% inflation means you're losing 2% of purchasing power annually."
-    },
-    {
-        question: "If you want to hedge inflation with notes, your best strategy is:",
-        options: [
-            { text: "Buy high-yield notes (8%+) and hold to maturity", correct: false },
-            { text: "Buy low-basis notes and count on appreciation + yield", correct: true },
-            { text: "Buy short-term notes and reinvest at higher rates when rates rise", correct: false },
-            { text: "Mix fixed notes with real estate appreciation", correct: false }
-        ],
-        explanation: "Low-basis notes give you collateral appreciation as inflation-driven upside. This is what separates notes from bonds as an inflation hedge."
-    }
+  {
+    question: "A mortgage note with a 7% fixed rate is a good inflation hedge when inflation is:",
+    options: ["2% (strong hedge)", "4% (okay hedge)", "8%+ (broken hedge)", "Any rate above 3%"],
+    correct: 2,
+    explanation: "Once inflation exceeds your fixed note rate, your real returns go negative. A 7% note with 8% inflation means you're earning -1% in real terms. Fixed yields fail when inflation runs hotter than the coupon."
+  },
+  {
+    question: "Which of these is NOT an inflation hedge?",
+    options: ["A note with a 12% interest rate", "A rental property with adjustable rent", "A 2% bond held to maturity", "A note backed by appreciating property"],
+    correct: 2,
+    explanation: "Fixed bonds lock in poor returns when inflation rises. A 2% bond with 4% inflation means you're losing 2% of purchasing power annually. Bonds don't adapt — they trap you at the original rate."
+  },
+  {
+    question: "What's the smartest strategy to hedge inflation with mortgage notes?",
+    options: ["Buy high-yield notes (8%+) at face value", "Buy low-basis notes — yield PLUS appreciation upside", "Buy short-term notes only", "Mix fixed notes with stocks"],
+    correct: 1,
+    explanation: "Low-basis notes give you collateral appreciation as inflation-driven upside on top of the coupon. That dual return stream (yield + appreciation) is what separates notes from bonds as a real inflation hedge."
+  }
 ];
 
-function loadQuiz() {
-    const container = document.getElementById('quizContainer');
-    quizData.forEach((q, idx) => {
-        const qDiv = document.createElement('div');
-        qDiv.className = 'quiz-question';
-        qDiv.innerHTML = `
-            <h3>${idx + 1}. ${q.question}</h3>
-            <div class="quiz-options">
-                ${q.options.map((opt, optIdx) => `
-                    <label>
-                        <input type="radio" name="q${idx}" value="${optIdx}" onchange="selectAnswer(${idx}, ${optIdx})">
-                        ${opt.text}
-                    </label>
-                `).join('')}
-            </div>
-        `;
-        container.appendChild(qDiv);
-    });
-    const submitBtn = document.createElement('button');
-    submitBtn.textContent = 'Submit Quiz';
-    submitBtn.style.cssText = 'margin-top: 2rem; padding: 0.8rem 2rem; background: var(--accent); color: var(--navy); border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 1rem;';
-    submitBtn.onclick = submitQuiz;
-    container.appendChild(submitBtn);
-}
-
-function selectAnswer(q, opt) { /* store selection */ }
-
-function submitQuiz() {
-    let score = 0;
-    quizData.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="q${idx}"]:checked`);
-        if (selected) {
-            const optIdx = parseInt(selected.value);
-            if (q.options[optIdx].correct) score++;
-        }
-    });
-    document.getElementById('quizContainer').style.display = 'none';
-    document.getElementById('quizResults').style.display = 'block';
-    document.getElementById('quizScore').textContent = `You scored ${score}/3 (${Math.round(score/3*100)}%)`;
-    document.getElementById('quizFeedback').textContent = score === 3 ? "Perfect! You're ready to explore note investing." : "Good effort! Check the explanations above to deepen your understanding.";
-}
-
-function submitQuizEmail() {
-    const email = document.getElementById('quizEmail').value;
-    if (email) alert('Check your email for the playbook!');
-}
-
-function submitComment() {
-    const text = document.getElementById('commentText').value;
-    if (text) {
-        const commentsList = document.getElementById('commentsList');
-        const comment = document.createElement('div');
-        comment.style.cssText = 'background: var(--navy); padding: 1rem; border-radius: 6px; margin-bottom: 1rem; border-left: 3px solid var(--accent);';
-        comment.innerHTML = `<p style="margin: 0;"><strong>You:</strong> ${text}</p>`;
-        commentsList.appendChild(comment);
-        document.getElementById('commentText').value = '';
-    }
-}
-
-window.addEventListener('load', () => {
-    loadQuiz();
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
 });
 </script>
-
+<script src="blog.js"></script>
 </body>
 </html>
