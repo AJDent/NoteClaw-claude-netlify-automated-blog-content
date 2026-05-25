@@ -142,10 +142,42 @@ with open(sys.argv[1]) as f:
 " FILE.html
 ```
 
+**🚨 CRITICAL NEW STEP — VISUAL VERIFICATION:**
+
+**Before any push to Netlify, you MUST manually verify the post renders correctly.**
+
+**Checklist (verify all before deploying):**
+```
+□ Hero section displays (category badge, h1, excerpt, date, author)
+□ Post content flows properly (no layout breaks, proper spacing)
+□ Tables render correctly (if any)
+□ Quiz section displays with all 3 questions visible
+□ Footer renders properly
+□ Responsive on mobile (at minimum, check 375px width)
+□ No CSS errors in browser console
+□ Links work (internal nav, Calendly CTAs, external links)
+```
+
+**Why this is MANDATORY:**
+- HTML can parse correctly but still render visually broken
+- CSS loading issues won't show up in text validation
+- This catches layout problems before they go live
+- Broken blogs on live site = bad user experience
+
+**How to verify:**
+1. Deploy to Netlify (test/staging first if possible)
+2. Open the live URL in a real browser
+3. Visually scan: hero → content sections → quiz → footer
+4. If ANYTHING looks broken/misaligned → STOP, rebuild, DO NOT PUSH
+5. Only after visual sign-off: push to production
+6. Re-verify on production URL (confirm it still renders correctly)
+
 Then:
 - Update `blog.html` (add card to index)
 - Update `sitemap.xml` (add `<url>` entry)
-- Git commit + push
+- Git commit + push to main repo
+- Deploy to production Netlify URL
+- **Final visual check on production** — confirm rendering is correct
 
 ---
 
