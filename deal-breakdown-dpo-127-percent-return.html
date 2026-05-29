@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deal Breakdown: How a $12,000 DPO Turned a $6,500 Note Into 127% Annualized Returns | Take Notes Capital Blog</title>
+    <meta property="og:title" content="Deal Breakdown: How a $12,000 DPO Turned a $6,500 Note Into 127% Annualized Returns | Take Notes Capital Blog">
+    <meta property="og:description" content="Step-by-step DPO deal breakdown showing how a $6,500 non-performing 1st position note produced a $12,000 discounted payoff in 4 months. Full negotiation strategy and math.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://takenotescapital.com/deal-breakdown-dpo-127-percent-return.html">
+    <link rel="canonical" href="https://takenotescapital.com/deal-breakdown-dpo-127-percent-return.html">
+<meta name="description" content="Step-by-step DPO deal breakdown showing how a $6,500 non-performing 1st position note produced a $12,000 discounted payoff in 4 months. Full negotiation strategy and math.">
+
+<meta name="keywords" content="discounted payoff note investing, DPO deal breakdown real numbers, how does a discounted payoff work mortgage notes, note investing 127 percent return, non-performing note DPO strategy, how to negotiate a DPO with borrower, first position note deal example, note investing case study real deal, discounted payoff vs foreclosure which is better, how much profit can you make buying mortgage notes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, #2d1f5e 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+
+/* Discussion badge */
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+/* Post content */
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+/* Quiz email capture */
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+/* ── COMMENT SECTION ── */
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(167,139,250,.15);color:#a78bfa;">📊 Deal Breakdown</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">May 29, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">8 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Deal Breakdown: How a $12,000 DPO Turned a $6,500 Note Into 127% Annualized Returns</h1>
+  <p class="post-excerpt">A non-performing 1st position note. A borrower who couldn't pay but didn't want to lose the house. A discounted payoff that made everyone whole. Here's the full math.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<p>Most people hear "discounted payoff" and think it sounds too good to be true. You buy a note for pennies on the dollar, then the borrower pays you a lump sum to make the debt disappear — and you walk away with a fat return?</p>
+<p>Yes. That's exactly how it works. And this deal is a textbook example.</p>
+<p>This is a real deal breakdown — every number, every decision point, every step of the negotiation. No fluff. Just math and strategy.</p>
+
+<h2>The Deal at a Glance</h2>
+<p>A non-performing 1st position mortgage note in Alabama.</p>
+<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
+<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Detail</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Value</th></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Property Fair Market Value (FMV)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$78,000</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Unpaid Principal Balance (UPB)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$52,400</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Months Delinquent</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">14</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Original Interest Rate</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">6.5%</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Our Purchase Price</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$6,500</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Purchase as % of UPB</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">12.4%</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Loan-to-Value (LTV)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">67.2%</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Available Equity</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$25,600</td></tr>
+</table></div>
+
+<p><strong>Translation:</strong> The borrower owes $52,400 on a house worth $78,000. They haven't paid in 14 months. We bought the note — the right to collect that debt — for $6,500. That's 12 cents on the dollar.</p>
+
+<h2>Why This Deal Caught Our Attention</h2>
+
+<h3>1. First Position = Maximum Leverage</h3>
+<p>This is a 1st lien. Nobody sits ahead of us. If the borrower doesn't work with us, we can foreclose and take the property. That's not our goal — but it's our backstop, and the borrower knows it.</p>
+
+<h3>2. Strong Equity Cushion</h3>
+<p>$78K property, $52K owed. That's a 67% LTV — meaning there's $25,600 in equity protecting our position. Even if the property drops 15% in value, we're still covered. The borrower has skin in the game too — they don't want to lose that equity.</p>
+
+<h3>3. Alabama Is Non-Judicial</h3>
+<p>Alabama allows non-judicial foreclosure. Timeline: roughly 60–90 days from notice to auction. Fast, cheap, predictable. This matters because it makes our foreclosure threat credible. The borrower can't stall for 2 years like they could in New York or New Jersey.</p>
+
+<h3>4. Owner-Occupied, No Bankruptcy</h3>
+<p>The borrower still lives in the home. No active bankruptcy filing. This is the ideal DPO candidate — someone with something to lose (their home, their equity) and no legal shield blocking resolution.</p>
+
+<h3>5. Entry Price Creates Asymmetric Upside</h3>
+<p>At $6,500, our downside is capped. Our upside? Multiple exits that all produce strong returns. Even a modest DPO at 20% of UPB ($10,480) would be a 61% gross return. The math works at almost any resolution.</p>
+
+<h2>The DPO Strategy: How We Got to $12,000</h2>
+
+<p>A discounted payoff means the borrower (or someone on their behalf) pays a lump sum less than the full balance to settle the debt permanently. The note is satisfied. The lien is released. Everyone moves on.</p>
+<p>Here's how the negotiation played out:</p>
+
+<h3>Week 1–2: Initial Outreach</h3>
+<p>Our servicer sent a formal demand letter and made phone contact. The borrower confirmed they were still in the home, employed, but had gone through a rough patch (medical bills + job transition). They wanted to keep the house but couldn't catch up on 14 months of missed payments.</p>
+<p><strong>Key insight:</strong> They had motivation (keep the home) and some ability to pay (employed again). Perfect DPO candidate.</p>
+
+<h3>Week 3–4: The Offer</h3>
+<p>We offered a DPO at $14,000 — roughly 27% of the $52,400 UPB. From the borrower's perspective, they owe $52K and we're saying "pay us $14K and it all goes away." That's a $38,400 discount.</p>
+<p>The borrower countered at $8,000. We expected that.</p>
+
+<h3>Week 5–8: The Negotiation</h3>
+<p>Here's where the foreclosure threat becomes a tool — not a weapon.</p>
+<p>We didn't threaten. We educated. Through our servicer, we explained the situation clearly:</p>
+<ul>
+<li>The note is 14 months delinquent</li>
+<li>Alabama's non-judicial foreclosure process takes 60–90 days</li>
+<li>If we foreclose, they lose the house AND the $25,600 in equity</li>
+<li>A DPO lets them keep the home, clear the debt, and protect their equity</li>
+</ul>
+<p>We also made clear: <strong>a DPO kills the note.</strong> Once they pay, the lien is released. Done. No more debt hanging over them. No more calls. No more risk of losing the house.</p>
+<p>The borrower came back at $10,000. We countered at $12,500.</p>
+<p><strong>Final agreement: $12,000.</strong> The borrower had 30 days to wire the funds.</p>
+
+<h3>Week 12–16: Settlement</h3>
+<p>Borrower wired $12,000. We executed a satisfaction of mortgage. Lien released. Deal closed.</p>
+<p>Total timeline from purchase to payoff: <strong>approximately 4 months.</strong></p>
+
+<h2>The Math</h2>
+
+<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
+<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Line Item</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Amount</th></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Note Purchase Price</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$6,500</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Due Diligence Costs (title, BPO, legal)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$850</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Servicing Fees (4 months)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$300</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>Total Investment</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>$7,650</strong></td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">DPO Settlement Received</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">$12,000</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>Net Profit</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>$4,350</strong></td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Return on Investment</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">56.9%</td></tr>
+<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>Annualized IRR (4 months)</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;"><strong>~127%</strong></td></tr>
+</table></div>
+
+<p><strong>$4,350 profit on a $7,650 total outlay in 4 months.</strong> No tenants. No toilets. No property management. No rehab. Just a phone, a servicer, and math.</p>
+
+<h2>Why DPO Was the Right Exit Here</h2>
+<p>We had multiple options on this note. Here's why DPO won:</p>
+<ul>
+<li><strong>Loan modification:</strong> Would have produced ~$350/month cash flow (great long-term), but the borrower had lump-sum access through family help. Why wait 2+ years for the same return?</li>
+<li><strong>Foreclosure:</strong> Would have netted more total dollars ($25K+ in equity after costs), but takes 6–12 months, costs $3–5K in legal fees, and — most importantly — takes someone's home. Not our first move.</li>
+<li><strong>Note sale:</strong> Could have flipped for $9–10K to another investor, but the DPO was already in motion and produced a better return.</li>
+</ul>
+<p><strong>The DPO was the fastest path to the highest risk-adjusted return.</strong> Clean exit. No ongoing liability. Capital recycled in 4 months to deploy into the next deal.</p>
+
+<h2>The DPO Decision Framework</h2>
+<p>Not every note is a DPO candidate. Here's what has to line up:</p>
+<ol>
+<li><strong>Borrower has motivation to settle.</strong> They want to keep the home, protect their credit, or just make the problem go away. If they've already abandoned the property, DPO is unlikely.</li>
+<li><strong>Borrower has access to funds.</strong> DPO requires a lump sum. That can come from savings, family, a refi, or even a personal loan. If they're completely broke with no resources, a modification might be the better play.</li>
+<li><strong>Your foreclosure threat is credible.</strong> Non-judicial states with fast timelines make DPO negotiations easier. The borrower knows you CAN foreclose — and that motivates them to negotiate.</li>
+<li><strong>The math works at a discount.</strong> You need to buy cheap enough that even a conservative DPO (20–30% of UPB) still produces a strong return on your cost basis. If you overpaid for the note, DPO margins get thin.</li>
+<li><strong>You're willing to kill the note.</strong> A DPO satisfies the debt. The note is gone. No more cash flow, no more asset. If you want long-term passive income, a modification might serve you better.</li>
+</ol>
+
+<blockquote>Remember: DPO and foreclosure are mutually exclusive. You can't do both. But you CAN use the threat of foreclosure to drive a better DPO. That's the game.</blockquote>
+
+<h2>What Could Have Gone Wrong</h2>
+<p>No deal is risk-free. Here's what we watched for:</p>
+<p><strong>Risk: Borrower files bankruptcy.</strong> A Chapter 13 filing would have frozen our ability to foreclose and stretched the timeline to 3–5 years. Mitigation: We moved fast. The 4-month timeline from purchase to settlement minimized this window.</p>
+<p><strong>Risk: Borrower ghosts us.</strong> If they stopped responding, we'd have pivoted to foreclosure. At 67% LTV with $25K in equity, foreclosure was still a profitable backstop. Mitigation: Consistent, professional outreach through our servicer.</p>
+<p><strong>Risk: Property value drops.</strong> If the home tanked from $78K to $50K, our equity cushion shrinks. Mitigation: Alabama market is stable, and our $6,500 basis means we're profitable even in a downturn scenario.</p>
+<p><strong>Risk: Title issues surface post-purchase.</strong> Hidden liens or tax debts could complicate settlement. Mitigation: Full title search during due diligence before we closed on the note.</p>
+
+<h2>Key Takeaways</h2>
+<ol>
+<li><strong>Buy right and the DPO math is automatic.</strong> At 12 cents on the dollar, almost any settlement produces a strong return. Entry price is everything.</li>
+<li><strong>DPO is a win-win exit.</strong> The borrower clears a $52K debt for $12K and keeps their home. We make 127% annualized on our capital. Nobody loses.</li>
+<li><strong>Speed is the DPO investor's edge.</strong> The faster you close the negotiation, the higher your annualized return. Every month of delay compresses your IRR.</li>
+<li><strong>Foreclosure is the tool, not the goal.</strong> We never filed. We never threatened. But the borrower understood the alternative — and that's what brought them to the table.</li>
+<li><strong>Capital velocity matters.</strong> $6,500 deployed for 4 months, then recycled into the next deal. Over a year, that same $6,500 could fund 3 deals if each resolves in 4 months.</li>
+</ol>
+
+<h2>What $6,500 Looks Like Elsewhere</h2>
+<ul>
+<li><strong>S&P 500 (historical 10%):</strong> $6,500 becomes $6,825 in a year. $325 profit.</li>
+<li><strong>High-yield savings (4.5% APY):</strong> $6,500 earns $293/year.</li>
+<li><strong>This note deal:</strong> $6,500 produced $4,350 profit in 4 months. Then the capital is free to do it again.</li>
+</ul>
+<p>That's the power of note investing. Small capital. Asymmetric returns. Velocity.</p>
+
+<hr class="post-divider">
+
+<section class="callout-box">
+<h3>Related Reading</h3>
+<ul>
+<li><a href="deal-breakdown-34-percent-return.html">Deal Breakdown: $8,000 Note → 34%+ Annual Returns</a></li>
+<li><a href="non-performing-note-exit-strategies.html">The 5 Most Common Exit Strategies (With Math)</a></li>
+<li><a href="what-is-non-performing-note-investing.html">What Is Non-Performing Note Investing?</a></li>
+<li><a href="how-banks-sell-non-performing-loans.html">How Banks Sell Non-Performing Loans</a></li>
+</ul>
+</section>
+
+<p><strong>About AJ Dent:</strong> <em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
+
+  </div><!-- .post-content -->
+</div><!-- .post-layout -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="post-layout">
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+  </div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+
+<!-- ══ QUIZ DATA ══ -->
+
+<script>
+const quizData = [
+  {
+    question: "Why is a discounted payoff (DPO) considered a 'win-win' exit in note investing?",
+    options: ["The investor gets the property and the borrower gets cash", "The borrower clears the full debt at a discount and keeps their home, while the investor profits on their cost basis", "The bank forgives the loan automatically", "The borrower refinances with a new lender at a lower rate"],
+    correct: 1,
+    explanation: "In a DPO, the borrower pays less than the full balance to settle the debt — clearing the lien and keeping their home. The investor profits because they bought the note at a deep discount. Both sides walk away better off."
+  },
+  {
+    question: "What role does the foreclosure threat play in a DPO negotiation?",
+    options: ["You must file foreclosure before offering a DPO", "It's illegal to mention foreclosure during negotiations", "A credible foreclosure timeline motivates the borrower to negotiate a settlement", "Foreclosure and DPO happen simultaneously"],
+    correct: 2,
+    explanation: "Foreclosure and DPO are mutually exclusive — you can't do both. But a credible foreclosure threat (especially in non-judicial states) motivates borrowers to come to the table and settle via DPO."
+  },
+  {
+    question: "What happens to the note after a DPO is completed?",
+    options: ["It converts to a performing loan with new terms", "The note is satisfied and the lien is released — the asset is gone", "The investor keeps collecting monthly payments", "The note transfers to a new borrower"],
+    correct: 1,
+    explanation: "A DPO kills the note. Once the borrower pays the agreed settlement amount, the debt is satisfied, the lien is released, and the note ceases to exist. The investor's capital is freed to deploy elsewhere."
+  }
+];
+document.addEventListener('DOMContentLoaded', () => { initQuiz(quizData); });
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
