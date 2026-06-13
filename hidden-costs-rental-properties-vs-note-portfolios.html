@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hidden Costs of Rental Properties vs. Note Portfolios (The Math Nobody Shows You) | Take Notes Capital Blog</title>
+<meta name="description" content="Your rental's &quot;12% return&quot; is a lie. Here are the 14 hidden costs eating your profits — and why note portfolios have only 4. Real math inside.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(135deg, #0d1428, #0f3d1e);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+.comment-section { margin: 3rem 0; }
+.comment-section-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(78,203,113,0.16);color:#4ecb71;">Real Estate</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">Jun 13, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">8 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>The Hidden Costs of Rental Properties vs. Note Portfolios (The Math Nobody Shows You)</h1>
+  <p class="post-excerpt">Your rental spreadsheet can look amazing right up until real life starts billing you. Here’s what rental property true expenses actually look like next to a note portfolio.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+<div class="post-layout">
+  <div class="post-content">
+<p>Jen bought a duplex because the spreadsheet said she was walking into a 12% return. Rent looked solid. Taxes were known. Mortgage was fixed. On paper, it looked clean.</p>
+
+<p>Then the first year happened.</p>
+
+<p>A leaking supply line turned into <strong>$1,800</strong> in small repairs. Insurance jumped by <strong>$2,200</strong> at renewal. One unit sat empty for two weeks. She spent <strong>$450</strong> on gas, Home Depot runs, lock changes, and random supplies that never show up in the sexy part of the underwriting. By the time her accountant was done cleaning up the numbers, that pretty 12% return had turned into something closer to <strong>4%</strong>.</p>
+
+<p>That&rsquo;s the part most rental investors learn late: the hidden costs of rental properties are not rare. They are the business model.</p>
+
+<p>Note investors look at the same problem differently. We don&rsquo;t calculate returns on the spreadsheet we built before buying. We calculate returns on money that actually lands in the account. One is a projection. The other is math.</p>
+
+<p>If you&rsquo;re still weighing <a href="rental-properties-vs-note-investing.html">rental properties vs. note investing</a>, this is where the real comparison starts. And if you&rsquo;re tired of the landlord treadmill, you&rsquo;ll probably also want to read <a href="being-the-bank-vs-being-a-landlord.html">being the bank vs. being a landlord</a> after this.</p>
+
+
+<h2>The 14 Hidden Costs of Rental Properties</h2>
+<p>When people talk about the total cost of owning rental property, they usually count the obvious stuff and quietly ignore the rest. That&rsquo;s how a mediocre deal gets dressed up like a good one. Here are 14 line items that keep smacking rental owners in the face.</p>
+
+<ol>
+  <li><strong>Vacancy:</strong> One vacant month on a $1,800 unit costs <strong>$1,800</strong>. Even two weeks is <strong>$900</strong> gone.</li>
+  <li><strong>Turn costs:</strong> Paint, cleaning, patchwork, locks, and trash-out can easily run <strong>$1,200 to $3,500</strong> between tenants.</li>
+  <li><strong>Minor repairs:</strong> Garbage disposal, toilet rebuild, faucet leak, outlet issue, or appliance service call. Budget <strong>$1,500 to $2,500</strong> a year on an average small rental.</li>
+  <li><strong>Major capital expenses:</strong> Roof, HVAC, water heater, driveway, windows. You may not pay all of it this year, but the asset is aging every day. A roof at <strong>$9,000</strong> spread over 15 years is still <strong>$600</strong> a year in real wear.</li>
+  <li><strong>Insurance increases:</strong> A lot of investors plug in old quotes and never revisit them. One ugly renewal can add <strong>$800 to $2,500</strong> overnight.</li>
+  <li><strong>Property taxes drifting upward:</strong> Reassessment, millage changes, or local budget increases can add <strong>$500 to $2,000</strong> annually without asking your permission.</li>
+  <li><strong>Property management:</strong> Even at a modest 8%, a unit collecting $21,600 a year kicks out <strong>$1,728</strong> before leasing fees, renewal fees, or maintenance markups.</li>
+  <li><strong>Leasing commissions:</strong> New tenant placement often costs half a month to a full month of rent. On that same $1,800 unit, that is <strong>$900 to $1,800</strong>.</li>
+  <li><strong>Utilities during turns or non-payment:</strong> Water, power, gas, lawn, and trash don&rsquo;t stop because the tenant did. Figure <strong>$300 to $900</strong> a turn in many markets.</li>
+  <li><strong>Legal and eviction costs:</strong> Filing fees, attorney time, constable fees, court delays, and lockout costs can turn one bad tenant into <strong>$1,500 to $5,000+</strong>.</li>
+  <li><strong>Travel, gas, meals, and supply runs:</strong> The spreadsheet never counts your Saturday. But your bank account does. Many landlords burn <strong>$300 to $1,000</strong> a year here without noticing.</li>
+  <li><strong>Bookkeeping and tax prep:</strong> Clean books, entity returns, 1099s, and rental schedules are not free. Budget <strong>$400 to $1,500</strong> depending on complexity.</li>
+  <li><strong>Interest carry during problems:</strong> Your mortgage payment keeps drafting while you chase repairs, vacancy, or an eviction. Three months of principal, interest, taxes, and insurance at $1,950 a month is <strong>$5,850</strong>.</li>
+  <li><strong>Your time:</strong> This is the most abused line item in real estate investment hidden fees. If you spend 60 hours a year managing a property and your time is worth even <strong>$50 an hour</strong>, that is <strong>$3,000</strong> in real cost.</li>
+</ol>
+
+<blockquote>Rental returns usually die from a bunch of small cuts, not one dramatic disaster.</blockquote>
+
+<p>That&rsquo;s why the hidden costs of rental properties matter so much. The gross rent number gets all the attention. The rental property true expenses do the actual killing.</p>
+
+<h2>The 4 Costs of a Note Portfolio</h2>
+<p>Now let&rsquo;s look at the other side. Note portfolios are not magic. There are costs. They&rsquo;re just fewer, cleaner, and easier to model.</p>
+
+<ol>
+  <li><strong>Due diligence:</strong> Collateral review, title, taxes, servicing records, and valuation work. On a small deal, this might run <strong>$300 to $1,500</strong> depending on depth.</li>
+  <li><strong>Servicing:</strong> A licensed servicer collects payments, sends statements, tracks balances, and handles borrower touchpoints. Typical cost can be <strong>$25 to $45 per loan per month</strong>, plus some setup fees.</li>
+  <li><strong>Purchase and transfer costs:</strong> Wire fees, collateral shipping, recording assignments when needed, and document handling. Often a few hundred bucks, not a never-ending surprise stream.</li>
+  <li><strong>Legal if needed:</strong> If a loan goes sideways, workout or foreclosure counsel costs money. But here&rsquo;s the key difference: legal is event-driven, not daily operational friction.</li>
+</ol>
+
+<p>That&rsquo;s one reason people who are new to this space start by learning <a href="what-is-non-performing-note-investing.html">what non-performing note investing actually is</a>. Once you see the cost stack clearly, the note portfolio vs rental costs debate gets a lot less emotional.</p>
+
+<h2>The $50,000 Comparison (Year 1 True Cost)</h2>
+<p>Let&rsquo;s compare two investors, each deploying $50,000.</p>
+
+<h3>Option 1: Rental Property Down Payment Strategy</h3>
+<p>Investor A uses $50,000 as down payment, closing costs, and reserves on a small rental. The spreadsheet might show something like this:</p>
+
+<ul>
+  <li>Annual gross rent: <strong>$21,600</strong></li>
+  <li>Mortgage, taxes, base insurance: <strong>$15,000</strong></li>
+  <li>Projected cash flow: <strong>$6,600</strong></li>
+  <li>Projected cash-on-cash return: <strong>13.2%</strong></li>
+</ul>
+
+<p>Looks great. Until we add the rest.</p>
+
+<ul>
+  <li>Two weeks vacancy: <strong>$900</strong></li>
+  <li>Minor repairs: <strong>$1,800</strong></li>
+  <li>Insurance increase: <strong>$2,200</strong></li>
+  <li>Turn supplies, gas, meals: <strong>$450</strong></li>
+  <li>Leasing cost: <strong>$900</strong></li>
+  <li>Capex reserve allocation: <strong>$1,500</strong></li>
+  <li>Tax prep and bookkeeping: <strong>$600</strong></li>
+</ul>
+
+<p><strong>Total extra costs: $8,350</strong></p>
+<p><strong>Actual year-one cash flow: negative $1,750</strong></p>
+<p><strong>Actual cash-on-cash return: -3.5%</strong></p>
+
+<h3>Option 2: $50,000 Note Portfolio Allocation</h3>
+<p>Investor B puts $50,000 into a small note allocation or fractional participation targeting a realistic blended return. Here&rsquo;s a cleaner example:</p>
+
+<ul>
+  <li>Gross collections or yield expectation: <strong>$6,250</strong> at 12.5%</li>
+  <li>Due diligence allocation: <strong>$750</strong></li>
+  <li>Servicing cost allocation: <strong>$540</strong></li>
+  <li>Transfer, wire, and admin costs: <strong>$210</strong></li>
+  <li>Legal reserve: <strong>$1,000</strong></li>
+</ul>
+
+<p><strong>Total modeled costs: $2,500</strong></p>
+<p><strong>Net year-one income: $3,750</strong></p>
+<p><strong>Net return: 7.5%</strong></p>
+
+<p>Is that guaranteed? No. But it is far easier to underwrite honestly because the cost structure is shorter. There are fewer moving parts. Fewer late-night emergencies. Fewer line items that magically appear after closing.</p>
+
+<h2>Why Note Portfolios Are Built for Predictable Returns</h2>
+<p>This is where note investing starts to separate itself. Not because nothing can go wrong, but because the model has fewer places for cash to leak out. You are not replacing a roof. You are not arguing with a plumber. You are not paying utilities during a turn. You are not getting a text at 9:40 PM because a tenant locked themselves out.</p>
+
+<p>At Take Notes Capital, that matters a lot. Predictable returns come from buying with margin, staying in conservative collateral positions, and keeping the expense stack short enough that surprises do not eat the whole deal. That is a very different setup than hoping a rental behaves itself for twelve straight months.</p>
+
+<p>When a rental deal looks better than a note deal on a back-of-napkin spreadsheet, my first reaction is simple: you probably missed costs. The note side usually loses the beauty contest upfront and wins the bank-statement contest later.</p>
+
+<h2>Risk Mitigation — What You're NOT Paying For</h2>
+<p>One of the biggest advantages in note portfolio vs rental costs is what never shows up in the first place.</p>
+
+<ul>
+  <li><strong>No tenant turnover bills</strong></li>
+  <li><strong>No maintenance dispatch markup</strong></li>
+  <li><strong>No lawn, trash, water, or make-ready costs</strong></li>
+  <li><strong>No surprise HVAC death in July</strong></li>
+  <li><strong>No midnight management burden</strong></li>
+</ul>
+
+<p>That does not mean no risk. It means a different risk profile. In notes, the protection comes from buying the debt at the right basis, verifying collateral, understanding borrower status, and having multiple exits. You are still protected by the asset. You are just not paying to babysit it every month.</p>
+
+<blockquote>A rental owner gets paid only after the property behaves. A note investor can get paid because the paper was bought right.</blockquote>
+
+<h2>What This Means for Your ROI Calculations</h2>
+<p>If you are comparing deals, stop asking only, “What is the projected return?” Start asking, “What is the full expense stack, and which costs have not hit yet?” That question alone will save you from a lot of fake 12% deals.</p>
+
+<p>For rental investors, underwrite heavier than you want to. Add vacancy. Add management even if you plan to self-manage. Add capex. Add tax prep. Add your time. If the deal still works after that, now you may have something real.</p>
+
+<p>For note investors, the discipline is different but just as important. Verify collateral value, taxes, title, servicing, borrower history, and legal path. Price in the few real costs that exist. Then focus on net cash actually received, not stories about what should have happened.</p>
+
+<p>That is the cleanest way to think about real estate investment hidden fees: if the return depends on ignoring them, the return is fake.</p>
+
+<h2>FAQ</h2>
+<h3>Are note portfolios always better than rental properties?</h3>
+<p>No. Better depends on your goals, your skill set, and your tolerance for operational headaches. But if you care about cleaner math and less management drag, notes deserve a hard look.</p>
+
+<h3>What is the biggest hidden cost in rental property ownership?</h3>
+<p>Usually it is not one thing. It is the stack: vacancy, repairs, capex, management friction, and your own time. Together, they turn an average rental into a much weaker investment than advertised.</p>
+
+<h3>Do note portfolios have hidden costs too?</h3>
+<p>They have costs, yes. But fewer of them. Due diligence, servicing, transfer costs, and legal when needed are the main ones. That is a much shorter list than the total cost of owning rental property.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<script>
+const quizQuestions = [
+  {
+    question: "Which rental cost is most often ignored in investor spreadsheets?",
+    options: ["Insurance", "Your time", "Property taxes"],
+    answer: 1,
+    explanation: "Most people never assign a dollar value to their own hours, which makes rental returns look better than they are."
+  },
+  {
+    question: "In the article's $50,000 example, what was the modeled total cost stack for the note allocation?",
+    options: ["$2,500", "$5,850", "$8,350"],
+    answer: 0,
+    explanation: "The note example used $750 due diligence, $540 servicing, $210 admin, and a $1,000 legal reserve for a total of $2,500."
+  },
+  {
+    question: "What is the core difference between rental and note return math?",
+    options: ["Rentals appreciate faster", "Notes are always risk-free", "Notes are easier to model because the cost stack is shorter"],
+    answer: 2,
+    explanation: "That is the main point of the post: fewer moving parts means cleaner underwriting and more predictable net returns."
+  }
+];
+let quizScore = 0;
+let answeredQuestions = 0;
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = quizQuestions.map((q, qi) => `
+    <div class="quiz-question">
+      <div class="quiz-q-text">${qi + 1}. ${q.question}</div>
+      <div class="quiz-options">
+        ${q.options.map((opt, oi) => `<button class="quiz-opt-btn" onclick="answerQuestion(${qi}, ${oi}, this)">${opt}</button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function answerQuestion(qi, oi, btn) {
+  const q = quizQuestions[qi];
+  const wrap = btn.closest('.quiz-question');
+  const buttons = wrap.querySelectorAll('.quiz-opt-btn');
+  if ([...buttons].some(b => b.disabled)) return;
+  buttons.forEach((b, idx) => {
+    b.disabled = true;
+    if (idx === q.answer) b.classList.add('correct');
+    else if (idx === oi) b.classList.add('wrong');
+  });
+  const exp = document.createElement('div');
+  const correct = oi === q.answer;
+  if (correct) quizScore++;
+  answeredQuestions++;
+  exp.className = `quiz-explanation ${correct ? 'expl-correct' : 'expl-wrong'}`;
+  exp.textContent = q.explanation;
+  wrap.appendChild(exp);
+  if (answeredQuestions === quizQuestions.length) showResults();
+}
+function showResults() {
+  const results = document.getElementById('quizResults');
+  const score = document.getElementById('quizScore');
+  const verdict = document.getElementById('quizVerdict');
+  score.textContent = `You got ${quizScore} out of ${quizQuestions.length} right.`;
+  verdict.textContent = quizScore === 3 ? 'You are underwriting like an actual investor.' : quizScore === 2 ? 'Solid. You caught the main point: net beats hype.' : 'If this changed how you look at returns, book a call and let’s talk through the math.';
+  results.style.display = 'block';
+  document.getElementById('quizCapture').style.display = 'block';
+}
+function submitQuizCapture() {
+  document.getElementById('quizCaptureForm').style.display = 'none';
+  document.getElementById('quizCaptureSuccess').style.display = 'block';
+}
+function submitComment(event) {
+  event.preventDefault();
+  document.getElementById('commentForm').style.display = 'none';
+  document.getElementById('commentSuccess').style.display = 'block';
+}
+renderQuiz();
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
