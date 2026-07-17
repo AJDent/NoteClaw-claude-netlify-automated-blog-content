@@ -174,10 +174,50 @@ with open(sys.argv[1]) as f:
 
 Then:
 - Update `blog.html` (add card to index)
-- Update `sitemap.xml` (add `<url>` entry)
+- Update `sitemap.xml` (add `<url>` entry — **MANDATORY, see Sitemap Update section below**)
 - Git commit + push to main repo
 - Deploy to production Netlify URL
 - **Final visual check on production** — confirm rendering is correct
+
+---
+
+## 🗺️ SITEMAP UPDATE (MANDATORY — EVERY POST)
+
+**Every new blog post MUST be added to `sitemap.xml` immediately.** No exceptions.
+
+Google can only index what it knows about. If a post isn't in the sitemap, it's invisible to search engines.
+
+### How to add a new entry:
+
+Add this block inside `<urlset>`, ordered by date (newest first, after the homepage and blog.html entries):
+
+```xml
+  <url>
+    <loc>https://takenotescapital.com/YOUR-SLUG.html</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+```
+
+### Sitemap structure (always maintain this order):
+1. Homepage (`/`) — priority 1.0, changefreq weekly
+2. Blog index (`/blog.html`) — priority 0.9, changefreq daily
+3. All blog posts — priority 0.8, changefreq monthly, ordered newest → oldest
+
+### Verification after adding:
+```bash
+# Count blog HTML files (excluding non-blog pages)
+ls *.html | grep -v -E '(index|blog|post-template|cookie-policy|privacy-policy|terms-and-conditions|buybox)' | wc -l
+
+# Count sitemap blog entries (subtract 2 for homepage + blog.html)
+grep -c '<loc>' sitemap.xml
+
+# These numbers should match: blog files + 2 = sitemap entries
+```
+
+### Why this was added:
+On 2026-06-16, we discovered only 4 of 19 blog posts were in the sitemap. Google only knew about 4 pages. This rule ensures it never happens again.
 
 ---
 
@@ -277,6 +317,7 @@ Before EVERY blog deploy:
 □ No placeholder text remaining
 □ blog.html updated with new card
 □ sitemap.xml updated with new URL
+□ Sitemap entry count verified (blog files + 2 = total <loc> entries)
 □ Git committed and pushed
 ```
 
