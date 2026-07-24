@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partial Notes Explained: How to Sell a Slice of Your Payment Stream | Take Notes Capital Blog</title>
+<meta name="description" content="Learn how partial notes work — sell part of your payment stream for a lump sum while keeping the back end. A flexible tool for note investors and sellers.">
+<meta name="keywords" content="what is a partial note, how do partial notes work, selling a partial note, partial note investing, mortgage note partial sale, selling payment streams real estate, partial vs full note sale, note investing lump sum, how to sell part of a mortgage note, partial note tail return">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(135deg, #0d1428, #1a3a6b);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(74,158,222,0.15);color:#4a9ede;">Note Investing</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">July 24, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">7 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Partial Notes Explained: How to Sell a Slice of Your Payment Stream</h1>
+  <p class="post-excerpt">A partial note lets you sell part of a payment stream for a lump sum while keeping the tail. Here's how it actually works — and when it makes sense on either side of the trade.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<p>Most people hear "mortgage note" and picture a full loan. You buy it, you collect every payment until it pays off or you exit. All-or-nothing.</p>
+
+<p>That's not the only way to do it.</p>
+
+<p>A <strong>partial note</strong> lets a note holder sell a slice of the payments — usually the next few years — for cash today, and keep everything on the back end. The buyer gets a defined return over a defined window. The seller gets liquidity without giving up the asset for good.</p>
+
+<p>It's one of the more flexible tools in the note world, and one of the least understood. Here's how it actually works.</p>
+
+<h2>What Is a Partial Note?</h2>
+
+<p>A partial note is a sale of <strong>a portion of a note's payment stream</strong> — not the whole note.</p>
+
+<p>Think of a 30-year mortgage as a long line of monthly payments. A full note sale means one investor takes all of them. A partial sale carves that line into two pieces:</p>
+
+<ul>
+<li><strong>The front:</strong> A set number of payments (say, the next 60 or 120 months). The buyer gets these.</li>
+<li><strong>The tail:</strong> Everything after that. The original seller keeps these.</li>
+</ul>
+
+<p>The note itself doesn't get split in half. It's one instrument. What gets split is <strong>who receives the money and when</strong>. The buyer typically holds the collateral file and controls servicing during their window. Once their payments are collected, the note reverts back to the seller, who then collects the remaining tail — including any balloon or refinance payoff at the end.</p>
+
+<p>It's a structured trade. Everyone knows their piece up front.</p>
+
+<h2>How a Partial Note Actually Works</h2>
+
+<p>Let's put real numbers on it, because partials get confusing until you see the math.</p>
+
+<p><strong>The setup:</strong></p>
+
+<ul>
+<li>A performing note with a $95,000 balance</li>
+<li>7.5% interest rate, 25 years remaining</li>
+<li>Monthly principal + interest payment: about $702</li>
+</ul>
+
+<p>The seller doesn't want to wait 25 years. They want cash now. But they don't want to sell the whole thing at a big discount either.</p>
+
+<p><strong>The partial deal:</strong></p>
+
+<ul>
+<li>Seller sells the next <strong>120 payments</strong> (10 years) to an investor</li>
+<li>Investor pays roughly <strong>$62,000</strong> today for the right to collect those 120 payments</li>
+<li>Total payments the investor will collect: 120 × $702 = <strong>$84,240</strong></li>
+<li>Investor's yield on that money: around <strong>10.5%</strong></li>
+</ul>
+
+<p><strong>What happens after 120 months?</strong></p>
+
+<p>The note reverts to the seller. There are roughly 180 payments left plus whatever principal balance remains. The seller collects that tail — with zero cash outlay at that point, because they already got their $62,000 up front.</p>
+
+<p>Both sides walk away with something they wanted. Seller got liquidity. Investor got a defined return with a known end date.</p>
+
+<h2>Why a Note Seller Would Sell a Partial</h2>
+
+<p>There are a few reasons a note holder chooses a partial over a full sale.</p>
+
+<p><strong>They want cash without eating the full discount.</strong> Full note sales usually price at a bigger discount to face value than a partial does. Selling a partial lets the seller pull cash out at a better effective price — because the buyer is only pricing the front slice, not the whole 30 years.</p>
+
+<p><strong>They believe in the tail.</strong> If the note is well-collateralized and the borrower is paying, that back end has real value. Selling the whole thing means giving that up. A partial lets the seller keep the long-term upside.</p>
+
+<p><strong>They want to redeploy capital.</strong> Note holders — especially self-directed IRA owners — sometimes sell a partial to fund the next acquisition. They're not exiting the asset. They're just pulling forward some of the returns to put to work elsewhere. If you're curious how notes fit inside a retirement account, our <a href="how-does-an-sdira-work.html">SDIRA guide</a> walks through the mechanics.</p>
+
+<p><strong>They want to lock in a gain.</strong> If a note has appreciated (better payment history, seasoning, improved collateral value), selling a partial locks in some of that gain while keeping optionality on the rest.</p>
+
+<h2>Why an Investor Would Buy a Partial</h2>
+
+<p>The buyer side has its own logic.</p>
+
+<p><strong>Lower entry, defined return.</strong> A partial requires less capital than a full note purchase. For an investor with $50K to $75K to deploy, a partial can be a full deal on its own — where buying an entire note might be out of reach.</p>
+
+<p><strong>A shorter time horizon.</strong> Full notes can run 20 to 30 years. A partial has a hard end date. If you buy a 120-payment partial, you know exactly when your money comes back. That's useful for capital planning, retirement drawdowns, or investors who don't want to hold a paper asset for three decades.</p>
+
+<p><strong>First position on payments.</strong> During the partial window, the buyer collects first. The seller doesn't get anything until the buyer's payments are complete. That's a structural advantage — the buyer is at the front of the line.</p>
+
+<p><strong>Predictable yield.</strong> Partials on performing notes are one of the most stable return profiles in real estate. You know the payment. You know the count. You know the collateral. The main variable is whether the borrower keeps paying — same risk you'd have with a full note.</p>
+
+<h2>The Tail: The Part Everyone Forgets</h2>
+
+<p>The tail is where partials get interesting — and where new investors sometimes get tripped up.</p>
+
+<p>When you buy a partial, you get a defined number of payments. That's it. Once those are done, the note reverts to the seller. Anything left — remaining monthly payments, a balloon, a refinance payoff — belongs to them, not you.</p>
+
+<p>So the seller isn't just walking away with a lump sum today. They're keeping a claim on the back end of the loan. On a 30-year note where the buyer took 10 years of payments, the seller still has 20 years of payments coming plus whatever principal is left when the note pays off.</p>
+
+<p>That tail can be worth a lot. Especially on longer amortizations, most of the principal paydown happens in the second half of the loan. The seller's tail often ends up more valuable than the front slice they sold — they just have to wait for it.</p>
+
+<p><strong>Watch the balloon.</strong> Some notes have a balloon payment at a set date. If the balloon falls inside the partial window, the buyer collects it (which usually shortens their return dramatically — in a good way). If the balloon falls in the tail, the seller collects it. This gets negotiated up front, and it materially changes the yield math on both sides.</p>
+
+<h2>Partial vs. Full Note Sale: Trade-offs</h2>
+
+<p>Both structures are valid. They solve different problems.</p>
+
+<p><strong>Full note sale is cleaner.</strong> One transaction, one price, done. The seller exits the asset completely. No tracking a tail, no waiting years to collect again, no shared paperwork with the buyer. Simple.</p>
+
+<p><strong>Partial is more efficient.</strong> The seller usually keeps more total value across the deal (front cash + tail), and the buyer gets a shorter, more defined return. Both sides can walk away happy — but there's more moving parts.</p>
+
+<p>Rough guide:</p>
+
+<ul>
+<li><strong>Sell the full note</strong> when you want out of the asset entirely, don't care about the tail, or the discount you're offered is good enough to justify a clean exit.</li>
+<li><strong>Sell a partial</strong> when you want cash today but still believe the collateral and borrower are worth holding long-term.</li>
+<li><strong>Buy a partial</strong> when you want a defined-return investment with a known end date, and you don't need the full-note upside.</li>
+<li><strong>Buy a full note</strong> when you want the whole life-of-loan return and are prepared to hold or exit on your own timeline.</li>
+</ul>
+
+<h2>Risks and What to Watch</h2>
+
+<p>Partials aren't magic. There are real risks on both sides.</p>
+
+<p><strong>Borrower default mid-partial.</strong> If the borrower stops paying during the buyer's window, the buyer is exposed. The partial doesn't come with a guarantee that the seller will make up missed payments. The buyer needs to underwrite the borrower and collateral the same way they would for any other note purchase. If a default happens, the buyer takes over the workout — which might mean modification, re-performance, or foreclosure. Our <a href="non-performing-note-exit-strategies.html">exit strategies guide</a> covers what those paths look like.</p>
+
+<p><strong>Servicing and control.</strong> Who services the loan during the partial window? Who holds the original documents? What happens if the buyer wants to modify the terms with the borrower? These questions need clean answers in the partial agreement before money changes hands. A well-drafted partial spells out control during the front window, reversion mechanics, and what happens if the note goes non-performing.</p>
+
+<p><strong>Documentation.</strong> Partials are governed by a partial purchase agreement plus an assignment. The paperwork isn't wildly complicated, but it's not off-the-shelf either. Use an attorney who's actually done partials before. This is not the place to save $500 on legal.</p>
+
+<p><strong>Tail risk for the seller.</strong> The seller is trusting that the note survives the buyer's window intact. If the buyer forecloses and takes the property, the tail evaporates. The seller has no claim once the collateral is sold. This is why sellers should partial with buyers they trust — not just the highest bidder.</p>
+
+<p><strong>Yield vs. cash flow.</strong> On paper, a partial gives the buyer a strong yield. But it's yield on payments, not principal. The buyer isn't building equity in a property — they're collecting cash flow with a set end. That's the trade.</p>
+
+<h2>Is a Partial Right for You?</h2>
+
+<p>If you're a note holder, ask yourself:</p>
+
+<ul>
+<li>Do I need liquidity but not a full exit?</li>
+<li>Do I believe in the tail enough to wait for it?</li>
+<li>Am I okay giving up front-end control for the length of the partial?</li>
+</ul>
+
+<p>If yes to all three, a partial can be a smart move. If you want out of the note completely, sell it full.</p>
+
+<p>If you're an investor, ask yourself:</p>
+
+<ul>
+<li>Do I want a defined-return investment with a known end date?</li>
+<li>Am I comfortable with the borrower and collateral risk during my window?</li>
+<li>Am I okay giving up the tail — including any balloon or big principal reduction — in exchange for a lower entry price?</li>
+</ul>
+
+<p>Partials aren't for every investor. Some people want the full asset, life of loan. Others want the discipline of a defined return. Both are valid. The point of understanding partials is knowing you have more than one way to play the debt side of real estate.</p>
+
+<p>Most people never learn this exists. That's the whole edge.</p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions — see how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies — no spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in mortgage notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook — How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+<!-- ══ QUIZ DATA ══ -->
+<script>
+const quizData = [
+  {
+    question: "What does a partial note sale actually involve?",
+    options: [
+      "Selling half of the mortgage lien to another investor",
+      "Selling a set number of payments while retaining rights to the remaining tail",
+      "Splitting the property title between two owners",
+      "Refinancing the note into two separate loans"
+    ],
+    correct: 1,
+    explanation: "A partial note sale transfers a defined number of payments to the buyer. The seller keeps the tail — everything after the buyer's window ends."
+  },
+  {
+    question: "In a typical partial, what happens after the buyer collects all their purchased payments?",
+    options: [
+      "The buyer keeps collecting until the loan pays off",
+      "The borrower's loan is automatically paid in full",
+      "The note reverts to the original seller, who collects the remaining payments",
+      "The property is deeded to the buyer"
+    ],
+    correct: 2,
+    explanation: "Once the buyer's payment window ends, the note reverts back to the seller. Any remaining payments, balloon, or refinance payoff belongs to them."
+  },
+  {
+    question: "Why would an investor prefer buying a partial over a full note?",
+    options: [
+      "Partials come with a guarantee against borrower default",
+      "Partials give the investor ownership of the property",
+      "Lower capital outlay and a defined, shorter-term return",
+      "Partials always yield more than full notes on total dollars"
+    ],
+    correct: 2,
+    explanation: "Partials require less capital and have a hard end date. That defined return window is the main appeal — you know exactly when your money comes back."
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
