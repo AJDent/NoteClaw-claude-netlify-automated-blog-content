@@ -296,12 +296,12 @@ function loadTrackingScripts(prefs) {
     window.__tncAnalyticsLoaded = true;
     const s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-GQ77SEVNY7';
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     function gtag(){ window.dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-GQ77SEVNY7');
   }
 }
 
