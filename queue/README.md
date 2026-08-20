@@ -36,6 +36,8 @@ line, unattended. Never drop a draft here.
 
 ## What the Friday job does
 - Moves `queue/<slug>.html` → `<slug>.html`, stamps today's ET date into the hero.
+- Injects SEO/social/schema via `build_seo.py` — canonical, Open Graph, Twitter card, and
+  JSON-LD (`BlogPosting` + `FAQPage` from the quiz), dated to the publish day.
 - Inserts the index card at the `<!-- CADENCE:CARDS -->` marker in `blog.html` (newest first).
 - Inserts the sitemap URL at the `<!-- CADENCE:URLS -->` marker in `sitemap.xml` (today's `lastmod`).
 - Removes the entry from this manifest.

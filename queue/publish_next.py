@@ -70,6 +70,12 @@ page, nsub = re.subn(r'(<span class="meta-date">)(.*?)(</span>)',
 if nsub == 0: die(f'No <span class="meta-date"> found in {dst}')
 open(dst, "w", encoding="utf-8").write(page)
 
+# 1b) inject SEO/social/schema (canonical, OG, Twitter, JSON-LD) using the just-stamped date
+seo = subprocess.run([sys.executable, "build_seo.py", dst], capture_output=True, text=True)
+print(seo.stdout.strip())
+if seo.returncode != 0:
+    print(seo.stderr[-400:]); die(f"SEO injection failed on {dst}")
+
 # 2) index card at the CADENCE:CARDS marker (newest first) — text HTML-escaped
 cat_class = e["cat_class"]                                  # allowlisted above
 cat_bg = "cat-bg-" + cat_class.split("cat-", 1)[1]          # cat-bg-retire
