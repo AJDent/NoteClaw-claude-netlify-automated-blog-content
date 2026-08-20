@@ -1,0 +1,58 @@
+name: Friday Publish (blog cadence)
+
+# Publishes the next PRE-APPROVED post from queue/ every Friday at 10:00 AM ET.
+# Two crons cover DST; the gate step ensures exactly one publish at 10 ET year-round.
+# Manual runs (workflow_dispatch) skip the time gate so you can publish on demand.
+
+on:
+  schedule:
+    - cron: '0 14 * * 5'   # 10:00 ET during EDT (Mar–Nov)
+    - cron: '0 15 * * 5'   # 10:00 ET during EST (Nov–Mar)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gate to 10:00 ET
+        id: gate
+        run: |
+          H=$(TZ=America/New_York date +%H)
+          echo "Current Eastern hour: $H"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run — proceeding."; echo "go=1" >> "$GITHUB_OUTPUT"
+          elif [ "$H" = "10" ]; then
+            echo "go=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not 10 ET (off-DST cron) — skipping."; echo "go=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.go == '1'
+        with:
+          python-version: '3.12'
+
+      - name: Publish next queued post
+        id: pub
+        if: steps.gate.outputs.go == '1'
+        run: python3 queue/publish_next.py
+
+      - name: Commit & push (triggers Netlify deploy)
+        if: steps.gate.outputs.go == '1'
+        env:
+          PUBLISHED: ${{ steps.pub.outputs.published || 'post' }}
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes (queue empty) — nothing to publish."
+            exit 0
+          fi
+          git config user.name "tnc-cadence-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Auto-publish (Friday cadence): $PUBLISHED"
+          git push
