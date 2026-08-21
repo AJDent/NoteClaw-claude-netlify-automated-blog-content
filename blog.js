@@ -4,8 +4,9 @@
    ============================================================ */
 
 /* ── CONSTANTS ── */
-const GHL_WEBHOOK     = 'https://hooks.leadconnectorhq.com/webhook/REPLACE_WITH_GHL_WEBHOOK_ID';
-const GHL_COMMENTS    = 'https://hooks.leadconnectorhq.com/webhook/REPLACE_WITH_GHL_COMMENTS_WEBHOOK_ID';
+// Lead capture routes through the live Netlify function (server-side GHL token) — same path as the
+// homepage/buybox forms. No client-side webhook URL to leak. (Tech Wizard 2026-08-20)
+const INTAKE_ENDPOINT = '/.netlify/functions/intake';
 const SUBSCRIBED_KEY  = 'tnc_blog_subscribed';
 const POPUP_CLOSE_KEY = 'tnc_popup_closed_until';
 const COOKIE_KEY      = 'tnc_cookie_consent';
@@ -18,12 +19,21 @@ const BUCKET_MAP = {
 };
 
 /* ── GHL SUBMIT ── */
-function submitToGHL(data, webhookUrl) {
-  const url = webhookUrl || GHL_WEBHOOK;
-  return fetch(url, {
+// Lead opt-ins (popup / newsletter bar / mini-CTA) send {firstName, email, investorType, tags}.
+// They route to the intake function as _form:'blog'. Comments (called with a second arg) carry no
+// email and are not lead capture — skipped here, pending a dedicated moderation destination.
+function submitToGHL(data, isComment) {
+  if (isComment) return Promise.resolve();  // TODO: wire blog comments to a moderation path (no email today)
+  return fetch(INTAKE_ENDPOINT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
+    body: JSON.stringify({
+      _form: 'blog',
+      first_name:  data.firstName || '',
+      email:       data.email || '',
+      investor_type: data.investorType || '',
+      source_tags: Array.isArray(data.tags) ? data.tags : []
+    })
   }).catch(() => {});
 }
 
@@ -241,7 +251,7 @@ function submitComment(e) {
   const postUrl = window.location.href;
   if (!comment) return;
 
-  submitToGHL({ name, comment, postUrl, tags: ['blog-comment'] }, GHL_COMMENTS);
+  submitToGHL({ name, comment, postUrl, tags: ['blog-comment'] }, true);
 
   const form = document.getElementById('commentForm');
   const success = document.getElementById('commentSuccess');

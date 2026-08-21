@@ -92,6 +92,39 @@ async function handleIntake(data) {
   return createGHLContact(ghlPayload);
 }
 
+// === BLOG OPT-INS: exit popup / newsletter bar / mini-CTA (from blog.js) ===
+// blog.js sends investorType as the human label; map it onto the Investing With picklist.
+const BLOG_INVESTOR_TYPE_MAP = {
+  'Self-Directed IRA Holder':            'Self-Directed IRA (SDIRA)',
+  '401(k) / Solo 401(k) Holder':         '401(k) / Solo 401(k)',
+  'Private Capital / Cash Investor':     'Cash / Savings',
+  'Just Learning About Note Investing':  'Not sure yet'
+};
+
+async function handleBlog(data) {
+  const email = (data.email || '').trim();
+  // Guard: no email (e.g. a stray comment) must not create a junk contact.
+  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
+
+  const srcTags = Array.isArray(data.source_tags) ? data.source_tags : [];
+  const tags = Array.from(new Set(['blog-lead', ...srcTags]));
+
+  const ghlPayload = {
+    firstName: data.first_name || '',
+    email,
+    source: 'Blog', tags, locationId: GHL_LOCATION_ID,
+    customFields: [
+      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
+      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
+      { id: FIELD_IDS.contact_source,   field_value: 'Blog' }
+    ]
+  };
+  if (data.investor_type) {
+    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
+  }
+  return createGHLContact(ghlPayload);
+}
+
 async function handleBuyBox(data) {
   const assets = data.asset_types || [];
   let noteType = '';
@@ -149,7 +182,9 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   try {
     const data = JSON.parse(event.body);
-    const response = (data._form === 'buybox') ? await handleBuyBox(data) : await handleIntake(data);
+    const response = (data._form === 'buybox') ? await handleBuyBox(data)
+                   : (data._form === 'blog')   ? await handleBlog(data)
+                   : await handleIntake(data);
     if (response.ok) {
       const result = await response.json();
       return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true, contactId: result.contact?.id }) };
