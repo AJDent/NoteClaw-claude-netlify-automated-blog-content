@@ -244,6 +244,49 @@ On 2026-06-16, we discovered only 4 of 19 blog posts were in the sitemap. Google
 - Educational/explainer content that doesn't fit above → **📚 Education** (`cat-edu`)
 - Anything else → **🔗 Other** (`cat-other`)
 
+### 🎨 Hero category PILL — use the INLINE style, not just the class (added 2026-08-20)
+The hero category tag gets its pill color from an **inline `style`**, NOT from the `cat-*` class (the class
+only colors the blog-index *card*, so a class-only hero tag renders as plain text with no pill). Copy the
+exact inline style from an existing post of the same category. Locked map:
+
+| Category | Hero pill inline style | Hero gradient end |
+|---|---|---|
+| 📓 Note Investing | `background:rgba(74,158,222,0.15);color:#4a9ede;` | `#1a3a6b` |
+| 🎯 Note Strategies | `background:rgba(232,93,93,0.15);color:#e85d5d;` | `#3d0a0a` |
+| 💰 Retirement Investing | `background:rgba(240,165,0,0.16);color:#f0a500;` | `#3d2e0a` |
+| 🏠 Real Estate | `background:rgba(78,203,113,0.15);color:#4ecb71;` | `#0f3d1e` |
+| 📊 Deal Breakdowns | `background:rgba(167,139,250,0.15);color:#a78bfa;` | `#2d1f5e` |
+| 🔗 Other | `background:rgba(156,168,184,0.15);color:#9ca8b8;` | `#2a2f38` |
+
+Hero background = `linear-gradient(180deg, #0a0a1a 0%, <end> 100%)`. Blog category colors (incl. amber) are
+**EXEMPT** from the no-gold brand rule — they are this framework's own system (vault CLAUDE.md, 2026-08-20).
+
+---
+
+## 🔎 SEO + SCHEMA (added 2026-08-20 — every post)
+Every post ships with canonical + Open Graph + Twitter card + JSON-LD (`BlogPosting` + `FAQPage` from the
+quiz). Do NOT hand-write these — run **`build_seo.py <file>`** (repo root; idempotent). The Friday cadence
+auto-injects them at publish, so **queued posts should NOT be pre-run through `build_seo.py`** (let the
+cadence stamp the real publish date into the schema).
+
+## 🗣️ VOICE (the validator does NOT catch these — check by eye)
+- **NO em-dashes (—) in published copy.** Ever. Use periods or commas. (Site-wide cleanup pending 2026-08-20.)
+- Never use: crucial, robust, leverage, delve, nuanced, multifaceted.
+- Customer-facing copy runs through the **`tnc-copywriting-persuasion`** skill first (business standing rule).
+
+## 📊 DEAL-BREAKDOWN NUMBER INTEGRITY (added 2026-08-20 — HARD RULE)
+Deal breakdowns make performance claims, so the numbers are a compliance surface, not decoration:
+- The **headline number MUST match the body.** (2026-08-20: `deal-breakdown-atlanta` shipped a "$13,460 profit /
+  156% return" headline while its own body table showed **−$6,835** net at 6 months — false and self-contradicting.)
+- **Every table must foot** (line items sum to the stated total) and figures must reconcile across sections.
+- **Never invent numbers.** Use the real (anonymized) deal figures: no names, city+state only, round figures.
+- If the numbers do not reconcile, do NOT publish — flag AJ for the real figures.
+
+## ⏰ FRIDAY PUBLISH CADENCE (added 2026-08-20)
+Approved posts go in **`queue/`** + a `queue/manifest.json` entry; a GitHub Action publishes the next one
+every Friday 10 AM ET (`.github/workflows/friday-publish.yml` → `queue/publish_next.py`). The queue IS the
+approval gate. Full how-to: `queue/README.md`.
+
 ---
 
 ## 📐 TEMPLATE REFERENCE
