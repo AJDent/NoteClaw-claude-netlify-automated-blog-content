@@ -1,0 +1,44 @@
+name: Monthly Blog Review
+
+# Runs the full blog audit (audit.py) on the 1st of each month and opens a GitHub
+# issue if anything drifted from BLOG-FRAMEWORK.md. Deterministic layer; the copy-quality
+# judgment pass is done by NoteClaw reading the report. Manual runs via workflow_dispatch.
+
+on:
+  schedule:
+    - cron: '0 14 1 * *'   # 1st of month, ~10:00 ET
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run blog audit
+        id: audit
+        run: |
+          python3 audit.py | tee report.txt
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Open issue if the audit found problems
+        if: steps.audit.outputs.code != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DATE="$(date +%Y-%m-%d)"
+          {
+            echo "The monthly blog audit flagged issues. Full report:"
+            echo
+            echo '```'
+            cat report.txt
+            echo '```'
+            echo
+            echo "Fix per BLOG-FRAMEWORK.md, then re-run the workflow to confirm clean."
+          } > body.md
+          gh issue create --title "Monthly blog review — issues found ($DATE)" --body-file body.md
