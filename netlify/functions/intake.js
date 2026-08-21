@@ -125,6 +125,41 @@ async function handleBlog(data) {
   return createGHLContact(ghlPayload);
 }
 
+// === LANDING PAGES: sdira / 401k / private-investor (from /landing/*.html) ===
+// Each page sets `page`; investing_with is derived from the page, the qualifier answer -> Deal Notes.
+const LANDING_INVESTING_WITH = {
+  'sdira':   'Self-Directed IRA (SDIRA)',
+  '401k':    '401(k) / Solo 401(k)',
+  'private': 'Cash / Savings'
+};
+
+async function handleLanding(data) {
+  const email = (data.email || '').trim();
+  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
+
+  const page = ['sdira', '401k', 'private'].includes(data.page) ? data.page : 'private';
+  const tags = ['landing-lead', `landing-${page}`];
+
+  const ghlPayload = {
+    firstName: data.first_name || '', lastName: data.last_name || '',
+    email, phone: data.phone || '',
+    source: `Landing: ${page}`, tags, locationId: GHL_LOCATION_ID,
+    customFields: [
+      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
+      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
+      { id: FIELD_IDS.contact_source,   field_value: 'Landing Page' }
+    ]
+  };
+  if (LANDING_INVESTING_WITH[page]) {
+    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
+  }
+  // Qualifier select (accountType / planType / capitalRange) -> Deal Notes, verbatim, as segmentation context.
+  if (data.qualifier) {
+    ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: `Landing (${page}) qualifier: ${data.qualifier}` });
+  }
+  return createGHLContact(ghlPayload);
+}
+
 async function handleBuyBox(data) {
   const assets = data.asset_types || [];
   let noteType = '';
@@ -182,8 +217,9 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   try {
     const data = JSON.parse(event.body);
-    const response = (data._form === 'buybox') ? await handleBuyBox(data)
-                   : (data._form === 'blog')   ? await handleBlog(data)
+    const response = (data._form === 'buybox')  ? await handleBuyBox(data)
+                   : (data._form === 'blog')    ? await handleBlog(data)
+                   : (data._form === 'landing') ? await handleLanding(data)
                    : await handleIntake(data);
     if (response.ok) {
       const result = await response.json();
