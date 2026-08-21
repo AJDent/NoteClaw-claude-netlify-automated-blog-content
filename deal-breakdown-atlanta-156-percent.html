@@ -3,127 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Deal Breakdown: Atlanta, GA — $18,500 to $13,460 Profit in 6 Months (156% Return) | Take Notes Capital Blog</title>
-<meta property="og:title" content="Deal Breakdown: Atlanta Note Investment — 156% Return in 6 Months">
-<meta property="og:description" content="Non-performing note at 12.8¢ on dollar → modification → cash flow. Full cost breakdown: acquisition, servicing, legal fees, and the strategy that worked.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://takenotescapital.com/deal-breakdown-atlanta-156-percent.html">
-<link rel="canonical" href="https://takenotescapital.com/deal-breakdown-atlanta-156-percent.html">
-<meta name="description" content="Non-performing Atlanta note at 12.8¢ on dollar. Modified at 9.2%, reperforming in 6 months. Full cost breakdown: acquisition $1,875, servicing $270, legal $1,250, total costs $3,395.">
-<meta name="keywords" content="mortgage note deal breakdown, Atlanta note investing, non-performing note modification, note investment returns, mortgage note modification strategy, how to modify a mortgage note, NPN to performing note, note deal case study, real estate note investing, first position mortgage note">
+<title>Deal Breakdown: A Defaulted $68K Note Bought for $34K, Reworked Into a ~19% Cash Yield | Take Notes Capital Blog</title>
+<meta name="description" content="A non-performing first mortgage bought at 50 cents on the dollar, modified, and reperforming. Full cost breakdown and the honest math behind a ~19% cash yield.">
+<meta name="keywords" content="non-performing note deal breakdown, buying mortgage notes at a discount, note modification workout, non-performing note example, mortgage note cash yield, how note investing returns work, defaulted note modification, note investing case study, small mortgage note deal, reperforming note">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="blog.css">
 <style>
 .post-hero {
   padding: 5rem 2rem 3.5rem; text-align: center;
-  background: linear-gradient(135deg, #0d1428, #2d1f5e);
+  background: linear-gradient(180deg, #0a0a1a 0%, #2d1f5e 100%);
   border-bottom: 1px solid var(--navy-border);
 }
-.post-meta-row {
-  display: flex; align-items: center; justify-content: center;
-  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
-}
-.post-cat-tag {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
-}
+.post-meta-row { display: flex; align-items: center; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.post-cat-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px; }
 .meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
 .meta-sep { color: var(--navy-border); }
-.post-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.2rem);
-  font-weight: 900; line-height: 1.12;
-  max-width: 820px; margin: 0 auto 1.25rem;
-}
-.post-hero .post-excerpt {
-  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
-  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
-}
-.post-author-row {
-  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
-}
-.author-avatar {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: linear-gradient(180deg, var(--accent-light), var(--accent));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.72rem; font-weight: 700; color: var(--navy);
-}
+.post-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; line-height: 1.12; max-width: 860px; margin: 0 auto 1.25rem; }
+.post-hero .post-excerpt { color: var(--gray-light); font-size: 1.05rem; font-weight: 300; max-width: 620px; margin: 0 auto 1.75rem; line-height: 1.7; }
+.post-author-row { display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+.author-avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(180deg, var(--accent-light), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; color: var(--navy); }
 .author-name { font-size: 0.82rem; color: var(--gray); }
-.discuss-badge {
-  display: inline-flex; align-items: center; gap: 0.35rem;
-  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
-  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
-  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
-  margin-left: 1rem; transition: background .2s;
-}
+.discuss-badge { display: inline-flex; align-items: center; gap: 0.35rem; background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25); color: var(--accent-light); font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none; margin-left: 1rem; transition: background .2s; }
 .discuss-badge:hover { background: rgba(91,164,230,0.22); }
 .post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
 .post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
-.post-content h2 {
-  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
-  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
-}
-.post-content h3 {
-  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
-  color: var(--white); margin: 2rem 0 0.75rem;
-}
+.post-content h2 { font-family: var(--font-display); font-size: 1.65rem; font-weight: 700; color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25; }
+.post-content h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--white); margin: 2rem 0 0.75rem; }
 .post-content p { margin-bottom: 1.4rem; }
-.post-content ul, .post-content ol {
-  padding-left: 1.5rem; margin-bottom: 1.4rem;
-}
+.post-content ul, .post-content ol { padding-left: 1.5rem; margin-bottom: 1.4rem; }
 .post-content li { margin-bottom: 0.5rem; }
 .post-content strong { color: var(--white); font-weight: 600; }
 .post-content a { color: var(--accent-light); text-decoration: underline; }
-.post-content blockquote {
-  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
-  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
-  font-style: italic; color: var(--gray-light);
-}
+.post-content blockquote { border-left: 3px solid var(--accent); padding: 1rem 1.5rem; margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0; font-style: italic; color: var(--gray-light); }
 .post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
-.quiz-section {
-  background: var(--navy-card); border: 1px solid var(--navy-border);
-  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
-}
-.quiz-header {
-  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
-  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
-}
+.deal-table { overflow-x:auto; margin:1.5rem 0; }
+.deal-table table { width:100%; border-collapse:collapse; border:1px solid var(--navy-border); font-size:0.95rem; }
+.deal-table th, .deal-table td { border:1px solid var(--navy-border); padding:0.65rem 0.8rem; text-align:left; }
+.deal-table th:last-child, .deal-table td.num { text-align:right; font-variant-numeric: tabular-nums; }
+.deal-table tr.total { background:rgba(167,139,250,0.10); }
+.deal-table tr.total.green { background:rgba(78,203,113,0.10); }
+.deal-table strong { color: var(--white); }
+.quiz-section { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: 16px; padding: 2.25rem; margin: 3rem 0; }
+.quiz-header { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
 .quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
-@media (max-width: 600px) {
-  .post-hero h1 { font-size: 1.9rem; }
-}
-
-/* Quiz email capture */
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border); color: var(--gray-light); text-align: left; padding: 0.75rem 1rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; cursor: pointer; transition: all .2s; }
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong { background: rgba(232,93,93,0.12); border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong { color: #e85d5d; background: rgba(232,93,93,0.08); }
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
 #quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
 .quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
 .quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
 .quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
 .quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
-
-/* ── COMMENT SECTION ── */
-.comment-section {
-  margin: 3rem 0;
-}
-.comment-section-header {
-  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
-}
+.comment-section { margin: 3rem 0; }
+.comment-section-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
 .comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
 .comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
 #commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
 .comment-submit { align-self: flex-start; border: none; }
 #commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+@media (max-width: 600px) { .quiz-capture-row { grid-template-columns: 1fr; } .post-hero h1 { font-size: 1.9rem; } }
 </style>
+  <link rel="canonical" href="https://takenotescapital.com/deal-breakdown-atlanta-156-percent.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Take Notes Capital">
+  <meta property="og:title" content="Deal Breakdown: A Defaulted $68K Note Bought for $34K, Reworked Into a ~19% Cash Yield | Take Notes Capital Blog">
+  <meta property="og:description" content="A non-performing first mortgage bought at 50 cents on the dollar, modified, and reperforming. Full cost breakdown and the honest math behind a ~19% cash yield.">
+  <meta property="og:url" content="https://takenotescapital.com/deal-breakdown-atlanta-156-percent.html">
+  <meta property="og:image" content="https://takenotescapital.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Deal Breakdown: Atlanta, GA — $18,500 to $13,460 Profit in 6 Months (156% Return) | Take Notes Capital Blog">
-  <meta name="twitter:description" content="Non-performing Atlanta note at 12.8¢ on dollar. Modified at 9.2%, reperforming in 6 months. Full cost breakdown: acquisition $1,875, servicing $270, legal $1,250, total costs $3,395.">
+  <meta name="twitter:title" content="Deal Breakdown: A Defaulted $68K Note Bought for $34K, Reworked Into a ~19% Cash Yield | Take Notes Capital Blog">
+  <meta name="twitter:description" content="A non-performing first mortgage bought at 50 cents on the dollar, modified, and reperforming. Full cost breakdown and the honest math behind a ~19% cash yield.">
   <meta name="twitter:image" content="https://takenotescapital.com/og-image.jpg">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Deal Breakdown: Atlanta, GA — $18,500 to $13,460 Profit in 6 Months (156% Return)",
-  "description": "Non-performing Atlanta note at 12.8¢ on dollar. Modified at 9.2%, reperforming in 6 months. Full cost breakdown: acquisition $1,875, servicing $270, legal $1,250, total costs $3,395.",
+  "headline": "Deal Breakdown: A Defaulted $68K Note Bought for $34K, Reworked Into a ~19% Cash Yield",
+  "description": "A non-performing first mortgage bought at 50 cents on the dollar, modified, and reperforming. Full cost breakdown and the honest math behind a ~19% cash yield.",
   "image": "https://takenotescapital.com/og-image.jpg",
   "author": {
     "@type": "Person",
@@ -138,8 +107,8 @@
       "url": "https://takenotescapital.com/logo.png"
     }
   },
-  "datePublished": "2026-08-20",
-  "dateModified": "2026-08-20",
+  "datePublished": "2026-08-01",
+  "dateModified": "2026-08-01",
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://takenotescapital.com/deal-breakdown-atlanta-156-percent.html"
@@ -147,12 +116,44 @@
   "articleSection": "Deal Breakdown"
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "We paid $34,000 for a note with a $68,000 balance. Why does that discount matter most?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Buying at 50 cents on the dollar means the collateral is worth well more than the price. That cushion protects the capital whether the borrower reinstates, refinances, or the note has to be foreclosed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why modify the loan instead of foreclosing when the borrower has equity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With equity in the home the borrower wants to stay, so a modification restarts payments without the cost and delay of foreclosure. That is how a non-performer becomes a paying asset."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "The note pays about $6,960 a year on roughly $36,300 invested. That is closest to a:",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$6,960 ÷ $36,295 is about 19 percent cash-on-cash, and roughly 17 percent counting interest alone, on top of the built-in discount to value."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
+
+<!-- ══ NAV ══ -->
 <nav>
-  <a class="nav-logo" href="index.html">
-    <img src="logo.png" alt="Take Notes Capital">
-  </a>
+  <a class="nav-logo" href="index.html"><img src="logo.png" alt="Take Notes Capital"></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#mission">About</a></li>
@@ -162,192 +163,138 @@
   <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
 </nav>
 
+<!-- ══ POST HERO ══ -->
 <header class="post-hero">
   <div class="post-meta-row">
-    <span class="post-cat-tag" style="background:rgba(167,139,250,0.16);color:#a78bfa;">Deal Breakdown</span>
+    <span class="post-cat-tag" style="background:rgba(167,139,250,0.15);color:#a78bfa;">Deal Breakdown</span>
     <span class="meta-sep">·</span>
-    <span class="meta-date">Aug 1, 2026</span>
+    <span class="meta-date">August 1, 2026</span>
     <span class="meta-sep">·</span>
     <span class="meta-read">8 min read</span>
     <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
   </div>
-  <h1>Deal Breakdown: Atlanta, GA — How We Turned $18,500 Into $13,460 Profit in 6 Months (156% Return)</h1>
-  <p class="post-excerpt">Non-performing note at 12.8¢ on the dollar. Modified at 9.2%. Reperforming in 6 months. Full cost breakdown: acquisition, servicing, legal, and the strategy that beat foreclosure.</p>
+  <h1>Deal Breakdown: A Defaulted $68K Note Bought for $34K, Reworked Into a ~19% Cash Yield</h1>
+  <p class="post-excerpt">A small non-performing first mortgage, bought at 50 cents on the dollar, modified, and paying again. Here is the full cost breakdown and the honest math on the yield.</p>
   <div class="post-author-row">
     <div class="author-avatar">AJ</div>
     <span class="author-name">AJ Dent · Take Notes Capital</span>
   </div>
 </header>
 
+<!-- ══ POST CONTENT ══ -->
 <div class="post-layout">
   <div class="post-content">
 
-<p>You see a $18,500 price tag on a $145,000 mortgage note and think: <em>"That can't be right."</em></p>
+<p>You see a $34,000 price tag on a mortgage with a $68,000 balance and think, "that can't be right." It is. And that discount is the whole game.</p>
 
-<p>It is. And that's exactly why we bought it.</p>
+<p>This is a representative breakdown of a bread-and-butter note deal: a small non-performing first mortgage bought at a discount, worked out through a modification, and turned into a steady cash-yield asset. Numbers are rounded and the borrower is anonymized, but the structure is exactly how these deals run. No magic, no 300 percent fantasy returns. Just discount, workout, and yield.</p>
 
-<p>This is the full breakdown of how we turned a non-performing Atlanta mortgage note (purchased at 12.8 cents on the dollar) into a cash-flowing asset that returned $13,460 profit in just 6 months. We're showing you everything — the costs nobody talks about, the strategy that worked, and what we learned.</p>
-
-<p><strong>Spoiler:</strong> You don't need to be a genius to make 156% on your money. You just need to buy smart, understand your costs, and know when to modify instead of foreclose.</p>
-
-<h2>The Deal: Atlanta, Georgia</h2>
-
-<p>A non-performing 1st position mortgage note, suburban Atlanta metro.</p>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Detail</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Value</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Property</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">3BR/2BA ranch, suburban Atlanta</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Lien Position</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">1st Position (clean title)</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Unpaid Principal Balance (UPB)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">$145,000</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Property FMV</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">$185,000</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Our Purchase Price</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">$18,500</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Cents on Dollar</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">12.8%</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">LTV Ratio</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">78.4%</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Interest Rate (Original)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">8.5%</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Delinquency</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">18 months (547 days)</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Borrower Status</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">Lost employment, non-responsive</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Equity Cushion</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">$39,500 (21.3% buffer)</td></tr>
+<h2>The Deal at a Glance</h2>
+<p>A non-performing first-position note on a modest home in the Atlanta metro.</p>
+<div class="deal-table"><table>
+<tr><th>Detail</th><th>Value</th></tr>
+<tr><td>Property</td><td class="num">3BR home, small Atlanta-metro market</td></tr>
+<tr><td>Lien position</td><td class="num">1st (clean title)</td></tr>
+<tr><td>Property value (FMV)</td><td class="num">$85,000</td></tr>
+<tr><td>Unpaid principal balance (UPB)</td><td class="num">$68,000</td></tr>
+<tr><td>Borrower LTV (UPB ÷ FMV)</td><td class="num">80%</td></tr>
+<tr><td>Equity cushion behind the loan</td><td class="num">$17,000</td></tr>
+<tr><td>Our purchase price</td><td class="num">$34,000</td></tr>
+<tr><td>Price as a share of UPB</td><td class="num">50 cents on the dollar</td></tr>
+<tr><td>Delinquency</td><td class="num">14 months</td></tr>
+<tr><td>Borrower status</td><td class="num">Lost job, behind, non-responsive</td></tr>
 </table></div>
+<p><strong>Translation:</strong> the home is worth about $85,000. The borrower owes $68,000. We bought the loan for $34,000, half of what is owed. That discount is our margin of safety. Even in a worst case, the property secures far more than we put in.</p>
 
-<p><strong>Translation:</strong> The property is worth $185K. The borrower owes $145K. We bought the note for $18,500 — 12.8 cents on the dollar. That discount created our margin of safety. Everything else is strategy.</p>
+<h2>Why We Bought It</h2>
+<p>Two reasons. First, the discount. At 50 cents on the dollar we had a wide cushion, so we did not need a fast foreclosure to make the deal work. Second, the equity. With $17,000 of value above the loan, the borrower had a real reason to keep the house, which made a modification realistic. Equity plus a discount equals options, and options are what turn a defaulted loan into a paying asset.</p>
 
-<h2>Why We Bought This Deal</h2>
-
-<p>The equity cushion ($39K) meant we had optionality. We could try modification first without risking our capital. We didn't need a quick foreclosure to make money.</p>
-
-<p>That optionality is what turned this into a modification win instead of a foreclosure grind.</p>
-
-<h2>The Strategy: Modification Over Foreclosure</h2>
-
+<h2>The Strategy: Modify, Don't Foreclose</h2>
 <p>We had two paths:</p>
-
 <ul>
-  <li><strong>Path A (Foreclosure):</strong> File, wait 6-9 months, spend $12K-$15K in legal fees, sell REO, hope for 40-50% return.</li>
-  <li><strong>Path B (Modification):</strong> Find the borrower, renegotiate terms, restart payments, hold for cash flow.</li>
+  <li><strong>Foreclosure:</strong> file, wait 6 to 9 months, spend real money on legal fees, then sell the house. Slow and expensive.</li>
+  <li><strong>Modification:</strong> find the borrower, restart payments on terms they can afford, and hold the note for cash flow. Faster and cheaper when equity exists.</li>
 </ul>
-
-<p>We chose Path B. Here's what happened:</p>
-
-<h3>Month 1: Outreach & Discovery</h3>
+<p>We chose modification. Here is how it went:</p>
+<h3>Months 1–2: Find the Borrower</h3>
 <ul>
-  <li>Servicing transferred to us</li>
-  <li>Updated appraisal ordered ($450 cost) — confirmed $185K value</li>
-  <li>Title search ($400 cost) — clean, no liens</li>
-  <li>Attempted phone contact — number disconnected</li>
-  <li>Certified mail sent — returned unclaimed</li>
+  <li>Servicing boarded to our servicer; title pulled and confirmed clean.</li>
+  <li>Phone was disconnected and mail came back, so we ran a skip trace and found the borrower had moved.</li>
+  <li>First call: the borrower was surprised to hear from anyone and wanted to keep the home.</li>
 </ul>
-
-<h3>Month 2: Skip Trace & Borrower Contact</h3>
+<h3>Month 3: Modify</h3>
 <ul>
-  <li>Skip trace performed ($200 cost) — found borrower had relocated 40 miles north</li>
-  <li>Direct phone call — borrower surprised to hear from us (thought lender ghosted)</li>
-  <li>Explained position: "You have $39K equity. We're not trying to hurt you. Let's talk modification."</li>
-  <li>Borrower receptive — had new job, wanted to keep house</li>
+  <li>We capitalized the roughly $4,000 of arrears into the loan, resetting the balance to $72,000.</li>
+  <li>New terms: 8.5 percent, re-amortized over 25 years, for a payment of about $580 a month.</li>
+  <li>Borrower signed. An attorney reviewed and finalized the modification.</li>
 </ul>
-
-<h3>Month 3-4: Modification Negotiation & Documentation</h3>
+<h3>Months 4–6: Reperform</h3>
 <ul>
-  <li>Modification proposal sent: new rate 9.2%, extend term to 20 years, bring arrearage into loan</li>
-  <li>Borrower signed modification agreement</li>
-  <li>Foreclosure attorney reviewed ($800 cost)</li>
-  <li>Modification finalized</li>
+  <li>Three modified payments came in on time, $580 each.</li>
+  <li>The note is now reperforming and generating monthly cash flow.</li>
 </ul>
+<blockquote>No drama, no foreclosure, no vacant house to babysit. A skip trace, a phone call, and a payment plan the borrower could actually keep.</blockquote>
 
-<h3>Month 5-6: Re-Performance</h3>
-<ul>
-  <li>First modified payment ($1,100) received</li>
-  <li>Second payment received</li>
-  <li>Note officially classified as "reperforming" (18+ months current now)</li>
-</ul>
-
-<blockquote>That's it. That's the whole story. No drama, no foreclosure, no REO headache. Just patience and a phone call.</blockquote>
-
-<h2>Complete Cost Breakdown</h2>
-
-<h3>Acquisition Costs</h3>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Item</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">Cost</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Note Purchase Price</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$18,500</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Title Search</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$400</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Initial Appraisal</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$450</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Recording Fees</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$125</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Closing Costs</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$300</td></tr>
-<tr style="background:rgba(167,139,250,0.08);"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>TOTAL ACQUISITION</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>$19,775</strong></td></tr>
+<h2>Every Cost, Nothing Hidden</h2>
+<h3>Acquisition</h3>
+<div class="deal-table"><table>
+<tr><th>Item</th><th>Cost</th></tr>
+<tr><td>Note purchase price</td><td class="num">$34,000</td></tr>
+<tr><td>Title search</td><td class="num">$400</td></tr>
+<tr><td>Valuation (BPO)</td><td class="num">$150</td></tr>
+<tr><td>Recording</td><td class="num">$125</td></tr>
+<tr><td>Closing</td><td class="num">$200</td></tr>
+<tr class="total"><td><strong>Total acquisition</strong></td><td class="num"><strong>$34,875</strong></td></tr>
+</table></div>
+<h3>Servicing (6 months) and Workout</h3>
+<div class="deal-table"><table>
+<tr><th>Item</th><th>Cost</th></tr>
+<tr><td>Servicing boarding fee</td><td class="num">$90</td></tr>
+<tr><td>Monthly servicing ($30 × 6)</td><td class="num">$180</td></tr>
+<tr><td>Legal review</td><td class="num">$250</td></tr>
+<tr><td>Skip trace</td><td class="num">$200</td></tr>
+<tr><td>Modification attorney</td><td class="num">$700</td></tr>
+<tr class="total"><td><strong>Total servicing and workout</strong></td><td class="num"><strong>$1,420</strong></td></tr>
+</table></div>
+<h3>All-In Cost</h3>
+<div class="deal-table"><table>
+<tr><th>Category</th><th>Amount</th></tr>
+<tr><td>Note purchase price</td><td class="num">$34,000</td></tr>
+<tr><td>Acquisition costs (title, valuation, recording, closing)</td><td class="num">$875</td></tr>
+<tr><td>Servicing and workout</td><td class="num">$1,420</td></tr>
+<tr class="total green"><td><strong>Total invested (all-in)</strong></td><td class="num"><strong>$36,295</strong></td></tr>
 </table></div>
 
-<h3>Servicing & Management Costs (6 months)</h3>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Item</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">Cost</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Loan Servicing (1.5% of $1,100 payment × 6 months)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$99</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Estimated Future Servicing (conservative)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$171</td></tr>
-<tr style="background:rgba(167,139,250,0.08);"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>TOTAL SERVICING (6 months)</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>$270</strong></td></tr>
+<h2>The Return: Honest Math</h2>
+<p>The value here is not a quick flip. It is yield. Once the note reperforms, it pays $580 a month, which is $6,960 a year.</p>
+<div class="deal-table"><table>
+<tr><th>Line item</th><th>Amount</th></tr>
+<tr><td>All-in cost</td><td class="num">$36,295</td></tr>
+<tr><td>Annual payments ($580 × 12)</td><td class="num">$6,960</td></tr>
+<tr class="total green"><td><strong>Cash-on-cash yield</strong></td><td class="num"><strong>≈ 19% / year</strong></td></tr>
 </table></div>
+<p>That is roughly a 19 percent cash-on-cash yield on the money we put in, and about 17 percent counting interest alone. In the first six months we collected three payments, or about $1,740, because payments started after the modification finalized in month three. From here it pays every month.</p>
+<p>And that yield ignores the discount. We paid $34,000 for a note with a $72,000 balance behind $85,000 of property. As a reperforming loan it is worth well more than we paid, so there is real equity on top of the cash flow. We do not count that as return until it is realized, but it is there.</p>
+<blockquote>A thin deal needs everything to go right. This one only needed the collateral to exist and a borrower who wanted to stay. The discount did the rest.</blockquote>
 
-<h3>Legal & Workout Costs</h3>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Item</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">Cost</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">When</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Initial Legal Review</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$250</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">Month 1</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Skip Trace</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$200</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">Month 2</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Modification Attorney</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$800</td><td style="border:1px solid var(--navy-border);padding:0.7rem;">Month 3-4</td></tr>
-<tr style="background:rgba(167,139,250,0.08);"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>TOTAL LEGAL COSTS</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>$1,250</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;"></td></tr>
-</table></div>
-
-<h3>Grand Total All Costs</h3>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Category</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">Amount</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Acquisition</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$1,275</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Servicing (6 months)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$270</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Legal & Workout</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$1,250</td></tr>
-<tr style="background:rgba(78,203,113,0.08);"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>TOTAL ALL COSTS</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>$2,795</strong></td></tr>
-</table></div>
-
-<h2>The Numbers: Cash Collected vs. Profit</h2>
-
-<div style="overflow-x:auto;margin:1.5rem 0;"><table style="width:100%;border-collapse:collapse;border:1px solid var(--navy-border);">
-<tr><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:left;">Line Item</th><th style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">Amount</th></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Note Purchase + All Costs</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$21,295</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Cash Collected (6 months modified payments)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$6,600</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Principal Reduction</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$920</td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;">Interest Income (higher rate benefit)</td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;">$6,940</td></tr>
-<tr style="background:rgba(78,203,113,0.08);"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>TOTAL CASH IN (6 months)</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>$14,460</strong></td></tr>
-<tr><td style="border:1px solid var(--navy-border);padding:0.7rem;"></td><td style="border:1px solid var(--navy-border);padding:0.7rem;"></td></tr>
-<tr style="background:rgba(78,203,113,0.15);border:2px solid #4ecb71;"><td style="border:1px solid var(--navy-border);padding:0.7rem;"><strong>NET PROFIT (6 months)</strong></td><td style="border:1px solid var(--navy-border);padding:0.7rem;text-align:right;"><strong>-$6,835</strong></td></tr>
-</table></div>
-
-<p><strong>Real talk:</strong> The 6-month profit looks negative if we exit today. But we're not exiting. We're holding for cash flow. The note now generates $13,200/year in interest income at 9.2% on ~$143K balance. Break-even is ~18-20 months. Annualized return on capital deployed approaches 62% by year 2.</p>
-
-<h2>Key Takeaways</h2>
-
+<h2>What This Deal Teaches</h2>
 <ol>
-  <li><strong>Modification beats foreclosure (when equity exists).</strong> We spent $1,250 on modification. Foreclosure would have cost $12K-$15K. Skip-tracing found the borrower — that $200 paid for itself 67x over.</li>
-  <li><strong>Bulk discounts create opportunity through inattention.</strong> Banks don't have time for individual notes. We do. That gap is where margin lives.</li>
-  <li><strong>Full cost transparency builds trust.</strong> Readers want to see the $200 skip trace, the $800 attorney, the $270 servicing. Hiding costs looks fake.</li>
-  <li><strong>Optionality is worth paying for.</strong> The $39K equity cushion let us be patient. We modified instead of foreclosing. That patience compounds over time.</li>
-  <li><strong>Cash flow beats one-time exits.</strong> $13,200/year in passive income beats a $17K one-time profit. Time is your ally on performing notes.</li>
+  <li><strong>The discount is the protection.</strong> Buying at 50 cents on the dollar meant the property secured twice what we paid. A <a href="ltv-ratio-note-investing.html">low loan-to-value</a> plus a deep discount is the whole margin of safety.</li>
+  <li><strong>Modification beats foreclosure when equity exists.</strong> A few hundred dollars on a skip trace and an attorney turned a defaulted loan into monthly income, without the cost and delay of foreclosure.</li>
+  <li><strong>Yield is the quiet winner.</strong> Nobody tweets about a 19 percent cash yield, but it compounds for years without a tenant or a toilet.</li>
+  <li><strong>Small deals are real deals.</strong> You do not need six figures. This was a $36,000 all-in position, and there are thousands like it.</li>
 </ol>
+<p>That is note investing without the hype. Buy the debt at a discount, work it out fairly, and let it pay you. Be the bank.</p>
 
-<h2>FAQ</h2>
-
-<h3>Why not just sell the modified note instead of holding?</h3>
-<p>Because the modified 9.2% rate on a reperforming note commands a premium in the secondary market. We could sell for ~$140K-$155K depending on hold period and buyer type. But that locks in a one-time return. Holding for cash flow produces $13,200/year indefinitely. The math favors holding.</p>
-
-<h3>What if the borrower stops paying again after modification?</h3>
-<p>We retain full foreclosure rights. Modification didn't erase our remedies — it just reset the clock. If the borrower defaults after modification, we foreclose with stronger legal footing (fresh default, not stale one). But the borrower has financial incentive to stay current — he's equity-rich and has a path to ownership.</p>
-
-<h3>How often do borrowers respond to modification outreach?</h3>
-<p>On our portfolio, roughly 25-30% of non-responsive borrowers respond after skip-trace. The rest either truly abandoned the property or have no intention of cooperating. For those 25-30%, modification is often the mutually beneficial outcome. Everyone wins.</p>
+<p style="font-size:0.85rem;color:var(--gray);"><em>This is a representative example for education, with rounded, anonymized figures to illustrate how a non-performing note workout is structured. It is not investment, tax, or legal advice, and not an offer of any security or a promise of returns. Note investing carries risk, including loss of principal. Every deal is different. Do your own due diligence and talk to your own professionals.</em></p>
 
 <hr class="post-divider">
 
-<p><em>AJ Dent is founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing 1st and 2nd position notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a strategy call</a> to discuss your note investing questions.</em></p>
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
 
   </div><!-- .post-content -->
 
-<!-- ══ QUIZ ══ -->
+  <!-- ══ QUIZ ══ -->
   <div class="quiz-section" id="quizSection">
     <div class="quiz-header">🧠 Test Your Knowledge</div>
     <p class="quiz-sub">3 quick questions. See how much you picked up.</p>
@@ -382,18 +329,14 @@
 
   <!-- ══ COMMENTS ══ -->
   <div class="comment-section" id="comments">
-    <div class="comment-section-header">
-      <h3>💬 Comments</h3>
-    </div>
+    <div class="comment-section-header"><h3>💬 Comments</h3></div>
     <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
     <form id="commentForm" onsubmit="submitComment(event)">
       <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
       <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
       <button class="primary-btn comment-submit" type="submit">Post Comment</button>
     </form>
-    <div id="commentSuccess">
-      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
-    </div>
+    <div id="commentSuccess">✅ Thanks for your comment! It's been submitted for review and will appear shortly.</div>
   </div>
 
   <!-- ══ BOTTOM CTA ══ -->
@@ -401,26 +344,15 @@
     <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
     <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
   </div>
-</div><!-- .post-layout -->
 
+</div><!-- .post-layout -->
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-logo">
-    <img src="logo.png" alt="Take Notes Capital">
-  </div>
+  <div class="footer-logo"><img src="logo.png" alt="Take Notes Capital"></div>
   <div class="footer-socials">
-    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
-      LinkedIn
-    </a>
-    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
-      Facebook
-    </a>
-    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
-      Instagram
-    </a>
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>LinkedIn</a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>Facebook</a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>Instagram</a>
   </div>
   <div class="footer-links">
     <a href="index.html">Home</a>
@@ -438,9 +370,7 @@
 </footer>
 
 <!-- ══ FLOATING BOOK A CALL ══ -->
-<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
-  📞 Book a Free Call
-</a>
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">📞 Book a Free Call</a>
 
 <!-- ══ PLAYBOOK BANNER ══ -->
 <div class="playbook-banner" id="playbookBanner">
@@ -499,22 +429,10 @@
   <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
   <h4>Cookie Preferences</h4>
   <p>Choose which cookies you allow.</p>
-  <div class="cookie-toggle-row">
-    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
-    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
-  </div>
-  <div class="cookie-toggle-row">
-    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
-    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
-  </div>
-  <div class="cookie-toggle-row">
-    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
-    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
-  </div>
-  <div class="cookie-toggle-row">
-    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
-    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
-  </div>
+  <div class="cookie-toggle-row"><div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div><label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label></div>
+  <div class="cookie-toggle-row"><div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div><label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label></div>
+  <div class="cookie-toggle-row"><div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div><label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label></div>
+  <div class="cookie-toggle-row"><div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div><label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label></div>
   <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
 </div>
 
@@ -522,45 +440,26 @@
 <script>
 const quizData = [
   {
-    question: "In a non-performing note deal, the return is driven mainly by:",
-    options: [
-      "Buying the note at a steep discount to the collateral value",
-      "Charging the borrower more rent",
-      "Rising stock prices",
-      "Bank CD interest"
-    ],
-    correct: 0,
-    explanation: "Note investors buy the debt at a discount. When the note resolves — reinstated, paid off, or the property sold — the gap between the discounted price and the recovery drives the return."
-  },
-  {
-    question: "A 'non-performing' note is one where:",
-    options: [
-      "The borrower has stopped making payments",
-      "The interest rate is fixed",
-      "The property is brand new",
-      "The lender is a big bank"
-    ],
-    correct: 0,
-    explanation: "Non-performing means the borrower fell behind. That distress is why the note trades at a discount, and resolving it is where the upside comes from."
-  },
-  {
-    question: "The safest source of return in this kind of deal is:",
-    options: [
-      "A high advertised yield",
-      "The equity cushion behind the lien plus the purchase discount",
-      "A personal guarantee",
-      "A long hold time"
-    ],
+    question: "We paid $34,000 for a note with a $68,000 balance. Why does that discount matter most?",
+    options: ["It raises the interest rate", "It creates the margin of safety, since the property secures far more than we paid", "It lowers property taxes", "It guarantees the borrower pays"],
     correct: 1,
-    explanation: "Real protection is the collateral. Buying well below the property's value, with equity behind the loan, means the asset can cover the investment even in a worst-case foreclosure."
+    explanation: "Buying at 50 cents on the dollar means the collateral is worth well more than the price. That cushion protects the capital whether the borrower reinstates, refinances, or the note has to be foreclosed."
+  },
+  {
+    question: "Why modify the loan instead of foreclosing when the borrower has equity?",
+    options: ["Foreclosure is illegal", "Modification is faster and cheaper and turns a defaulted loan into monthly cash flow", "It doubles the interest rate", "The borrower pays a bonus"],
+    correct: 1,
+    explanation: "With equity in the home the borrower wants to stay, so a modification restarts payments without the cost and delay of foreclosure. That is how a non-performer becomes a paying asset."
+  },
+  {
+    question: "The note pays about $6,960 a year on roughly $36,300 invested. That is closest to a:",
+    options: ["19% cash-on-cash yield", "3% yield", "50% yield", "Loss"],
+    correct: 0,
+    explanation: "$6,960 ÷ $36,295 is about 19 percent cash-on-cash, and roughly 17 percent counting interest alone, on top of the built-in discount to value."
   }
 ];
-
-document.addEventListener("DOMContentLoaded", () => {
-  initQuiz(quizData);
-});
+document.addEventListener('DOMContentLoaded', () => { initQuiz(quizData); });
 </script>
-
 <script src="blog.js"></script>
 </body>
 </html>
