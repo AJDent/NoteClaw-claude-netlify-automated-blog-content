@@ -22,7 +22,7 @@ def build_block(path, html):
     url = f"{DOMAIN}/{fname}"
     title = first(r'<title>(.*?)</title>', html)
     desc = first(r'<meta name="description" content="(.*?)">', html)
-    cat = first(r'class="post-cat-tag"[^>]*>(.*?)</span>', html) or "Note Investing"
+    cat = first(r'class="post-cat-tag[^"]*"[^>]*>(.*?)</span>', html) or "Note Investing"
     headline = re.sub(r'\s*\|\s*Take Notes Capital.*$', '', title).strip()
     # publish date -> ISO
     human = first(r'<span class="meta-date">(.*?)</span>', html)
