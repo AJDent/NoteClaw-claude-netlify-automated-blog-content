@@ -185,3 +185,23 @@ footer { background: #040404; border-top: 1px solid rgba(91,164,230,0.1); paddin
   .btn { width: 100%; max-width: 320px; text-align: center; }
   .numbers-box { padding: 32px 24px; }
 }
+
+/* ── Pitch video: custom player (no timeline, length hidden) ── */
+.pitch-player{position:relative;max-width:880px;margin:32px auto 0;border-radius:14px;overflow:hidden;background:#0A0E1A;box-shadow:0 24px 60px rgba(0,0,0,.5);aspect-ratio:16/9}
+.pitch-video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0A0E1A;object-fit:contain}
+.pitch-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;cursor:pointer;background:radial-gradient(circle at 50% 42%,#182444 0%,#0A0E1A 78%);z-index:2}
+.pitch-logo{width:min(52%,360px);height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45))}
+.pitch-playbtn{width:74px;height:74px;border-radius:50%;background:var(--blue,#5ba4e6);color:#fff;display:flex;align-items:center;justify-content:center;padding-left:5px;box-shadow:0 10px 30px rgba(91,164,230,.5);transition:transform .15s}
+.pitch-poster:hover .pitch-playbtn,.pitch-poster:focus-visible .pitch-playbtn{transform:scale(1.08)}
+.pitch-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:4px;padding:10px 14px;background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,0));opacity:0;transition:opacity .2s;z-index:3}
+.pitch-player.playing .pitch-bar,.pitch-player:hover .pitch-bar{opacity:1}
+.pp-btn{background:transparent;border:0;color:#fff;cursor:pointer;padding:6px;border-radius:6px;display:flex;align-items:center;justify-content:center;font:700 12px/1 Inter,sans-serif;letter-spacing:.06em}
+.pp-btn:hover{background:rgba(255,255,255,.16)}
+.pp-spacer{flex:1}
+.pp-cc[hidden]{display:none}
+.pp-cc.on{background:var(--blue,#5ba4e6)}
+.ic-pause,.ic-muted{display:none}
+.pitch-player.playing .ic-play{display:none}
+.pitch-player.playing .ic-pause{display:block}
+.pp-mute.muted .ic-vol{display:none}
+.pp-mute.muted .ic-muted{display:block}

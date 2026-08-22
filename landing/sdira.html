@@ -212,14 +212,27 @@
 <section class="bg-black">
   <div class="container-sm text-center">
     <div class="eyebrow">Watch the Pitch</div>
-    <h2 class="h2">See it straight from the founder.</h2>
+    <h2 class="h2">How to invest in real estate without owning property.</h2>
     <div class="divider divider-center"></div>
     <p class="lede mx-auto">Prefer to watch than read? AJ Dent walks through exactly how Take Notes Capital turns mortgage notes into real estate-backed monthly income, and why being the bank beats being the landlord.</p>
-    <div style="max-width: 880px; margin: 32px auto 0; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,0.5);">
-      <video controls preload="none" playsinline poster="media/tnc-pitch-poster.jpg" style="width: 100%; height: auto; display: block; background: #0A0E1A; aspect-ratio: 16 / 9;">
+
+    <div class="pitch-player">
+      <video class="pitch-video" preload="none" playsinline>
         <source src="media/tnc-pitch-deck.mp4" type="video/mp4">
+        <track kind="captions" src="media/tnc-pitch.vtt" srclang="en" label="English">
         Your browser does not support embedded video. <a href="media/tnc-pitch-deck.mp4">Watch the pitch here</a>.
       </video>
+      <div class="pitch-poster" role="button" tabindex="0" aria-label="Play the Take Notes Capital pitch video">
+        <img src="media/tnc-logo.png" alt="Take Notes Capital" class="pitch-logo">
+        <div class="pitch-playbtn" aria-hidden="true"><svg viewBox="0 0 24 24" width="34" height="34"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></div>
+      </div>
+      <div class="pitch-bar">
+        <button class="pp-btn pp-play" type="button" aria-label="Play or pause"><svg class="ic-play" viewBox="0 0 24 24" width="22" height="22"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="ic-pause" viewBox="0 0 24 24" width="22" height="22"><path d="M6 5h4v14H6zM14 5h4v14h-4z" fill="currentColor"/></svg></button>
+        <button class="pp-btn pp-mute" type="button" aria-label="Mute or unmute"><svg class="ic-vol" viewBox="0 0 24 24" width="22" height="22"><path d="M3 9v6h4l5 5V4L7 9H3z" fill="currentColor"/></svg><svg class="ic-muted" viewBox="0 0 24 24" width="22" height="22"><path d="M3 9v6h4l5 5V4L7 9H3zm12.5 3l2-2-1-1-2 2-2-2-1 1 2 2-2 2 1 1 2-2 2 2 1-1z" fill="currentColor"/></svg></button>
+        <div class="pp-spacer"></div>
+        <button class="pp-btn pp-cc" type="button" aria-label="Toggle captions" hidden>CC</button>
+        <button class="pp-btn pp-fs" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24" width="20" height="20"><path d="M7 7h4V5H5v6h2V7zm10 0v4h2V5h-6v2h4zM7 17v-4H5v6h6v-2H7zm10 0h-4v2h6v-6h-2v4z" fill="currentColor"/></svg></button>
+      </div>
     </div>
   </div>
 </section>
@@ -399,5 +412,6 @@
   }
 </script>
 
+<script src="landing.js"></script>
 </body>
 </html>
