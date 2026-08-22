@@ -34,6 +34,13 @@ for k in ("slug", "title", "category", "cat_class", "blurb", "read_time"):
     if not isinstance(e.get(k), str) or not e.get(k).strip():
         die(f"Manifest entry missing/invalid '{k}': {e!r}")
 
+# enforced approval gate: the head entry must be explicitly flagged approved.
+# Belt-and-suspenders for when an unattended writer (the planned weekly
+# auto-draft loop) could drop an unreviewed post at the head of the queue.
+# A human sets "approved": true only after reviewing the post.
+if e.get("approved") is not True:
+    die(f'Head entry {e["slug"]!r} lacks "approved": true — refusing to auto-publish an unreviewed post.')
+
 # --- validate identifiers before they touch the filesystem or markup ---
 slug = e["slug"]
 if not SLUG_RE.match(slug):
