@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mortgage Delinquency Rates 2026: What Rising Distress Means for Note Investors | Take Notes Capital Blog</title>
+<meta name="description" content="Mortgage delinquency rates rose again in 2026, led by FHA loans at 11.88%. Here's what the numbers mean for non-performing note investors.">
+<meta name="keywords" content="mortgage delinquency rates 2026, FHA delinquency rate 2026, non-performing notes, foreclosure statistics 2026, MBA national delinquency survey, buying mortgage notes, distressed mortgage debt, note investing, NPL investing, mortgage default rates">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+<style>
+.post-hero {
+  padding: 5rem 2rem 3.5rem; text-align: center;
+  background: linear-gradient(180deg, #0a0a1a 0%, var(--navy) 100%);
+  border-bottom: 1px solid var(--navy-border);
+}
+.post-meta-row {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+}
+.post-cat-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 999px;
+}
+.meta-date, .meta-read { font-size: 0.82rem; color: var(--gray); }
+.meta-sep { color: var(--navy-border); }
+.post-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900; line-height: 1.12;
+  max-width: 820px; margin: 0 auto 1.25rem;
+}
+.post-hero .post-excerpt {
+  color: var(--gray-light); font-size: 1.05rem; font-weight: 300;
+  max-width: 600px; margin: 0 auto 1.75rem; line-height: 1.7;
+}
+.post-author-row {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.author-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--accent-light), var(--accent));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: var(--navy);
+}
+.author-name { font-size: 0.82rem; color: var(--gray); }
+
+/* Discussion badge */
+.discuss-badge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--accent-dim); border: 1px solid rgba(91,164,230,0.25);
+  color: var(--accent-light); font-size: 0.78rem; font-weight: 600;
+  padding: 0.3rem 0.85rem; border-radius: 999px; text-decoration: none;
+  margin-left: 1rem; transition: background .2s;
+}
+.discuss-badge:hover { background: rgba(91,164,230,0.22); }
+
+/* Post content */
+.post-layout { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+.post-content { color: var(--gray-light); font-size: 1.02rem; line-height: 1.85; }
+.post-content h2 {
+  font-family: var(--font-display); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); margin: 2.5rem 0 1rem; line-height: 1.25;
+}
+.post-content h3 {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--white); margin: 2rem 0 0.75rem;
+}
+.post-content p { margin-bottom: 1.4rem; }
+.post-content ul, .post-content ol {
+  padding-left: 1.5rem; margin-bottom: 1.4rem;
+}
+.post-content li { margin-bottom: 0.5rem; }
+.post-content strong { color: var(--white); font-weight: 600; }
+.post-content a { color: var(--accent-light); text-decoration: underline; }
+.post-content blockquote {
+  border-left: 3px solid var(--accent); padding: 1rem 1.5rem;
+  margin: 1.75rem 0; background: var(--navy-card); border-radius: 0 8px 8px 0;
+  font-style: italic; color: var(--gray-light);
+}
+.post-divider { border: none; border-top: 1px solid var(--navy-border); margin: 3rem 0; }
+
+/* ── QUIZ SECTION ── */
+.quiz-section {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: 16px; padding: 2.25rem; margin: 3rem 0;
+}
+.quiz-header {
+  font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+  margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.quiz-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 2rem; }
+.quiz-question { margin-bottom: 1.75rem; }
+.quiz-q-text { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.9rem; color: var(--white); }
+.quiz-options { display: grid; gap: 0.6rem; }
+.quiz-opt-btn {
+  background: rgba(255,255,255,0.04); border: 1px solid var(--navy-border);
+  color: var(--gray-light); text-align: left; padding: 0.75rem 1rem;
+  border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem;
+  cursor: pointer; transition: all .2s;
+}
+.quiz-opt-btn:hover:not(:disabled) { border-color: rgba(91,164,230,0.4); color: var(--white); background: var(--accent-dim); }
+.quiz-opt-btn.correct { background: rgba(78,203,113,0.15); border-color: #4ecb71; color: #4ecb71; }
+.quiz-opt-btn.wrong   { background: rgba(232,93,93,0.12);  border-color: #e85d5d; color: #e85d5d; }
+.quiz-opt-btn:disabled { cursor: default; }
+.quiz-explanation { font-size: 0.85rem; margin-top: 0.65rem; padding: 0.6rem 0.9rem; border-radius: 6px; }
+.expl-correct { color: #4ecb71; background: rgba(78,203,113,0.08); }
+.expl-wrong   { color: #e85d5d; background: rgba(232,93,93,0.08); }
+
+#quizResults { display: none; padding: 1.5rem; background: rgba(91,164,230,0.07); border-radius: 10px; margin-top: 1rem; border: 1px solid rgba(91,164,230,0.2); }
+.quiz-score { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+.quiz-verdict { color: var(--gray-light); font-size: 0.92rem; margin-bottom: 1rem; }
+.quiz-cta-btn { margin-top: 0.75rem; font-size: 0.88rem; padding: 0.7rem 1.3rem; }
+
+/* Quiz email capture */
+#quizCapture { display: none; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--navy-border); }
+.quiz-capture-title { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.quiz-capture-sub { color: var(--gray); font-size: 0.86rem; margin-bottom: 1rem; }
+.quiz-capture-form { display: flex; flex-direction: column; gap: 0.65rem; }
+.quiz-capture-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+
+/* ── COMMENT SECTION ── */
+.comment-section {
+  margin: 3rem 0;
+}
+.comment-section-header {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem;
+}
+.comment-section-header h3 { font-family: var(--font-display); font-size: 1.35rem; }
+.comment-sub { color: var(--gray); font-size: 0.88rem; margin-bottom: 1.75rem; }
+#commentForm { display: flex; flex-direction: column; gap: 0.85rem; }
+.comment-submit { align-self: flex-start; border: none; }
+#commentSuccess { display: none; padding: 1.25rem; background: rgba(78,203,113,0.1); border: 1px solid rgba(78,203,113,0.25); border-radius: 10px; color: #4ecb71; font-size: 0.95rem; }
+
+@media (max-width: 600px) {
+  .quiz-capture-row { grid-template-columns: 1fr; }
+  .post-hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Take Notes Capital">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#mission">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Invest With Us</a></li>
+  </ul>
+  <a class="nav-cta" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+</nav>
+
+
+<!-- ══ POST HERO ══ -->
+<header class="post-hero">
+  <div class="post-meta-row">
+    <span class="post-cat-tag" style="background:rgba(74,158,222,0.15);color:#4a9ede;">Note Investing</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-date">September 4, 2026</span>
+    <span class="meta-sep">·</span>
+    <span class="meta-read">5 min read</span>
+    <a class="discuss-badge" href="#comments">💬 Join the Discussion ↓</a>
+  </div>
+  <h1>Mortgage Delinquency Rates 2026: What Rising Distress Means for Note Investors</h1>
+  <p class="post-excerpt">Delinquencies ticked up again this year, and FHA borrowers are carrying most of the weight. Here is what the data actually tells a note investor.</p>
+  <div class="post-author-row">
+    <div class="author-avatar">AJ</div>
+    <span class="author-name">AJ Dent · Take Notes Capital</span>
+  </div>
+</header>
+
+<!-- ══ POST CONTENT ══ -->
+<div class="post-layout">
+  <div class="post-content">
+
+<p>Most people read a headline like "mortgage delinquencies are rising" and hear bad news. Falling home values. Struggling families. A market cracking.</p>
+
+<p>A note investor reads the same line and hears something different. Supply. Because every delinquent loan is a loan somebody owns, and sooner or later a lot of those loans get sold. The 2026 numbers are worth understanding, so let's walk through what they actually say and what they mean if you buy mortgage paper for a living.</p>
+
+<h2>The headline: delinquencies rose again in 2026</h2>
+
+<p>The Mortgage Bankers Association tracks this every quarter in its National Delinquency Survey. In the first quarter of 2026, the delinquency rate on one-to-four-unit homes hit <strong>4.44%</strong> of all loans outstanding. That is up from the quarter before, and up from a year earlier.</p>
+
+<p>Now, 4.44% is not a crisis number. During the 2008 wreck this figure ran north of 10%. What matters is the direction. Delinquencies bottomed out after the pandemic and have been grinding upward since. When the trend turns and keeps turning, that is the part a note buyer pays attention to. Not the panic. The drift.</p>
+
+<h2>FHA is where the real pain is</h2>
+
+<p>The average hides the story. Split the number by loan type and the picture gets sharp:</p>
+
+<ul>
+  <li><strong>Conventional loans:</strong> holding fairly steady.</li>
+  <li><strong>FHA loans:</strong> a delinquency rate of <strong>11.88%</strong>, the highest since 2020 and roughly 900 basis points above the conventional rate.</li>
+  <li><strong>VA loans:</strong> also climbing.</li>
+</ul>
+
+<p>Government-backed paper is carrying almost all of the distress. Why FHA specifically? Two reasons. Pandemic-era FHA relief options expired at the end of September 2025, so borrowers who were being carried along lost that cushion. And FHA now runs required trial payment plans, during which a loan still counts as delinquent until a permanent fix is locked in. So part of the jump is real hardship and part is accounting, but both point the same way: FHA borrowers are the stressed ones.</p>
+
+<p>That is a useful map. FHA lending clusters in lower-down-payment, first-time-buyer, higher-payment-burden territory. It tells you which pockets of the market are feeling the squeeze first.</p>
+
+<h2>Foreclosures are up, and the timelines are shrinking</h2>
+
+<p>Delinquency is the early signal. Foreclosure is what happens when it goes unfixed. ATTOM's Mid-Year 2026 report shows both moving:</p>
+
+<ul>
+  <li><strong>227,548</strong> properties had a foreclosure filing in the first half of 2026, up <strong>21%</strong> from a year earlier and up 28% from two years ago.</li>
+  <li>Foreclosure starts rose about <strong>18%</strong> year over year.</li>
+  <li>And the average time to work a foreclosure through the system is <strong>shrinking</strong>, not stretching out.</li>
+</ul>
+
+<p>Read those two facts together. More loans are entering the distressed pipeline, and that pipeline is moving faster. For a landlord, faster foreclosures next door mean softer comps. For someone who owns the note, a faster resolution means a shorter wait to the exit.</p>
+
+<h2>What rising distress actually means for note investors</h2>
+
+<p>Here is the part the scary headline skips. When a borrower stops paying, the debt does not vanish. Somebody still owns it. Usually a bank or a servicer, and they do not want it. Non-performing loans tie up their capital and drag their books, so they sell them, often in bulk, at a discount to face value.</p>
+
+<p>More delinquency means more of that paper coming to market. When you buy a non-performing note, you step into the bank's shoes. You are the lender now. From there you have real options:</p>
+
+<ul>
+  <li>Work with the borrower on a modification or reinstatement so the loan starts performing again. Most people want to keep their home. A payment plan they can actually afford is often the best outcome for everyone.</li>
+  <li>Agree to a discounted payoff or a graceful exit if the borrower is done.</li>
+  <li>Or, if it comes to it, recover the collateral, the property that secures the loan.</li>
+</ul>
+
+<p>You bought the debt below what the home is worth, so more than one of those roads can pay. That is the whole "be the bank" idea in one paragraph.</p>
+
+<blockquote>Rising numbers are not a green light to overpay. They are more at-bats. The discipline is the same in a hot market or a stressed one: know the collateral, know the borrower, and know your exit before you wire a dollar.</blockquote>
+
+<h2>Why the note beats the rental in this environment</h2>
+
+<p>Picture the same distressed neighborhood two ways.</p>
+
+<p>As a landlord, you own the building. In a softening market that means vacancy risk, repair bills, property taxes, insurance that keeps climbing, and a tenant who may be feeling the same squeeze the delinquency data is measuring. You are last in line and you own every problem.</p>
+
+<p>As the note holder, you are the bank. Your position is secured by the property, you get paid before the owner sees a dime, and you never fix a furnace. When distress is rising, you would rather hold the paper than the plaster. Same street, very different seat.</p>
+
+<h2>The three things we check before buying a distressed note</h2>
+
+<p>Rising supply only helps if you buy right. When one of these notes crosses our desk, three questions decide whether we make an offer.</p>
+
+<h3>1. The borrower's story</h3>
+<p>Delinquent does not mean deadbeat. A lot of these borrowers hit a rough patch, a job loss, a medical bill, an FHA relief program that ended before they were ready. Many of them want to keep their home, and can, on the right terms. We read the payment history and the reason behind the miss before we assume the worst. A borrower with equity and a fixable problem is often the best outcome on the board.</p>
+
+<h3>2. The collateral</h3>
+<p>The loan is secured by a real house in a real place. We look at what the property is worth today, not what the paperwork claims. That value is the floor under the whole investment. If the borrower never pays another dime, the house is what backs us up, so we buy at a price that respects that floor.</p>
+
+<h3>3. The exit</h3>
+<p>Before we wire a dollar we know how this ends in each direction. Reperformance if the borrower gets current again. A discounted payoff if they want out clean. Or taking the property if it comes to that. We price the note so more than one of those exits works. If only one narrow outcome pays, we pass.</p>
+
+<h2>How we read a market like this</h2>
+
+<p>At Take Notes Capital we do not celebrate people falling behind, and rising delinquency is not a fire sale to go wild in. It is a market giving up more supply, which means we can be pickier, not looser. We underwrite the borrower and the collateral, we price to the exit, and we pass on far more than we buy.</p>
+
+<p>The 2026 data says the distress is real, it is concentrated in government-backed loans, and the pipeline is moving faster than it has in years. For a disciplined note buyer, that is the tailwind, not the storm.</p>
+
+<p><em>Sources: <a href="https://www.mba.org/news-and-research/newsroom/news/2026/05/14/mortgage-delinquencies-increase-in-the-first-quarter-of-2026" target="_blank" rel="noopener">MBA National Delinquency Survey, Q1 2026</a> and <a href="https://www.attomdata.com/news/market-trends/foreclosures/2026-mid-year-foreclosure-market-report/" target="_blank" rel="noopener">ATTOM Mid-Year 2026 U.S. Foreclosure Market Report</a>.</em></p>
+
+<hr class="post-divider">
+
+<p><em>AJ Dent is the founder of <a href="https://takenotescapital.com">Take Notes Capital</a>, a mortgage note investing firm specializing in non-performing notes. <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a free strategy call</a>.</em></p>
+
+  </div><!-- .post-content -->
+
+  <!-- ══ QUIZ ══ -->
+  <div class="quiz-section" id="quizSection">
+    <div class="quiz-header">🧠 Test Your Knowledge</div>
+    <p class="quiz-sub">3 quick questions. See how much you picked up.</p>
+    <div id="quizContainer"></div>
+    <div id="quizResults">
+      <p class="quiz-score" id="quizScore"></p>
+      <p class="quiz-verdict" id="quizVerdict"></p>
+      <a class="primary-btn quiz-cta-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Free Strategy Call →</a>
+    </div>
+    <div id="quizCapture">
+      <p class="quiz-capture-title">📬 Want More Like This?</p>
+      <p class="quiz-capture-sub">Get weekly note investing strategies. No spam, just real math and real deals.</p>
+      <div class="quiz-capture-form" id="quizCaptureForm">
+        <div class="quiz-capture-row">
+          <input class="tnc-input" type="text" id="quizName" placeholder="First Name">
+          <input class="tnc-input" type="email" id="quizEmail" placeholder="Email Address" required>
+        </div>
+        <select class="tnc-select" id="quizProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+        <button class="primary-btn" onclick="submitQuizCapture()" type="button">Subscribe →</button>
+      </div>
+      <div id="quizCaptureSuccess" style="display:none;padding:1rem;background:rgba(78,203,113,0.1);border-radius:8px;color:#4ecb71;font-size:0.92rem;">
+        ✅ You're in! Check your inbox for a welcome email.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ COMMENTS ══ -->
+  <div class="comment-section" id="comments">
+    <div class="comment-section-header">
+      <h3>💬 Comments</h3>
+    </div>
+    <p class="comment-sub">Have a question? Want to share your experience? Drop a comment below.</p>
+    <form id="commentForm" onsubmit="submitComment(event)">
+      <input class="tnc-input" type="text" id="commentName" placeholder="Your Name" required>
+      <textarea class="tnc-input" id="commentText" rows="4" placeholder="Your comment..." required style="resize:vertical"></textarea>
+      <button class="primary-btn comment-submit" type="submit">Post Comment</button>
+    </form>
+    <div id="commentSuccess">
+      ✅ Thanks for your comment! It's been submitted for review and will appear shortly.
+    </div>
+  </div>
+
+  <!-- ══ BOTTOM CTA ══ -->
+  <div style="text-align:center;margin:3rem 0 2rem;">
+    <p style="color:var(--gray);font-size:0.95rem;margin-bottom:1rem;">Ready to start investing in non-performing notes?</p>
+    <a class="primary-btn" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener" style="font-size:1rem;padding:0.85rem 2rem;">📞 Book a Free Strategy Call</a>
+  </div>
+
+</div><!-- .post-layout -->
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-logo">
+    <img src="logo.png" alt="Take Notes Capital">
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.linkedin.com/in/ajdenttnc/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M6.94 8.5H3.56V20h3.38V8.5Zm.22-3.56c0-1.06-.8-1.94-1.91-1.94-1.1 0-1.91.88-1.91 1.94 0 1.05.8 1.91 1.89 1.91h.02c1.12 0 1.91-.86 1.91-1.91ZM20.44 13.01c0-3.4-1.82-4.98-4.24-4.98-1.95 0-2.82 1.08-3.3 1.84V8.5H9.52c.04.91 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.67.13-.91.27-.67.89-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20.4v-6.99Z"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.facebook.com/aj.dent.469706" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M13.5 21v-7.17h2.4l.36-2.8H13.5V9.24c0-.81.22-1.37 1.39-1.37h1.48V5.37c-.26-.04-1.14-.11-2.16-.11-2.14 0-3.6 1.3-3.6 3.69v2.08H8.2v2.8h2.41V21h2.89Z"/></svg>
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/a.j.dent/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+      Instagram
+    </a>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#mission">About</a>
+    <a href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+  <div class="footer-legal">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+  </div>
+  <p class="tagline">"Earn Like You Own The Building. Live Like You Never Bought One."</p>
+  <p style="margin-top:0.5rem;">© 2026 Take Notes Capital. All rights reserved.</p>
+</footer>
+
+<!-- ══ FLOATING BOOK A CALL ══ -->
+<a class="book-call-float" href="https://calendly.com/ajdent-tnc/30min" target="_blank" rel="noopener">
+  📞 Book a Free Call
+</a>
+
+<!-- ══ PLAYBOOK BANNER ══ -->
+<div class="playbook-banner" id="playbookBanner">
+  <p>📘 <strong>Free Download:</strong> The Note Investor's Playbook, How to Earn Real Estate Returns Without Owning Property.</p>
+  <button class="playbook-banner-btn" onclick="showPopup()">Get the Free Playbook</button>
+  <button class="playbook-banner-close" onclick="hideBanner()" aria-label="Dismiss">✕</button>
+</div>
+
+<!-- ══ EXIT POPUP ══ -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+    <div class="popup-icon">📘</div>
+    <h3>Free Download: The Note Investor's Playbook</h3>
+    <p class="popup-sub">How to Earn Real Estate Returns Without Owning Property. Get the free guide.</p>
+    <div id="popupForm">
+      <div class="popup-fields">
+        <input class="tnc-input" type="text" id="popupName" placeholder="First Name" required>
+        <input class="tnc-input" type="email" id="popupEmail" placeholder="Email Address" required>
+        <select class="tnc-select" id="popupProfile">
+          <option value="">Which best describes you?</option>
+          <option value="sdira">Self-Directed IRA Holder</option>
+          <option value="401k">401(k) / Solo 401(k) Holder</option>
+          <option value="private">Private Capital / Cash Investor</option>
+          <option value="learning">Just Learning About Note Investing</option>
+        </select>
+      </div>
+      <button class="primary-btn popup-submit" onclick="submitPopup()" type="button">Send Me the Playbook</button>
+      <p class="popup-fine">No spam. Unsubscribe anytime.</p>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display:none">
+      <div class="check">✅</div>
+      <h4>Check your inbox!</h4>
+      <p>Your playbook is on the way. Welcome to the TNC community.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COOKIE BANNER ══ -->
+<div class="cookie-banner" id="cookieBanner" role="banner">
+  <button class="cookie-close" onclick="cookieAction('reject')" aria-label="Dismiss">✕</button>
+  <div class="cookie-banner-text">
+    <p>We use cookies to improve your experience and analyze traffic.
+    <a href="privacy-policy.html">Privacy Policy</a> &middot;
+    <a href="cookie-policy.html">Cookie Policy</a></p>
+  </div>
+  <div class="cookie-banner-btns">
+    <button class="cookie-btn-settings" onclick="openCookiePanel()">Cookie Settings</button>
+    <button class="cookie-btn-reject" onclick="cookieAction('reject')">Reject All</button>
+    <button class="primary-btn cookie-btn-accept" onclick="cookieAction('accept')">Accept All</button>
+  </div>
+</div>
+
+<!-- ══ COOKIE PANEL ══ -->
+<div class="cookie-panel" id="cookiePanel" style="position:fixed">
+  <button class="cookie-panel-close" onclick="closeCookiePanel()">✕</button>
+  <h4>Cookie Preferences</h4>
+  <p>Choose which cookies you allow.</p>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Necessary</h5><p>Required for the site to function.</p></div>
+    <label class="toggle-switch"><input type="checkbox" checked disabled><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Analytics</h5><p>Helps us understand how visitors use our site.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleAnalytics"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Marketing</h5><p>Deliver relevant content and track campaign performance.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleMarketing"><span class="toggle-track"></span></label>
+  </div>
+  <div class="cookie-toggle-row">
+    <div class="toggle-info"><h5>Functionality</h5><p>Remembers your preferences.</p></div>
+    <label class="toggle-switch"><input type="checkbox" id="toggleFunctionality"><span class="toggle-track"></span></label>
+  </div>
+  <button class="primary-btn cookie-save-btn" onclick="saveCookiePrefs()">Save Preferences</button>
+</div>
+
+
+<!-- ══ QUIZ DATA ══ -->
+<script>
+const quizData = [
+  {
+    question: "What was the overall 1-4 unit mortgage delinquency rate in Q1 2026 (MBA)?",
+    options: ["2.10%", "4.44%", "7.50%", "11.88%"],
+    correct: 1,
+    explanation: "The MBA National Delinquency Survey put it at 4.44% of loans outstanding, up on both a quarterly and annual basis. Not a crisis level, but a rising trend."
+  },
+  {
+    question: "Which loan type carried the highest delinquency rate in 2026?",
+    options: ["Conventional", "VA", "FHA", "Jumbo"],
+    correct: 2,
+    explanation: "FHA loans hit 11.88%, roughly 900 basis points above conventional. Pandemic-era FHA relief expired in September 2025, and required trial payment plans keep loans counted as delinquent until a permanent fix is in place."
+  },
+  {
+    question: "Why does rising delinquency plus faster foreclosure timelines matter to a note investor?",
+    options: ["It doesn't, note investors only track interest rates", "More non-performing loans come to market at a discount, and faster resolution shortens the path to an exit", "It guarantees higher home prices", "It forces note investors to become landlords"],
+    correct: 1,
+    explanation: "Banks sell non-performing loans to clear their books, so more delinquency means more discounted paper. Shorter foreclosure timelines mean a faster resolution when a loan cannot be reworked."
+  }
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  initQuiz(quizData);
+});
+</script>
+<script src="blog.js"></script>
+</body>
+</html>
