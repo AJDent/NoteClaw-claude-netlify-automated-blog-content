@@ -103,5 +103,12 @@ data = json.load(open(MANIFEST, encoding="utf-8")) if os.path.exists(MANIFEST) e
 data.setdefault("queue", []).append(entry)
 json.dump(data, open(MANIFEST, "w", encoding="utf-8"), indent=2, ensure_ascii=False)
 
+# Stage EXACTLY our three touched paths so the caller only needs `git commit && git push`.
+# Works whether the move above used `git mv` (rename already staged) or the shutil fallback
+# (queue file untracked, root deletion unstaged). Scoped on purpose: a bare `git add`/`-A`
+# either aborts on the now-missing root path or sweeps in a parallel session's edits.
+subprocess.run(["git", "add", MANIFEST, dst], cwd=ROOT)
+subprocess.run(["git", "rm", "--cached", "--quiet", "--ignore-unmatch", src], cwd=ROOT)
+
 print(f"\nQueued {src} (position {len(data['queue'])} in the queue). "
-      "Commit + push to arm it for the next Friday.")
+      "Now just: git commit && git push  (the changes are already staged).")
