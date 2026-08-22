@@ -261,6 +261,14 @@ exact inline style from an existing post of the same category. Locked map:
 Hero background = `linear-gradient(180deg, #0a0a1a 0%, <end> 100%)`. Blog category colors (incl. amber) are
 **EXEMPT** from the no-gold brand rule — they are this framework's own system (vault CLAUDE.md, 2026-08-20).
 
+⚠️ **DO NOT leave the hero background as the template default (`var(--navy)` / `[HERO_GRADIENT_END]`).** Cloning
+`post-template-lean.html` ships a generic navy hero that does NOT match the category (it looks flat/"transparent").
+Set the gradient END color to the category value in the table above. **The validator now enforces this** (HERO & NAV
+→ "Hero gradient matches category"), so a mismatch fails `validate-blog.sh` and the monthly audit. Both the older
+`linear-gradient(135deg, #0d1428, <end>)` and newer `linear-gradient(180deg, #0a0a1a 0%, <end> 100%)` formats pass;
+the invariant the validator checks is the END color = the category color. (Root cause of the 2026-08-21 fix: the lean
+template hardcoded `var(--navy)`, and 3 live posts had shipped mismatched heroes before the check existed.)
+
 ---
 
 ## 🔎 SEO + SCHEMA (added 2026-08-20 — every post)

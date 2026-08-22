@@ -42,6 +42,27 @@ grep -q 'post-cat-tag' "$FILE"; check $? "Category tag present"
 grep -q 'meta-date' "$FILE"; check $? "Date present"
 grep -q 'meta-read' "$FILE"; check $? "Read time present"
 grep -q 'author-avatar' "$FILE"; check $? "Author avatar present"
+# Hero background gradient MUST match the post's category color (not the generic var(--navy)).
+# Cloning the lean template leaves a generic navy hero; this catches it so the category color is never missed.
+CAT=$(grep -oE 'class="post-cat-tag"[^>]*>[^<]+</span>' "$FILE" | head -1 | sed -E 's/.*>([^<]+)<\/span>/\1/')
+case "$CAT" in
+  "Note Investing")               WANT="#1a3a6b" ;;
+  "Note Strategies")              WANT="#3d0a0a" ;;
+  "Retirement Investing")         WANT="#3d2e0a" ;;
+  "Real Estate")                  WANT="#0f3d1e" ;;
+  "Deal Breakdown"|"Deal Breakdowns") WANT="#2d1f5e" ;;
+  "Education")                    WANT="#0d2a4a" ;;
+  "Other")                        WANT="#2a2f38" ;;
+  *)                              WANT="" ;;
+esac
+if [ -n "$WANT" ]; then
+  # format-agnostic: the invariant is the gradient END color = the category color
+  # (older posts use 135deg/#0d1428, newer use 180deg/#0a0a1a; both are fine).
+  HEROBG=$(grep -A3 '\.post-hero {' "$FILE" | grep 'background:' | head -1)
+  echo "$HEROBG" | grep -q "$WANT"; check $? "Hero gradient matches category ($CAT -> $WANT)"
+else
+  false; check $? "Hero category recognized for gradient check (got '$CAT')"
+fi
 echo ""
 
 echo "📝 CONTENT"
@@ -79,7 +100,7 @@ grep -q 'book-call-float' "$FILE"; check $? "Floating call button present"
 echo ""
 
 echo "🚨 PLACEHOLDER CHECK"
-PLACEHOLDERS=$(grep -cE '\[POST TITLE\]|\[META|\[PLACEHOLDER|\[CATEGORY|\[DATE\]|\[QUIZ|\[X\] min' "$FILE")
+PLACEHOLDERS=$(grep -cE '\[POST TITLE\]|\[META|\[PLACEHOLDER|\[CATEGORY|\[DATE\]|\[QUIZ|\[X\] min|\[HERO_GRADIENT_END\]' "$FILE")
 [ "$PLACEHOLDERS" -eq 0 ]; check $? "No placeholder text remaining ($PLACEHOLDERS found)"
 echo ""
 
