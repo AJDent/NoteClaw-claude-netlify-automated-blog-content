@@ -205,3 +205,6 @@ footer { background: #040404; border-top: 1px solid rgba(91,164,230,0.1); paddin
 .pitch-player.playing .ic-pause{display:block}
 .pp-mute.muted .ic-vol{display:none}
 .pp-mute.muted .ic-muted{display:block}
+
+/* compact captions: smaller box, one short line at a time */
+.pitch-video::cue{font-size:.80em;line-height:1.35;background:rgba(10,14,26,.78);color:#fff}
