@@ -132,6 +132,14 @@ print(res.stdout[-600:])
 if res.returncode != 0: die(f"Validator failed on {dst} — aborting before push")
 
 print(f"::notice::Published {dst} as Post {n} ({human}). {len(data['queue'])} post(s) left in queue.")
+
+# Notify IndexNow (Bing + Yandex) so the new post is picked up fast. Non-fatal: Google is
+# handled by the sitemap + a manual Request-Indexing, and a failed ping must never fail a publish.
+try:
+    subprocess.run([sys.executable, "queue/indexnow.py", f"https://takenotescapital.com/{dst}"],
+                   timeout=30, check=False)
+except Exception as e:
+    print(f"::warning::IndexNow submit skipped: {e}")
 # only emit sanitized, structural values (slug is allowlisted; remaining is an int)
 out = os.environ.get("GITHUB_OUTPUT")
 if out:
