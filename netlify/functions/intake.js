@@ -101,13 +101,23 @@ const BLOG_INVESTOR_TYPE_MAP = {
   'Just Learning About Note Investing':  'Not sure yet'
 };
 
+// The avatar the reader picks in the blog popup / mini-CTA -> an explicit routing tag,
+// so lead-magnet delivery + nurture can branch on it exactly like the landing-page tags.
+const BLOG_AVATAR_TAG = {
+  'Self-Directed IRA Holder':            'avatar-sdira',
+  '401(k) / Solo 401(k) Holder':         'avatar-401k',
+  'Private Capital / Cash Investor':     'avatar-private',
+  'Just Learning About Note Investing':  'avatar-learning'
+};
+
 async function handleBlog(data) {
   const email = (data.email || '').trim();
   // Guard: no email (e.g. a stray comment) must not create a junk contact.
   if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
 
   const srcTags = Array.isArray(data.source_tags) ? data.source_tags : [];
-  const tags = Array.from(new Set(['blog-lead', ...srcTags]));
+  const avatarTag = BLOG_AVATAR_TAG[data.investor_type];
+  const tags = Array.from(new Set(['blog-lead', ...srcTags, ...(avatarTag ? [avatarTag] : [])]));
 
   const ghlPayload = {
     firstName: data.first_name || '',
