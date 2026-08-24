@@ -62,7 +62,8 @@ def post_discord(text):
         req = urllib.request.Request(
             f"https://discord.com/api/v10/channels/{DISCORD_CHANNEL}/messages",
             data=data, method="POST",
-            headers={"Authorization": f"Bot {tok}", "Content-Type": "application/json"})
+            headers={"Authorization": f"Bot {tok}", "Content-Type": "application/json",
+                     "User-Agent": "tnc-gsc-monitor/1.0"})  # Discord/Cloudflare 1010-blocks default urllib UA
         urllib.request.urlopen(req, timeout=20)
     except Exception as e:
         print(f"(discord post failed: {e})")
