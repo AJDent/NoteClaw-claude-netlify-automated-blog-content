@@ -19,6 +19,16 @@
       "cat_class": "cat-note",
       "blurb": "Delinquencies ticked up again this year, and FHA borrowers are carrying most of the weight. Here is what the data actually tells a note investor.",
       "read_time": "5 min read"
+    },
+    {
+      "approved": true,
+      "slug": "cap-rate-vs-note-yield",
+      "file": "cap-rate-vs-note-yield.html",
+      "title": "Cap Rate vs. Note Yield: Why the Landlord's Favorite Number Can Mislead You",
+      "category": "Real Estate",
+      "cat_class": "cat-re",
+      "blurb": "Every rental investor quotes a cap rate. Fewer notice what it quietly leaves out, and how differently the math works when you own the loan instead of the building.",
+      "read_time": "5 min read"
     }
   ]
 }
