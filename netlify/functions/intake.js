@@ -101,13 +101,23 @@ const BLOG_INVESTOR_TYPE_MAP = {
   'Just Learning About Note Investing':  'Not sure yet'
 };
 
+// The avatar the reader picks in the blog popup / mini-CTA -> an explicit routing tag,
+// so lead-magnet delivery + nurture can branch on it exactly like the landing-page tags.
+const BLOG_AVATAR_TAG = {
+  'Self-Directed IRA Holder':            'avatar-sdira',
+  '401(k) / Solo 401(k) Holder':         'avatar-401k',
+  'Private Capital / Cash Investor':     'avatar-private',
+  'Just Learning About Note Investing':  'avatar-learning'
+};
+
 async function handleBlog(data) {
   const email = (data.email || '').trim();
   // Guard: no email (e.g. a stray comment) must not create a junk contact.
   if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
 
   const srcTags = Array.isArray(data.source_tags) ? data.source_tags : [];
-  const tags = Array.from(new Set(['blog-lead', ...srcTags]));
+  const avatarTag = BLOG_AVATAR_TAG[data.investor_type];
+  const tags = Array.from(new Set(['blog-lead', ...srcTags, ...(avatarTag ? [avatarTag] : [])]));
 
   const ghlPayload = {
     firstName: data.first_name || '',
@@ -121,6 +131,41 @@ async function handleBlog(data) {
   };
   if (data.investor_type) {
     ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
+  }
+  return createGHLContact(ghlPayload);
+}
+
+// === LANDING PAGES: sdira / 401k / private-investor (from /landing/*.html) ===
+// Each page sets `page`; investing_with is derived from the page, the qualifier answer -> Deal Notes.
+const LANDING_INVESTING_WITH = {
+  'sdira':   'Self-Directed IRA (SDIRA)',
+  '401k':    '401(k) / Solo 401(k)',
+  'private': 'Cash / Savings'
+};
+
+async function handleLanding(data) {
+  const email = (data.email || '').trim();
+  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
+
+  const page = ['sdira', '401k', 'private'].includes(data.page) ? data.page : 'private';
+  const tags = ['landing-lead', `landing-${page}`];
+
+  const ghlPayload = {
+    firstName: data.first_name || '', lastName: data.last_name || '',
+    email, phone: data.phone || '',
+    source: `Landing: ${page}`, tags, locationId: GHL_LOCATION_ID,
+    customFields: [
+      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
+      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
+      { id: FIELD_IDS.contact_source,   field_value: 'Landing Page' }
+    ]
+  };
+  if (LANDING_INVESTING_WITH[page]) {
+    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
+  }
+  // Qualifier select (accountType / planType / capitalRange) -> Deal Notes, verbatim, as segmentation context.
+  if (data.qualifier) {
+    ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: `Landing (${page}) qualifier: ${data.qualifier}` });
   }
   return createGHLContact(ghlPayload);
 }
@@ -182,8 +227,9 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   try {
     const data = JSON.parse(event.body);
-    const response = (data._form === 'buybox') ? await handleBuyBox(data)
-                   : (data._form === 'blog')   ? await handleBlog(data)
+    const response = (data._form === 'buybox')  ? await handleBuyBox(data)
+                   : (data._form === 'blog')    ? await handleBlog(data)
+                   : (data._form === 'landing') ? await handleLanding(data)
                    : await handleIntake(data);
     if (response.ok) {
       const result = await response.json();
