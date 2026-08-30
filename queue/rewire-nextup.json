@@ -1,0 +1,43 @@
+{
+  "_comment": "Backbone Rule re-wire backlog: live posts that assert external facts without citation, from the 2026-08-30 source audit (business/blog-posts/blog-source-audit-2026-08-30.md). These get re-wired (add sourced backbone + a Sources block + align to current content pillars) ONE AT A TIME through the normal preview -> #tnc-blog-reviews -> Friday cadence gate. NOT auto-executed. DEFERRED until after the first note closes (AJ 2026-08-30) except any marked urgent. When a post is re-wired and re-audits clean, remove it from this list. Ordered by priority.",
+  "defer_until": "after first note funds/closes (target Sept 2026) — except items marked urgent:true",
+  "rewire": [
+    {
+      "slug": "rmd-rules-2026-explained",
+      "risk": "HIGH",
+      "urgent": true,
+      "why": "Asserts 2026 RMD rules + specific tax brackets/thresholds ($ + %) as fact, unverified, zero citations. Wrong/outdated 2026 tax figures under AJ's name = worst-case credibility + compliance error. Bump ahead of the rest.",
+      "source_to": "IRS (Pub 590-B, RMD tables, the 2026 inflation-adjustment notice) — verify EVERY figure against IRS, cite inline + Sources block."
+    },
+    {
+      "slug": "hecm-reverse-mortgage-note-investing",
+      "risk": "HIGH",
+      "why": "18 external-fact signals (HUD, FHA, CFPB + a 98% figure). Almost entirely HUD/FHA program rules stated with no backing. Highest raw exposure.",
+      "source_to": "HUD HECM program rules, FHA handbook, CFPB reverse-mortgage guidance. Verify the 98% figure or cut it."
+    },
+    {
+      "slug": "stop-toilet-trash-calls-mortgage-notes",
+      "risk": "HIGH",
+      "why": "Names RESPA, TILA, FDCPA statutes with no reference; landlord-burden stats stated flat.",
+      "source_to": "The statutes themselves (CFPB/eCFR) for RESPA/TILA/FDCPA; any landlord-cost stat to a real source or reframe as illustrative."
+    },
+    {
+      "slug": "passive-real-estate-investing-without-property",
+      "risk": "HIGH",
+      "why": "Literally says 'Studies show' with no study, plus 'reports' and RESPA. The exact 'slinging info without backbone' pattern.",
+      "source_to": "Find the real study or delete the claim; source RESPA."
+    },
+    {
+      "slug": "sell-rental-property-buy-mortgage-notes",
+      "risk": "HIGH",
+      "why": "IRC / IRS tax claims (1031, installment sale, depreciation recapture) stated without citation.",
+      "source_to": "IRS pubs / IRC sections for each tax mechanism cited."
+    },
+    {
+      "slug": "how-banks-sell-non-performing-loans",
+      "risk": "HIGH",
+      "why": "HUD / FHA / Fannie Mae program + market claims, uncited.",
+      "source_to": "HUD SFLS / FHA, Fannie Mae, and any NPL-market stat to a real source (or reframe)."
+    }
+  ]
+}

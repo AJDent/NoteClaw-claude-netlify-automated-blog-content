@@ -314,6 +314,18 @@ written; `AUTODRAFT-PROMPT.md` requires inline cites + a Sources block on every 
 `validate-blog.sh` check is deferred until the existing backlog is re-wired, so it doesn't block the in-flight
 queue; until then, sourcing is a by-eye + planning-step gate, like the voice rules.)
 
+**The rule covers LIVE content too, not just new posts (AJ, 2026-08-30).** Content already published without
+backbone is the same liability as slinging a new unsourced claim, so the Backbone Rule owns the whole
+lifecycle:
+- **Audit** the live site with `queue/source_audit.py` (read-only; ranks posts by uncited external-fact
+  signals — stats, statutes, named agencies). Run it periodically — **fold it into the monthly all-blogs
+  review** so live content never drifts back to unsourced.
+- **Re-wire** every flagged post (add sourced backbone + a Sources block, and align messaging to the current
+  content pillars) through the **normal preview → #tnc-blog-reviews → cadence** gate — one post at a time,
+  never a blind mass overwrite of live production pages.
+- The standing re-wire backlog lives in `queue/rewire-nextup.json` (ordered; deferred items marked). Once a
+  post is re-wired and re-audited clean, drop it from that list.
+
 ## ⏰ FRIDAY PUBLISH CADENCE (added 2026-08-20)
 Approved posts go in **`queue/`** + a `queue/manifest.json` entry; a GitHub Action publishes the next one
 every Friday 10 AM ET (`.github/workflows/friday-publish.yml` → `queue/publish_next.py`). The queue IS the
