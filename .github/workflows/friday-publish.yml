@@ -1,36 +1,48 @@
 name: Friday Publish (blog cadence)
 
-# Publishes the next PRE-APPROVED post from queue/ every Friday at 10:00 AM ET.
-# Two crons cover DST; the gate step ensures exactly one publish at 10 ET year-round.
-# Manual runs (workflow_dispatch) skip the time gate so you can publish on demand.
+# Publishes the next PRE-APPROVED post from queue/ every Friday.
+# Two crons (DST coverage) give two shots; the gate publishes on the FIRST Friday
+# run that lands and dedups the rest, so a delayed GitHub cron still ships that day.
+# Manual runs (workflow_dispatch) skip the gate so you can publish on demand.
 
 on:
   schedule:
-    - cron: '0 14 * * 5'   # 10:00 ET during EDT (Mar–Nov)
-    - cron: '0 15 * * 5'   # 10:00 ET during EST (Nov–Mar)
+    - cron: '0 14 * * 5'   # ~10:00 ET during EDT (Mar–Nov)
+    - cron: '0 15 * * 5'   # ~10:00 ET during EST (Nov–Mar)
   workflow_dispatch: {}
 
 permissions:
   contents: write
+
+# Serialize the two DST crons so the dedup check below can't be raced.
+concurrency:
+  group: friday-publish
+  cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so the "already published today" dedup is reliable
 
-      - name: Gate to 10:00 ET
+      - name: Gate (Friday, once/day, delay-tolerant)
         id: gate
         run: |
-          H=$(TZ=America/New_York date +%H)
-          echo "Current Eastern hour: $H"
+          DOW=$(TZ=America/New_York date +%u)    # 1=Mon … 5=Fri
+          TODAY=$(TZ=America/New_York date +%F)   # e.g. 2026-08-28 (ET)
+          echo "Eastern day-of-week: $DOW  date: $TODAY"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Manual run — proceeding."; echo "go=1" >> "$GITHUB_OUTPUT"
-          elif [ "$H" = "10" ]; then
-            echo "go=1" >> "$GITHUB_OUTPUT"
-          else
-            echo "Not 10 ET (off-DST cron) — skipping."; echo "go=0" >> "$GITHUB_OUTPUT"
+            echo "Manual run — proceeding."; echo "go=1" >> "$GITHUB_OUTPUT"; exit 0
           fi
+          if [ "$DOW" != "5" ]; then
+            echo "Not Friday ET (cron landed off-day) — skipping."; echo "go=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if git log --since="$TODAY 00:00" --grep="Auto-publish (Friday cadence)" --format=%H | grep -q .; then
+            echo "A cadence post already published today — skipping (dedup)."; echo "go=0" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Friday, nothing published yet today — proceeding."; echo "go=1" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-python@v5
         if: steps.gate.outputs.go == '1'
