@@ -38,7 +38,14 @@ push, do not touch git, do not touch blog.html or sitemap.xml.
    - Comments section, and a bottom CTA linking to **https://talkwithajdent.com** (this is the booking link —
      do NOT use any calendly.com URL).
    - Footer, floating call button, playbook banner, exit popup, cookie banner + panel, `blog.js` script.
-8. **Target 1,500–2,500 words.** Real, useful, specific. Internal-link to 1–3 existing TNC posts where natural.
+8. **BACKBONE RULE (sourcing) — non-negotiable.** Every factual claim, number, rate, %, tax/legal figure,
+   statute, or market stat you assert MUST be verified against a real authoritative source (IRS pubs/notices,
+   U.S. Code/CFR, MBA, ATTOM, the Fed/FRED, HUD, court rules, state statute — NO blog-citing-blog) and cited:
+   inline attribution next to the claim ("according to the IRS…") AND a linked **Sources** block near the end
+   (each source name + real URL). If you cannot source a claim, cut it or state it generally with no number.
+   Anonymized/illustrative deal math is exempt from external citation, but any external fact inside it is not.
+   Verify every figure THIS session before you write it — do not assert a number from memory.
+9. **Target 1,500–2,500 words.** Real, useful, specific. Internal-link to 1–3 existing TNC posts where natural.
 9. **Do NOT run `build_seo.py`** — the Friday cadence injects canonical/OG/schema at publish with the real date.
 10. **Do NOT** edit `blog.html`, `sitemap.xml`, `queue/`, or run any git command. Output is ONE file only.
 

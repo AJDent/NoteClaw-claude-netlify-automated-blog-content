@@ -32,6 +32,8 @@ Before ANY code is written, produce and confirm:
 □ Read time estimate (words ÷ 250, rounded)
 □ H2 outline (all section headers, in order)
 □ Quiz questions (3 questions, 4 options each, correct answer + explanation)
+□ CLAIM → SOURCE table: every factual claim / number / rate / stat you'll assert, each paired with its
+  authoritative source + URL (the Backbone Rule). Anonymized deal-math figures are exempt; external facts are not.
 □ Publish date
 ```
 
@@ -289,6 +291,28 @@ Deal breakdowns make performance claims, so the numbers are a compliance surface
 - **Every table must foot** (line items sum to the stated total) and figures must reconcile across sections.
 - **Never invent numbers.** Use the real (anonymized) deal figures: no names, city+state only, round figures.
 - If the numbers do not reconcile, do NOT publish — flag AJ for the real figures.
+
+## 🔗 THE BACKBONE RULE — sourcing (added 2026-08-30, HARD RULE)
+The blog-side of the global no-invented-figures rule: **never sling a fact without backbone to support it.**
+Every factual claim, number, rate, %, tax/legal figure, statute reference, or market statistic MUST trace to a
+real, authoritative, citable source, AND be attributed in the post:
+- **Inline attribution** ("according to the IRS…", "MBA's Q1 2026 survey put…") next to the claim, AND
+- **A linked `Sources` block at the end** listing each source with its URL.
+- **Prefer primary / authoritative sources:** IRS pubs & notices, U.S. Code / CFR, MBA, ATTOM, the Federal
+  Reserve / FRED, HUD, court rules, state statute. **No blog-citing-blog.** If a claim can't be sourced, cut it
+  or reframe it with no number.
+- **EXEMPT — anonymized/illustrative deal math (AJ, 2026-08-30):** the dollar figures and returns inside a
+  Deal Breakdown are anonymized, illustrative "how it works" numbers (see DEAL-BREAKDOWN NUMBER INTEGRITY +
+  Rule 15 scope) — they do NOT need an external citation. BUT any **external factual claim** that appears inside
+  a deal breakdown IS in scope: a foreclosure timeline, a state law, an average market rate, a named statistic.
+  Source those.
+- Ties to global Rule 15 (no invented figures) and the compliance surface (a wrong or unbacked number under
+  AJ's name is a credibility + compliance risk).
+
+**Where it's enforced:** CHUNK 0 planning now lists **each factual claim → its source** before any HTML is
+written; `AUTODRAFT-PROMPT.md` requires inline cites + a Sources block on every auto-draft. (A hard
+`validate-blog.sh` check is deferred until the existing backlog is re-wired, so it doesn't block the in-flight
+queue; until then, sourcing is a by-eye + planning-step gate, like the voice rules.)
 
 ## ⏰ FRIDAY PUBLISH CADENCE (added 2026-08-20)
 Approved posts go in **`queue/`** + a `queue/manifest.json` entry; a GitHub Action publishes the next one
