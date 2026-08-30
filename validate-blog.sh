@@ -71,7 +71,7 @@ grep -q 'post-layout' "$FILE"; check $? "Post layout wrapper present"
 H2COUNT=$(grep -c '<h2>' "$FILE")
 [ "$H2COUNT" -ge 2 ]; check $? "At least 2 H2 sections ($H2COUNT found)"
 grep -q 'post-divider' "$FILE"; check $? "Post divider present"
-grep -q 'calendly.com/ajdent-tnc' "$FILE"; check $? "Calendly CTA link present"
+grep -q 'talkwithajdent.com' "$FILE"; check $? "Book-a-call CTA link present"
 echo ""
 
 echo "🧠 QUIZ"
