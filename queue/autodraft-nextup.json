@@ -1,0 +1,35 @@
+{
+  "_comment": "Ordered next-up list for the weekly auto-draft routine (autodraft_next.py). The routine pops the TOP entry whose slug is not already published/queued/previewed, hands it to a headless Claude drafting session, and pushes an unlisted preview for review in #tnc-blog-reviews. Edit/reorder freely — top of the list is what drafts next Monday. category MUST be one of the CAT_CLASS keys in queue_approved.py: Note Investing, Note Strategies, Retirement Investing, Real Estate, Deal Breakdown, Education, Other.",
+  "nextup": [
+    {
+      "slug": "sdira-vs-solo-401k-private-lending",
+      "category": "Retirement Investing",
+      "topic": "Self-Directed IRA vs. Solo 401k: which is better for lending your retirement money into mortgage notes?",
+      "angle": "Head-to-head for someone who wants to be the bank with retirement dollars: contribution room, UBIT/UDFI exposure on debt-financed vs. all-cash notes, checkbook control, prohibited-transaction traps, setup friction. Land on: which fits which investor, framed as education not advice."
+    },
+    {
+      "slug": "first-lien-vs-second-lien-notes",
+      "category": "Note Investing",
+      "topic": "First lien vs. second lien mortgage notes: a risk-adjusted return comparison.",
+      "angle": "Why the lien position is the whole ballgame. What a first lien controls that a second doesn't, when a second's higher yield actually pays for its risk, and how a note investor should think about the spread. Illustrative math only, no promised returns."
+    },
+    {
+      "slug": "why-use-a-note-servicer",
+      "category": "Note Strategies",
+      "topic": "Note servicing: why you should never collect the payments yourself.",
+      "angle": "The unglamorous piece that keeps you legal and passive. RESPA/compliance exposure of self-collecting, what a licensed servicer actually does, the real cost vs. the risk it removes, and why it's what makes notes truly hands-off."
+    },
+    {
+      "slug": "borrower-stopped-paying-first-30-days",
+      "category": "Note Strategies",
+      "topic": "Your borrower stopped paying: the first 30 days, step by step.",
+      "angle": "Calm playbook for the moment landlords dread and note investors have a process for. Confirm the miss, servicer outreach, the workout-vs-foreclosure fork, documentation, and why owning the debt gives you more good options than owning the building. Educational, not legal advice."
+    },
+    {
+      "slug": "diversify-real-estate-portfolio-with-notes",
+      "category": "Real Estate",
+      "topic": "How to diversify a real estate portfolio with mortgage notes.",
+      "angle": "For the investor already holding doors who wants exposure without more toilets. How notes sit alongside rentals, the correlation/risk case, geography without property management, and a sensible way to allocate a slice. Illustrative, education-mode."
+    }
+  ]
+}
