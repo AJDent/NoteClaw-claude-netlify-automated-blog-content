@@ -2,12 +2,6 @@
   "_comment": "Ordered next-up list for the weekly auto-draft routine (autodraft_next.py). The routine pops the TOP entry whose slug is not already published/queued/previewed, hands it to a headless Claude drafting session, and pushes an unlisted preview for review in #tnc-blog-reviews. Edit/reorder freely — top of the list is what drafts next Monday. category MUST be one of the CAT_CLASS keys in queue_approved.py: Note Investing, Note Strategies, Retirement Investing, Real Estate, Deal Breakdown, Education, Other.",
   "nextup": [
     {
-      "slug": "sdira-vs-solo-401k-private-lending",
-      "category": "Retirement Investing",
-      "topic": "Self-Directed IRA vs. Solo 401k: which is better for lending your retirement money into mortgage notes?",
-      "angle": "Head-to-head for someone who wants to be the bank with retirement dollars: contribution room, UBIT/UDFI exposure on debt-financed vs. all-cash notes, checkbook control, prohibited-transaction traps, setup friction. Land on: which fits which investor, framed as education not advice."
-    },
-    {
       "slug": "first-lien-vs-second-lien-notes",
       "category": "Note Investing",
       "topic": "First lien vs. second lien mortgage notes: a risk-adjusted return comparison.",
