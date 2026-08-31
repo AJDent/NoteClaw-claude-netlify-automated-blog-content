@@ -11,7 +11,7 @@ One-time setup (service account + install): see queue/GSC-MONITOR-SETUP.md.
   python3 queue/gsc_index_monitor.py            # print a report
   python3 queue/gsc_index_monitor.py --discord  # also post the not-indexed list to Discord
 """
-import os, sys, json, glob, time, urllib.request, urllib.error
+import os, sys, json, re, time, urllib.request, urllib.error
 
 SITE  = "sc-domain:takenotescapital.com"
 HOST  = "takenotescapital.com"
@@ -19,9 +19,6 @@ ROOT  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SA_PATH = os.environ.get("GSC_SA_JSON", os.path.expanduser("~/.secrets/gsc-service-account.json"))
 SCOPES  = ["https://www.googleapis.com/auth/webmasters.readonly"]
 INSPECT = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
-SKIP = {"index.html", "blog.html", "post-template.html", "post-template-lean.html",
-        "cookie-policy.html", "privacy-policy.html", "terms-and-conditions.html",
-        "buybox.html", "unsubscribed.html"}
 DISCORD_CHANNEL = "1490078388302381126"   # #tnc-blog-reviews
 DISCORD_TOKEN_PATH = os.path.expanduser("~/.secrets/discord_bot_token_techwizard")
 
@@ -50,9 +47,13 @@ def inspect(url, tok):
 
 
 def live_urls():
-    os.chdir(ROOT)
-    posts = sorted(f for f in glob.glob("*.html") if f not in SKIP)
-    return [f"https://{HOST}/{p}" for p in posts]
+    """Pages Google SHOULD have indexed = exactly what's published in sitemap.xml. Reading the
+    sitemap (instead of globbing *.html) means UNLISTED PREVIEWS — live at their URL but
+    deliberately kept out of the sitemap until AJ approves them — are never flagged as
+    'not indexed'. (Fix 2026-08-31: the old glob mistook fresh auto-draft previews, e.g.
+    first-lien-vs-second-lien, for stranded published posts and nagged about them weekly.)"""
+    txt = open(os.path.join(ROOT, "sitemap.xml"), encoding="utf-8").read()
+    return re.findall(r'<loc>\s*(https?://[^<\s]+)\s*</loc>', txt)
 
 
 def post_discord(text):
