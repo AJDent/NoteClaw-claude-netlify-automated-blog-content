@@ -2,12 +2,6 @@
   "_comment": "Ordered next-up list for the weekly auto-draft routine (autodraft_next.py). The routine pops the TOP entry whose slug is not already published/queued/previewed, hands it to a headless Claude drafting session, and pushes an unlisted preview for review in #tnc-blog-reviews. Edit/reorder freely — top of the list is what drafts next Monday. category MUST be one of the CAT_CLASS keys in queue_approved.py: Note Investing, Note Strategies, Retirement Investing, Real Estate, Deal Breakdown, Education, Other.",
   "nextup": [
     {
-      "slug": "first-lien-vs-second-lien-notes",
-      "category": "Note Investing",
-      "topic": "First lien vs. second lien mortgage notes: a risk-adjusted return comparison.",
-      "angle": "Why the lien position is the whole ballgame. What a first lien controls that a second doesn't, when a second's higher yield actually pays for its risk, and how a note investor should think about the spread. Illustrative math only, no promised returns."
-    },
-    {
       "slug": "why-use-a-note-servicer",
       "category": "Note Strategies",
       "topic": "Note servicing: why you should never collect the payments yourself.",
