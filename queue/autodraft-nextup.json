@@ -2,12 +2,6 @@
   "_comment": "Ordered next-up list for the weekly auto-draft routine (autodraft_next.py). The routine pops the TOP entry whose slug is not already published/queued/previewed, hands it to a headless Claude drafting session, and pushes an unlisted preview for review in #tnc-blog-reviews. Edit/reorder freely — top of the list is what drafts next Monday. category MUST be one of the CAT_CLASS keys in queue_approved.py: Note Investing, Note Strategies, Retirement Investing, Real Estate, Deal Breakdown, Education, Other.",
   "nextup": [
     {
-      "slug": "why-use-a-note-servicer",
-      "category": "Note Strategies",
-      "topic": "Note servicing: why you should never collect the payments yourself.",
-      "angle": "The unglamorous piece that keeps you legal and passive. RESPA/compliance exposure of self-collecting, what a licensed servicer actually does, the real cost vs. the risk it removes, and why it's what makes notes truly hands-off."
-    },
-    {
       "slug": "borrower-stopped-paying-first-30-days",
       "category": "Note Strategies",
       "topic": "Your borrower stopped paying: the first 30 days, step by step.",
