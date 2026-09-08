@@ -60,7 +60,7 @@
   .nav-links a { color: rgba(250,248,244,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--blue); }
   .nav-cta { background: var(--blue) !important; color: #ffffff !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; margin-left: 20px; }
   .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
   #mobileMenu { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(8,8,8,0.97); backdrop-filter: blur(20px); padding: 92px 24px 28px; border-bottom: 1px solid rgba(91,164,230,0.12); }
   #mobileMenu.open { display: block; }
@@ -503,14 +503,9 @@
 <img alt="Take Notes Capital Logo" src="logo.png"/>
 </a>
 <ul class="nav-links">
-<li><a href="#mission">TNC Mission</a></li>
-<li><a href="#for-investors">Who It's For</a></li>
 <li><a href="#how-it-works">How It Works</a></li>
-<li><a href="#learn">Learn Notes</a></li>
-<li><a href="#testimonials">Testimonials</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#note-buyers">Note Buyers</a></li>
-<li><a href="blog.html">Blog</a></li>
+<li><a href="#for-investors">Who It's For</a></li>
+<li><a href="#proof">Proof</a></li>
 <li><a class="nav-cta" href="#contact">Book a Call</a></li>
 </ul>
 <div class="hamburger" onclick="toggleMenu()">
@@ -537,97 +532,11 @@
 <a class="cta-btn fade-in d3" href="#contact">Book a Free Discovery Call</a>
 <div class="scroll-arrow">↓</div>
 </section>
-<!-- EVERYONE WANTS -->
-<section class="bg-white">
-<h2 class="headline-lg fade-in">Everyone Wants to Build Wealth<br/>Through Real Estate.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-dark-65">And why wouldn't you? It's the #1 wealth builder in history. More millionaires have been made through real estate than any other asset class.</p>
-</section>
-<!-- RESEARCH -->
-<section class="bg-light">
-<h2 class="headline-md fade-in">You've Done the Research.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-dark-65">Tons of YouTube videos. Reading the books. Saving up your capital. Maybe bringing your partner on board.</p>
-<p class="headline-md fade-in headline-ready">You're ready. So you pick a strategy.</p>
-<p class="headline-lg text-gold fade-in headline-allin">And you go ALL IN.</p>
-</section>
-<!-- MEET SARAH -->
-<section class="bg-white">
-<h2 class="headline-xl fade-in headline-meet">Meet Sarah.</h2>
-<div class="divider fade-in"></div>
-<p class="headline-md fade-in headline-did-right">She did everything right.</p>
-</section>
-<!-- WHAT THEY'RE NOT TELLING YOU -->
-<section class="bg-navy section-short" id="how-it-works">
-<h2 class="headline-lg fade-in headline-not-telling">This Is What They're <span class="text-red">NOT</span> Telling You<br/>About Real Estate Investing</h2>
-<p class="body-text fade-in body-text-mb42">Sarah learned the hard way — so you don't have to.</p>
-<div class="sarah-cards fade-in">
-<div class="sarah-card">
-<div class="emoji">🔨</div>
-<div class="card-label">Sarah Tried Flipping</div>
-<div class="card-stat"><em class="card-stat-quote">"Buy cheap, renovate, sell high — easy money."</em><br/><br/>Contractor ghosted her 3 weeks in. <strong style="color:var(--red);">$25K reno turned into $41K.</strong> Five months of stress.<br/><br/>Profit: <strong style="color:var(--red);">$5,200.</strong></div>
-<div class="card-highlight">Never again.</div>
-</div>
-<div class="sarah-card">
-<div class="emoji">🏠</div>
-<div class="card-label">Sarah Tried Rentals</div>
-<div class="card-stat"><em class="card-stat-quote">"Passive income while you sleep."</em><br/><br/>Tenant trashed the unit. 7-month eviction. <strong style="color:var(--red);">$19,000 in losses.</strong><br/><br/>Rent checks after Month 2: <strong style="color:var(--red);">$0.</strong></div>
-<div class="card-highlight">Eight months. Zero income.</div>
-</div>
-<div class="sarah-card">
-<div class="emoji">🏢</div>
-<div class="card-label">Sarah Tried Scaling</div>
-<div class="card-stat"><em class="card-stat-quote">"More doors, more income."</em><br/><br/>Needed <strong style="color:var(--red);">$200K+</strong> down. Complex financing. Headaches multiplied.<br/><br/>The math didn't work without deep pockets.</div>
-<div class="card-highlight">Dead before it started.</div>
-</div>
-</div>
-<p class="headline-md fade-in headline-sarah-note">Sarah wasn't bad at real estate.<br/><strong class="text-white-strong">The game was rigged against small investors.</strong></p>
-</section>
-<!-- THE QUOTE -->
-<section class="bg-black">
-<p class="body-text fade-in body-text-then">Then someone said something she couldn't unhear:</p>
-<h2 class="quote-text text-gold fade-in">"Stop buying buildings.<br/>Buy the mortgage note instead."</h2>
-</section>
-<!-- SHE DID -->
-<section class="bg-white">
-<h2 class="headline-lg fade-in headline-she-did">She did. And everything changed.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-she-invested">She invested $28K into a performing mortgage note on a $75K property in Georgia. No renovations. No contractors. She closed the deal from her laptop in two weeks.</p>
-<div class="timeline fade-in timeline-mt">
-<div class="timeline-item"><span class="timeline-label text-green">Month 1:</span><span class="timeline-text text-muted-dark-7">$485 hit her account. She didn't do anything.</span></div>
-<div class="timeline-item"><span class="timeline-label text-green">Month 6:</span><span class="timeline-text text-muted-dark-7">$2,910 collected. Zero phone calls. Zero stress.</span></div>
-<div class="timeline-item"><span class="timeline-label text-green">Month 12:</span><span class="timeline-text text-muted-dark-7">$5,820 in pure cash flow — on a $28K investment.</span></div>
-</div>
-</section>
-<!-- COMPARISON -->
-<section class="bg-light section-short">
-<h2 class="headline-md fade-in comparison-heading">Same Real Estate. Different Side of the Table.</h2>
-<div class="cards-row fade-in">
-<div class="compare-card card-rental">
-<div class="card-label text-red">❌ Her Rental</div>
-<div class="card-stat text-dark-val"><strong>$115K</strong> invested<br/>$780/mo going <strong>OUT</strong><br/>Insurance, taxes, maintenance<br/>Vacancy months: $0 coming in</div>
-<div class="card-highlight card-highlight-red">Result: -$19,000 in 8 months</div>
-</div>
-<div class="compare-card card-note">
-<div class="card-label text-green">✅ Her First Note</div>
-<div class="card-stat text-dark-val"><strong>$28K</strong> invested<br/>$485/mo coming <strong>IN</strong><br/>Zero overhead. Zero property to manage.<br/>Zero maintenance. Zero stress.</div>
-<div class="card-highlight card-highlight-green">Result: +$5,820 in 12 months</div>
-<div class="card-stat card-stat-small">Worst case: Foreclose on $75K property. Sell for $70K. <strong>Profit: $42K.</strong></div>
-</div>
-</div>
-</section>
-<!-- BECAME THE BANK -->
-<section class="bg-navy">
-<p class="body-text fade-in sarah-intro">Sarah stopped being the landlord.</p>
-<h2 class="headline-xl fade-in">She became the bank.</h2>
-<div class="checks fade-in">
-<div><span>✅</span> You're the bank, not the landlord</div>
-<div><span>✅</span> Secured by real property</div>
-<div><span>✅</span> Nothing to manage or repair</div>
-<div><span>✅</span> Backed by real estate</div>
-<div><span>✅</span> Monthly cash flow</div>
-</div>
-</section>
+<!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
+<!-- [C] sentence-completion + credibility strip + note primer — pending -->
+<!-- [D] calculator — pending -->
+<!-- [E] six-step process + equity cushion + exits — pending -->
+<!-- [F] comparison table — pending -->
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: WHO IT'S FOR — SDIRA / 401K / PRIVATE INVESTORS -->
 <!-- ══════════════════════════════════════════ -->
