@@ -514,6 +514,20 @@
   .exit b { color: var(--white); }
   .exit-last { border-color: rgba(232,93,93,0.4); background: rgba(232,93,93,0.06); }
   .exit-last .exit-n { color: var(--red); }
+  /* ═══ comparison table ═══ */
+  .headline-dark { color: #16203a; }
+  .cmp-scroll { overflow-x: auto; max-width: 780px; margin: 28px auto 0; -webkit-overflow-scrolling: touch; }
+  .cmp-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15px; }
+  .cmp-table th, .cmp-table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid #e3e7f0; }
+  .cmp-table thead th { font-weight: 700; color: #3a4157; font-size: 14px; letter-spacing: 0.3px; }
+  .cmp-attr { text-align: left !important; font-weight: 600; color: #16203a; white-space: nowrap; }
+  .cmp-hl { background: rgba(91,164,230,0.10); }
+  .cmp-table thead .cmp-hl { color: #2b6cb0; border-top: 3px solid #5ba4e6; }
+  .cmp-table tbody tr:last-child .cmp-hl { border-radius: 0 0 8px 8px; }
+  .cmp-table .yes { color: #2e9e56; font-weight: 700; }
+  .cmp-table .no { color: #b9c0cf; }
+  .cmp-table .lim { color: #8a94a8; font-size: 13px; font-style: italic; }
+  .cmp-cap { font-size: 13px; color: #8a94a8; font-style: italic; margin-top: 16px; }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -853,7 +867,26 @@ who wants
   if(pay){pay.addEventListener('input',cushion);cushion();}
 })();
 </script>
-<!-- [F] comparison table — pending -->
+<!-- [F] COMPARISON TABLE (spec section 8 — attributes only, never performance) -->
+<section class="bg-light section-short" id="compare">
+<p class="label-text label-text-dark fade-in">How notes compare</p>
+<h2 class="headline-lg headline-dark fade-in">Notes vs. Everything Else.</h2>
+<div class="cmp-scroll fade-in">
+<table class="cmp-table">
+<thead>
+<tr><th></th><th class="cmp-hl">Notes</th><th>Rentals</th><th>Stocks</th><th>Bonds</th><th>Crypto</th></tr>
+</thead>
+<tbody>
+<tr><td class="cmp-attr">Pays monthly</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Secured by real property</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Nothing to manage</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
+<tr><td class="cmp-attr">Terms set by contract</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Held in an IRA or 401(k)</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="lim">Limited</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="cmp-cap fade-in">Attributes of each instrument. Not a comparison of returns.</p>
+</section>
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: WHO IT'S FOR — SDIRA / 401K / PRIVATE INVESTORS -->
 <!-- ══════════════════════════════════════════ -->
