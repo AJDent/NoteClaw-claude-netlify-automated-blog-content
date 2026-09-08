@@ -417,6 +417,30 @@
     .nb-states { grid-template-columns: repeat(3, 1fr); }
   }
 
+  /* ═══ homepage-revamp: sentence completion ═══ */
+  .sc-line { font-size: clamp(23px,3.6vw,38px); font-weight: 700; line-height: 1.8; max-width: 900px; margin: 0 auto; }
+  .sc-line select {
+    font: inherit; font-size: 0.95em; color: var(--blue); background: transparent;
+    border: none; border-bottom: 2px solid var(--blue); padding: 2px 28px 2px 6px; margin: 0 3px;
+    cursor: pointer; -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%235ba4e6' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center;
+  }
+  .sc-line select:focus { outline: none; border-bottom-color: var(--green); }
+  .sc-line option { color: #111; }
+  .sc-result { max-width: 620px; margin: 36px auto 0; }
+  .sc-result p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+  /* credibility strip */
+  .cred-strip { background: #0d1220; padding: 26px 24px; text-align: center; border-top: 1px solid rgba(91,164,230,0.12); border-bottom: 1px solid rgba(91,164,230,0.12); }
+  .cred-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
+  .cred-logos { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+  .cred-chip { background: #fff; border-radius: 10px; padding: 10px 16px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .cred-chip img { max-height: 34px; max-width: 130px; width: auto; object-fit: contain; display: block; }
+  /* note primer */
+  .label-text-dark { color: #4a5568; opacity: 0.85; }
+  .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: #1a2233; font-weight: 500; }
+  .primer-red { color: var(--red); font-weight: 700; }
+  @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 48px; padding: 8px 12px; } .cred-chip img { max-height: 28px; } }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -528,12 +552,88 @@
 <!-- HERO -->
 <section class="bg-black" id="hero">
 <h1 class="headline-xl fade-in d1">Earn Like You Own The Building.<br/><span class="text-gold">Live Like You Never Bought One.</span></h1>
-<p class="body-text fade-in d2 hero-sub">No Tenants. No Toilets. No Calls at 2AM.</p>
+<p class="body-text fade-in d2 hero-sub">Own the loan, not the building. Paid first, secured by real estate, with nothing to manage.</p>
 <a class="cta-btn fade-in d3" href="#contact">Book a Free Discovery Call</a>
 <div class="scroll-arrow">↓</div>
 </section>
 <!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
-<!-- [C] sentence-completion + credibility strip + note primer — pending -->
+<!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
+<section class="bg-navy section-short" id="pick">
+<p class="label-text fade-in">Find your fit in one sentence</p>
+<h2 class="sc-line fade-in">
+I'm a
+<select id="scWho" aria-label="I'm a">
+<option value="" selected="" disabled="">choose…</option>
+<option>retiree</option>
+<option>busy professional</option>
+<option>real estate investor</option>
+<option>business owner</option>
+<option>new to all this</option>
+</select>
+who wants
+<select id="scWant" aria-label="who wants">
+<option value="" selected="" disabled="">choose…</option>
+<option data-lane="retiree">to put my IRA or 401(k) to work</option>
+<option data-lane="income">monthly income without owning property</option>
+<option data-lane="operator">real estate returns without the tenants</option>
+</select>.
+</h2>
+<div class="sc-result" id="scResult" hidden="">
+<p id="scResultText"></p>
+<a class="cta-btn" href="#calc" id="scResultCta">See your numbers →</a>
+</div>
+</section>
+<!-- [C2] CREDIBILITY STRIP -->
+<section class="cred-strip">
+<p class="cred-label">The partners behind every deal</p>
+<div class="cred-logos">
+<span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
+<span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
+<span class="cred-chip"><img alt="Reva Global" src="partners/reva.jpg"/></span>
+<span class="cred-chip"><img alt="RDIS" src="partners/rdis.png"/></span>
+<span class="cred-chip"><img alt="Legal League" src="partners/legal-league.png"/></span>
+<span class="cred-chip"><img alt="Clear2Close Title &amp; Escrow" src="partners/clear2close.png"/></span>
+</div>
+</section>
+<!-- [C3] NOTE PRIMER -->
+<section class="bg-light section-short" id="note-primer">
+<p class="label-text label-text-dark fade-in">The whole idea in one breath</p>
+<p class="primer-line fade-in"><span class="primer-red">A note is the loan on a house.</span> When you own it, the borrower's payment comes to you instead of the bank, and the property is your collateral. You never own, manage, or fix anything.</p>
+</section>
+<!-- [C] routing JS -->
+<script>
+(function(){
+  var LANES = {
+    retiree:  "Perfect. Let's turn idle retirement money into a note you never have to manage.",
+    income:   "Great. Secured monthly income, without owning a single property.",
+    operator: "Got it. Real estate returns, minus the tenants, repairs, and 2am calls."
+  };
+  window.TNC = window.TNC || {};
+  var want = document.getElementById('scWant');
+  var res  = document.getElementById('scResult');
+  var txt  = document.getElementById('scResultText');
+  function setLane(lane){
+    if(!LANES[lane]) return;
+    window.TNC.lane = lane;
+    if(txt) txt.textContent = LANES[lane];
+    if(res) res.hidden = false;
+    if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
+  }
+  if (want){
+    want.addEventListener('change', function(){
+      var opt = want.options[want.selectedIndex];
+      setLane(opt && opt.getAttribute('data-lane'));
+    });
+  }
+  try{
+    var p = new URLSearchParams(location.search).get('lane');
+    if (p && LANES[p]){
+      setLane(p);
+      if (want){ for (var i=0;i<want.options.length;i++){ if(want.options[i].getAttribute('data-lane')===p){ want.selectedIndex=i; break; } } }
+    }
+  }catch(e){}
+})();
+</script>
 <!-- [D] calculator — pending -->
 <!-- [E] six-step process + equity cushion + exits — pending -->
 <!-- [F] comparison table — pending -->
