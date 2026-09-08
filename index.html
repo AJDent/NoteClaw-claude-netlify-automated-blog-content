@@ -470,6 +470,50 @@
   .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
   .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
   .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
+  /* ═══ six-step accordion ═══ */
+  .steps-accordion { max-width: 720px; margin: 30px auto 0; text-align: left; }
+  .step-item { border: 1px solid rgba(91,164,230,0.18); border-radius: 12px; margin-bottom: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+  .step-head { width: 100%; display: flex; align-items: center; gap: 14px; background: transparent; border: none; cursor: pointer; padding: 18px 20px; text-align: left; color: var(--white); font: inherit; }
+  .step-num { font-weight: 700; font-size: 15px; color: var(--blue); width: 22px; flex-shrink: 0; }
+  .step-title { flex: 1; font-size: 17px; font-weight: 600; }
+  .step-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border-radius: 5px; }
+  .step-tag.tnc { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.6); }
+  .step-tag.you { background: rgba(78,203,113,0.15); color: var(--green); }
+  .step-chev { font-size: 20px; color: rgba(255,255,255,0.4); transition: transform 0.2s; flex-shrink: 0; line-height: 1; }
+  .step-item.open .step-chev { transform: rotate(45deg); }
+  .step-body { display: none; padding: 0 20px 20px 56px; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); }
+  .step-item.open .step-body { display: block; }
+  .step-body p { margin: 0 0 12px; }
+  .step-body b, .step-body .text-white-strong { color: var(--white); }
+  .step-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 14px; }
+  @media (max-width: 560px) { .step-body { padding-left: 20px; } }
+  /* equity cushion */
+  .cushion { background: rgba(0,0,0,0.25); border: 1px solid rgba(91,164,230,0.15); border-radius: 12px; padding: 20px; margin: 6px 0 16px; }
+  .cushion-setup { font-size: 16px; color: var(--white); margin-bottom: 16px; line-height: 1.6; }
+  .cushion-lbl { display: block; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
+  .cushion-lbl b { color: var(--blue); }
+  .cushion-lbl input { display: block; width: 100%; margin-top: 12px; accent-color: var(--blue); }
+  .cushion-bar { position: relative; display: flex; height: 46px; font-size: 11px; font-weight: 700; margin-top: 30px; }
+  .cu-pay { background: #2b6cb0; color: #fff; display: flex; align-items: center; justify-content: center; min-width: 44px; border-radius: 8px 0 0 8px; }
+  .cu-room { display: flex; align-items: center; justify-content: center; min-width: 44px; color: #06210f; border-radius: 0 8px 8px 0; }
+  .cu-room.state-good { background: #3fae5f; }
+  .cu-room.state-thin { background: #5ba4e6; color: #04121f; }
+  .cu-room.state-pass { background: #e85d5d; color: #3a0d0d; }
+  .cu-tick { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--white); }
+  .cu-tick-lbl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); margin-top: 5px; }
+  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 36px; padding: 14px 16px; border-radius: 8px; border-left: 3px solid var(--green); }
+  .cushion-sentence.state-good { border-color: var(--green); background: rgba(78,203,113,0.08); }
+  .cushion-sentence.state-thin { border-color: var(--blue); background: rgba(91,164,230,0.08); }
+  .cushion-sentence.state-pass { border-color: var(--red); background: rgba(232,93,93,0.08); }
+  .cushion-sentence b { color: var(--white); }
+  /* seven exits */
+  .exits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+  @media (max-width: 560px) { .exits-grid { grid-template-columns: 1fr; } }
+  .exit { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.45; background: rgba(255,255,255,0.03); border: 1px solid rgba(91,164,230,0.12); border-radius: 8px; padding: 10px 12px; }
+  .exit-n { font-weight: 700; color: var(--blue); flex-shrink: 0; }
+  .exit b { color: var(--white); }
+  .exit-last { border-color: rgba(232,93,93,0.4); background: rgba(232,93,93,0.06); }
+  .exit-last .exit-n { color: var(--red); }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -727,7 +771,88 @@ who wants
   if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
 })();
 </script>
-<!-- [E] six-step process + equity cushion + exits — pending -->
+<!-- [E] SIX-STEP PROCESS + EQUITY CUSHION + EXITS (spec section 7) -->
+<section class="bg-navy section-short" id="how-it-works">
+<p class="label-text fade-in">How it works</p>
+<h2 class="headline-lg fade-in">Six steps. You touch two of them.</h2>
+<div class="steps-accordion fade-in" id="stepsAccordion">
+<div class="step-item open">
+<button class="step-head" type="button"><span class="step-num">1</span><span class="step-title">We source the paper</span><span class="step-tag tnc">TNC</span><span class="step-chev">+</span></button>
+<div class="step-body"><p>Tapes come to us from banks, funds, and private sellers. We work in ten states (TX, GA, NC, FL, AL, MS, IN, OH, MI, MO) because we know the foreclosure timelines, the costs, and the attorney relationships in each.</p><p>Most of what we look at, we pass on. If it does not fit what our investors and capital partners need, it does not move forward. Saying no is most of this job.</p></div>
+</div>
+<div class="step-item">
+<button class="step-head" type="button"><span class="step-num">2</span><span class="step-title">We underwrite the collateral</span><span class="step-tag tnc">TNC</span><span class="step-chev">+</span></button>
+<div class="step-body"><p>Value, title, occupancy, taxes, and the document file. If the property does not support the note balance, we pass.</p><p><a class="step-link" href="/protection#what-we-vet">See everything we vet →</a></p></div>
+</div>
+<div class="step-item">
+<button class="step-head" type="button"><span class="step-num">3</span><span class="step-title">You fund the position</span><span class="step-tag you">YOU</span><span class="step-chev">+</span></button>
+<div class="step-body"><p>Your capital funds a specific note against a specific property. You see the collateral, the lien position, and the equity cushion first. Retirement accounts fund through your custodian.</p></div>
+</div>
+<div class="step-item">
+<button class="step-head" type="button"><span class="step-num">4</span><span class="step-title">We buy at a discount</span><span class="step-tag tnc">TNC</span><span class="step-chev">+</span></button>
+<div class="step-body">
+<p>We never pay full price. The gap between what we pay and what the property is worth is your protection. Drag the slider:</p>
+<div class="cushion">
+<div class="cushion-setup">A house is worth <b>$85,000</b>. The borrower still owes <b>$67,000</b> on their home loan. We buy that loan.</div>
+<label class="cushion-lbl">What we pay for the loan: <b id="cuPayLabel">$30,000</b>
+<input id="cuPay" max="82000" min="15000" step="1000" type="range" value="30000"/></label>
+<div class="cushion-bar" id="cuBar">
+<div class="cu-pay" id="cuPaySeg"><span>We pay</span></div>
+<div class="cu-room state-good" id="cuRoomSeg"><span>Room left over</span></div>
+<div class="cu-tick" id="cuTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
+</div>
+<p class="cushion-sentence state-good" id="cuSentence"></p>
+</div>
+<p>We call this the <span class="text-white-strong">equity cushion</span>. If the borrower stops paying and nothing we try works, <span class="legal-pending" title="Pending Legal review">we can take the house back and sell it</span>. We have the legal right to do that because we own the loan, and the house is what backs it. That is our last resort, never our plan.</p>
+<p><a class="step-link" href="/protection#the-cushion">Full version →</a></p>
+</div>
+</div>
+<div class="step-item">
+<button class="step-head" type="button"><span class="step-num">5</span><span class="step-title">We work with the borrower</span><span class="step-tag tnc">TNC</span><span class="step-chev">+</span></button>
+<div class="step-body">
+<p>Modification, repayment plan, or reinstatement. The goal is a borrower who pays and stays.</p>
+<div class="exits-grid">
+<div class="exit"><span class="exit-n">1</span><div><b>Reinstatement.</b> Borrower catches up. Loan continues as written.</div></div>
+<div class="exit"><span class="exit-n">2</span><div><b>Repayment plan.</b> Arrears spread across future payments.</div></div>
+<div class="exit"><span class="exit-n">3</span><div><b>Loan modification.</b> A new rate or term they can meet. Most common.</div></div>
+<div class="exit"><span class="exit-n">4</span><div><b>Discounted payoff.</b> Borrower settles with a lump sum.</div></div>
+<div class="exit"><span class="exit-n">5</span><div><b>Short sale.</b> Property sells for less than owed, with our approval.</div></div>
+<div class="exit"><span class="exit-n">6</span><div><b>Deed in lieu.</b> Borrower hands over the deed instead of fighting.</div></div>
+<div class="exit exit-last"><span class="exit-n">7</span><div><b>Foreclosure.</b> The floor. Recovery through the collateral itself.</div></div>
+</div>
+<p>Seven ways this ends. One of them is foreclosure, and it is the last one we reach for.</p>
+<p><a class="step-link" href="/protection#exits">Full version →</a></p>
+</div>
+</div>
+<div class="step-item">
+<button class="step-head" type="button"><span class="step-num">6</span><span class="step-title">Servicing collects, you get paid</span><span class="step-tag you">YOU</span><span class="step-chev">+</span></button>
+<div class="step-body"><p>A licensed servicer collects and sends your money back home. No calls, no repairs, no tenants, no property management. Just cashflow every payment period.</p></div>
+</div>
+</div>
+</section>
+<script>
+(function(){
+  var acc=document.getElementById('stepsAccordion');
+  if(acc){acc.querySelectorAll('.step-head').forEach(function(h){h.addEventListener('click',function(){var it=h.parentElement,open=it.classList.contains('open');acc.querySelectorAll('.step-item').forEach(function(x){x.classList.remove('open');});if(!open)it.classList.add('open');});});}
+  var VALUE=85000,OWED=67000,pay=document.getElementById('cuPay');
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function cushion(){
+    if(!pay)return;
+    var paid=parseFloat(pay.value)||0,room=VALUE-paid,ratio=room/VALUE;
+    document.getElementById('cuPayLabel').textContent='$'+fmt(paid);
+    document.getElementById('cuPaySeg').style.flex=paid;
+    var roomSeg=document.getElementById('cuRoomSeg');roomSeg.style.flex=room;
+    document.getElementById('cuTick').style.left=(OWED/VALUE*100)+'%';
+    var state=ratio>0.40?'good':(ratio>=0.22?'thin':'pass');
+    roomSeg.className='cu-room state-'+state;
+    var s=document.getElementById('cuSentence');s.className='cushion-sentence state-'+state;
+    if(state==='good')s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing them.";
+    else if(state==='thin')s.innerHTML="There is still <b>$"+fmt(room)+"</b> of room, but it is getting thin. Selling costs and repairs would eat a good piece of it. This is close to the most we would pay.";
+    else s.innerHTML="Barely <b>$"+fmt(room)+"</b> of room. Your money would be at risk. <b>This is a deal we pass on.</b>";
+  }
+  if(pay){pay.addEventListener('input',cushion);cushion();}
+})();
+</script>
 <!-- [F] comparison table — pending -->
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: WHO IT'S FOR — SDIRA / 401K / PRIVATE INVESTORS -->
