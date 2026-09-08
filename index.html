@@ -441,6 +441,35 @@
   .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: #1a2233; font-weight: 500; }
   .primer-red { color: var(--red); font-weight: 700; }
   @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 48px; padding: 8px 12px; } .cred-chip img { max-height: 28px; } }
+  /* ═══ calculator ═══ */
+  .calc-frame { font-size: clamp(22px,3.2vw,32px); font-weight: 700; max-width: 22ch; margin: 0 auto 6px; line-height: 1.3; }
+  .calc-card { max-width: 640px; margin: 26px auto 0; background: #0f1424; border: 1px solid rgba(91,164,230,0.18); border-radius: 16px; padding: 28px 26px; text-align: left; }
+  .calc-inputs { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  .calc-fld:nth-child(3) { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .calc-inputs { grid-template-columns: 1fr; } }
+  .calc-fld { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
+  .calc-fld input { font: inherit; font-size: 16px; color: var(--white); background: #080b14; border: 1px solid rgba(91,164,230,0.25); border-radius: 8px; padding: 11px 12px; }
+  .calc-fld input:focus { outline: none; border-color: var(--blue); }
+  .calc-stage1 { margin-top: 20px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .calc-stage1 p, .calc-stage2 p { margin: 0 0 8px; }
+  .calc-stage1 b { color: var(--green); }
+  .calc-gate { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(91,164,230,0.15); }
+  .calc-gate-q { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+  .calc-gate-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .calc-gate-row input { flex: 1; min-width: 180px; font: inherit; font-size: 15px; color: var(--white); background: #080b14; border: 1px solid rgba(91,164,230,0.25); border-radius: 8px; padding: 12px 14px; }
+  .calc-gate-row .cta-btn { margin: 0; }
+  .calc-gate-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 10px; }
+  .calc-stage2 { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(78,203,113,0.25); font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .calc-s2-head { font-weight: 700; color: var(--green); margin-bottom: 10px; }
+  .calc-stage2 b { color: var(--green); }
+  .calc-secured { margin: 16px 0; }
+  .calc-secured-bar { display: flex; height: 34px; border-radius: 7px; overflow: hidden; font-size: 11px; font-weight: 700; }
+  .calc-secured-bar .seg-note { background: #2b6cb0; color: #fff; flex: 62; display: flex; align-items: center; justify-content: center; }
+  .calc-secured-bar .seg-eq { background: #3fae5f; color: #06210f; flex: 38; display: flex; align-items: center; justify-content: center; }
+  .calc-secured-cap { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
+  .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
+  .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -634,7 +663,70 @@ who wants
   }catch(e){}
 })();
 </script>
-<!-- [D] calculator — pending -->
+<!-- [D] CALCULATOR (routed centerpiece — spec section 6) -->
+<section class="bg-black section-short" id="calc">
+<p class="label-text fade-in">Run your numbers</p>
+<h2 class="calc-frame fade-in" id="calcFrame">So what's your money doing right now?</h2>
+<div class="calc-card fade-in">
+<div class="calc-inputs" id="calcInputs"></div>
+<div class="calc-stage1" id="calcStage1"></div>
+<div class="calc-gate" id="calcGate" hidden="">
+<p class="calc-gate-q" id="calcGateQ"></p>
+<div class="calc-gate-row">
+<input aria-label="Your email" id="calcEmail" placeholder="you@email.com" type="email"/>
+<button class="cta-btn" id="calcGateBtn" type="button">Show me →</button>
+</div>
+<p class="calc-gate-sub">Plus the guide written for your situation.</p>
+</div>
+<div class="calc-stage2" id="calcStage2" hidden=""></div>
+</div>
+</section>
+<script>
+(function(){
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function pending(t){ return "<span class='legal-pending' title='Pending Legal review'>"+t+"</span>"; }
+  var INFLATION=0.03, LOW=0.08, HIGH=0.12; // PENDING LEGAL
+  var LANES={
+    retiree:{
+      frame:"What's that old 401(k) or IRA doing right now?",
+      fields:[{id:'bal',label:'Account balance ($)',val:60000,step:5000},{id:'rate',label:'Current annual return (%)',val:6.5,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      guide:"How to Invest Your IRA in Mortgage Notes"
+    },
+    income:{
+      frame:"What's your idle cash earning right now?",
+      fields:[{id:'bal',label:'Idle cash or savings ($)',val:50000,step:5000},{id:'rate',label:'Current annual return (%)',val:4.1,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      guide:"7 Ways to Earn Passive Income with Mortgage Notes"
+    },
+    operator:{
+      frame:"What's your rental netting after reserves?",
+      fields:[{id:'rent',label:'Monthly rent ($)',val:1100,step:50},{id:'costs',label:'Costs, taxes, insurance ($/mo)',val:591,step:25},{id:'cash',label:'Cash you put in ($)',val:30000,step:5000}],
+      base:function(v){return v.cash;},
+      stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
+      gate:function(v){var res=v.rent*0.28;return "The reserves took $"+fmt(res)+" a month. Most rental math skips them. Want to see the same $"+fmt(v.cash)+" on the lending side?";},
+      guide:"Note Investing vs Rentals"
+    }
+  };
+  var state={lane:null,v:{}};
+  var g=function(id){return document.getElementById(id);};
+  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
+  function cfg(){return LANES[state.lane]||LANES.income;}
+  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);v[f.id]=el?(parseFloat(el.value)||0):f.val;});state.v=v;return v;}
+  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){return "<label class='calc-fld'>"+f.label+"<input type='number' id='cf_"+f.id+"' value='"+f.val+"' step='"+f.step+"'></label>";}).join('');c.fields.forEach(function(f){g('cf_'+f.id).addEventListener('input',update);});}
+  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;}
+  function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year. Overhead is roughly $25 a month for servicing.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
+  elBtn.addEventListener('click',submitGate);
+  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();};
+  renderInputs();update();
+  if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
+})();
+</script>
 <!-- [E] six-step process + equity cushion + exits — pending -->
 <!-- [F] comparison table — pending -->
 <!-- ══════════════════════════════════════════ -->
