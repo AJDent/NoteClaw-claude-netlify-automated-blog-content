@@ -470,6 +470,11 @@
   .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
   .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
   .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
+  .calc-intro { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 4px; line-height: 1.5; }
+  .calc-intro b { color: var(--blue); }
+  .calc-intro-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+  .calc-change { text-align: center; margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.5); }
+  .calc-change a { color: var(--blue); text-decoration: none; font-weight: 600; }
   /* ═══ six-step accordion ═══ */
   .steps-accordion { max-width: 720px; margin: 30px auto 0; text-align: left; }
   .step-item { border: 1px solid rgba(91,164,230,0.18); border-radius: 12px; margin-bottom: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
@@ -666,7 +671,6 @@ who wants
 </h2>
 <div class="sc-result" id="scResult" hidden="">
 <p id="scResultText"></p>
-<a class="cta-btn" href="#calc" id="scResultCta">See your numbers →</a>
 </div>
 </section>
 <!-- [C2] CREDIBILITY STRIP -->
@@ -690,9 +694,9 @@ who wants
 <script>
 (function(){
   var LANES = {
-    retiree:  "Perfect. Let's turn idle retirement money into a note you never have to manage.",
-    income:   "Great. Secured monthly income, without owning a single property.",
-    operator: "Got it. Real estate returns, minus the tenants, repairs, and 2am calls."
+    retiree:  "Most people never find out their retirement account is allowed to hold these types of assets. It has been legal since 1974.",
+    income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
+    operator: "You did not get tired of real estate. You got tired of the job that came with it."
   };
   window.TNC = window.TNC || {};
   var want = document.getElementById('scWant');
@@ -725,6 +729,8 @@ who wants
 <p class="label-text fade-in">Run your numbers</p>
 <h2 class="calc-frame fade-in" id="calcFrame">So what's your money doing right now?</h2>
 <div class="calc-card fade-in">
+<p class="calc-intro">Here is where it gets interesting. Put in your real numbers, then let's see how <b>notes</b> stack up against them.</p>
+<p class="calc-intro-sub">No email needed to run your own math.</p>
 <div class="calc-inputs" id="calcInputs"></div>
 <div class="calc-stage1" id="calcStage1"></div>
 <div class="calc-gate" id="calcGate" hidden="">
@@ -737,6 +743,7 @@ who wants
 </div>
 <div class="calc-stage2" id="calcStage2" hidden=""></div>
 </div>
+<p class="calc-change">Not quite you? <a href="#pick">Change your answer</a></p>
 </section>
 <script>
 (function(){
@@ -761,7 +768,7 @@ who wants
       guide:"7 Ways to Earn Passive Income with Mortgage Notes"
     },
     operator:{
-      frame:"What's your rental netting after reserves?",
+      frame:"What's your RE investment netting after reserves?",
       fields:[{id:'rent',label:'Monthly rent ($)',val:1100,step:50},{id:'costs',label:'Costs, taxes, insurance ($/mo)',val:591,step:25},{id:'cash',label:'Cash you put in ($)',val:30000,step:5000}],
       base:function(v){return v.cash;},
       stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
