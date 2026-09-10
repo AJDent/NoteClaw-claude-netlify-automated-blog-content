@@ -70,8 +70,10 @@
   #mobileMenu a { color: rgba(250,248,244,0.75); text-decoration: none; font-size: 17px; }
 
   /* SECTIONS */
-  section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 160px 24px 80px; position: relative; }
-  .section-short { min-height: auto; padding: 80px 24px; }
+  section { min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 72px 24px; position: relative; }
+  .section-short { min-height: auto; padding: 72px 24px; }
+  #hero { padding: 118px 24px 92px; }
+  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 84px 24px 60px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
 
@@ -81,7 +83,7 @@
   .headline-md { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 24px); font-weight: 500; line-height: 1.30; text-align: center; max-width: 640px; }
   .body-text { font-size: 17px; font-weight: 400; line-height: 1.65; text-align: center; max-width: 64ch; }
   .quote-text { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(24px, 4vw, 46px); font-weight: 700; line-height: 1.4; text-align: center; max-width: 700px; }
-  .label-text { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 18px; }
+  .label-text { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 8px; }
 
   .bg-black { background: #080808; color: var(--white); }
   .bg-white { background: #ffffff; color: var(--text-dark); }
@@ -92,8 +94,8 @@
   .text-red { color: var(--red); }
   .text-green { color: var(--green); }
   .text-blue { color: var(--blue); }
-  .divider { width: 50px; height: 2px; background: var(--blue); border-radius: 2px; margin: 22px auto; }
-  .divider-dark { width: 50px; height: 2px; background: rgba(91,164,230,0.4); border-radius: 2px; margin: 22px auto; }
+  .divider { width: 50px; height: 2px; background: var(--blue); border-radius: 2px; margin: 14px auto; }
+  .divider-dark { width: 50px; height: 2px; background: rgba(91,164,230,0.4); border-radius: 2px; margin: 14px auto; }
 
   /* CARDS */
   .cards-row { display: flex; gap: 24px; max-width: 840px; width: 100%; margin-top: 20px; }
@@ -291,7 +293,7 @@
   .text-dark-val { color: var(--text-dark); }
 
   .nav-cta-mobile { color: var(--blue); font-weight: 600; }
-  .hero-sub { margin-top: 22px; color: rgba(250,248,244,0.5); }
+  .hero-sub { margin-top: 14px; color: rgba(250,248,244,0.5); }
   .body-text-dark-65 { margin-top: 16px; color: rgba(26,26,26,0.65); }
   .headline-ready { margin-top: 40px; color: var(--text-dark); }
   .headline-allin { margin-top: 14px; }
@@ -433,16 +435,16 @@
   .sc-result { max-width: 620px; margin: 36px auto 0; }
   .sc-result p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
   /* credibility strip */
-  .cred-strip { background: #0d1220; padding: 26px 24px; text-align: center; border-top: 1px solid rgba(91,164,230,0.12); border-bottom: 1px solid rgba(91,164,230,0.12); }
-  .cred-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 18px; }
-  .cred-logos { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
-  .cred-chip { background: #fff; border-radius: 10px; padding: 10px 16px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
-  .cred-chip img { max-height: 34px; max-width: 130px; width: auto; object-fit: contain; display: block; }
+  .cred-strip { background: #0d1220; padding: 44px 24px; text-align: center; border-top: 1px solid rgba(91,164,230,0.12); border-bottom: 1px solid rgba(91,164,230,0.12); }
+  .cred-label { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 24px; }
+  .cred-logos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
+  .cred-chip { background: #fff; border-radius: 10px; padding: 12px 22px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .cred-chip img { max-height: 48px; max-width: 155px; width: auto; object-fit: contain; display: block; }
   /* note primer */
   .label-text-dark { color: #4a5568; opacity: 0.85; }
   .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: #1a2233; font-weight: 500; }
   .primer-red { color: var(--red); font-weight: 700; }
-  @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 48px; padding: 8px 12px; } .cred-chip img { max-height: 28px; } }
+  @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 62px; padding: 10px 16px; } .cred-chip img { max-height: 40px; } }
   /* ═══ calculator ═══ */
   .calc-frame { font-size: clamp(22px,3.2vw,32px); font-weight: 700; max-width: 22ch; margin: 0 auto 6px; line-height: 1.3; }
   .calc-card { max-width: 640px; margin: 26px auto 0; background: #0f1424; border: 1px solid rgba(91,164,230,0.18); border-radius: 16px; padding: 28px 26px; text-align: left; }
@@ -483,7 +485,7 @@
   /* ═══ six-step accordion ═══ */
   .steps-accordion { max-width: 720px; margin: 30px auto 0; text-align: left; }
   .step-item { border: 1px solid rgba(91,164,230,0.18); border-radius: 12px; margin-bottom: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
-  .step-head { width: 100%; display: flex; align-items: center; gap: 14px; background: transparent; border: none; cursor: pointer; padding: 18px 20px; text-align: left; color: var(--white); font: inherit; }
+  .step-head { width: 100%; display: flex; align-items: center; gap: 14px; background: transparent; border: none; cursor: pointer; padding: 14px 20px; text-align: left; color: var(--white); font: inherit; }
   .step-num { font-weight: 700; font-size: 15px; color: var(--blue); width: 22px; flex-shrink: 0; }
   .step-title { flex: 1; font-size: 17px; font-weight: 600; }
   .step-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 3px 8px; border-radius: 5px; }
@@ -678,18 +680,7 @@ who wants
 <p id="scResultText"></p>
 </div>
 </section>
-<!-- [C2] CREDIBILITY STRIP -->
-<section class="cred-strip">
-<p class="cred-label">The partners behind every deal</p>
-<div class="cred-logos">
-<span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
-<span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
-<span class="cred-chip"><img alt="Reva Global" src="partners/reva.jpg"/></span>
-<span class="cred-chip"><img alt="RDIS" src="partners/rdis.png"/></span>
-<span class="cred-chip"><img alt="Legal League" src="partners/legal-league.png"/></span>
-<span class="cred-chip"><img alt="Clear2Close Title &amp; Escrow" src="partners/clear2close.png"/></span>
-</div>
-</section>
+<!-- [C2] credibility strip relocated below the comparison table (R4) -->
 <!-- [C3] NOTE PRIMER -->
 <section class="bg-light section-short" id="note-primer">
 <p class="label-text label-text-dark fade-in">The whole idea in one breath</p>
@@ -906,6 +897,18 @@ who wants
 </table>
 </div>
 <p class="cmp-cap fade-in">Attributes of each instrument. Not a comparison of returns.</p>
+</section>
+<!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
+<section class="cred-strip">
+<p class="cred-label">The partners behind every deal</p>
+<div class="cred-logos">
+<span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
+<span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
+<span class="cred-chip"><img alt="Reva Global" src="partners/reva.jpg"/></span>
+<span class="cred-chip"><img alt="RDIS" src="partners/rdis.png"/></span>
+<span class="cred-chip"><img alt="Legal League" src="partners/legal-league.png"/></span>
+<span class="cred-chip"><img alt="Clear2Close Title &amp; Escrow" src="partners/clear2close.png"/></span>
+</div>
 </section>
 <!-- [P4] Who-It's-For grid cut (2026-09-08): persona routing now lives in the picker + calculator; SDIRA/401k detail in FAQ -->
 <!-- ══════════════════════════════════════════ -->
