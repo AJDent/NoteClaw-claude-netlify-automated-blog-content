@@ -13,7 +13,7 @@
   html{font-optical-sizing:auto;}
   :root { --navy:#212c52; --blue:#5ba4e6; --green:#4ecb71; --red:#e85d5d; --white:#ffffff; --black:#080808; }
   * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:'Public Sans', system-ui, sans-serif; background:var(--black); color:var(--white); -webkit-font-smoothing:antialiased; line-height:1.6; }
+  body { font-family:'Public Sans', system-ui, sans-serif; background:var(--black); color:var(--white); -webkit-font-smoothing:antialiased; line-height:1.65; font-size:17px; font-optical-sizing:auto; font-variant-numeric:tabular-nums lining-nums; }
   a { color:inherit; }
   .wrap { max-width:840px; margin:0 auto; }
   /* nav */
@@ -29,9 +29,9 @@
   section { padding:72px 24px; }
   .bg-navy { background:var(--navy); }
   .center { text-align:center; }
-  .eyebrow { font-size:12px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--blue); margin-bottom:16px; }
-  h1 { font-family:'Newsreader', Georgia, serif; font-size:clamp(32px,5.5vw,56px); font-weight:700; line-height:1.15; max-width:760px; margin:0 auto 18px; }
-  h2 { font-family:'Newsreader', Georgia, serif; font-size:clamp(26px,4vw,42px); font-weight:700; line-height:1.2; max-width:720px; margin:0 auto 16px; }
+  .eyebrow { font-size:14px; font-weight:600; letter-spacing:0; text-transform:none; color:#5F7191; margin-bottom:16px; }
+  h1 { font-family:'Newsreader', Georgia, serif; font-size:clamp(32px,5vw,44px); font-weight:500; line-height:1.12; letter-spacing:-0.01em; max-width:760px; margin:0 auto 18px; }
+  h2 { font-family:'Newsreader', Georgia, serif; font-size:clamp(26px,4vw,32px); font-weight:500; line-height:1.20; letter-spacing:-0.01em; max-width:720px; margin:0 auto 16px; }
   .lead { font-size:18px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.72); max-width:60ch; margin:0 auto; }
   .phero { padding:88px 24px 44px; text-align:center; }
   /* what we vet */
@@ -89,6 +89,8 @@
   .pfoot { background:#050505; padding:44px 24px; text-align:center; border-top:1px solid rgba(91,164,230,0.1); }
   .disclaimer { font-size:11px; color:rgba(255,255,255,0.35); max-width:820px; margin:0 auto 22px; line-height:1.7; letter-spacing:0.4px; }
   .pfoot .back { color:var(--blue); text-decoration:none; font-weight:600; font-size:15px; }
+  a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  @media(prefers-reduced-motion:reduce){*,::before,::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;}}
 </style>
 </head>
 <body>
@@ -98,7 +100,7 @@
 <a href="#what-we-vet">What We Vet</a>
 <a href="#the-cushion">The Cushion</a>
 <a href="#exits">Exits</a>
-<a class="pnav-cta" href="index.html#contact">Book a Call</a>
+<a class="pnav-cta" href="index.html#contact">Book a call</a>
 </div>
 </nav>
 
