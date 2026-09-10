@@ -35,7 +35,7 @@
 <style>
   @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
   @font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:200 700;font-style:italic;font-display:swap;}
-  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
   html{font-optical-sizing:auto;}
   :root {
     --black: #0a0a0a;
@@ -51,7 +51,7 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Figtree', system-ui, sans-serif; background: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 17px; line-height: 1.65; font-optical-sizing: auto; font-variant-numeric: tabular-nums lining-nums; font-variation-settings: 'SOFT' 30, 'WONK' 0; }
+  body { font-family: 'Figtree', system-ui, sans-serif; background: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 17px; line-height: 1.65; font-optical-sizing: auto; font-variant-numeric: tabular-nums lining-nums; }
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 8px 48px; background: rgba(8,8,8,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(91,164,230,0.15); transition: padding 0.3s; }
@@ -513,7 +513,7 @@
   .cu-room.state-pass { background: #e85d5d; color: #3a0d0d; }
   .cu-tick { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--white); }
   .cu-tick-lbl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); margin-top: 5px; }
-  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 36px; padding: 14px 16px; border-radius: 8px; border-left: 3px solid var(--green); }
+  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 48px; padding: 14px 16px; border-radius: 8px; border-left: 3px solid var(--green); }
   .cushion-sentence.state-good { border-color: var(--green); background: rgba(78,203,113,0.08); }
   .cushion-sentence.state-thin { border-color: var(--blue); background: rgba(91,164,230,0.08); }
   .cushion-sentence.state-pass { border-color: var(--red); background: rgba(232,93,93,0.08); }
@@ -541,6 +541,16 @@
   .cmp-table .lim { color: #8a94a8; font-size: 13px; font-style: italic; }
   .cmp-cap { font-size: 13px; color: #8a94a8; font-style: italic; margin-top: 16px; }
   .about-link { color: #2b6cb0; font-weight: 600; text-decoration: none; font-size: 15px; }
+  /* R5: Fraunces display group — weight 400, scoped axis settings (wght explicit so it is not overridden), sc-line + calc-frame moved to Fraunces */
+  .headline-xl, .headline-lg, .headline-md,
+  .sc-line, .calc-frame,
+  .quote-text, .investor-title, .learn-title, .nb-title, .nb-question,
+  .mission-pillar, .mission-tagline, .quote-callout,
+  .legal-modal-inner h1, .form-success-title, .nb-success-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0;
+    font-weight: 400;
+  }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
