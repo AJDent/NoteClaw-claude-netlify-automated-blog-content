@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How Your Money Is Protected | Take Notes Capital</title>
+<meta content="How Take Notes Capital protects investor capital: what we check before we buy, the equity cushion behind every note, and the exit paths when a borrower stops paying." name="description"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23212c52'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-weight='700' font-size='11' fill='%235ba4e6'%3ETNC%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:200 700;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+  html{font-optical-sizing:auto;}
+  :root { --navy:#212c52; --blue:#5ba4e6; --green:#4ecb71; --red:#e85d5d; --white:#ffffff; --black:#080808; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Figtree', system-ui, sans-serif; background:var(--black); color:var(--white); -webkit-font-smoothing:antialiased; line-height:1.65; font-size:17px; font-optical-sizing:auto; font-variant-numeric:tabular-nums lining-nums; }
+  a { color:inherit; }
+  .wrap { max-width:840px; margin:0 auto; }
+  /* nav */
+  .pnav { position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px 24px; background:rgba(8,8,8,0.9); backdrop-filter:blur(12px); border-bottom:1px solid rgba(91,164,230,0.12); }
+  .pnav .logo { font-family:'Fraunces', Georgia, serif; font-weight:700; font-size:18px; color:var(--white); text-decoration:none; }
+  .pnav .logo span { color:var(--blue); }
+  .pnav-links { display:flex; gap:22px; align-items:center; font-size:14px; }
+  .pnav-links a { color:rgba(255,255,255,0.6); text-decoration:none; }
+  .pnav-links a:hover { color:var(--blue); }
+  .pnav-cta { background:var(--blue); color:#fff !important; padding:9px 18px; border-radius:50px; font-weight:700; }
+  @media (max-width:680px) { .pnav-links a:not(.pnav-cta) { display:none; } }
+  /* sections */
+  section { padding:72px 24px; }
+  .bg-navy { background:var(--navy); }
+  .center { text-align:center; }
+  .eyebrow { font-size:14px; font-weight:600; letter-spacing:0; text-transform:none; color:#5F7191; margin-bottom:16px; }
+  h1 { font-family:'Fraunces', Georgia, serif; font-size:clamp(32px,5vw,44px); font-weight:500; line-height:1.12; letter-spacing:-0.01em; max-width:760px; margin:0 auto 18px; }
+  h2 { font-family:'Fraunces', Georgia, serif; font-size:clamp(26px,4vw,32px); font-weight:500; line-height:1.20; letter-spacing:-0.01em; max-width:720px; margin:0 auto 16px; }
+  .lead { font-size:18px; font-weight:300; line-height:1.8; color:rgba(255,255,255,0.72); max-width:60ch; margin:0 auto; }
+  .phero { padding:88px 24px 44px; text-align:center; }
+  /* what we vet */
+  .vet-groups { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:36px; text-align:left; }
+  @media (max-width:640px) { .vet-groups { grid-template-columns:1fr; } }
+  .vet-group { background:rgba(255,255,255,0.03); border:1px solid rgba(91,164,230,0.15); border-radius:14px; padding:22px; }
+  .vet-group h3 { font-family:'Fraunces', Georgia, serif; font-size:19px; font-weight:700; margin-bottom:6px; color:var(--white); }
+  .vet-group .grp-tag { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:14px; display:block; }
+  .vet-group ul { list-style:none; display:flex; flex-direction:column; gap:9px; }
+  .vet-group li { display:flex; gap:10px; font-size:14.5px; color:rgba(255,255,255,0.75); line-height:1.5; }
+  .vet-group li::before { content:"→"; color:var(--blue); flex-shrink:0; }
+  .vet-group.stops { border-color:rgba(232,93,93,0.3); }
+  .vet-group.stops li::before { content:"✕"; color:var(--red); }
+  .vet-group.stops .grp-tag { color:var(--red); }
+  .vet-close { margin:32px auto 0; background:rgba(91,164,230,0.08); border-left:3px solid var(--blue); border-radius:8px; padding:20px 22px; font-size:17px; font-style:italic; color:var(--white); max-width:720px; }
+  .vet-note { font-size:13px; color:rgba(255,255,255,0.45); margin-top:20px; text-align:center; max-width:60ch; margin-left:auto; margin-right:auto; }
+  /* cushion */
+  .cushion { max-width:600px; margin:36px auto 0; background:rgba(0,0,0,0.25); border:1px solid rgba(91,164,230,0.15); border-radius:12px; padding:24px; text-align:left; }
+  .cushion-setup { font-size:16px; color:var(--white); margin-bottom:16px; line-height:1.6; }
+  .cushion-setup b { color:var(--blue); }
+  .cushion-lbl { display:block; font-size:13px; color:rgba(255,255,255,0.65); margin-bottom:6px; }
+  .cushion-lbl b { color:var(--blue); }
+  .cushion-lbl input { display:block; width:100%; margin-top:12px; accent-color:var(--blue); }
+  .cushion-bar { position:relative; display:flex; height:46px; font-size:11px; font-weight:700; margin-top:30px; }
+  .cu-pay { background:#2b6cb0; color:#fff; display:flex; align-items:center; justify-content:center; min-width:44px; border-radius:8px 0 0 8px; }
+  .cu-room { display:flex; align-items:center; justify-content:center; min-width:44px; color:#06210f; border-radius:0 8px 8px 0; }
+  .cu-room.state-good { background:#3fae5f; }
+  .cu-room.state-thin { background:#5ba4e6; color:#04121f; }
+  .cu-room.state-pass { background:#e85d5d; color:#3a0d0d; }
+  .cu-tick { position:absolute; top:-8px; bottom:-8px; width:2px; background:var(--white); }
+  .cu-tick-lbl { position:absolute; top:100%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:10px; font-weight:600; color:rgba(255,255,255,0.75); margin-top:5px; }
+  .cushion-sentence { font-size:15px; line-height:1.6; margin-top:36px; padding:14px 16px; border-radius:8px; border-left:3px solid var(--green); }
+  .cushion-sentence.state-good { border-color:var(--green); background:rgba(78,203,113,0.08); }
+  .cushion-sentence.state-thin { border-color:var(--blue); background:rgba(91,164,230,0.08); }
+  .cushion-sentence.state-pass { border-color:var(--red); background:rgba(232,93,93,0.08); }
+  .cushion-sentence b { color:var(--white); }
+  .cu-stats { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px; }
+  @media (max-width:560px) { .cu-stats { grid-template-columns:1fr; } }
+  .cu-stat { background:rgba(255,255,255,0.04); border:1px solid rgba(91,164,230,0.15); border-radius:10px; padding:16px; text-align:center; }
+  .cu-stat .lbl { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.5); margin-bottom:8px; line-height:1.4; }
+  .cu-stat .val { font-family:'Figtree', system-ui, sans-serif; font-size:34px; font-weight:700; color:var(--green); }
+  /* exits */
+  .exits-list { max-width:720px; margin:34px auto 0; display:flex; flex-direction:column; gap:12px; text-align:left; }
+  .exit-row { display:flex; gap:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(91,164,230,0.12); border-radius:12px; padding:18px 20px; }
+  .exit-row .n { font-family:'Figtree', system-ui, sans-serif; font-weight:700; font-size:22px; color:var(--blue); flex-shrink:0; width:26px; }
+  .exit-row h4 { font-size:16px; font-weight:700; color:var(--white); margin-bottom:5px; }
+  .exit-row p { font-size:14.5px; color:rgba(255,255,255,0.72); line-height:1.6; }
+  .exit-row.last { border-color:rgba(232,93,93,0.4); background:rgba(232,93,93,0.06); }
+  .exit-row.last .n { color:var(--red); }
+  .exit-banner { font-family:'Fraunces', Georgia, serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; text-align:center; margin:40px auto 0; max-width:600px; color:var(--white); }
+  .dist { max-width:60ch; margin:24px auto 0; text-align:center; font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; }
+  .dist b { color:var(--white); }
+  .legal-pending { border-bottom:1px dashed var(--red); cursor:help; }
+  /* footer */
+  .pfoot { background:#050505; padding:44px 24px; text-align:center; border-top:1px solid rgba(91,164,230,0.1); }
+  .disclaimer { font-size:11px; color:rgba(255,255,255,0.35); max-width:820px; margin:0 auto 22px; line-height:1.7; letter-spacing:0.4px; }
+  .pfoot .back { color:var(--blue); text-decoration:none; font-weight:600; font-size:15px; }
+  a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  @media(prefers-reduced-motion:reduce){*,::before,::after{transition-duration:0.01ms!important;animation-duration:0.01ms!important;}}
+  h1,h2,.exit-banner{font-family:'Fraunces',Georgia,serif;font-variation-settings:'wght' 400,'SOFT' 30,'WONK' 0;font-weight:400;}
+</style>
+</head>
+<body>
+<nav class="pnav">
+<a class="logo" href="index.html">Take Notes <span>Capital</span></a>
+<div class="pnav-links">
+<a href="#what-we-vet">What We Vet</a>
+<a href="#the-cushion">The Cushion</a>
+<a href="#exits">Exits</a>
+<a class="pnav-cta" href="index.html#contact">Book a call</a>
+</div>
+</nav>
+
+<section class="phero">
+<div class="wrap">
+<p class="eyebrow">How your money is protected</p>
+<h1>The price we pay is what protects you.</h1>
+<p class="lead">No forms here, nothing to sign. Just how we decide what to buy, the cushion behind every note, and what happens when a borrower stops paying.</p>
+</div>
+</section>
+
+<!-- ═══ #what-we-vet ═══ -->
+<section id="what-we-vet">
+<div class="wrap center">
+<h2>What we check before we buy anything.</h2>
+<p class="lead">Most of what we look at, we pass on. This is the list that decides. If a note fails the first group, nothing else matters and we stop reading.</p>
+<div class="vet-groups">
+<div class="vet-group stops">
+<h3>Group 1</h3><span class="grp-tag">Instant stops</span>
+<ul>
+<li>Is the lien secured, and in what position</li>
+<li>Has the statute of limitations run in that state</li>
+<li>Is the property underwater with no path to equity</li>
+<li>For a second lien: is the senior lien already in foreclosure</li>
+<li>Will the seller provide the basic data at all</li>
+</ul>
+</div>
+<div class="vet-group">
+<h3>Group 2</h3><span class="grp-tag">The numbers</span>
+<ul>
+<li>Loan to value against a value we trust, not the seller's</li>
+<li>What we would pay as a share of what is owed</li>
+<li>How many months since the borrower last paid</li>
+<li>A property value we can stand behind, refreshed if stale</li>
+</ul>
+</div>
+<div class="vet-group">
+<h3>Group 3</h3><span class="grp-tag">The file</span>
+<ul>
+<li>Original note and mortgage, recorded assignments, clean chain</li>
+<li>Title search for liens, judgments and transfers we were not told about</li>
+<li>Property taxes current, or how far behind</li>
+<li>Bankruptcy, active loss mitigation, or servicing notes on file</li>
+</ul>
+</div>
+<div class="vet-group">
+<h3>Group 4</h3><span class="grp-tag">Can it resolve</span>
+<ul>
+<li>Occupancy status and whether the borrower has ever engaged</li>
+<li>Foreclosure timeline and cost in that specific state</li>
+<li>At least two exits that realistically work</li>
+<li>What the recovery looks like after every cost comes off</li>
+</ul>
+</div>
+</div>
+<div class="vet-close">A note has to have at least two workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
+<p class="vet-note">We describe the checks here, not the thresholds. The exact bands and state tables are in the 60-Second Tape Filter. This page proves there is a process; the guide gives you the process.</p>
+</div>
+</section>
+
+<!-- ═══ #the-cushion ═══ -->
+<section class="bg-navy" id="the-cushion">
+<div class="wrap center">
+<h2>The equity cushion.</h2>
+<p class="lead">We never pay full price. The gap between what we pay and what the property is worth is the room that protects your position. Drag it and watch.</p>
+<div class="cushion">
+<div class="cushion-setup">A house is worth <b>$85,000</b>. The borrower still owes <b>$67,000</b> on their home loan. We buy that loan.</div>
+<label class="cushion-lbl">What we pay for the loan: <b id="cuPayLabel">$30,000</b>
+<input id="cuPay" max="82000" min="15000" step="1000" type="range" value="30000"/></label>
+<div class="cushion-bar" id="cuBar">
+<div class="cu-pay" id="cuPaySeg"><span>We pay</span></div>
+<div class="cu-room state-good" id="cuRoomSeg"><span>Room left over</span></div>
+<div class="cu-tick" id="cuTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
+</div>
+<p class="cushion-sentence state-good" id="cuSentence"></p>
+<div class="cu-stats">
+<div class="cu-stat"><div class="lbl">Room between what we pay and what the house is worth</div><div class="val" id="cuStatRoom">$55,000</div></div>
+<div class="cu-stat"><div class="lbl">For every $1 the house is worth, we pay</div><div class="val" id="cuStatCents">35&cent;</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ═══ #exits ═══ -->
+<section id="exits">
+<div class="wrap center">
+<h2>What happens when a borrower stops paying.</h2>
+<p class="lead">A note is not a single bet on one outcome. There is a ladder of ways this can end, and we work them in order.</p>
+<div class="exits-list">
+<div class="exit-row"><span class="n">1</span><div><h4>Reinstatement</h4><p>The borrower brings the loan current, paying the missed payments plus fees, and the loan continues exactly as written. The cleanest outcome, and more common than people expect.</p></div></div>
+<div class="exit-row"><span class="n">2</span><div><h4>Repayment plan</h4><p>The borrower cannot clear the arrears all at once, so the past-due amount is spread across future payments on top of the regular payment until they are caught up.</p></div></div>
+<div class="exit-row"><span class="n">3</span><div><h4>Loan modification</h4><p>We change the rate, the term, or both to a payment the borrower can actually make. The most common workout, and the one that turns a non-performing note back into a performing one.</p></div></div>
+<div class="exit-row"><span class="n">4</span><div><h4>Discounted payoff</h4><p>The borrower or a family member settles the loan for a lump sum that is less than the full balance. We take the cash and release the lien.</p></div></div>
+<div class="exit-row"><span class="n">5</span><div><h4>Short sale</h4><p>With our approval, the borrower sells the property for less than what is owed. We recover from the sale proceeds and the borrower avoids a foreclosure on their record.</p></div></div>
+<div class="exit-row"><span class="n">6</span><div><h4>Deed in lieu</h4><p>The borrower voluntarily signs the property over to us instead of fighting a foreclosure. Faster and cheaper for everyone than a contested case.</p></div></div>
+<div class="exit-row last"><span class="n">7</span><div><h4>Foreclosure</h4><p>The floor, not the plan. If nothing else works, we recover through the collateral itself, the property that secured the loan from day one. Timelines and costs vary by state.</p></div></div>
+</div>
+<p class="exit-banner">Multiple exit paths. Three outcomes. Zero dead ends.</p>
+<p class="dist"><span class="legal-pending" title="Pending Legal review">Roughly half of our notes re-perform, about a quarter exit voluntarily, and about a quarter reach foreclosure.</span> Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
+</div>
+</section>
+
+<footer class="pfoot">
+<p class="disclaimer">THIS IS NOT A SECURITY. THE INFORMATION PROVIDED HEREIN IS NOT INTENDED TO BE FOR THE PURPOSES OF SOLICITING A SECURITY UNDER STATE OR FEDERAL REGULATIONS. THIS INFORMATION IS INTENDED TO GIVE THE PRIVATE INVESTOR ALTERNATIVES TO STOCK MARKET INVESTMENTS, BUT IS NOT INTENDED TO BE A SOLICITATION OF A SECURITY UNDER SEC RULES AND DEFINITIONS. THIS IS INTENDED TO BE A PRIVATE BORROWING TRANSACTION.</p>
+<a class="back" href="index.html">← Back to Take Notes Capital</a>
+</footer>
+
+<script>
+(function(){
+  var VALUE=85000, OWED=67000, pay=document.getElementById('cuPay');
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function cushion(){
+    if(!pay) return;
+    var paid=parseFloat(pay.value)||0, room=VALUE-paid, ratio=room/VALUE;
+    document.getElementById('cuPayLabel').textContent='$'+fmt(paid);
+    document.getElementById('cuPaySeg').style.flex=paid;
+    var roomSeg=document.getElementById('cuRoomSeg'); roomSeg.style.flex=room;
+    document.getElementById('cuTick').style.left=(OWED/VALUE*100)+'%';
+    var state = ratio>0.40 ? 'good' : (ratio>=0.22 ? 'thin' : 'pass');
+    roomSeg.className='cu-room state-'+state;
+    var s=document.getElementById('cuSentence'); s.className='cushion-sentence state-'+state;
+    if(state==='good') s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing them.";
+    else if(state==='thin') s.innerHTML="There is still <b>$"+fmt(room)+"</b> of room, but it is getting thin. Selling costs and repairs would eat a good piece of it. This is close to the most we would pay.";
+    else s.innerHTML="Barely <b>$"+fmt(room)+"</b> of room. Your money would be at risk. <b>This is a deal we pass on.</b>";
+    document.getElementById('cuStatRoom').textContent='$'+fmt(room);
+    document.getElementById('cuStatCents').innerHTML=Math.round(paid/VALUE*100)+'&cent;';
+  }
+  if(pay){ pay.addEventListener('input',cushion); cushion(); }
+})();
+</script>
+</body>
+</html>
