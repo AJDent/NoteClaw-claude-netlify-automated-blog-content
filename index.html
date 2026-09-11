@@ -103,8 +103,8 @@
   .text-red { color: var(--red); }
   .text-green { color: var(--green); }
   .text-blue { color: var(--blue); }
-  .divider { width: 50px; height: 2px; background: var(--blue); border-radius: 2px; margin: 14px auto; }
-  .divider-dark { width: 50px; height: 2px; background: rgba(91,164,230,0.4); border-radius: 2px; margin: 14px auto; }
+  .divider { display: none; }
+  .divider-dark { display: none; }
 
   /* CARDS */
   .cards-row { display: flex; gap: 24px; max-width: 840px; width: 100%; margin-top: 20px; }
@@ -147,7 +147,7 @@
 
   /* LEARN SECTION */
   .learn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; width: 100%; margin-top: 40px; }
-  .learn-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(91,164,230,0.2); border-radius: 16px; padding: 32px 26px; text-align: left; transition: border-color 0.3s; }
+  .learn-card { background: none; border: none; border-radius: 0; padding: 0; text-align: left; }
   .learn-card:hover { border-color: rgba(91,164,230,0.45); }
   .learn-number { font-family: 'Fraunces', Georgia, serif; font-size: 52px; font-weight: 700; color: rgba(91,164,230,0.2); line-height: 1; margin-bottom: 10px; }
   .learn-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 600; color: var(--white); margin-bottom: 10px; }
@@ -268,9 +268,9 @@
   .blockquote-blue p { margin: 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
   .blockquote-light { background: #f8f9fa; border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
   .blockquote-light p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted); }
-  .mission-highlight { background: rgba(91,164,230,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 16px; padding: 36px 40px; margin: 32px 0; text-align: center; }
+  .mission-highlight { background: none; border: none; border-radius: 0; padding: 0; margin: 24px 0; text-align: center; }
   .mission-highlight p { font-size: clamp(16px,2vw,19px); line-height: 1.9; font-weight: 300; color: rgba(250,248,244,0.85); margin: 0; }
-  .mission-pillars { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 16px; padding-top: 32px; border-top: 1px solid rgba(91,164,230,0.15); }
+  .mission-pillars { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 24px; }
   .mission-pillar { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 700; color: var(--blue); text-align: center; }
   .mission-tagline { font-family: 'Fraunces', Georgia, serif; font-size: clamp(18px,2.5vw,24px); font-weight: 700; text-align: center; color: var(--white); margin-top: 32px; letter-spacing: 1px; }
   .cta-sub { font-size: 16px; opacity: 0.55; margin-bottom: 6px; }
@@ -444,7 +444,7 @@
   .sc-result { max-width: 620px; margin: 36px auto 0; }
   .sc-result p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
   /* credibility strip */
-  .cred-strip { background: #0d1220; padding: 44px 24px; text-align: center; border-top: 1px solid rgba(91,164,230,0.12); border-bottom: 1px solid rgba(91,164,230,0.12); }
+  .cred-strip { background: none; padding: 8px 24px 24px; text-align: center; }
   .cred-label { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 24px; }
   .cred-logos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
   .cred-chip { background: #fff; border-radius: 10px; padding: 12px 22px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
@@ -509,7 +509,7 @@
   .step-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 14px; }
   @media (max-width: 560px) { .step-body { padding-left: 20px; } }
   /* equity cushion */
-  .cushion { background: rgba(0,0,0,0.25); border: 1px solid rgba(91,164,230,0.15); border-radius: 12px; padding: 20px; margin: 6px 0 16px; }
+  .cushion { background: none; border: none; border-radius: 0; padding: 0; margin: 16px 0; }
   .cushion-setup { font-size: 16px; color: var(--white); margin-bottom: 16px; line-height: 1.6; }
   .cushion-lbl { display: block; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
   .cushion-lbl b { color: var(--blue); }
@@ -528,12 +528,12 @@
   .cushion-sentence.state-pass { border-color: var(--red); background: rgba(232,93,93,0.08); }
   .cushion-sentence b { color: var(--white); }
   /* seven exits */
-  .exits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
-  @media (max-width: 560px) { .exits-grid { grid-template-columns: 1fr; } }
-  .exit { display: flex; gap: 10px; font-size: 13.5px; line-height: 1.45; background: rgba(255,255,255,0.03); border: 1px solid rgba(91,164,230,0.12); border-radius: 8px; padding: 10px 12px; }
-  .exit-n { font-weight: 700; color: var(--blue); flex-shrink: 0; }
-  .exit b { color: var(--white); }
-  .exit-last { border-color: rgba(232,93,93,0.4); background: rgba(232,93,93,0.06); }
+  .exits-grid { display: flex; flex-direction: column; margin: 16px 0; }
+  .exit { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: baseline; font-size: 14.5px; line-height: 1.55; padding: 14px 0; border-bottom: 1px solid var(--hairline); background: none; border-radius: 0; }
+  .exit:last-child { border-bottom: none; }
+  .exit-n { font-weight: 700; color: var(--blue); text-align: right; }
+  .exit b { color: var(--text); }
+  .exit-last { background: none; }
   .exit-last .exit-n { color: var(--red); }
   /* ═══ comparison table ═══ */
   .headline-dark { color: var(--text); }
@@ -676,7 +676,6 @@
 <!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
-<p class="label-text fade-in">Find your fit in one sentence</p>
 <h2 class="sc-line fade-in">
 I'm a
 <select id="scWho" aria-label="I'm a">
@@ -702,7 +701,6 @@ who wants
 <!-- [C2] credibility strip relocated below the comparison table (R4) -->
 <!-- [C3] NOTE PRIMER -->
 <section class="bg-deep section-short" id="note-primer">
-<p class="label-text label-text-dark fade-in">The whole idea in one breath</p>
 <p class="primer-line fade-in"><span class="primer-red">A note is the loan on a house.</span> When you own it, the borrower's payment comes to you instead of the bank, and the property is your collateral. You never own, manage, or fix anything.</p>
 </section>
 <!-- [C] routing JS -->
@@ -749,7 +747,6 @@ who wants
 </script>
 <!-- [D] CALCULATOR (routed centerpiece — spec section 6) -->
 <section class="bg-black section-short" id="calc">
-<p class="label-text fade-in">Run your numbers</p>
 <h2 class="calc-frame fade-in" id="calcFrame">So what's your money doing right now?</h2>
 <div class="calc-card fade-in">
 <p class="calc-intro">Here is where it gets interesting. Put in your real numbers, then let's see how <b>notes</b> stack up against them.</p>
@@ -817,7 +814,6 @@ who wants
 </script>
 <!-- [E] SIX-STEP PROCESS + EQUITY CUSHION + EXITS (spec section 7) -->
 <section class="bg-navy section-short" id="how-it-works">
-<p class="label-text fade-in">How it works</p>
 <h2 class="headline-lg fade-in">Six steps. You touch two of them.</h2>
 <div class="steps-accordion fade-in" id="stepsAccordion">
 <div class="step-item open">
@@ -899,7 +895,6 @@ who wants
 </script>
 <!-- [F] COMPARISON TABLE (spec section 8 — attributes only, never performance) -->
 <section class="bg-light section-short" id="compare">
-<p class="label-text label-text-dark fade-in">How notes compare</p>
 <h2 class="headline-lg headline-dark fade-in">Notes vs. everything else.</h2>
 <div class="cmp-scroll fade-in">
 <table class="cmp-table">
@@ -919,7 +914,6 @@ who wants
 </section>
 <!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
 <section class="cred-strip">
-<p class="cred-label">The partners behind every deal</p>
 <div class="cred-logos">
 <span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
 <span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
@@ -934,7 +928,6 @@ who wants
 <!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
 <!-- ══════════════════════════════════════════ -->
 <section class="bg-deep section-short" id="learn">
-<p class="label-text fade-in label-blue">Note investing 101</p>
 <h2 class="headline-lg fade-in">Want to understand notes<br/>before you invest?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in text-muted-white-52">Education is at the core of what we do. We believe informed investors make better partners. Here's a fast primer on how mortgage note investing actually works.</p>
@@ -964,7 +957,6 @@ who wants
 </section>
 <!-- MISSION SECTION -->
 <section class="bg-deep section-short" id="mission">
-<p class="label-text fade-in label-faint">Our purpose</p>
 <h2 class="headline-lg fade-in">The TNC mission</h2>
 <div class="divider-dark fade-in"></div>
 <div class="mission-content">
@@ -992,7 +984,6 @@ who wants
 </section>
 <!-- PROOF (spec section 9 - testimonials removed 2026-09-08; reserved for real anonymized Deal Breakdowns) -->
 <section class="bg-black section-short" id="proof">
-<p class="label-text fade-in">Proof</p>
 <h2 class="headline-lg fade-in">Real deals. Real numbers.<br/><span class="text-gold">Coming soon.</span></h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in text-muted-white-52 mt-0" style="max-width:60ch;margin:0 auto;">Anonymized deal breakdowns land here as deals close: the actual numbers, entry to exit, framed as partner and joint-venture deals. We would rather show you one real breakdown than a page of five-star quotes.</p>
@@ -1045,7 +1036,6 @@ who wants
 <div class="nb-shell fade-in">
 <div class="nb-card">
 <div class="nb-intro" id="nbIntro">
-<p class="nb-label">For note buyers</p>
 <h2 class="nb-title">Get notified when we have notes that fit your buy box.</h2>
 <p class="nb-copy">Tell us what you're looking for — asset type, lien position, target states, and investment range — and we'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
 <button class="nb-btn" onclick="nbStart()" type="button">Submit my buy box</button>
@@ -1227,7 +1217,6 @@ who wants
 </section>
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
-<p class="label-text fade-in">Let's talk</p>
 <h2 class="headline-xl fade-in">Ready to become the bank?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in contact-note">No pressure. No pitch. Just a conversation about whether<br/>mortgage note investing fits your goals.</p>
