@@ -522,10 +522,10 @@
   .cu-room.state-pass { background: #e85d5d; color: #3a0d0d; }
   .cu-tick { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--white); }
   .cu-tick-lbl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); margin-top: 5px; }
-  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 48px; padding: 14px 16px; border-radius: 8px; border-left: 3px solid var(--green); }
-  .cushion-sentence.state-good { border-color: var(--green); background: rgba(78,203,113,0.08); }
-  .cushion-sentence.state-thin { border-color: var(--blue); background: rgba(91,164,230,0.08); }
-  .cushion-sentence.state-pass { border-color: var(--red); background: rgba(232,93,93,0.08); }
+  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 48px; padding: 2px 0 2px 16px; border-left: 3px solid var(--green); }
+  .cushion-sentence.state-good { border-color: var(--green); }
+  .cushion-sentence.state-thin { border-color: var(--blue); }
+  .cushion-sentence.state-pass { border-color: var(--red); }
   .cushion-sentence b { color: var(--white); }
   /* seven exits */
   .exits-grid { display: flex; flex-direction: column; margin: 16px 0; }
@@ -1135,14 +1135,11 @@ who wants
 <h3 class="nb-question">How much are you planning to invest on your next deal?</h3>
 <p class="nb-sub">Select one.</p>
 <div class="nb-options">
-<button class="nb-option" data-value="under_5k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>&lt; $5,000</button>
-<button class="nb-option" data-value="5k_10k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$5,000 – $10,000</button>
-<button class="nb-option" data-value="10k_25k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$10,000 – $25,000</button>
+<button class="nb-option" data-value="under_25k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>Under $25,000</button>
 <button class="nb-option" data-value="25k_50k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$25,000 – $50,000</button>
 <button class="nb-option" data-value="50k_100k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$50,000 – $100,000</button>
 <button class="nb-option" data-value="100k_250k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$100,000 – $250,000</button>
-<button class="nb-option" data-value="250k_500k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$250,000 – $500,000</button>
-<button class="nb-option" data-value="over_500k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>&gt; $500,000</button>
+<button class="nb-option" data-value="250k_plus" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$250,000+</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep5">
