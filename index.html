@@ -38,11 +38,20 @@
   @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
   html{font-optical-sizing:auto;}
   :root {
-    --black: #0a0a0a;
-    --navy: #212c52;
+    /* R6 palette — all-dark ramp */
+    --ground: #0A0E1A;
+    --band: #0E1424;
+    --card: #131A2B;
+    --hairline: #202B45;
+    --text: #E8ECF4;
+    --muted: #94A3B8;
+    --dim: #5F7191;
+    /* remapped legacy tokens so existing var() usages inherit the ramp */
+    --black: #0A0E1A;
+    --navy: #0E1424;
+    --white: #E8ECF4;
     --gold: #5ba4e6;
     --gold-light: #7bbef0;
-    --white: #ffffff;
     --light: #f8f9fa;
     --red: #e85d5d;
     --green: #4ecb71;
@@ -85,11 +94,11 @@
   .quote-text { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(24px, 4vw, 46px); font-weight: 700; line-height: 1.4; text-align: center; max-width: 700px; }
   .label-text { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 8px; }
 
-  .bg-black { background: #080808; color: var(--white); }
-  .bg-white { background: #ffffff; color: var(--text-dark); }
-  .bg-navy { background: var(--navy); color: var(--white); }
-  .bg-light { background: var(--light); color: var(--text-dark); }
-  .bg-deep { background: #0d1f3c; color: var(--white); }
+  .bg-black { background: var(--ground); color: var(--text); }
+  .bg-white { background: var(--ground); color: var(--text); }
+  .bg-navy { background: var(--ground); color: var(--text); }
+  .bg-light { background: var(--ground); color: var(--text); }
+  .bg-deep { background: var(--band); color: var(--text); }
   .text-gold { color: var(--gold); }
   .text-red { color: var(--red); }
   .text-green { color: var(--green); }
@@ -154,7 +163,7 @@
 
   /* ABOUT */
   .about-content { max-width: 620px; text-align: center; }
-  .about-content p { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; margin-bottom: 16px; color: rgba(26,26,26,0.75); }
+  .about-content p { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; margin-bottom: 16px; color: var(--muted); }
   .about-content p strong { font-weight: 600; color: var(--text-dark); }
 
   /* TESTIMONIALS */
@@ -256,9 +265,9 @@
   .body-text-lg { font-size: clamp(16px,2vw,19px); line-height: 1.9; font-weight: 300; text-align: center; color: rgba(250,248,244,0.75); margin-bottom: 24px; }
   .quote-callout { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px,3vw,28px); font-weight: 600; }
   .blockquote-blue { background: #f0f4fb; border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
-  .blockquote-blue p { margin: 0; font-size: 15px; line-height: 1.75; color: #333; }
+  .blockquote-blue p { margin: 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
   .blockquote-light { background: #f8f9fa; border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
-  .blockquote-light p { margin: 0; font-size: 15px; line-height: 1.7; color: #333; }
+  .blockquote-light p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted); }
   .mission-highlight { background: rgba(91,164,230,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 16px; padding: 36px 40px; margin: 32px 0; text-align: center; }
   .mission-highlight p { font-size: clamp(16px,2vw,19px); line-height: 1.9; font-weight: 300; color: rgba(250,248,244,0.85); margin: 0; }
   .mission-pillars { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 16px; padding-top: 32px; border-top: 1px solid rgba(91,164,230,0.15); }
@@ -441,8 +450,8 @@
   .cred-chip { background: #fff; border-radius: 10px; padding: 12px 22px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
   .cred-chip img { max-height: 48px; max-width: 155px; width: auto; object-fit: contain; display: block; }
   /* note primer */
-  .label-text-dark { color: #4a5568; opacity: 0.85; }
-  .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: #1a2233; font-weight: 500; }
+  .label-text-dark { color: var(--dim); opacity: 0.85; }
+  .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: var(--text); font-weight: 500; }
   .primer-red { color: var(--red); font-weight: 700; }
   @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 62px; padding: 10px 16px; } .cred-chip img { max-height: 40px; } }
   /* ═══ calculator ═══ */
@@ -468,7 +477,7 @@
   .calc-stage2 b { color: var(--green); }
   .calc-secured { margin: 16px 0; }
   .calc-secured-bar { display: flex; height: 34px; border-radius: 7px; overflow: hidden; font-size: 11px; font-weight: 700; }
-  .calc-secured-bar .seg-note { background: #2b6cb0; color: #fff; flex: 62; display: flex; align-items: center; justify-content: center; }
+  .calc-secured-bar .seg-note { background: var(--blue); color: #fff; flex: 62; display: flex; align-items: center; justify-content: center; }
   .calc-secured-bar .seg-eq { background: #3fae5f; color: #06210f; flex: 38; display: flex; align-items: center; justify-content: center; }
   .calc-secured-cap { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
   .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
@@ -506,7 +515,7 @@
   .cushion-lbl b { color: var(--blue); }
   .cushion-lbl input { display: block; width: 100%; margin-top: 12px; accent-color: var(--blue); }
   .cushion-bar { position: relative; display: flex; height: 46px; font-size: 11px; font-weight: 700; margin-top: 30px; }
-  .cu-pay { background: #2b6cb0; color: #fff; display: flex; align-items: center; justify-content: center; min-width: 44px; border-radius: 8px 0 0 8px; }
+  .cu-pay { background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; min-width: 44px; border-radius: 8px 0 0 8px; }
   .cu-room { display: flex; align-items: center; justify-content: center; min-width: 44px; color: #06210f; border-radius: 0 8px 8px 0; }
   .cu-room.state-good { background: #3fae5f; }
   .cu-room.state-thin { background: #5ba4e6; color: #04121f; }
@@ -527,20 +536,20 @@
   .exit-last { border-color: rgba(232,93,93,0.4); background: rgba(232,93,93,0.06); }
   .exit-last .exit-n { color: var(--red); }
   /* ═══ comparison table ═══ */
-  .headline-dark { color: #16203a; }
+  .headline-dark { color: var(--text); }
   .cmp-scroll { overflow-x: auto; max-width: 780px; margin: 28px auto 0; -webkit-overflow-scrolling: touch; }
   .cmp-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15px; }
-  .cmp-table th, .cmp-table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid #e3e7f0; }
-  .cmp-table thead th { font-weight: 700; color: #3a4157; font-size: 14px; letter-spacing: 0.3px; }
-  .cmp-attr { text-align: left !important; font-weight: 600; color: #16203a; white-space: nowrap; }
+  .cmp-table th, .cmp-table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--hairline); }
+  .cmp-table thead th { font-weight: 700; color: var(--muted); font-size: 14px; letter-spacing: 0.3px; }
+  .cmp-attr { text-align: left !important; font-weight: 600; color: var(--text); white-space: nowrap; }
   .cmp-hl { background: rgba(91,164,230,0.10); }
-  .cmp-table thead .cmp-hl { color: #2b6cb0; border-top: 3px solid #5ba4e6; }
+  .cmp-table thead .cmp-hl { color: var(--blue); border-top: 3px solid #5ba4e6; }
   .cmp-table tbody tr:last-child .cmp-hl { border-radius: 0 0 8px 8px; }
-  .cmp-table .yes { color: #2e9e56; font-weight: 700; }
-  .cmp-table .no { color: #b9c0cf; }
-  .cmp-table .lim { color: #8a94a8; font-size: 13px; font-style: italic; }
-  .cmp-cap { font-size: 13px; color: #8a94a8; font-style: italic; margin-top: 16px; }
-  .about-link { color: #2b6cb0; font-weight: 600; text-decoration: none; font-size: 15px; }
+  .cmp-table .yes { color: var(--green); font-weight: 700; }
+  .cmp-table .no { color: var(--dim); }
+  .cmp-table .lim { color: var(--muted); font-size: 13px; font-style: italic; }
+  .cmp-cap { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 16px; }
+  .about-link { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 15px; }
   /* R5: Fraunces display group — weight 400, scoped axis settings (wght explicit so it is not overridden), sc-line + calc-frame moved to Fraunces */
   .headline-xl, .headline-lg, .headline-md,
   .sc-line, .calc-frame,
@@ -692,7 +701,7 @@ who wants
 </section>
 <!-- [C2] credibility strip relocated below the comparison table (R4) -->
 <!-- [C3] NOTE PRIMER -->
-<section class="bg-light section-short" id="note-primer">
+<section class="bg-deep section-short" id="note-primer">
 <p class="label-text label-text-dark fade-in">The whole idea in one breath</p>
 <p class="primer-line fade-in"><span class="primer-red">A note is the loan on a house.</span> When you own it, the borrower's payment comes to you instead of the bank, and the property is your collateral. You never own, manage, or fix anything.</p>
 </section>
@@ -954,7 +963,7 @@ who wants
 </div>
 </section>
 <!-- MISSION SECTION -->
-<section class="bg-black section-short" id="mission">
+<section class="bg-deep section-short" id="mission">
 <p class="label-text fade-in label-faint">Our purpose</p>
 <h2 class="headline-lg fade-in">The TNC mission</h2>
 <div class="divider-dark fade-in"></div>
