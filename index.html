@@ -97,6 +97,8 @@
   .rail p { max-width: 520px; color: var(--muted); }
   .wide p { max-width: 600px; }
   .hl-blue { color: var(--blue); }
+  .primer-lead { font-size: clamp(18px,2.2vw,24px); line-height: 1.55; color: var(--text); max-width: 600px; }
+  .rail .calc-frame { max-width: none; margin: 0 0 14px; text-align: left; }
   /* two-column grids (R8 §2) — align center except process + faq (start) */
   .g-primer  { display: grid; grid-template-columns: 1fr 1.2fr 0.85fr; gap: 50px; align-items: center; }
   .g-calc    { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: center; }
@@ -105,7 +107,7 @@
   .g-cushion { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: center; }
   .g-map     { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
   .g-founder { display: grid; grid-template-columns: 0.8fr 1.2fr 0.9fr; gap: 52px; align-items: center; }
-  .g-edu     { display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); gap: 14px; align-items: center; }
+  .g-edu     { display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); gap: 14px 24px; align-items: start; }
   .g-faq     { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; align-items: start; }
   .g-cta     { display: grid; grid-template-columns: 1.15fr 0.9fr 0.8fr; gap: 50px; align-items: center; }
   .g-photos  { display: grid; grid-template-columns: 1.1fr repeat(3, 0.82fr) 0.8fr; gap: 14px; align-items: stretch; }
@@ -766,8 +768,16 @@ who wants
 </section>
 <!-- [C2] credibility strip relocated below the comparison table (R4) -->
 <!-- [C3] NOTE PRIMER -->
-<section class="bg-deep section-short" id="note-primer">
-<p class="primer-line fade-in"><span class="primer-red">A note is the loan on a house.</span> When you own it, the borrower's payment comes to you instead of the bank, and the property is your collateral. You never own, manage, or fix anything.</p>
+<section class="bg-deep lay primer" id="note-primer">
+<div class="shell g-primer">
+<div class="rail fade-in">
+<div class="kicker">The Basics</div>
+<h3 class="rail-h">A note is the loan on a house.</h3>
+</div>
+<div class="wide fade-in">
+<p class="primer-lead">When you own it, the borrower's payment comes to you instead of the bank, and the property is your collateral. You never own, manage, or fix anything.</p>
+</div>
+</div>
 </section>
 <!-- [C] routing JS -->
 <script>
@@ -812,11 +822,17 @@ who wants
 })();
 </script>
 <!-- [D] CALCULATOR (routed centerpiece — spec section 6) -->
-<section class="bg-black section-short" id="calc">
-<h2 class="calc-frame fade-in" id="calcFrame">So what's your money doing right now?</h2>
-<div class="calc-card fade-in">
+<section class="bg-black lay" id="calc">
+<div class="shell g-calc">
+<div class="rail fade-in">
+<div class="kicker">Run the Numbers</div>
+<h2 class="calc-frame rail-h" id="calcFrame">So what's your money doing right now?</h2>
 <p class="calc-intro">Here is where it gets interesting. Put in your real numbers, then let's see how <b>notes</b> stack up against them.</p>
 <p class="calc-intro-sub">No email needed to run your own math.</p>
+<p class="calc-change">Not quite you? <a href="#pick" onclick="tncChangeAnswer(event)">Change your answer</a></p>
+</div>
+<div class="wide fade-in">
+<div class="calc-card">
 <div class="calc-inputs" id="calcInputs"></div>
 <div class="calc-stage1" id="calcStage1"></div>
 <div class="calc-gate" id="calcGate" hidden="">
@@ -829,7 +845,8 @@ who wants
 </div>
 <div class="calc-stage2" id="calcStage2" hidden=""></div>
 </div>
-<p class="calc-change">Not quite you? <a href="#pick" onclick="tncChangeAnswer(event)">Change your answer</a></p>
+</div>
+</div>
 </section>
 <script>
 (function(){
@@ -1053,11 +1070,14 @@ who wants
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
 <!-- ══════════════════════════════════════════ -->
-<section class="bg-deep section-short" id="learn">
-<h2 class="headline-lg fade-in">Want to understand notes<br/>before you invest?</h2>
-<div class="divider-dark fade-in"></div>
-<p class="body-text fade-in text-muted-white-52">Education is at the core of what we do. We believe informed investors make better partners. Here's a fast primer on how mortgage note investing actually works.</p>
-<div class="learn-grid fade-in">
+<section class="bg-deep lay" id="learn">
+<div class="shell">
+<div class="g-edu fade-in">
+<div class="rail">
+<div class="kicker">Note Investing 101</div>
+<h3 class="rail-h">Want to understand notes before you invest?</h3>
+<p>Education is at the core of what we do. We believe informed investors make better partners. Here's a fast primer on how mortgage note investing actually works.</p>
+</div>
 <div class="learn-card">
 <div class="learn-title">What Is a Mortgage Note?</div>
 <div class="learn-body">A mortgage note is the legal IOU a borrower signs when they take out a home loan. It outlines the loan amount, interest rate, and repayment terms. When you invest in a note, you buy the right to receive those payments — you step into the lender's seat, backed by the real estate as collateral.</div>
@@ -1080,6 +1100,7 @@ who wants
 <p class="cta-sub-sm">Get a free 30-minute walkthrough of how note investing works — and whether it fits your goals.</p>
 <!-- learn-section CTA removed (P4): Book a call kept to nav + contact only -->
 </div>
+</div>
 </section>
 <!-- MISSION SECTION -->
 <section class="bg-deep section-short" id="mission">
@@ -1099,13 +1120,17 @@ who wants
 </div>
 </section>
 <!-- ABOUT AJ -->
-<section class="bg-white">
-<div class="about-content fade-in">
-<h2 class="headline-lg about-aj-headline">I'm AJ Dent.</h2>
+<section class="bg-white lay" id="founder">
+<div class="shell g-founder">
+<div class="rail fade-in">
+<div class="kicker">The Founder</div>
+<h3 class="rail-h">I'm AJ Dent.</h3>
 <p class="text-sm-muted">Founder, Take Notes Capital</p>
-<div class="divider"></div>
+</div>
+<div class="wide fade-in">
 <p class="about-first-p">My path ran through life insurance, nuclear contracting, and creative real estate, working hands-on with distressed homeowners, before formal note-underwriting training under Scott Carson made mortgage notes the natural next step. I run a transparent, God-first, process-driven business. You invest, and we handle the due diligence, the asset management, and the structure.</p>
 <p><a class="about-link" href="/about">Read the full story</a></p>
+</div>
 </div>
 </section>
 <!-- PROOF (spec section 9 - testimonials removed 2026-09-08; reserved for real anonymized Deal Breakdowns) -->
