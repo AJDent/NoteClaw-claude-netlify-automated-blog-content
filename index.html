@@ -461,7 +461,12 @@
   }
 
   /* ═══ homepage-revamp: sentence completion ═══ */
-  .sc-line { font-size: clamp(23px,3.6vw,38px); font-weight: 700; line-height: 1.8; max-width: 900px; margin: 0 auto; }
+  .sc-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; text-align: center; font-size: clamp(20px,2.6vw,31px); line-height: 1.35; max-width: 1080px; margin: 0 auto; }
+  @media (min-width: 701px) { .sc-half { white-space: nowrap; } }
+  .sc-half { display: inline-flex; align-items: center; gap: 10px; }
+  .calc-avatar { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .calc-avatar a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .calc-avatar a:hover { text-decoration: underline; }
   .sc-line select {
     font: inherit; font-size: 0.95em; color: var(--blue); background: transparent;
     border: none; border-bottom: 2px solid var(--blue); padding: 2px 28px 2px 6px; margin: 0 3px;
@@ -734,7 +739,7 @@
 <!-- HERO -->
 <section class="bg-black" id="hero">
 <h1 class="headline-xl fade-in d1">Earn like you own the building.<br/><span class="text-gold">Live like you never bought one.</span></h1>
-<p class="body-text fade-in d2 hero-sub">Own the loan, not the building. Paid first, secured by real estate, with nothing to manage.</p>
+<p class="body-text fade-in d2 hero-sub">Mortgage notes. You own the loan on the house, not the house. Paid first, secured by real estate, with nothing to manage.</p>
 <!-- hero CTA removed (P4): the picker below is the primary action -->
 <div class="scroll-arrow">↓</div>
 </section>
@@ -742,7 +747,7 @@
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
 <h2 class="sc-line fade-in">
-I'm a
+<span class="sc-half">I'm a
 <select id="scWho" aria-label="I'm a">
 <option value="" selected="" disabled="">choose…</option>
 <option>retiree</option>
@@ -750,14 +755,14 @@ I'm a
 <option>real estate investor</option>
 <option>business owner</option>
 <option>new to all this</option>
-</select>
-who wants
+</select></span>
+<span class="sc-half">who wants
 <select id="scWant" aria-label="who wants">
 <option value="" selected="" disabled="">choose…</option>
 <option data-lane="retiree">to put my IRA or 401(k) to work</option>
 <option data-lane="income">monthly income without owning property</option>
 <option data-lane="operator">real estate returns without the tenants</option>
-</select>.
+</select>.</span>
 </h2>
 <div class="sc-result" id="scResult" hidden="">
 <p id="scResultText"></p>
@@ -784,16 +789,33 @@ who wants
     income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
     operator: "You did not get tired of real estate. You got tired of the job that came with it."
   };
+  var AVATAR = {
+    retiree:  "You're a retiree putting a retirement account to work.",
+    income:   "You're an investor with cash sitting still.",
+    operator: "You're a real estate investor tired of the job that came with it."
+  };
   window.TNC = window.TNC || {};
+  var who  = document.getElementById('scWho');
   var want = document.getElementById('scWant');
   var res  = document.getElementById('scResult');
   var txt  = document.getElementById('scResultText');
+  function updateAvatar(){
+    var avatar = document.getElementById('calcAvatar'), avatarText = document.getElementById('calcAvatarText');
+    if(!avatar) return; // calc markup is parsed after this script
+    var lane = window.TNC.lane;
+    var both = who && who.selectedIndex>0 && want && want.selectedIndex>0;
+    if(both && lane && AVATAR[lane]){
+      if(avatarText) avatarText.textContent = AVATAR[lane];
+      avatar.hidden = false;
+    } else { avatar.hidden = true; }
+  }
   function setLane(lane){
     if(!LANES[lane]) return;
     window.TNC.lane = lane;
     if(txt) txt.textContent = LANES[lane];
     if(res) res.hidden = false;
     if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
+    updateAvatar();
   }
   if (want){
     want.addEventListener('change', function(){
@@ -801,6 +823,7 @@ who wants
       setLane(opt && opt.getAttribute('data-lane'));
     });
   }
+  if (who){ who.addEventListener('change', updateAvatar); }
   try{
     var p = new URLSearchParams(location.search).get('lane');
     if (p && LANES[p]){
@@ -812,6 +835,7 @@ who wants
     var who=document.getElementById('scWho'); if(who) who.selectedIndex=0;
     if(want) want.selectedIndex=0;
     if(res) res.hidden=true;
+    var av=document.getElementById('calcAvatar'); if(av) av.hidden=true;
     window.TNC=window.TNC||{}; window.TNC.lane=null;
     if(typeof window.tncCalcReset==='function') window.tncCalcReset();
     var pk=document.getElementById('pick'); if(pk) pk.scrollIntoView({behavior:'smooth'});
@@ -830,6 +854,7 @@ who wants
 </div>
 <div class="wide fade-in">
 <div class="calc-card">
+<div class="calc-avatar" id="calcAvatar" hidden=""><span id="calcAvatarText"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></div>
 <div class="calc-inputs" id="calcInputs"></div>
 <div class="calc-stage1" id="calcStage1"></div>
 <div class="calc-gate" id="calcGate" hidden="">
