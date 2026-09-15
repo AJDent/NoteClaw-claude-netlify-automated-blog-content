@@ -604,6 +604,23 @@
   .reject-callout { border-left: 3px solid var(--red); padding-left: 28px; }
   .reject-callout h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; color: #ff7d78; font-size: 30px; line-height: 1.1; margin: 0 0 10px; }
   .reject-callout p { font-size: 15px; line-height: 1.55; color: #E85D5D; margin: 0; }
+  /* ═══ hex-grid state map (R9 §1) ═══ */
+  .statemap-wide { overflow: hidden; }
+  .hexrow { display: flex; gap: 3px; margin-bottom: 3px; }
+  .hexrow.odd { margin-left: calc((100% / 12 + 3px) / 2); }
+  .hexcell { flex: 0 0 calc((100% - 33px) / 12); aspect-ratio: 1 / 1.1; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: #2C3B58; background: #111A2C; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); transition: background .2s, color .2s; }
+  .hexcell.on { background: #1C3A5C; color: #9ACBF2; }
+  .hexcell.on:hover { background: #25537F; color: #D3E8FB; }
+  .hexcell.empty { background: none; }
+  .hex-legend { display: flex; gap: 22px; margin-top: 22px; font-size: 12px; color: var(--muted); }
+  .hex-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .hex-swatch { width: 13px; height: 13px; border-radius: 2px; }
+  .hex-swatch.on { background: #1C3A5C; border: 1px solid #2F5580; }
+  .hex-swatch.off { background: #111A2C; border: 1px solid #202B45; }
+  .state-cloud { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-top: 24px; }
+  .state-cloud span { height: 64px; display: grid; place-items: center; border: 1px solid #234b73; color: var(--blue); background: linear-gradient(180deg,rgba(24,57,89,.35),rgba(12,24,39,.5)); font-weight: 800; font-size: 15px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  @media (prefers-reduced-motion: reduce) { .hexcell { transition: none; } }
   @media (max-width: 1024px) { .uw-grid { grid-template-columns: 1fr; gap: 34px; } }
   /* ═══ comparison table ═══ */
   .headline-dark { color: var(--text); }
@@ -1055,6 +1072,31 @@
 <h4>Many look good. Most don't qualify.</h4>
 <p>We would rather pass on a deal than put capital at risk.</p>
 </div>
+</div>
+</div>
+</section>
+<!-- HEX-GRID STATE MAP (R9 §1 — lifted to its own open section, R10) -->
+<section class="bg-black lay" id="statemap">
+<div class="shell g-map">
+<div class="rail fade-in">
+<div class="kicker">Where we invest</div>
+<h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
+<p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
+<div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
+</div>
+<div class="wide statemap-wide fade-in">
+<div role="img" aria-label="Map of the United States with ten states highlighted where Take Notes Capital invests: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri">
+<div class="hexrow"><span class="hexcell" aria-hidden="true">AK</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">ME</span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">VT</span><span class="hexcell" aria-hidden="true">NH</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">WA</span><span class="hexcell" aria-hidden="true">ID</span><span class="hexcell" aria-hidden="true">MT</span><span class="hexcell" aria-hidden="true">ND</span><span class="hexcell" aria-hidden="true">MN</span><span class="hexcell" aria-hidden="true">WI</span><span class="hexcell" aria-hidden="true">IL</span><span class="hexcell on" title="Michigan — we operate here">MI</span><span class="hexcell" aria-hidden="true">NY</span><span class="hexcell" aria-hidden="true">RI</span><span class="hexcell" aria-hidden="true">MA</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">OR</span><span class="hexcell" aria-hidden="true">NV</span><span class="hexcell" aria-hidden="true">WY</span><span class="hexcell" aria-hidden="true">SD</span><span class="hexcell" aria-hidden="true">IA</span><span class="hexcell on" title="Indiana — we operate here">IN</span><span class="hexcell on" title="Ohio — we operate here">OH</span><span class="hexcell" aria-hidden="true">PA</span><span class="hexcell" aria-hidden="true">NJ</span><span class="hexcell" aria-hidden="true">CT</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">CA</span><span class="hexcell" aria-hidden="true">UT</span><span class="hexcell" aria-hidden="true">CO</span><span class="hexcell" aria-hidden="true">NE</span><span class="hexcell on" title="Missouri — we operate here">MO</span><span class="hexcell" aria-hidden="true">KY</span><span class="hexcell" aria-hidden="true">WV</span><span class="hexcell" aria-hidden="true">VA</span><span class="hexcell" aria-hidden="true">MD</span><span class="hexcell" aria-hidden="true">DE</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">AZ</span><span class="hexcell" aria-hidden="true">NM</span><span class="hexcell" aria-hidden="true">KS</span><span class="hexcell" aria-hidden="true">AR</span><span class="hexcell" aria-hidden="true">TN</span><span class="hexcell on" title="North Carolina — we operate here">NC</span><span class="hexcell" aria-hidden="true">SC</span><span class="hexcell" aria-hidden="true">DC</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">OK</span><span class="hexcell" aria-hidden="true">LA</span><span class="hexcell on" title="Mississippi — we operate here">MS</span><span class="hexcell on" title="Alabama — we operate here">AL</span><span class="hexcell on" title="Georgia — we operate here">GA</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">HI</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Texas — we operate here">TX</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Florida — we operate here">FL</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+</div>
+<div class="hex-legend"><span><span class="hex-swatch on"></span> We operate here</span><span><span class="hex-swatch off"></span> We do not</span></div>
+<p class="visually-hidden">Take Notes Capital invests in these ten states: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri.</p>
 </div>
 </div>
 </section>
