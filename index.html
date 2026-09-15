@@ -209,14 +209,13 @@
   .testimonial-location { font-size: 12px; opacity: 0.45; margin-top: 3px; }
 
   /* FAQ */
-  .faq-list { max-width: 760px; width: 100%; margin-top: 40px; }
-  .faq-item { border-bottom: 1px solid rgba(91,164,230,0.14); }
-  .faq-question { width: 100%; background: none; border: none; color: var(--white); text-align: left; padding: 22px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: 'Figtree', system-ui, sans-serif; font-size: clamp(15px, 2vw, 17px); font-weight: 500; line-height: 1.5; transition: color 0.2s; }
-  .faq-question:hover { color: var(--gold); }
-  .faq-icon { font-size: 22px; flex-shrink: 0; color: var(--gold); transition: transform 0.3s; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: clamp(14px, 1.8vw, 16px); line-height: 1.8; font-weight: 300; color: rgba(250,248,244,0.65); padding-right: 20px; }
-  .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 22px; }
+  .faq-list { border-top: 1px solid var(--hairline); width: 100%; }
+  .faq-list details { border-bottom: 1px solid var(--hairline); padding: 17px 0; }
+  .faq-list summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: clamp(15px, 2vw, 17px); line-height: 1.5; color: var(--text); }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: "+"; color: var(--blue); font-size: 21px; line-height: 1; flex-shrink: 0; }
+  .faq-list details[open] summary::after { content: "−"; }
+  .faq-list p { color: var(--muted); max-width: 700px; margin: 12px 0 0; font-size: clamp(14px, 1.8vw, 16px); line-height: 1.75; }
 
   /* CONTACT */
   .contact-wrapper { max-width: 580px; width: 100%; margin-top: 38px; }
@@ -1140,45 +1139,51 @@ who wants
 <p class="body-text fade-in text-muted-white-52 mt-0" style="max-width:60ch;margin:0 auto;">Anonymized deal breakdowns land here as deals close: the actual numbers, entry to exit, framed as partner and joint-venture deals. We would rather show you one real breakdown than a page of five-star quotes.</p>
 </section>
 <!-- FAQ -->
-<section class="bg-black section-short" id="faq">
-<h2 class="headline-lg fade-in">Frequently asked questions</h2>
-<div class="divider-dark fade-in"></div>
-<div class="faq-list fade-in">
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What exactly is a mortgage note, and what do I actually own?<span class="faq-icon">+</span></button>
-<div class="faq-answer">A mortgage note is the legal document a borrower signs when they take out a home loan. It spells out everything: the loan amount, interest rate, repayment schedule, and what happens if they don't pay. When you invest in a note, you're purchasing the lender's position in that agreement — you become the bank. The note is secured by a real property, which means if the borrower ever stops paying, you have a legal claim to that asset as collateral. You don't own the house. You own the debt backed by the house. That distinction is what makes note investing so much cleaner than being a landlord.</div>
+<section class="bg-black lay" id="faq">
+<div class="shell g-faq">
+<div class="rail fade-in">
+<div class="kicker">FAQ</div>
+<h3 class="rail-h">Frequently asked questions</h3>
 </div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">Can I invest using my IRA or 401(k)?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Yes — and this is one of the most powerful advantages of note investing. A Self-Directed IRA (SDIRA) or Solo 401(k) allows you to hold mortgage notes as an alternative asset inside your retirement account. All interest income flows back into the account tax-deferred (Traditional) or tax-free (Roth). The IRA technically becomes the lender, so everything is titled in the name of your custodian for your benefit. You'll need a custodian that permits alternative investments — standard Fidelity or Schwab accounts won't work, but there are excellent SDIRA custodians set up specifically for this. One important IRS rule: your IRA cannot lend to you, your spouse, your children, or parents — these are "disqualified persons." Violating this can strip your account of its tax-advantaged status. We walk through all of this on our discovery call and can point you to the right custodians to get started.</div>
+<div class="wide fade-in">
+<div class="faq-list">
+<details>
+<summary>What exactly is a mortgage note, and what do I actually own?</summary>
+<p>A mortgage note is the legal document a borrower signs when they take out a home loan. It spells out everything: the loan amount, interest rate, repayment schedule, and what happens if they don't pay. When you invest in a note, you're purchasing the lender's position in that agreement — you become the bank. The note is secured by a real property, which means if the borrower ever stops paying, you have a legal claim to that asset as collateral. You don't own the house. You own the debt backed by the house. That distinction is what makes note investing so much cleaner than being a landlord.</p>
+</details>
+<details>
+<summary>Can I invest using my IRA or 401(k)?</summary>
+<p>Yes — and this is one of the most powerful advantages of note investing. A Self-Directed IRA (SDIRA) or Solo 401(k) allows you to hold mortgage notes as an alternative asset inside your retirement account. All interest income flows back into the account tax-deferred (Traditional) or tax-free (Roth). The IRA technically becomes the lender, so everything is titled in the name of your custodian for your benefit. You'll need a custodian that permits alternative investments — standard Fidelity or Schwab accounts won't work, but there are excellent SDIRA custodians set up specifically for this. One important IRS rule: your IRA cannot lend to you, your spouse, your children, or parents — these are "disqualified persons." Violating this can strip your account of its tax-advantaged status. We walk through all of this on our discovery call and can point you to the right custodians to get started.</p>
+</details>
+<details>
+<summary>What's the difference between a performing and non-performing note?</summary>
+<p>A performing note is one where the borrower is making on-time monthly payments as agreed — you receive predictable, passive income from day one. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts — sometimes 20–70% below the unpaid loan balance — because they want the headache off their books. At Take Notes Capital, we buy non-performing notes at that discount and do the active work of getting the borrower paying again, through loan modifications and resolution strategies. That is where the upside lives, and it is work our team handles so you do not have to. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value — so you understand exactly what you're stepping into before you commit.</p>
+</details>
+<details>
+<summary>How is my investment protected if something goes wrong?</summary>
+<p>Every note we acquire is secured by a physical property. Before we buy, we underwrite to a strict discount: typically 30 to 60 cents on the dollar, and we hold the line at 70% loan-to-value or less. That built-in equity buffer is your first layer of protection. If a borrower defaults, you have legal recourse: loan modification, deed-in-lieu of foreclosure, or full foreclosure. One thing to know: we also check for any existing tax liens before acquiring a note, because tax liens take priority over mortgage liens. Skipping that step is one of the most common mistakes new note investors make — we don't. Thorough due diligence, property inspection, title reports, and attorney review are standard parts of our process on every deal.</p>
+</details>
+<details>
+<summary>How does this actually generate monthly income for me?</summary>
+<p>Simple: when a borrower makes their monthly mortgage payment, that money flows directly to the note holder — you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The yield on a performing note depends on the interest rate, the discount you paid for the note, and the remaining loan term — all factors we walk through transparently before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</p>
+</details>
+<details>
+<summary>What happens if a borrower stops paying?</summary>
+<p>This is the question every serious investor should ask, and I appreciate it. When a borrower goes delinquent, we don't panic — we have a playbook. First, we work with the loan servicer to reach the borrower and understand the situation. Many times, a loan modification (lower rate, extended term) gets the borrower back on track and turns the note back into a performing asset — often at a higher yield than before. If that doesn't work, we pursue deed-in-lieu of foreclosure or full foreclosure through our network of attorneys. Foreclosure timelines vary significantly by state — non-judicial states like Texas can resolve in 60–90 days, while judicial foreclosure states can take 1–2 years. This is one reason we pay close attention to property location and state law when underwriting every deal. The real estate behind the note remains your safety net throughout.</p>
+</details>
+<details>
+<summary>What funds can I use to invest?</summary>
+<p>More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. Note investing through a self-directed account is often the highest-impact shift someone can make with funds they've already saved. Not sure which account type fits your situation? That's exactly what our discovery call is for.</p>
+</details>
+<details>
+<summary>Is note investing better than being a landlord?</summary>
+<p>I'll give you the honest answer: it depends on your goals. Notes and rental properties can generate comparable returns — but the experience is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want passive income without the operational weight — especially those using retirement accounts — notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</p>
+</details>
+<details>
+<summary>How is Take Notes Capital different from other note investing companies?</summary>
+<p>Transparency and relationship — that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers — the risks, the costs, the timelines — not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</p>
+</details>
 </div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What's the difference between a performing and non-performing note?<span class="faq-icon">+</span></button>
-<div class="faq-answer">A performing note is one where the borrower is making on-time monthly payments as agreed — you receive predictable, passive income from day one. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts — sometimes 20–70% below the unpaid loan balance — because they want the headache off their books. At Take Notes Capital, we buy non-performing notes at that discount and do the active work of getting the borrower paying again, through loan modifications and resolution strategies. That is where the upside lives, and it is work our team handles so you do not have to. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value — so you understand exactly what you're stepping into before you commit.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How is my investment protected if something goes wrong?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Every note we acquire is secured by a physical property. Before we buy, we underwrite to a strict discount: typically 30 to 60 cents on the dollar, and we hold the line at 70% loan-to-value or less. That built-in equity buffer is your first layer of protection. If a borrower defaults, you have legal recourse: loan modification, deed-in-lieu of foreclosure, or full foreclosure. One thing to know: we also check for any existing tax liens before acquiring a note, because tax liens take priority over mortgage liens. Skipping that step is one of the most common mistakes new note investors make — we don't. Thorough due diligence, property inspection, title reports, and attorney review are standard parts of our process on every deal.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How does this actually generate monthly income for me?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Simple: when a borrower makes their monthly mortgage payment, that money flows directly to the note holder — you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The yield on a performing note depends on the interest rate, the discount you paid for the note, and the remaining loan term — all factors we walk through transparently before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What happens if a borrower stops paying?<span class="faq-icon">+</span></button>
-<div class="faq-answer">This is the question every serious investor should ask, and I appreciate it. When a borrower goes delinquent, we don't panic — we have a playbook. First, we work with the loan servicer to reach the borrower and understand the situation. Many times, a loan modification (lower rate, extended term) gets the borrower back on track and turns the note back into a performing asset — often at a higher yield than before. If that doesn't work, we pursue deed-in-lieu of foreclosure or full foreclosure through our network of attorneys. Foreclosure timelines vary significantly by state — non-judicial states like Texas can resolve in 60–90 days, while judicial foreclosure states can take 1–2 years. This is one reason we pay close attention to property location and state law when underwriting every deal. The real estate behind the note remains your safety net throughout.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What funds can I use to invest?<span class="faq-icon">+</span></button>
-<div class="faq-answer">More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. Note investing through a self-directed account is often the highest-impact shift someone can make with funds they've already saved. Not sure which account type fits your situation? That's exactly what our discovery call is for.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">Is note investing better than being a landlord?<span class="faq-icon">+</span></button>
-<div class="faq-answer">I'll give you the honest answer: it depends on your goals. Notes and rental properties can generate comparable returns — but the experience is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want passive income without the operational weight — especially those using retirement accounts — notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How is Take Notes Capital different from other note investing companies?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Transparency and relationship — that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers — the risks, the costs, the timelines — not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</div>
 </div>
 </div>
 </section>
@@ -1464,12 +1469,6 @@ who wants
   document.querySelectorAll(".fade-in").forEach(el => obs.observe(el));
   function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("open");
-  }
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains("open");
-    document.querySelectorAll(".faq-item.open").forEach(el => el.classList.remove("open"));
-    if (!isOpen) item.classList.add("open");
   }
   async function submitToGHL(event) {
     event.preventDefault();
