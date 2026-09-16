@@ -1133,13 +1133,31 @@
   if(rail){
     var nodes=[].slice.call(rail.querySelectorAll('.tl-node'));
     var panes=[].slice.call(document.querySelectorAll('#tlPanel .tl-pane'));
-    nodes.forEach(function(n,i){h_bind(n,i);});
-    function h_bind(n,i){n.addEventListener('click',function(){
-      nodes.forEach(function(x){x.classList.remove('active');});
-      panes.forEach(function(x){x.classList.remove('active');});
-      n.classList.add('active');
-      if(panes[i])panes[i].classList.add('active');
-    });}
+    rail.setAttribute('role','tablist'); rail.setAttribute('aria-label','Six steps of the process');
+    function sel(i){
+      nodes.forEach(function(x,j){
+        var on=(j===i);
+        x.classList.toggle('active',on);
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        if(panes[j]){ panes[j].classList.toggle('active',on); }
+      });
+    }
+    nodes.forEach(function(n,i){
+      var pid='tlp'+i; n.id='tlt'+i;
+      n.setAttribute('role','tab'); n.setAttribute('aria-controls',pid);
+      if(panes[i]){ panes[i].id=pid; panes[i].setAttribute('role','tabpanel'); panes[i].setAttribute('aria-labelledby','tlt'+i); }
+      n.addEventListener('click',function(){ sel(i); });
+      n.addEventListener('keydown',function(e){
+        var ni=-1,ln=nodes.length;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') ni=(i+1)%ln;
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') ni=(i-1+ln)%ln;
+        else if(e.key==='Home') ni=0; else if(e.key==='End') ni=ln-1; else return;
+        e.preventDefault(); nodes[ni].focus(); sel(ni);
+      });
+    });
+    // sync initial ARIA to the default-active node
+    nodes.forEach(function(n,i){ var on=n.classList.contains('active'); n.setAttribute('aria-selected',on?'true':'false'); n.tabIndex=on?0:-1; });
   }
   var VALUE=85000,OWED=67000,pay=document.getElementById('cuPay');
   function fmt(n){return Math.round(n).toLocaleString('en-US');}
