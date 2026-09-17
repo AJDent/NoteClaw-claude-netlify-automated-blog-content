@@ -117,6 +117,17 @@
   .dd-form button:hover { background: var(--gold-light); }
   .dd-ok { color: var(--green); font-weight: 600; }
   @media (max-width: 520px) { .dd-form { flex-direction: column; } }
+  /* categorized content cards (R11 §6) */
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); margin-top: 34px; }
+  .rcard { background: var(--ground); padding: 26px 24px; text-decoration: none; display: block; transition: background 0.2s; }
+  .rcard:hover { background: var(--band); }
+  .rcard-tag { display: block; color: var(--blue); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .rcard-title { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 20px; line-height: 1.2; color: var(--text); margin-bottom: 8px; }
+  .rcard:hover .rcard-title { color: var(--blue); }
+  .rcard-desc { display: block; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .rcard:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+  @media (max-width: 820px) { .cards-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .cards-grid { grid-template-columns: 1fr; } }
   .primer-lead { font-size: clamp(18px,2.2vw,24px); line-height: 1.55; color: var(--text); max-width: 600px; }
   .rail .calc-frame { max-width: none; margin: 0 0 14px; text-align: left; }
   /* two-column grids (R8 §2) — align center except process + faq (start) */
@@ -1660,6 +1671,22 @@
 <input type="email" placeholder="you@email.com" aria-label="Your email for the Deal Desk newsletter" required=""/>
 <button type="submit">Subscribe</button>
 </form>
+</div>
+</section>
+<!-- [RC] CATEGORIZED CONTENT CARDS (R11 §6 — blog verified current, newest Sep 7) -->
+<section class="bg-black lay" id="read-more">
+<div class="shell">
+<div class="pil-head fade-in" style="text-align:left;max-width:none;margin-bottom:6px;">
+<h3 class="rail-h">Not ready yet? Read something.</h3>
+</div>
+<div class="cards-grid fade-in">
+<a class="rcard" href="/first-lien-vs-second-lien-notes"><span class="rcard-tag">Underwriting</span><span class="rcard-title">First lien vs. second lien</span><span class="rcard-desc">Why your position in the stack decides the risk.</span></a>
+<a class="rcard" href="/sdira-real-estate-investing-guide"><span class="rcard-tag">SDIRA</span><span class="rcard-title">The self-directed IRA guide</span><span class="rcard-desc">Holding mortgage notes inside your retirement account.</span></a>
+<a class="rcard" href="/non-performing-note-exit-strategies"><span class="rcard-tag">Borrower workouts</span><span class="rcard-title">Exit strategies for non-performing notes</span><span class="rcard-desc">The common ways a delinquent note resolves, with the math.</span></a>
+<a class="rcard" href="/rental-properties-vs-note-investing"><span class="rcard-tag">Market</span><span class="rcard-title">Rentals vs. note investing</span><span class="rcard-desc">The honest comparison, without the landlord spin.</span></a>
+<a class="rcard" href="/why-use-a-note-servicer"><span class="rcard-tag">Getting started</span><span class="rcard-title">Why use a note servicer</span><span class="rcard-desc">The unglamorous job that keeps your income legal.</span></a>
+<a class="rcard" href="/how-to-spot-a-bad-note-deal"><span class="rcard-tag">Underwriting</span><span class="rcard-title">Spot a bad note deal in 30 seconds</span><span class="rcard-desc">The red flags that kill a deal before you bid.</span></a>
+</div>
 </div>
 </section>
 <!-- FOOTER -->
