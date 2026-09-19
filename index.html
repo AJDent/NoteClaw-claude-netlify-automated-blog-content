@@ -12,12 +12,12 @@
 </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Take Notes Capital — Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." name="description"/>
-<title>Take Notes Capital — Earn Like You Own The Building</title>
+<meta content="Take Notes Capital buys first-lien mortgage notes in ten states. You own the loan on the house, not the house. Paid first, secured by real property, with nothing to manage." name="description"/>
+<title>Take Notes Capital: Earn Like You Own The Building</title>
 
 <!-- Open Graph -->
-<meta property="og:title" content="Take Notes Capital — Earn Like You Own The Building" />
-<meta property="og:description" content="Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." />
+<meta property="og:title" content="Take Notes Capital: Earn Like You Own The Building" />
+<meta property="og:description" content="Take Notes Capital buys first-lien mortgage notes in ten states. You own the loan on the house, not the house. Paid first, secured by real property, with nothing to manage." />
 <meta property="og:image" content="https://takenotescapital.com/images/og-image.jpg" />
 <meta property="og:url" content="https://takenotescapital.com/" />
 <meta property="og:type" content="website" />
@@ -25,31 +25,43 @@
 
 <!-- Twitter/X Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Take Notes Capital — Earn Like You Own The Building" />
-<meta name="twitter:description" content="Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." />
+<meta name="twitter:title" content="Take Notes Capital: Earn Like You Own The Building" />
+<meta name="twitter:description" content="Take Notes Capital buys first-lien mortgage notes in ten states. You own the loan on the house, not the house. Paid first, secured by real property, with nothing to manage." />
 <meta name="twitter:image" content="https://takenotescapital.com/images/og-image.jpg" />
 
 <!-- Canonical -->
 <link rel="canonical" href="https://takenotescapital.com/" />
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23212c52'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-weight='700' font-size='11' fill='%235ba4e6'%3ETNC%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
 <style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces-italic.woff2') format('woff2');font-weight:200 700;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
+  html{font-optical-sizing:auto;}
   :root {
-    --black: #0a0a0a;
-    --navy: #212c52;
+    /* R6 palette — all-dark ramp */
+    --ground: #0A0E1A;
+    --band: #0E1424;
+    --card: #131A2B;
+    --hairline: #202B45;
+    --text: #E8ECF4;
+    --muted: #94A3B8;
+    --dim: #5F7191;
+    /* remapped legacy tokens so existing var() usages inherit the ramp */
+    --black: #0A0E1A;
+    --navy: #0E1424;
+    --white: #E8ECF4;
     --gold: #5ba4e6;
     --gold-light: #7bbef0;
-    --white: #ffffff;
     --light: #f8f9fa;
     --red: #e85d5d;
     --green: #4ecb71;
     --blue: #5ba4e6;
     --text-dark: #1a1a1a;
+    --shell: 1180px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { font-family: "Inter", -apple-system, sans-serif; background: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body { font-family: 'Figtree', system-ui, sans-serif; background: var(--black); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 17px; line-height: 1.65; font-optical-sizing: auto; font-variant-numeric: tabular-nums lining-nums; }
 
   /* NAV */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 8px 48px; background: rgba(8,8,8,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(91,164,230,0.15); transition: padding 0.3s; }
@@ -60,7 +72,7 @@
   .nav-links a { color: rgba(250,248,244,0.6); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--blue); }
   .nav-cta { background: var(--blue) !important; color: #ffffff !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; margin-left: 20px; }
   .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; }
   #mobileMenu { display: none; position: fixed; top: 0; left: 0; right: 0; z-index: 99; background: rgba(8,8,8,0.97); backdrop-filter: blur(20px); padding: 92px 24px 28px; border-bottom: 1px solid rgba(91,164,230,0.12); }
   #mobileMenu.open { display: block; }
@@ -68,30 +80,97 @@
   #mobileMenu a { color: rgba(250,248,244,0.75); text-decoration: none; font-size: 17px; }
 
   /* SECTIONS */
-  section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 160px 24px 80px; position: relative; }
-  .section-short { min-height: auto; padding: 80px 24px; }
+  section { min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 72px 24px; position: relative; }
+  .section-short { min-height: auto; padding: 72px 24px; }
+  #hero { padding: 150px 24px 84px; }
+  .hero-orient { margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--hairline); }
+  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 96px 24px 56px; } .hero-orient { margin-top: 40px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
 
-  /* TYPE */
-  .headline-xl { font-family: "Playfair Display", serif; font-size: clamp(36px, 6vw, 72px); font-weight: 700; line-height: 1.15; text-align: center; max-width: 820px; }
-  .headline-lg { font-family: "Playfair Display", serif; font-size: clamp(30px, 5vw, 58px); font-weight: 700; line-height: 1.2; text-align: center; max-width: 760px; }
-  .headline-md { font-family: "Playfair Display", serif; font-size: clamp(22px, 3.5vw, 38px); font-weight: 600; line-height: 1.35; text-align: center; max-width: 660px; }
-  .body-text { font-size: clamp(16px, 2vw, 20px); font-weight: 300; line-height: 1.85; text-align: center; max-width: 600px; }
-  .quote-text { font-family: "Playfair Display", serif; font-style: italic; font-size: clamp(24px, 4vw, 46px); font-weight: 700; line-height: 1.4; text-align: center; max-width: 700px; }
-  .label-text { font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; opacity: 0.45; margin-bottom: 18px; }
+  /* ═══ R8 layout system ═══ */
+  .shell { width: min(var(--shell), calc(100% - 48px)); margin-inline: auto; }
+  .lay { padding: 92px 0; }
+  .lay.dense { padding: 72px 0; }
+  .lay.primer { padding: 62px 0; }
+  .kicker { color: var(--blue); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .rail-h { font-size: clamp(34px, 3.6vw, 50px); line-height: 1.04; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .rail p { max-width: 520px; color: var(--muted); }
+  .wide p { max-width: 600px; }
+  .hl-blue { color: var(--blue); }
+  /* three-number orientation block (R11 §3) */
+  .orient-bar { background: var(--ground); border-bottom: 1px solid var(--hairline); }
+  .orient { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; text-align: center; }
+  .orient-item { display: flex; flex-direction: column; gap: 9px; padding: 4px 12px; }
+  .orient-item:not(:last-child) { border-right: 1px solid var(--hairline); }
+  .orient-val { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(23px, 3.2vw, 38px); line-height: 1.04; color: var(--text); font-variant-numeric: tabular-nums; }
+  .orient-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  @media (max-width: 640px) { .orient { grid-template-columns: 1fr; gap: 22px; } .orient-item:not(:last-child) { border-right: 0; border-bottom: 1px solid var(--hairline); padding-bottom: 22px; } }
+  /* Deal Desk newsletter (R11 §8) */
+  .dd-wrap { max-width: 640px; margin: 0 auto; text-align: center; }
+  .dd-eyebrow { color: var(--blue); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .dd-sub { color: var(--muted); margin: 14px auto 24px; max-width: 520px; }
+  .dd-sub strong { color: var(--text); font-weight: 600; }
+  .dd-form { display: flex; gap: 10px; max-width: 460px; margin: 0 auto; }
+  .dd-form input { flex: 1; background: rgba(255,255,255,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 10px; padding: 14px 16px; color: var(--text); font: inherit; font-size: 15px; }
+  .dd-form input:focus { outline: none; border-color: var(--blue); }
+  .dd-form button { background: var(--blue); color: #fff; border: none; border-radius: 10px; padding: 14px 28px; font-weight: 700; cursor: pointer; font: inherit; white-space: nowrap; }
+  .dd-form button:hover { background: var(--gold-light); }
+  .dd-ok { color: var(--green); font-weight: 600; }
+  @media (max-width: 520px) { .dd-form { flex-direction: column; } }
+  /* categorized content cards (R11 §6) */
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); margin-top: 34px; }
+  .rcard { background: var(--ground); padding: 26px 24px; text-decoration: none; display: block; transition: background 0.2s; }
+  .rcard:hover { background: var(--band); }
+  .rcard-tag { display: block; color: var(--blue); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .rcard-title { display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: 20px; line-height: 1.2; color: var(--text); margin-bottom: 8px; }
+  .rcard:hover .rcard-title { color: var(--blue); }
+  .rcard-desc { display: block; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .rcard:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; }
+  @media (max-width: 820px) { .cards-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .cards-grid { grid-template-columns: 1fr; } }
+  .primer-lead { font-size: clamp(18px,2.2vw,24px); line-height: 1.55; color: var(--text); max-width: 600px; }
+  .primer-body p { font-size: clamp(15.5px,1.8vw,18px); line-height: 1.7; color: var(--muted); margin-bottom: 16px; max-width: 620px; }
+  .primer-body p:last-child { margin-bottom: 0; }
+  .primer-close { color: var(--text); font-style: italic; }
+  .rail .calc-frame { max-width: none; margin: 0 0 14px; text-align: left; }
+  /* two-column grids (R8 §2) — align center except process + faq (start) */
+  .g-primer  { display: grid; grid-template-columns: 1fr 1.2fr 0.85fr; gap: 50px; align-items: center; }
+  .g-calc    { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; align-items: center; }
+  .g-process { display: grid; grid-template-columns: 0.7fr 1.8fr; gap: 70px; align-items: start; }
+  .g-disc    { display: grid; grid-template-columns: 0.9fr 1.2fr 0.75fr; gap: 54px; align-items: center; }
+  .g-cushion { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 80px; align-items: center; }
+  .g-map     { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .g-founder { display: grid; grid-template-columns: 0.8fr 1.2fr 0.9fr; gap: 52px; align-items: center; }
+  .g-edu     { display: grid; grid-template-columns: 1.2fr repeat(4, 1fr); gap: 14px 24px; align-items: start; }
+  .g-faq     { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 80px; align-items: start; }
+  .g-cta     { display: grid; grid-template-columns: 1.15fr 0.9fr 0.8fr; gap: 50px; align-items: center; }
+  .g-photos  { display: grid; grid-template-columns: 1.1fr repeat(3, 0.82fr) 0.8fr; gap: 14px; align-items: stretch; }
+  @media (max-width: 1024px) {
+    .g-primer,.g-calc,.g-process,.g-disc,.g-cushion,.g-map,.g-founder,.g-faq,.g-cta { grid-template-columns: 1fr; gap: 36px; }
+    .g-photos { grid-template-columns: 1fr 1fr 1fr; }
+    .g-edu { grid-template-columns: 1fr 1fr; }
+  }
 
-  .bg-black { background: #080808; color: var(--white); }
-  .bg-white { background: #ffffff; color: var(--text-dark); }
-  .bg-navy { background: var(--navy); color: var(--white); }
-  .bg-light { background: var(--light); color: var(--text-dark); }
-  .bg-deep { background: #0d1f3c; color: var(--white); }
+  /* TYPE */
+  .headline-xl { font-family: 'Fraunces', Georgia, serif; font-size: clamp(48px, 6.5vw, 72px); font-weight: 400; line-height: 0.98; letter-spacing: -0.03em; text-align: center; max-width: 820px; }
+  .headline-lg { font-family: 'Fraunces', Georgia, serif; font-size: clamp(26px, 4vw, 32px); font-weight: 400; line-height: 1.20; letter-spacing: -0.01em; text-align: center; max-width: 720px; }
+  .headline-md { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 3vw, 24px); font-weight: 400; line-height: 1.30; text-align: center; max-width: 640px; }
+  .body-text { font-size: 17px; font-weight: 400; line-height: 1.65; text-align: center; max-width: 64ch; }
+  .quote-text { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: clamp(24px, 4vw, 46px); font-weight: 700; line-height: 1.4; text-align: center; max-width: 700px; }
+  .label-text { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 8px; }
+
+  .bg-black { background: var(--ground); color: var(--text); }
+  .bg-white { background: var(--ground); color: var(--text); }
+  .bg-navy { background: var(--ground); color: var(--text); }
+  .bg-light { background: var(--ground); color: var(--text); }
+  .bg-deep { background: var(--band); color: var(--text); }
   .text-gold { color: var(--gold); }
   .text-red { color: var(--red); }
   .text-green { color: var(--green); }
   .text-blue { color: var(--blue); }
-  .divider { width: 50px; height: 2px; background: var(--blue); border-radius: 2px; margin: 22px auto; }
-  .divider-dark { width: 50px; height: 2px; background: rgba(91,164,230,0.4); border-radius: 2px; margin: 22px auto; }
+  .divider { display: none; }
+  .divider-dark { display: none; }
 
   /* CARDS */
   .cards-row { display: flex; gap: 24px; max-width: 840px; width: 100%; margin-top: 20px; }
@@ -128,29 +207,29 @@
   .investor-card:hover { border-color: rgba(91,164,230,0.45); transform: translateY(-5px); }
   .investor-icon { font-size: 38px; margin-bottom: 16px; }
   .investor-type { font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-  .investor-title { font-family: "Playfair Display", serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; line-height: 1.25; margin-bottom: 14px; color: var(--white); }
+  .investor-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; line-height: 1.25; margin-bottom: 14px; color: var(--white); }
   .investor-body { font-size: 15px; line-height: 1.75; font-weight: 300; color: rgba(250,248,244,0.7); }
   .investor-return { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(91,164,230,0.15); font-size: 14px; font-weight: 600; color: var(--gold); }
 
   /* LEARN SECTION */
   .learn-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 820px; width: 100%; margin-top: 40px; }
-  .learn-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(91,164,230,0.2); border-radius: 16px; padding: 32px 26px; text-align: left; transition: border-color 0.3s; }
+  .learn-card { background: none; border: none; border-radius: 0; padding: 0; text-align: left; }
   .learn-card:hover { border-color: rgba(91,164,230,0.45); }
-  .learn-number { font-family: "Playfair Display", serif; font-size: 52px; font-weight: 700; color: rgba(91,164,230,0.2); line-height: 1; margin-bottom: 10px; }
-  .learn-title { font-family: "Playfair Display", serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .learn-number { font-family: 'Fraunces', Georgia, serif; font-size: 52px; font-weight: 700; color: rgba(91,164,230,0.2); line-height: 1; margin-bottom: 10px; }
+  .learn-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(18px, 2.2vw, 22px); font-weight: 600; color: var(--white); margin-bottom: 10px; }
   .learn-body { font-size: 14px; line-height: 1.75; font-weight: 300; color: rgba(250,248,244,0.65); }
 
   /* CTA */
-  .cta-btn { display: inline-block; background: var(--blue); color: #ffffff; font-family: "Inter", -apple-system, sans-serif; font-size: 17px; font-weight: 700; padding: 18px 52px; border-radius: 50px; text-decoration: none; margin-top: 38px; transition: all 0.3s; }
+  .cta-btn { display: inline-block; background: var(--blue); color: #ffffff; font-family: 'Figtree', system-ui, sans-serif; font-size: 17px; font-weight: 700; padding: 18px 52px; border-radius: 50px; text-decoration: none; margin-top: 38px; transition: all 0.3s; }
   .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(91,164,230,0.25); }
-  .cta-btn-outline { display: inline-block; background: transparent; color: var(--blue); font-family: "Inter", -apple-system, sans-serif; font-size: 16px; font-weight: 600; padding: 15px 44px; border-radius: 50px; text-decoration: none; margin-top: 18px; transition: all 0.3s; border: 2px solid var(--blue); }
+  .cta-btn-outline { display: inline-block; background: transparent; color: var(--blue); font-family: 'Figtree', system-ui, sans-serif; font-size: 16px; font-weight: 600; padding: 15px 44px; border-radius: 50px; text-decoration: none; margin-top: 18px; transition: all 0.3s; border: 2px solid var(--blue); }
   .cta-btn-outline:hover { background: var(--blue); color: #ffffff; }
-  .cta-btn-blue { display: inline-block; background: var(--blue); color: #fff; font-family: "Inter", -apple-system, sans-serif; font-size: 17px; font-weight: 700; padding: 18px 52px; border-radius: 50px; text-decoration: none; margin-top: 38px; transition: all 0.3s; }
+  .cta-btn-blue { display: inline-block; background: var(--blue); color: #fff; font-family: 'Figtree', system-ui, sans-serif; font-size: 17px; font-weight: 700; padding: 18px 52px; border-radius: 50px; text-decoration: none; margin-top: 38px; transition: all 0.3s; }
   .cta-btn-blue:hover { background: #7bbef0; transform: translateY(-2px); box-shadow: 0 12px 36px rgba(91,164,230,0.25); }
 
   /* ABOUT */
   .about-content { max-width: 620px; text-align: center; }
-  .about-content p { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; margin-bottom: 16px; color: rgba(26,26,26,0.75); }
+  .about-content p { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; margin-bottom: 16px; color: var(--muted); }
   .about-content p strong { font-weight: 600; color: var(--text-dark); }
 
   /* TESTIMONIALS */
@@ -163,14 +242,13 @@
   .testimonial-location { font-size: 12px; opacity: 0.45; margin-top: 3px; }
 
   /* FAQ */
-  .faq-list { max-width: 760px; width: 100%; margin-top: 40px; }
-  .faq-item { border-bottom: 1px solid rgba(91,164,230,0.14); }
-  .faq-question { width: 100%; background: none; border: none; color: var(--white); text-align: left; padding: 22px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: "Inter", -apple-system, sans-serif; font-size: clamp(15px, 2vw, 17px); font-weight: 500; line-height: 1.5; transition: color 0.2s; }
-  .faq-question:hover { color: var(--gold); }
-  .faq-icon { font-size: 22px; flex-shrink: 0; color: var(--gold); transition: transform 0.3s; }
-  .faq-item.open .faq-icon { transform: rotate(45deg); }
-  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; font-size: clamp(14px, 1.8vw, 16px); line-height: 1.8; font-weight: 300; color: rgba(250,248,244,0.65); padding-right: 20px; }
-  .faq-item.open .faq-answer { max-height: 400px; padding-bottom: 22px; }
+  .faq-list { border-top: 1px solid var(--hairline); width: 100%; }
+  .faq-list details { border-bottom: 1px solid var(--hairline); padding: 17px 0; }
+  .faq-list summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 600; font-size: clamp(15px, 2vw, 17px); line-height: 1.5; color: var(--text); }
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary::after { content: "+"; color: var(--blue); font-size: 21px; line-height: 1; flex-shrink: 0; }
+  .faq-list details[open] summary::after { content: "−"; }
+  .faq-list p { color: var(--muted); max-width: 700px; margin: 12px 0 0; font-size: clamp(14px, 1.8vw, 16px); line-height: 1.75; }
 
   /* CONTACT */
   .contact-wrapper { max-width: 580px; width: 100%; margin-top: 38px; }
@@ -178,11 +256,11 @@
   .form-row { display: flex; gap: 15px; }
   .form-group { display: flex; flex-direction: column; gap: 7px; flex: 1; }
   .form-group label { font-size: 12px; font-weight: 600; letter-spacing: 0.5px; opacity: 0.6; text-transform: uppercase; }
-  .form-group input, .form-group textarea, .form-group select { background: rgba(255,255,255,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 10px; padding: 14px 16px; color: var(--white); font-family: "Inter", -apple-system, sans-serif; font-size: 15px; font-weight: 300; outline: none; transition: border-color 0.2s, background 0.2s; }
+  .form-group input, .form-group textarea, .form-group select { background: rgba(255,255,255,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 10px; padding: 14px 16px; color: var(--white); font-family: 'Figtree', system-ui, sans-serif; font-size: 15px; font-weight: 300; outline: none; transition: border-color 0.2s, background 0.2s; }
   .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue); background: rgba(91,164,230,0.05); }
   .form-group select option { background: #1a1a1a; color: var(--white); }
   .form-group textarea { resize: vertical; min-height: 110px; }
-  .form-submit { background: var(--blue); color: #ffffff; border: none; border-radius: 50px; padding: 17px 40px; font-family: "Inter", -apple-system, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 6px; align-self: center; }
+  .form-submit { background: var(--blue); color: #ffffff; border: none; border-radius: 50px; padding: 17px 40px; font-family: 'Figtree', system-ui, sans-serif; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 6px; align-self: center; }
   .form-submit:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(91,164,230,0.22); }
   .form-success { display: none; text-align: center; padding: 40px 20px; }
   .calendly-divider { display: flex; align-items: center; gap: 16px; margin: 28px 0; }
@@ -203,7 +281,7 @@
   .legal-modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); overflow-y: auto; padding: 40px 20px; }
   .legal-modal.open { display: block; }
   .legal-modal-inner { max-width: 760px; margin: 0 auto; background: #0e0e0e; border: 1px solid rgba(91,164,230,0.15); border-radius: 12px; padding: 48px 40px 56px; position: relative; }
-  .legal-modal-inner h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 36px); color: var(--white); margin-bottom: 6px; }
+  .legal-modal-inner h1 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 36px); color: var(--white); margin-bottom: 6px; }
   .legal-modal-inner .legal-date { font-size: 12px; opacity: 0.35; margin-bottom: 36px; display: block; }
   .legal-modal-inner h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 36px 0 12px; }
   .legal-modal-inner p { font-size: 14px; line-height: 1.85; color: rgba(250,248,244,0.65); margin-bottom: 14px; }
@@ -250,25 +328,25 @@
   .text-muted-dark-55 { color: rgba(26,26,26,0.55); }
   .text-sm-muted { font-size: 13px; opacity: 0.4; margin-bottom: 28px; text-align: center; }
   .body-text-lg { font-size: clamp(16px,2vw,19px); line-height: 1.9; font-weight: 300; text-align: center; color: rgba(250,248,244,0.75); margin-bottom: 24px; }
-  .quote-callout { font-family: "Playfair Display", serif; font-size: clamp(20px,3vw,28px); font-weight: 600; }
+  .quote-callout { font-family: 'Fraunces', Georgia, serif; font-size: clamp(20px,3vw,28px); font-weight: 600; }
   .blockquote-blue { background: #f0f4fb; border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
-  .blockquote-blue p { margin: 0; font-size: 15px; line-height: 1.75; color: #333; }
+  .blockquote-blue p { margin: 0; font-size: 15px; line-height: 1.75; color: var(--muted); }
   .blockquote-light { background: #f8f9fa; border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
-  .blockquote-light p { margin: 0; font-size: 15px; line-height: 1.7; color: #333; }
-  .mission-highlight { background: rgba(91,164,230,0.06); border: 1px solid rgba(91,164,230,0.2); border-radius: 16px; padding: 36px 40px; margin: 32px 0; text-align: center; }
+  .blockquote-light p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--muted); }
+  .mission-highlight { background: none; border: none; border-radius: 0; padding: 0; margin: 24px 0; text-align: center; }
   .mission-highlight p { font-size: clamp(16px,2vw,19px); line-height: 1.9; font-weight: 300; color: rgba(250,248,244,0.85); margin: 0; }
-  .mission-pillars { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 16px; padding-top: 32px; border-top: 1px solid rgba(91,164,230,0.15); }
-  .mission-pillar { font-family: "Playfair Display", serif; font-size: 28px; font-weight: 700; color: var(--blue); text-align: center; }
-  .mission-tagline { font-family: "Playfair Display", serif; font-size: clamp(18px,2.5vw,24px); font-weight: 700; text-align: center; color: var(--white); margin-top: 32px; letter-spacing: 1px; }
+  .mission-pillars { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 24px; }
+  .mission-pillar { font-family: 'Fraunces', Georgia, serif; font-size: 28px; font-weight: 700; color: var(--blue); text-align: center; }
+  .mission-tagline { font-family: 'Fraunces', Georgia, serif; font-size: clamp(18px,2.5vw,24px); font-weight: 700; text-align: center; color: var(--white); margin-top: 32px; letter-spacing: 1px; }
   .cta-sub { font-size: 16px; opacity: 0.55; margin-bottom: 6px; }
   .cta-sub-sm { font-size: 15px; opacity: 0.5; margin-bottom: 4px; }
   .investor-cta-wrap { margin-top: 52px; text-align: center; }
   .learn-cta-wrap { text-align: center; margin-top: 50px; }
-  .form-success-title { font-family: "Cormorant Garamond", serif; font-size: 30px; margin-bottom: 10px; }
+  .form-success-title { font-family: 'Fraunces', Georgia, serif; font-size: 30px; margin-bottom: 10px; }
   .form-success-icon { font-size: 48px; margin-bottom: 16px; }
   .comparison-heading { margin-bottom: 38px; color: var(--text-dark); }
-  .label-blue { color: rgba(91,164,230,0.8); }
-  .label-faint { color: rgba(250,248,244,0.45); }
+  .label-blue { color: #5F7191; }
+  .label-faint { color: #5F7191; }
   .disclaimer-section { margin-top: 56px; }
   .contact-note { margin-top: 14px; color: rgba(250,248,244,0.48); }
   .sarah-intro { color: rgba(250,248,244,0.42); margin-bottom: 12px; }
@@ -289,7 +367,7 @@
   .text-dark-val { color: var(--text-dark); }
 
   .nav-cta-mobile { color: var(--blue); font-weight: 600; }
-  .hero-sub { margin-top: 22px; color: rgba(250,248,244,0.5); }
+  .hero-sub { margin-top: 14px; color: rgba(250,248,244,0.5); }
   .body-text-dark-65 { margin-top: 16px; color: rgba(26,26,26,0.65); }
   .headline-ready { margin-top: 40px; color: var(--text-dark); }
   .headline-allin { margin-top: 14px; }
@@ -313,7 +391,7 @@
   .form-success-note { opacity: 0.55; font-size: 16px; }
   .cta-btn-outline-mt { margin-top: 22px; }
   .footer-legal-btns { display: flex; justify-content: center; gap: 24px; margin-bottom: 14px; }
-  .footer-legal-btn { background: none; border: none; color: rgba(250,248,244,0.3); font-size: 12px; cursor: pointer; font-family: "Inter", -apple-system, sans-serif; text-decoration: underline; transition: color 0.2s; display: inline-block; }
+  .footer-legal-btn { background: none; border: none; color: rgba(250,248,244,0.3); font-size: 12px; cursor: pointer; font-family: 'Figtree', system-ui, sans-serif; text-decoration: underline; transition: color 0.2s; display: inline-block; }
   .footer-legal-btn:hover { color: rgba(250,248,244,0.7); }
 
   /* NOTE BUYERS */
@@ -328,7 +406,7 @@
   }
   .nb-intro, .nb-success { max-width: 700px; margin: 0 auto; text-align: center; }
   .nb-label { font-size: 12px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue); opacity: 0.9; margin-bottom: 18px; }
-  .nb-title { font-family: "Playfair Display", serif; font-size: clamp(30px, 5vw, 52px); line-height: 1.18; margin-bottom: 18px; }
+  .nb-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(30px, 5vw, 52px); line-height: 1.18; margin-bottom: 18px; }
   .nb-copy { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; color: rgba(250,248,244,0.68); margin-bottom: 32px; }
   .nb-progress { width: 100%; max-width: 700px; margin: 0 auto 34px; }
   .nb-progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,248,244,0.42); margin-bottom: 10px; }
@@ -340,7 +418,7 @@
   @keyframes nbFadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
   .nb-back { background: none; border: none; color: rgba(250,248,244,0.38); font-family: inherit; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; padding: 0; }
   .nb-back:hover { color: rgba(250,248,244,0.75); }
-  .nb-question { font-family: "Playfair Display", serif; font-size: clamp(24px, 4vw, 38px); line-height: 1.22; margin-bottom: 10px; }
+  .nb-question { font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 38px); line-height: 1.22; margin-bottom: 10px; }
   .nb-sub { font-size: 14px; color: rgba(250,248,244,0.48); margin-bottom: 28px; font-weight: 300; }
   .nb-options { display: grid; gap: 12px; margin-bottom: 26px; }
   .nb-options.two-col { grid-template-columns: repeat(2, 1fr); }
@@ -406,7 +484,7 @@
   .nb-group label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,248,244,0.52); }
   .nb-success { display: none; }
   .nb-success-icon { font-size: 56px; margin-bottom: 18px; }
-  .nb-success-title { font-family: "Playfair Display", serif; font-size: clamp(30px, 5vw, 46px); margin-bottom: 12px; }
+  .nb-success-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(30px, 5vw, 46px); margin-bottom: 12px; }
   .nb-success-copy { font-size: 17px; line-height: 1.8; color: rgba(250,248,244,0.68); margin-bottom: 20px; }
   .nb-mini-link { color: var(--blue); text-decoration: none; font-size: 15px; font-weight: 600; }
   .nb-mini-link:hover { color: var(--gold-light); }
@@ -417,6 +495,262 @@
     .nb-states { grid-template-columns: repeat(3, 1fr); }
   }
 
+  /* ═══ homepage-revamp: sentence completion ═══ */
+  .sc-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; text-align: center; font-size: clamp(20px,2.6vw,31px); line-height: 1.35; max-width: 1080px; margin: 0 auto; }
+  @media (min-width: 701px) { .sc-half { white-space: nowrap; } }
+  .sc-half { display: inline-flex; align-items: center; gap: 10px; }
+  .calc-transition { border-left: 3px solid var(--blue); padding-left: 16px; margin-bottom: 24px; }
+  .ct-echo { font-size: 14.5px; color: var(--text); font-weight: 600; margin-bottom: 10px; line-height: 1.5; }
+  .ct-echo a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .ct-echo a:hover { text-decoration: underline; }
+  .ct-insight { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+  .ct-permission { font-size: 13px; color: var(--dim); font-style: italic; }
+  .sc-line select {
+    font: inherit; font-size: 0.95em; color: var(--blue); background: transparent;
+    border: none; border-bottom: 2px solid var(--blue); padding: 2px 28px 2px 6px; margin: 0 3px;
+    cursor: pointer; -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%235ba4e6' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 8px center;
+  }
+  .sc-line select:focus { outline: none; border-bottom-color: var(--green); }
+  .sc-line option { color: #111; }
+  .sc-result { max-width: 620px; margin: 36px auto 0; }
+  .sc-result p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+  /* credibility strip */
+  .cred-strip { background: none; padding: 8px 24px 24px; text-align: center; }
+  .cred-label { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 24px; }
+  .cred-logos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
+  .cred-chip { background: #fff; border-radius: 10px; padding: 12px 22px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
+  .cred-chip img { max-height: 48px; max-width: 155px; width: auto; object-fit: contain; display: block; }
+  /* note primer */
+  .label-text-dark { color: var(--dim); opacity: 0.85; }
+  .primer-line { font-size: clamp(19px,2.4vw,26px); line-height: 1.6; max-width: 720px; margin: 0 auto; color: var(--text); font-weight: 500; }
+  .primer-red { color: var(--red); font-weight: 700; }
+  @media (max-width: 600px) { .sc-line { line-height: 2.1; } .cred-chip { height: 62px; padding: 10px 16px; } .cred-chip img { max-height: 40px; } }
+  /* ═══ calculator ═══ */
+  .calc-frame { font-size: clamp(22px,3.2vw,32px); font-weight: 700; max-width: 22ch; margin: 0 auto 6px; line-height: 1.3; }
+  .calc-card { max-width: 640px; margin: 26px auto 0; background: #0f1424; border: 1px solid rgba(91,164,230,0.18); border-radius: 16px; padding: 28px 26px; text-align: left; }
+  .calc-inputs { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  .calc-fld:nth-child(3) { grid-column: 1 / -1; }
+  @media (max-width: 560px) { .calc-inputs { grid-template-columns: 1fr; } }
+  .calc-fld { display: flex; flex-direction: column; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.7); font-weight: 500; }
+  .calc-fld input { font: inherit; font-size: 16px; color: var(--white); background: #080b14; border: 1px solid rgba(91,164,230,0.25); border-radius: 8px; padding: 11px 12px; }
+  .calc-fld input:focus { outline: none; border-color: var(--blue); }
+  .calc-stage1 { margin-top: 20px; font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .calc-stage1 p, .calc-stage2 p { margin: 0 0 8px; }
+  .calc-stage1 b { color: var(--green); }
+  .calc-gate { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(91,164,230,0.15); }
+  .calc-gate-q { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 14px; }
+  .calc-gate-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .calc-gate-row input { flex: 1; min-width: 180px; font: inherit; font-size: 15px; color: var(--white); background: #080b14; border: 1px solid rgba(91,164,230,0.25); border-radius: 8px; padding: 12px 14px; }
+  .calc-gate-row .cta-btn { margin: 0; }
+  .calc-gate-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 10px; }
+  .calc-stage2 { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(78,203,113,0.25); font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); }
+  .calc-s2-head { font-weight: 700; color: var(--green); margin-bottom: 10px; }
+  .calc-stage2 b { color: var(--green); }
+  .calc-secured { margin: 16px 0; }
+  .calc-secured-bar { display: flex; height: 34px; border-radius: 7px; overflow: hidden; font-size: 11px; font-weight: 700; }
+  .calc-secured-bar .seg-note { background: var(--blue); color: #fff; flex: 62; display: flex; align-items: center; justify-content: center; }
+  .calc-secured-bar .seg-eq { background: #3fae5f; color: #06210f; flex: 38; display: flex; align-items: center; justify-content: center; }
+  .calc-secured-cap { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+  .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
+  .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
+  .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
+  .calc-intro { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 4px; line-height: 1.5; }
+  .calc-intro b { color: var(--blue); }
+  .calc-intro-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 18px; }
+  .calc-change { text-align: center; margin-top: 20px; font-size: 14px; color: rgba(255,255,255,0.5); }
+  .calc-change a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  /* R3 quality floor: visible keyboard focus + reduced motion */
+  a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { *, ::before, ::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } .fade-in { opacity: 1 !important; transform: none !important; } }
+  .section-sub { max-width: 620px; margin: 14px auto 0; font-size: clamp(15px,1.8vw,17px); line-height: 1.6; color: var(--muted); text-align: center; }
+  /* ═══ six-step horizontal timeline ═══ */
+  .timeline { max-width: 900px; margin: 34px auto 0; }
+  .cushion-wrap { max-width: 640px; margin: 26px auto 0; text-align: left; }
+  .tl-rail { display: grid; grid-template-columns: repeat(6, 1fr); border-top: 1px solid var(--hairline); margin-top: 20px; }
+  .tl-node { position: relative; display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: transparent; border: none; border-right: 1px solid rgba(32,43,69,0.65); cursor: pointer; padding: 30px 14px 22px; min-height: 150px; font: inherit; transition: background 0.2s; }
+  .tl-node:last-child { border-right: 0; }
+  .tl-node::before { content: ""; position: absolute; top: -4px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 5px rgba(91,164,230,0.13); transition: transform 0.2s; }
+  .tl-num { color: var(--blue); font-variant-numeric: tabular-nums; font-size: 15px; font-weight: 700; }
+  .tl-label { display: block; margin-top: 16px; font-size: 13px; line-height: 1.35; font-weight: 600; color: var(--muted); }
+  .tl-tag { display: block; margin-top: 12px; font-size: 11px; letter-spacing: 1.5px; color: var(--blue); font-weight: 800; }
+  .tl-node.you { background: rgba(78,203,113,0.05); }
+  .tl-node.you::before { background: var(--green); box-shadow: 0 0 0 5px rgba(78,203,113,0.13); }
+  .tl-node.you .tl-tag { color: var(--green); }
+  .tl-node.active { background: #17294A; }
+  .tl-node.active .tl-label { color: #FFFFFF; }
+  .tl-node.active::before { transform: scale(1.35); }
+  .tl-node.you.active { background: rgba(78,203,113,0.09); }
+  .tl-panel { border-top: 1px solid var(--hairline); margin: 26px auto 0; padding-top: 26px; min-height: 210px; max-width: 720px; text-align: left; }
+  .tl-pane { display: none; }
+  .tl-pane.active { display: block; }
+  .tl-pane-h { font-size: 18px; font-weight: 600; color: var(--white); margin: 0 0 14px; letter-spacing: 0.2px; }
+  .tl-pane-n { color: var(--blue); }
+  .tl-pane-tag { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+  .tl-pane-tag.tnc { color: #5F7191; }
+  .tl-pane-tag.you { color: var(--green); }
+  .tl-pane p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0 0 12px; }
+  .tl-pane b, .tl-pane .text-white-strong { color: var(--white); }
+  .tl-teaser { border-left: 3px solid var(--blue); padding-left: 16px; margin: 18px 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .step-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 14px; }
+  @media (max-width: 1024px) { .tl-rail { grid-template-columns: repeat(3, 1fr); } .tl-node { min-height: 132px; } }
+  @media (max-width: 720px) {
+    .tl-rail { grid-template-columns: 1fr; border-top: 0; }
+    .tl-node { flex-direction: row; align-items: center; gap: 12px; min-height: 0; padding: 15px 6px; border-right: 0; border-bottom: 1px solid var(--hairline); }
+    .tl-node::before { display: none; }
+    .tl-num { min-width: 26px; }
+    .tl-label { margin-top: 0; flex: 1; }
+    .tl-label br { display: none; }
+    .tl-tag { margin-top: 0; }
+    .tl-panel { min-height: 0; }
+  }
+  /* equity cushion */
+  .cushion { background: none; border: none; border-radius: 0; padding: 0; margin: 16px 0; }
+  .cushion-setup { font-size: 16px; color: var(--white); margin-bottom: 16px; line-height: 1.6; }
+  .cushion-lbl { display: block; font-size: 13px; color: rgba(255,255,255,0.65); margin-bottom: 6px; }
+  .cushion-lbl b { color: var(--blue); }
+  .cushion-lbl input { display: block; width: 100%; margin-top: 12px; accent-color: var(--blue); }
+  .cushion-bar { position: relative; display: flex; height: 46px; font-size: 11px; font-weight: 700; margin-top: 30px; }
+  .cu-pay { background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; min-width: 44px; border-radius: 8px 0 0 8px; }
+  .cu-room { display: flex; align-items: center; justify-content: center; min-width: 44px; color: #06210f; border-radius: 0 8px 8px 0; }
+  .cu-room.state-good { background: #3fae5f; }
+  .cu-room.state-thin { background: #5ba4e6; color: #04121f; }
+  .cu-room.state-pass { background: #e85d5d; color: #3a0d0d; }
+  .cu-tick { position: absolute; top: -8px; bottom: -8px; width: 2px; background: var(--white); }
+  .cu-tick-lbl { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.75); margin-top: 5px; }
+  .cushion-sentence { font-size: 15px; line-height: 1.6; margin-top: 48px; padding: 2px 0 2px 16px; border-left: 3px solid var(--green); }
+  .cushion-sentence.state-good { border-color: var(--green); }
+  .cushion-sentence.state-thin { border-color: var(--blue); }
+  .cushion-sentence.state-pass { border-color: var(--red); }
+  .cushion-sentence b { color: var(--white); }
+  /* seven exits */
+  .exits-grid { display: flex; flex-direction: column; margin: 16px 0; }
+  .exit { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: baseline; font-size: 14.5px; line-height: 1.55; padding: 14px 0; border-bottom: 1px solid var(--hairline); background: none; border-radius: 0; }
+  .exit:last-child { border-bottom: none; }
+  .exit-n { font-weight: 700; color: var(--blue); text-align: right; }
+  .exit b { color: var(--text); }
+  .exit-last { background: none; }
+  .exit-last .exit-n { color: var(--red); }
+  /* ═══ underwriting discipline ═══ */
+  .uw-grid { display: grid; grid-template-columns: 0.9fr 1.2fr 0.75fr; gap: 54px; text-align: left; align-items: center; }
+  .uw-head h3 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px,3vw,40px); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; color: var(--white); margin: 0 0 16px; }
+  .uw-head p { font-size: 15px; line-height: 1.65; color: var(--muted); margin: 0; max-width: 520px; }
+  .uw-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 30px; font-size: 14px; }
+  .uw-check { display: flex; gap: 9px; align-items: baseline; line-height: 1.4; color: var(--text); }
+  .uw-check::before { content: "✓"; color: var(--blue); font-weight: 700; font-size: 12px; flex-shrink: 0; }
+  .reject-callout { border-left: 3px solid var(--red); padding-left: 28px; }
+  .reject-callout h4 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; color: #ff7d78; font-size: 30px; line-height: 1.1; margin: 0 0 10px; }
+  .reject-callout p { font-size: 15px; line-height: 1.55; color: #E85D5D; margin: 0; }
+  /* ═══ hex-grid state map (R9 §1) ═══ */
+  .statemap-wide { overflow: hidden; }
+  .hexrow { display: flex; gap: 3px; margin-bottom: 3px; }
+  .hexrow.odd { margin-left: calc((100% / 12 + 3px) / 2); }
+  .hexcell { flex: 0 0 calc((100% - 33px) / 12); aspect-ratio: 1 / 1.1; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: #2C3B58; background: #111A2C; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); transition: background .2s, color .2s; }
+  .hexcell.on { background: #24568A; color: #CDE5FA; }
+  .hexcell.on:hover { background: #25537F; color: #D3E8FB; }
+  .hexcell.empty { background: none; }
+  .hex-legend { display: flex; gap: 22px; margin-top: 22px; font-size: 12px; color: var(--muted); }
+  .hex-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .hex-swatch { width: 13px; height: 13px; border-radius: 2px; }
+  .hex-swatch.on { background: #1C3A5C; border: 1px solid #2F5580; }
+  .hex-swatch.off { background: #111A2C; border: 1px solid #202B45; }
+  .state-cloud { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; margin-top: 24px; }
+  .state-cloud span { height: 64px; display: grid; place-items: center; border: 1px solid #234b73; color: var(--blue); background: linear-gradient(180deg,rgba(24,57,89,.35),rgba(12,24,39,.5)); font-weight: 800; font-size: 15px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  @media (prefers-reduced-motion: reduce) { .hexcell { transition: none; } }
+  /* ═══ pillar rows (R10 §5) ═══ */
+  .pil-head { max-width: 760px; margin: 0 auto 30px; text-align: center; }
+  .pil-head p { color: var(--muted); margin-top: 12px; }
+  .pil-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .pil-row.three { grid-template-columns: repeat(3, 1fr); }
+  .pil { background: #101828; border: 1px solid #1B2740; border-top: 2px solid #243350; padding: 16px 32px 15px 14px; cursor: pointer; text-align: left; position: relative; font: inherit; color: var(--text); transition: background .2s; }
+  .pil:hover { background: #131D31; }
+  .pil.on { background: #17294A; border-color: #3E6D9E; border-top-color: #5BA4E6; }
+  .pil.on .pil-t { color: #FFFFFF; }
+  .pil-n { font-size: 12px; font-weight: 800; color: var(--blue); font-variant-numeric: tabular-nums; }
+  .pil-t { display: block; margin-top: 8px; font-size: 15px; font-weight: 600; color: var(--text); }
+  .pil-d { display: block; margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+  .pil-chev { position: absolute; top: 15px; right: 12px; color: var(--blue); font-size: 12px; transition: transform .2s; }
+  .pil.on .pil-chev { transform: rotate(180deg); }
+  .pil:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+  .panel { border: 1px solid #2F5580; border-top: 0; background: #0C1322; margin-top: -1px; padding: 26px 24px 28px; }
+  .panel[hidden] { display: none; }
+  @media (max-width: 780px) { .pil-row, .pil-row.three { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .pil-row, .pil-row.three { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .pil, .pil-chev { transition: none; } }
+  /* full cushion in a panel (R10 §6) */
+  .cu-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; margin-top: 22px; }
+  .cu-setup-box { border-left: 3px solid var(--blue); padding-left: 16px; margin-bottom: 22px; }
+  .cu-setup-box .lbl { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--blue); font-weight: 700; margin-bottom: 6px; }
+  .cu-stats { display: grid; gap: 12px; margin: 20px 0; }
+  .cu-stat { border: 1px solid var(--hairline); border-radius: 8px; padding: 13px 15px; }
+  .cu-stat .lbl { display: block; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); line-height: 1.45; margin-bottom: 7px; }
+  .cu-stat .val { font-family: 'Fraunces', Georgia, serif; font-size: 27px; color: var(--text); }
+  .cu-stat.state-good .val { color: var(--green); } .cu-stat.state-thin .val { color: var(--blue); } .cu-stat.state-pass .val { color: var(--red); }
+  .cu-close { font-size: 14px; line-height: 1.75; color: var(--muted); }
+  .cu-close .red { color: var(--red); font-weight: 600; }
+  .cu-foot { font-size: 12px; color: var(--dim); margin-top: 16px; }
+  @media (max-width: 700px) { .cu-panel { grid-template-columns: 1fr; gap: 24px; } }
+  /* checklist (R10 §7) */
+  .ck-intro { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 780px; margin-bottom: 22px; }
+  .ck-cols { columns: 2; column-gap: 40px; }
+  .ck-stage { break-inside: avoid; margin: 0 0 20px; }
+  .ck-stage h5 { font-size: 14px; font-weight: 700; color: var(--text); break-after: avoid; }
+  .ck-stage h5 span { display: block; font-size: 12.5px; font-weight: 400; color: var(--muted); margin-top: 3px; }
+  .ck-stage ul { list-style: none; margin-top: 11px; }
+  .ck-stage li { break-inside: avoid; display: flex; gap: 9px; font-size: 13.5px; line-height: 1.45; color: var(--text); padding: 5px 0; }
+  .ck-stage li::before { content: "✓"; color: var(--blue); font-weight: 700; font-size: 11px; flex-shrink: 0; }
+  .ck-close { border: 1px solid #2F5580; border-radius: 8px; background: rgba(91,164,230,0.06); padding: 16px 18px; margin-top: 12px; font-size: 14.5px; line-height: 1.65; color: var(--text); }
+  /* foreclosure timeline bars (R9 §3 / R10 §5 pillar 04) */
+  .fc-legend { display: flex; gap: 18px; font-size: 12px; color: var(--muted); margin-bottom: 20px; flex-wrap: wrap; }
+  .fc-legend span { display: inline-flex; align-items: center; gap: 7px; }
+  .fc-dot { width: 11px; height: 11px; border-radius: 2px; }
+  .fc-list { display: grid; gap: 13px; max-width: 640px; }
+  .fc-row { display: grid; grid-template-columns: 32px 1fr 86px; gap: 12px; align-items: center; }
+  .fc-code { font-weight: 700; font-size: 13px; color: var(--text); }
+  .fc-track { height: 7px; background: #111A2C; border-radius: 4px; position: relative; }
+  .fc-fill { position: absolute; top: 0; height: 100%; border-radius: 4px; }
+  .fc-months { font-size: 12.5px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .fc-foot { font-size: 12px; color: var(--dim); margin-top: 18px; max-width: 640px; }
+  .fc-pending { color: var(--red); border-bottom: 1px dashed var(--red); }
+  /* idle-cash inflation chart (R9 §2 / R10 §5 pillar 05) */
+  .infl-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 32px; margin-bottom: 20px; max-width: 560px; }
+  .infl-ctl label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .infl-ctl label b { font-family: 'Fraunces', Georgia, serif; color: var(--text); font-size: 18px; font-weight: 400; margin-left: 6px; }
+  .infl-ctl input[type=range] { width: 100%; accent-color: var(--blue); }
+  .infl-chart { max-width: 620px; }
+  .infl-chart svg { width: 100%; height: auto; }
+  .infl-read { border-left: 3px solid var(--muted); padding-left: 16px; margin-top: 18px; font-size: 15px; line-height: 1.6; color: var(--text); max-width: 620px; }
+  .infl-read.good { border-color: var(--green); } .infl-read.bad { border-color: var(--red); } .infl-read.level { border-color: var(--blue); }
+  .infl-read b { color: var(--text); font-weight: 700; }
+  .infl-foot { font-size: 12px; color: var(--dim); margin-top: 16px; max-width: 620px; }
+  @media (max-width: 1024px) { .uw-grid { grid-template-columns: 1fr; gap: 34px; } }
+  /* ═══ comparison table ═══ */
+  .headline-dark { color: var(--text); }
+  .cmp-scroll { overflow-x: auto; max-width: 780px; margin: 28px auto 0; -webkit-overflow-scrolling: touch; }
+  .cmp-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15px; }
+  .cmp-table th, .cmp-table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--hairline); }
+  .cmp-table thead th { font-weight: 700; color: var(--muted); font-size: 14px; letter-spacing: 0.3px; }
+  .cmp-attr { text-align: left !important; font-weight: 600; color: var(--text); white-space: nowrap; }
+  .cmp-hl { background: rgba(91,164,230,0.10); }
+  .cmp-table thead .cmp-hl { color: var(--blue); border-top: 3px solid #5ba4e6; }
+  .cmp-table tbody tr:last-child .cmp-hl { border-radius: 0 0 8px 8px; }
+  .cmp-table .yes { color: var(--green); font-weight: 700; }
+  .cmp-table .no { color: var(--dim); }
+  .cmp-table .lim { color: var(--muted); font-size: 13px; font-style: italic; }
+  .cmp-cap { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 16px; }
+  .about-link { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 15px; }
+  /* R5: Fraunces display group — weight 400, scoped axis settings (wght explicit so it is not overridden), sc-line + calc-frame moved to Fraunces */
+  .headline-xl, .headline-lg, .headline-md,
+  .sc-line, .calc-frame,
+  .quote-text, .investor-title, .learn-title, .nb-title, .nb-question,
+  .mission-pillar, .mission-tagline, .quote-callout,
+  .legal-modal-inner h1, .form-success-title, .nb-success-title, .rail-h {
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0;
+    font-weight: 400;
+  }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -457,7 +791,7 @@
       "name": "What is a mortgage note?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A mortgage note is the legal document a borrower signs when they take out a home loan. When you invest in a note, you're purchasing the lender's position — you become the bank."
+        "text": "A mortgage note is the legal document a borrower signs when they take out a home loan. When you invest in a note, you're purchasing the lender's position, and you become the bank."
       }
     },
     {
@@ -481,7 +815,7 @@
       "name": "What's the downside protection when investing in notes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every note is secured by a physical property. Before purchase, the Loan-to-Value ratio (LTV) is evaluated — we never pay more than the property's current as-is value."
+        "text": "Every note is secured by a physical property. We underwrite to a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less, which builds in an equity buffer as your first layer of protection."
       }
     },
     {
@@ -503,15 +837,10 @@
 <img alt="Take Notes Capital Logo" src="logo.png"/>
 </a>
 <ul class="nav-links">
-<li><a href="#mission">TNC Mission</a></li>
-<li><a href="#for-investors">Who It's For</a></li>
-<li><a href="#how-it-works">How It Works</a></li>
-<li><a href="#learn">Learn Notes</a></li>
-<li><a href="#testimonials">Testimonials</a></li>
-<li><a href="#faq">FAQ</a></li>
-<li><a href="#note-buyers">Note Buyers</a></li>
-<li><a href="blog.html">Blog</a></li>
-<li><a class="nav-cta" href="#contact">Book a Call</a></li>
+<li><a href="#how-it-works">How it works</a></li>
+<li><a href="#pick">Who it's for</a></li>
+<li><a href="#proof">Proof</a></li>
+<li><a class="nav-cta" href="#contact">Book a call</a></li>
 </ul>
 <div class="hamburger" onclick="toggleMenu()">
 <span></span><span></span><span></span>
@@ -519,332 +848,586 @@
 </nav>
 <div id="mobileMenu">
 <ul>
-<li><a href="#mission" onclick="toggleMenu()">TNC Mission</a></li>
-<li><a href="#for-investors" onclick="toggleMenu()">Who It's For</a></li>
-<li><a href="#how-it-works" onclick="toggleMenu()">How It Works</a></li>
-<li><a href="#learn" onclick="toggleMenu()">Learn Notes</a></li>
-<li><a href="#testimonials" onclick="toggleMenu()">Testimonials</a></li>
+<li><a href="#how-it-works" onclick="toggleMenu()">How it works</a></li>
+<li><a href="#pick" onclick="toggleMenu()">Who it's for</a></li>
+<li><a href="#proof" onclick="toggleMenu()">Proof</a></li>
+<li><a href="#learn" onclick="toggleMenu()">Learn notes</a></li>
 <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
-<li><a href="#note-buyers" onclick="toggleMenu()">Note Buyers</a></li>
 <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
-<li><a class="nav-cta-mobile" href="#contact" onclick="toggleMenu()">Book a Call →</a></li>
+<li><a class="nav-cta-mobile" href="#contact" onclick="toggleMenu()">Book a call</a></li>
 </ul>
 </div>
 <!-- HERO -->
 <section class="bg-black" id="hero">
-<h1 class="headline-xl fade-in d1">Earn Like You Own The Building.<br/><span class="text-gold">Live Like You Never Bought One.</span></h1>
-<p class="body-text fade-in d2 hero-sub">No Tenants. No Toilets. No Calls at 2AM.</p>
-<a class="cta-btn fade-in d3" href="#contact">Book a Free Discovery Call</a>
-<div class="scroll-arrow">↓</div>
-</section>
-<!-- EVERYONE WANTS -->
-<section class="bg-white">
-<h2 class="headline-lg fade-in">Everyone Wants to Build Wealth<br/>Through Real Estate.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-dark-65">And why wouldn't you? It's the #1 wealth builder in history. More millionaires have been made through real estate than any other asset class.</p>
-</section>
-<!-- RESEARCH -->
-<section class="bg-light">
-<h2 class="headline-md fade-in">You've Done the Research.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-dark-65">Tons of YouTube videos. Reading the books. Saving up your capital. Maybe bringing your partner on board.</p>
-<p class="headline-md fade-in headline-ready">You're ready. So you pick a strategy.</p>
-<p class="headline-lg text-gold fade-in headline-allin">And you go ALL IN.</p>
-</section>
-<!-- MEET SARAH -->
-<section class="bg-white">
-<h2 class="headline-xl fade-in headline-meet">Meet Sarah.</h2>
-<div class="divider fade-in"></div>
-<p class="headline-md fade-in headline-did-right">She did everything right.</p>
-</section>
-<!-- WHAT THEY'RE NOT TELLING YOU -->
-<section class="bg-navy section-short" id="how-it-works">
-<h2 class="headline-lg fade-in headline-not-telling">This Is What They're <span class="text-red">NOT</span> Telling You<br/>About Real Estate Investing</h2>
-<p class="body-text fade-in body-text-mb42">Sarah learned the hard way — so you don't have to.</p>
-<div class="sarah-cards fade-in">
-<div class="sarah-card">
-<div class="emoji">🔨</div>
-<div class="card-label">Sarah Tried Flipping</div>
-<div class="card-stat"><em class="card-stat-quote">"Buy cheap, renovate, sell high — easy money."</em><br/><br/>Contractor ghosted her 3 weeks in. <strong style="color:var(--red);">$25K reno turned into $41K.</strong> Five months of stress.<br/><br/>Profit: <strong style="color:var(--red);">$5,200.</strong></div>
-<div class="card-highlight">Never again.</div>
-</div>
-<div class="sarah-card">
-<div class="emoji">🏠</div>
-<div class="card-label">Sarah Tried Rentals</div>
-<div class="card-stat"><em class="card-stat-quote">"Passive income while you sleep."</em><br/><br/>Tenant trashed the unit. 7-month eviction. <strong style="color:var(--red);">$19,000 in losses.</strong><br/><br/>Rent checks after Month 2: <strong style="color:var(--red);">$0.</strong></div>
-<div class="card-highlight">Eight months. Zero income.</div>
-</div>
-<div class="sarah-card">
-<div class="emoji">🏢</div>
-<div class="card-label">Sarah Tried Scaling</div>
-<div class="card-stat"><em class="card-stat-quote">"More doors, more income."</em><br/><br/>Needed <strong style="color:var(--red);">$200K+</strong> down. Complex financing. Headaches multiplied.<br/><br/>The math didn't work without deep pockets.</div>
-<div class="card-highlight">Dead before it started.</div>
-</div>
-</div>
-<p class="headline-md fade-in headline-sarah-note">Sarah wasn't bad at real estate.<br/><strong class="text-white-strong">The game was rigged against small investors.</strong></p>
-</section>
-<!-- THE QUOTE -->
-<section class="bg-black">
-<p class="body-text fade-in body-text-then">Then someone said something she couldn't unhear:</p>
-<h2 class="quote-text text-gold fade-in">"Stop buying buildings.<br/>Buy the mortgage note instead."</h2>
-</section>
-<!-- SHE DID -->
-<section class="bg-white">
-<h2 class="headline-lg fade-in headline-she-did">She did. And everything changed.</h2>
-<div class="divider fade-in"></div>
-<p class="body-text fade-in body-text-she-invested">She invested $28K into a performing mortgage note on a $75K property in Georgia. No renovations. No contractors. She closed the deal from her laptop in two weeks.</p>
-<div class="timeline fade-in timeline-mt">
-<div class="timeline-item"><span class="timeline-label text-green">Month 1:</span><span class="timeline-text text-muted-dark-7">$485 hit her account. She didn't do anything.</span></div>
-<div class="timeline-item"><span class="timeline-label text-green">Month 6:</span><span class="timeline-text text-muted-dark-7">$2,910 collected. Zero phone calls. Zero stress.</span></div>
-<div class="timeline-item"><span class="timeline-label text-green">Month 12:</span><span class="timeline-text text-muted-dark-7">$5,820 in pure cash flow — on a $28K investment.</span></div>
+<h1 class="headline-xl fade-in d1">Earn like you own the building.<br/><span class="text-gold">Live like you never bought one.</span></h1>
+<p class="body-text fade-in d2 hero-sub">Mortgage notes. You own the loan on the house, not the house. Paid first, secured by real estate, with nothing to manage.</p>
+<!-- hero CTA removed (P4): the picker below is the primary action -->
+<!-- [O] THREE-NUMBER ORIENTATION BLOCK (R11 §3, anchored inside the hero R12 §5a) -->
+<div class="orient shell hero-orient">
+<div class="orient-item"><span class="orient-val">Ten states</span><span class="orient-lbl">Footprint</span></div>
+<div class="orient-item"><span class="orient-val">First lien only</span><span class="orient-lbl">Position</span></div>
+<div class="orient-item"><span class="orient-val">Non-performing</span><span class="orient-lbl">Focus</span></div>
 </div>
 </section>
-<!-- COMPARISON -->
-<section class="bg-light section-short">
-<h2 class="headline-md fade-in comparison-heading">Same Real Estate. Different Side of the Table.</h2>
-<div class="cards-row fade-in">
-<div class="compare-card card-rental">
-<div class="card-label text-red">❌ Her Rental</div>
-<div class="card-stat text-dark-val"><strong>$115K</strong> invested<br/>$780/mo going <strong>OUT</strong><br/>Insurance, taxes, maintenance<br/>Vacancy months: $0 coming in</div>
-<div class="card-highlight card-highlight-red">Result: -$19,000 in 8 months</div>
+<!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
+<!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
+<section class="bg-navy section-short" id="pick">
+<div class="kicker" style="text-align:center;margin-bottom:20px;">01 · Which one of these is me?</div>
+<h2 class="sc-line fade-in">
+<span class="sc-half">I'm a
+<select id="scWho" aria-label="I'm a">
+<option value="" selected="" disabled="">choose…</option>
+<option>retiree</option>
+<option>busy professional</option>
+<option>real estate investor</option>
+<option>business owner</option>
+<option>new to all this</option>
+</select></span>
+<span class="sc-half">who wants
+<select id="scWant" aria-label="who wants">
+<option value="" selected="" disabled="">choose…</option>
+<option data-lane="retiree">to put my IRA or 401(k) to work</option>
+<option data-lane="income">monthly income without owning property</option>
+<option data-lane="operator">real estate returns without the tenants</option>
+</select>.</span>
+</h2>
+<div class="sc-result" id="scResult" hidden="">
+<p id="scResultText"></p>
 </div>
-<div class="compare-card card-note">
-<div class="card-label text-green">✅ Her First Note</div>
-<div class="card-stat text-dark-val"><strong>$28K</strong> invested<br/>$485/mo coming <strong>IN</strong><br/>Zero overhead. Zero property to manage.<br/>Zero maintenance. Zero stress.</div>
-<div class="card-highlight card-highlight-green">Result: +$5,820 in 12 months</div>
-<div class="card-stat card-stat-small">Worst case: Foreclose on $75K property. Sell for $70K. <strong>Profit: $42K.</strong></div>
+</section>
+<!-- [C2] credibility strip relocated below the comparison table (R4) -->
+<!-- [C3] NOTE PRIMER -->
+<section class="bg-black lay primer" id="note-primer">
+<div class="shell g-primer">
+<div class="rail fade-in">
+<div class="kicker">02 · What is a mortgage note?</div>
+<h3 class="rail-h" style="color:var(--red);">A note is the loan on a house.</h3>
+</div>
+<div class="wide fade-in">
+<div class="primer-body">
+<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
+<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
+<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
+<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
+<p class="primer-close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
+</div>
 </div>
 </div>
 </section>
-<!-- BECAME THE BANK -->
-<section class="bg-navy">
-<p class="body-text fade-in sarah-intro">Sarah stopped being the landlord.</p>
-<h2 class="headline-xl fade-in">She became the bank.</h2>
-<div class="checks fade-in">
-<div><span>✅</span> You're the bank, not the landlord</div>
-<div><span>✅</span> Secured by real property</div>
-<div><span>✅</span> Nothing to manage or repair</div>
-<div><span>✅</span> Backed by real estate</div>
-<div><span>✅</span> Monthly cash flow</div>
+<!-- [C] routing JS -->
+<script>
+(function(){
+  var LANES = {
+    retiree:  "Most people never find out their retirement account is allowed to hold these types of assets. It has been legal since 1974.",
+    income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
+    operator: "You did not get tired of real estate. You got tired of the job that came with it."
+  };
+  var ECHO = {
+    retiree:  "Alright, we have the starting line. You're a retiree putting a retirement account to work.",
+    income:   "I like it, now we know. You're an investor with cash sitting still.",
+    operator: "Interesting, now let's take the first step. You're already in real estate. Just might be dealing with a few headaches on the other side of it."
+  };
+  window.TNC = window.TNC || {};
+  var who  = document.getElementById('scWho');
+  var want = document.getElementById('scWant');
+  var res  = document.getElementById('scResult');
+  function updateTransition(lane){
+    var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
+    if(!box) return; // calc markup parses after this script
+    if(lane && ECHO[lane]){
+      if(e) e.textContent=ECHO[lane];
+      if(i) i.textContent=LANES[lane];
+      box.hidden=false;
+    } else { box.hidden=true; }
+  }
+  function setLane(lane){
+    if(!LANES[lane]) return;
+    window.TNC.lane = lane;
+    if(res) res.hidden = true; // old below-selector echo retired; the transition block carries it
+    if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
+    updateTransition(lane);
+  }
+  if (want){
+    want.addEventListener('change', function(){
+      var opt = want.options[want.selectedIndex];
+      var lane = opt && opt.getAttribute('data-lane');
+      setLane(lane);
+      if(lane){ var calc=document.getElementById('calc'); if(calc) calc.scrollIntoView({behavior:'smooth'}); } // §2a: choosing navigates
+    });
+  }
+  try{
+    var p = new URLSearchParams(location.search).get('lane');
+    if (p && LANES[p]){
+      setLane(p);
+      if (want){ for (var i=0;i<want.options.length;i++){ if(want.options[i].getAttribute('data-lane')===p){ want.selectedIndex=i; break; } } }
+    }
+  }catch(e){}
+  window.tncChangeAnswer=function(e){ if(e&&e.preventDefault) e.preventDefault();
+    if(who) who.selectedIndex=0;
+    if(want) want.selectedIndex=0;
+    if(res) res.hidden=true;
+    updateTransition(null);
+    window.TNC=window.TNC||{}; window.TNC.lane=null;
+    if(typeof window.tncCalcReset==='function') window.tncCalcReset();
+    var pk=document.getElementById('pick'); if(pk) pk.scrollIntoView({behavior:'smooth'});
+  };
+})();
+</script>
+<!-- [D] CALCULATOR (routed centerpiece — spec section 6) -->
+<section class="bg-black lay" id="calc">
+<div class="shell g-calc">
+<div class="rail fade-in">
+<div class="kicker">03 · What is my money doing right now?</div>
+<div class="calc-transition" id="calcTransition" hidden="">
+<p class="ct-echo"><span id="ctEcho"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></p>
+<p class="ct-insight" id="ctInsight"></p>
+<p class="ct-permission">Rough numbers work. Nobody's checking your math.</p>
+</div>
+<h2 class="calc-frame rail-h" id="calcFrame">So what's your money doing right now?</h2>
+<p class="calc-intro">Here is where it gets interesting. Put in your real numbers, then let's see how <b>notes</b> stack up against them.</p>
+<p class="calc-intro-sub">No email needed to run your own math.</p>
+</div>
+<div class="wide fade-in">
+<div class="calc-card">
+<div class="calc-inputs" id="calcInputs"></div>
+<div class="calc-stage1" id="calcStage1"></div>
+<div class="calc-gate" id="calcGate" hidden="">
+<p class="calc-gate-q" id="calcGateQ"></p>
+<div class="calc-gate-row">
+<input aria-label="Your email" id="calcEmail" placeholder="you@email.com" type="email"/>
+<button class="cta-btn" id="calcGateBtn" type="button">Show me</button>
+</div>
+<p class="calc-gate-sub" id="calcGuideLine">Plus a free guide written for investors like you.</p>
+</div>
+<div class="calc-stage2" id="calcStage2" hidden=""></div>
+</div>
+</div>
 </div>
 </section>
-<!-- ══════════════════════════════════════════ -->
-<!-- NEW: WHO IT'S FOR — SDIRA / 401K / PRIVATE INVESTORS -->
-<!-- ══════════════════════════════════════════ -->
-<section class="bg-black section-short" id="for-investors">
-<p class="label-text fade-in">Who This Is For</p>
-<h2 class="headline-lg fade-in">Your Money Is Already Working.<br/><span class="text-gold">It's Just Not Working Hard Enough.</span></h2>
-<div class="divider-dark fade-in"></div>
-<p class="body-text fade-in text-muted-white-52 mt-0">Millions of dollars sit idle in retirement accounts and savings every day — earning almost nothing. Take Notes Capital turns that sitting cash into secured, hands-off monthly returns backed by real estate.</p>
-<div class="investor-grid fade-in">
-<div class="investor-card">
-<div class="investor-icon">🏦</div>
-<div class="investor-type">Self-Directed IRA</div>
-<div class="investor-title">Put Your IRA to Work — Tax-Advantaged</div>
-<div class="investor-body">Most IRA holders don't realize their account can invest in real estate notes. A self-directed IRA lets you earn above-market returns inside your retirement account — tax-deferred or even tax-free with a Roth SDIRA. Your money grows, you don't lift a finger.</div>
-<div class="investor-return">✦ Ideal for: Roth IRA &amp; Traditional IRA holders</div>
+<script>
+(function(){
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function pending(t){ return "<span class='legal-pending' title='Pending Legal review'>"+t+"</span>"; }
+  var INFLATION=0.03, LOW=0.08, HIGH=0.12; // PENDING LEGAL
+  var LANES={
+    retiree:{
+      frame:"What's that old 401(k) or IRA doing right now?",
+      fields:[{id:'bal',label:'Account balance ($)',val:60000,step:5000},{id:'rate',label:'Current annual return (%)',val:6.5,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"retirees",
+      guide:"How to Invest Your IRA in Mortgage Notes"
+    },
+    income:{
+      frame:"What's your idle cash earning right now?",
+      fields:[{id:'bal',label:'Idle cash or savings ($)',val:50000,step:5000},{id:'rate',label:'Current annual return (%)',val:4.1,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"investors",
+      guide:"7 Ways to Earn Passive Income with Mortgage Notes"
+    },
+    operator:{
+      frame:"What's your RE investment netting after reserves?",
+      fields:[{id:'rent',label:'Monthly rent ($)',val:1100,step:50},{id:'costs',label:'Costs, taxes, insurance ($/mo)',val:591,step:25},{id:'cash',label:'Cash you put in ($)',val:30000,step:5000}],
+      base:function(v){return v.cash;},
+      stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
+      gate:function(v){var res=v.rent*0.28;return "The reserves took $"+fmt(res)+" a month. Most rental math skips them. Want to see the same $"+fmt(v.cash)+" on the lending side?";},
+      aud:"real estate investors",
+      guide:"Note Investing vs Rentals"
+    }
+  };
+  var state={lane:null,v:{}};
+  var g=function(id){return document.getElementById(id);};
+  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
+  function cfg(){return LANES[state.lane]||LANES.income;}
+  function isMoney(f){return f.step>=1;}
+  function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
+  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
+  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
+  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl)gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';}
+  function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year. Overhead is roughly $25 a month for servicing.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
+  elBtn.addEventListener('click',submitGate);
+  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();};
+  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();};
+  renderInputs();update();
+  if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
+})();
+</script>
+<!-- [E] SIX-STEP PROCESS + EQUITY CUSHION + EXITS (spec section 7) -->
+<section class="bg-deep lay" id="how-it-works">
+<div class="shell g-process">
+<div class="rail fade-in">
+<div class="kicker">04 · So how does this actually work?</div>
+<h3 class="rail-h">Six steps.<br/><span class="hl-blue">You touch two of them.</span></h3>
+<p>We handle the complexity. You provide the capital. Everything between funding and getting paid is ours.</p>
 </div>
-<div class="investor-card">
-<div class="investor-icon">📊</div>
-<div class="investor-type">401(k) &amp; Solo 401(k)</div>
-<div class="investor-title">Stop Watching the Market. Start Collecting Payments.</div>
-<div class="investor-body">Tired of your 401(k) swinging with every market headline? A self-directed 401(k) can be rolled into note investments — giving you predictable monthly income backed by a physical asset, not Wall Street volatility.</div>
-<div class="investor-return">✦ Ideal for: Business owners &amp; self-employed investors</div>
+<div class="wide fade-in">
+<div class="tl-rail" id="tlRail">
+<button class="tl-node active" type="button" aria-label="Step 1: We source the paper"><b class="tl-num">01</b><span class="tl-label">Source<br/>the paper</span><span class="tl-tag">TNC</span></button>
+<button class="tl-node" type="button" aria-label="Step 2: We underwrite the collateral"><b class="tl-num">02</b><span class="tl-label">Underwrite<br/>the collateral</span><span class="tl-tag">TNC</span></button>
+<button class="tl-node you" type="button" aria-label="Step 3: You fund the position"><b class="tl-num">03</b><span class="tl-label">Fund<br/>the position</span><span class="tl-tag">YOU</span></button>
+<button class="tl-node" type="button" aria-label="Step 4: We buy at a discount"><b class="tl-num">04</b><span class="tl-label">Buy at<br/>a discount</span><span class="tl-tag">TNC</span></button>
+<button class="tl-node" type="button" aria-label="Step 5: We work with the borrower"><b class="tl-num">05</b><span class="tl-label">Work with<br/>the borrower</span><span class="tl-tag">TNC</span></button>
+<button class="tl-node you" type="button" aria-label="Step 6: Servicing sends payments"><b class="tl-num">06</b><span class="tl-label">Servicing<br/>sends payments</span><span class="tl-tag">YOU</span></button>
 </div>
-<div class="investor-card">
-<div class="investor-icon">💰</div>
-<div class="investor-type">Private Capital</div>
-<div class="investor-title">Sitting Cash Deserves Better Than 4% in a CD.</div>
-<div class="investor-body">Whether it's savings, an inheritance, business proceeds, or equity you've pulled from a property — if your capital is sitting idle, it's quietly losing to inflation. Note investing puts it to work earning secured, above-average returns. We source the deals. You collect the checks.</div>
-<div class="investor-return">✦ Ideal for: Cash investors &amp; accredited investors</div>
+<div class="tl-panel" id="tlPanel">
+<div class="tl-pane active">
+<h3 class="tl-pane-h"><span class="tl-pane-n">01</span> · We source the paper · <span class="tl-pane-tag tnc">TNC</span></h3>
+<p>Tapes are sourced from banks, funds, institutions and private sellers. We operate in ten states, because we know the foreclosure timelines, the costs, established professional relationships and attorney connections.</p>
+<p>Most of what we look at, we pass on. If it does not fit what our investors need or what belongs in the portfolio, it does not move forward. Saying no is most of the job.</p>
+<p><a class="step-link" href="#statemap">We operate in ten states. See where →</a></p>
+</div>
+<div class="tl-pane">
+<h3 class="tl-pane-h"><span class="tl-pane-n">02</span> · We underwrite the collateral · <span class="tl-pane-tag tnc">TNC</span></h3>
+<p>Value, title, occupancy, taxes, and the document file. If the property does not support the note balance, or the file does not clear our checklist, we pass.</p>
+<p><a class="step-link" href="/protection#what-we-vet">See everything we vet →</a></p>
+</div>
+<div class="tl-pane">
+<h3 class="tl-pane-h"><span class="tl-pane-n">03</span> · You fund the position · <span class="tl-pane-tag you">YOU</span></h3>
+<p>Your capital funds a specific note against a specific property. You see the collateral, the lien position, the equity cushion, and the same file we used to price it. Retirement accounts fund through your custodian.</p>
+</div>
+<div class="tl-pane">
+<h3 class="tl-pane-h"><span class="tl-pane-n">04</span> · We buy at a discount · <span class="tl-pane-tag tnc">TNC</span></h3>
+<p>We buy below what is owed, and below what the house could sell for. That gap is what protects your money, and it is the reason we can be patient with a borrower instead of rushing the process.</p>
+<p class="tl-teaser">On an $85,000 house where the borrower owes $67,000, we might pay $30,000. That leaves $55,000 of room between what we paid and what the house could sell for. <a class="step-link" href="#cushion">See how the cushion moves →</a></p>
+</div>
+<div class="tl-pane">
+<h3 class="tl-pane-h"><span class="tl-pane-n">05</span> · We work with the borrower · <span class="tl-pane-tag tnc">TNC</span></h3>
+<p>Modification, repayment plan, or reinstatement. The goal is a borrower who pays and stays, which is what the income rests on. There are seven ways a note can end, and foreclosure is the last one we reach for.</p>
+<p><a class="step-link" href="/protection#exits">See all seven exits →</a></p>
+</div>
+<div class="tl-pane">
+<h3 class="tl-pane-h"><span class="tl-pane-n">06</span> · Servicing collects, you get paid · <span class="tl-pane-tag you">YOU</span></h3>
+<p>A licensed servicer collects and sends your money back home. No calls, no repairs, no tenants, no property management. Just cashflow every payment period.</p>
 </div>
 </div>
-<div class="fade-in investor-cta-wrap">
-<p class="cta-sub">Not sure which category you fall into?</p>
-<p class="quote-callout">That's exactly what the discovery call is for.</p>
-<a class="cta-btn" href="#contact">Book a Free Discovery Call</a>
+</div>
 </div>
 </section>
+<!-- PILLAR ROW ONE — protection (R10 §5) -->
+<section class="bg-deep lay" id="protection-pillars">
+<div class="shell">
+<div class="pil-head fade-in">
+<div class="kicker">05 · Is my money safe?</div>
+<h3 class="rail-h">The parts that decide<br/><span class="hl-blue">whether this is a fit.</span></h3>
+<p>Four things worth understanding before you put a dollar into notes. Open whichever one you came for.</p>
+</div>
+<div class="pil-row fade-in" role="tablist" aria-label="Protection topics">
+<button class="pil on" role="tab" id="pt1" aria-controls="pp1" aria-selected="true" tabindex="0" type="button"><span class="pil-n">01</span><span class="pil-t">How your capital is protected</span><span class="pil-d">The gap between what we pay and what the house is worth.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+<button class="pil" role="tab" id="pt2" aria-controls="pp2" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">02</span><span class="pil-t">What we check before we buy</span><span class="pil-d">The list that decides. Most notes fail it.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+<button class="pil" role="tab" id="pt3" aria-controls="pp3" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">03</span><span class="pil-t">How this ends</span><span class="pil-d">Seven exits. One of them is foreclosure.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+<button class="pil" role="tab" id="pt4" aria-controls="pp4" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">04</span><span class="pil-t">How long a resolution takes</span><span class="pil-d">Timelines by state, fastest to slowest.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+</div>
+<div class="pil-panels fade-in">
+<div class="panel" role="tabpanel" id="pp1" aria-labelledby="pt1">
+<div class="cu-setup-box"><span class="lbl">The house</span>A house is worth <b>$85,000</b>. The borrower still owes <b>$67,000</b> on their home loan. We buy that loan.</div>
+<div class="cu-panel">
+<div>
+<label class="cushion-lbl">What we pay for the loan: <b id="cuPayLabel">$30,000</b>
+<input id="cuPay" max="82000" min="15000" step="1000" type="range" value="30000"/></label>
+<div class="cushion-bar" id="cuBar">
+<div class="cu-pay" id="cuPaySeg"><span>We pay</span></div>
+<div class="cu-room state-good" id="cuRoomSeg"><span>Room left over</span></div>
+<div class="cu-tick" id="cuTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
+</div>
+</div>
+<div>
+<p class="cushion-sentence state-good" id="cuSentence"></p>
+<div class="cu-stats">
+<div class="cu-stat state-good" id="cuStatRoomBox"><span class="lbl">Room between what we pay and what the house is worth</span><span class="val" id="cuStatRoom">$55,000</span></div>
+<div class="cu-stat" id="cuStatCentsBox"><span class="lbl">For every $1 the house is worth, we pay</span><span class="val" id="cuStatCents">35&#162;</span></div>
+</div>
+<p class="cu-close">That room has a name. We call it the <span class="red">equity cushion</span>. It is the space between what we paid and what the house could sell for, and the money it protects is yours, not ours.</p>
+<p class="cu-close" style="margin-top:12px;">If the borrower stops paying and nothing we try works, we can take the house back and sell it. We have the legal right because we own the loan, and the house is what backs it. That is our last resort, never our plan.</p>
+</div>
+</div>
+<p class="cu-foot">Illustrative example with round numbers. Real deals vary by property, market and borrower.</p>
+</div>
+<div class="panel" role="tabpanel" id="pp2" aria-labelledby="pt2" hidden="">
+<p class="ck-intro">This list runs in a specific order for a reason. The early checks are fast and binary, yes or no, keep or kill. The later ones build a picture. By the time we reach the bottom we know whether a note is worth a bid, and most of them are not.</p>
+<div class="ck-cols"><div class="ck-stage"><h5>Instant stops<span>Any one of these and the file closes.</span></h5><ul><li>Is the lien secured, and is it genuinely in first position</li><li>Has the statute of limitations run in that state</li><li>Is the property underwater with no path to equity</li><li>Have the property taxes gone far enough behind to risk a tax sale</li><li>Will the seller provide the basic data at all</li></ul></div><div class="ck-stage"><h5>The numbers<span>What the deal looks like before we spend a dollar on it.</span></h5><ul><li>Loan to value against a value we trust, not the seller's</li><li>How far below the loan balance we would be buying</li><li>How many months since the borrower last paid</li><li>An independent valuation, ordered fresh when the last one is old</li></ul></div><div class="ck-stage"><h5>The file<span>Whether the paperwork holds up.</span></h5><ul><li>Original note and mortgage, recorded assignments, clean chain</li><li>Title search for liens, judgments and transfers</li><li>Property taxes current, or how far behind</li><li>Bankruptcy, loss mitigation, or servicing notes on file</li></ul></div><div class="ck-stage"><h5>Can it resolve<span>Whether there is a realistic way out.</span></h5><ul><li>Occupancy, and whether the borrower has ever engaged</li><li>Foreclosure timeline and cost in that specific state</li><li>At least three exits that realistically work</li><li>What the recovery looks like after every cost comes off</li></ul></div></div>
+<div class="ck-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
+</div>
+<div class="panel" role="tabpanel" id="pp3" aria-labelledby="pt3" hidden="">
+<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:16px;max-width:760px;">Modification, repayment plan, or reinstatement. The goal is a borrower who pays and stays. Here is every way a note can end, from the one we aim for to the one we reach for last.</p>
+<div class="exits-grid">
+<div class="exit"><span class="exit-n">1</span><div><b>Reinstatement.</b> Borrower catches up. Loan continues as written.</div></div>
+<div class="exit"><span class="exit-n">2</span><div><b>Repayment plan.</b> Arrears spread across future payments.</div></div>
+<div class="exit"><span class="exit-n">3</span><div><b>Loan modification.</b> New rate or term they can meet. Most common.</div></div>
+<div class="exit"><span class="exit-n">4</span><div><b>Discounted payoff.</b> Borrower settles with a lump sum.</div></div>
+<div class="exit"><span class="exit-n">5</span><div><b>Short sale.</b> Property sells for less than owed, with our approval.</div></div>
+<div class="exit"><span class="exit-n">6</span><div><b>Deed in lieu.</b> Borrower hands over the deed instead of fighting.</div></div>
+<div class="exit exit-last"><span class="exit-n">7</span><div><b>Foreclosure.</b> The floor. Recovery through the collateral itself.</div></div>
+</div>
+</div>
+<div class="panel" role="tabpanel" id="pp4" aria-labelledby="pt4" hidden="">
+<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:18px;max-width:760px;">How long a foreclosure takes decides what a note is worth before anything else does. Non-judicial states resolve in months. Judicial states can take years. We buy where the math works.</p>
+<div class="fc-legend"><span><span class="fc-dot" style="background:#4ECB71"></span> Non-judicial</span><span><span class="fc-dot" style="background:#5BA4E6"></span> Mixed</span><span><span class="fc-dot" style="background:#E85D5D"></span> Judicial</span></div>
+<div class="fc-list" role="img" aria-label="Foreclosure timeline ranges by state, fastest to slowest, from Texas at 2 to 4 months to Florida at 12 to 20 months">
+<div class="fc-row"><span class="fc-code">TX</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
+<div class="fc-row"><span class="fc-code">GA</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
+<div class="fc-row"><span class="fc-code">MS</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
+<div class="fc-row"><span class="fc-code">AL</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
+<div class="fc-row"><span class="fc-code">MO</span><div class="fc-track"><div class="fc-fill" style="margin-left:20.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">4&#8211;6 mo</span></div>
+<div class="fc-row"><span class="fc-code">NC</span><div class="fc-track"><div class="fc-fill" style="margin-left:25.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">5&#8211;8 mo</span></div>
+<div class="fc-row"><span class="fc-code">MI</span><div class="fc-track"><div class="fc-fill" style="margin-left:30.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">6&#8211;9 mo</span></div>
+<div class="fc-row"><span class="fc-code">IN</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:20.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;14 mo</span></div>
+<div class="fc-row"><span class="fc-code">OH</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:25.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;15 mo</span></div>
+<div class="fc-row"><span class="fc-code">FL</span><div class="fc-track"><div class="fc-fill" style="margin-left:60.0%;width:40.0%;background:#E85D5D"></div></div><span class="fc-months">12&#8211;20 mo</span></div>
+</div>
+<p class="fc-foot"><span class="fc-pending" title="Pending AJ's verified figures">Placeholder ranges, directionally correct but not yet sourced. Pending verified figures before publish.</span> Ranges are typical, not guaranteed, and vary by county, court backlog, and borrower response.</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<script>
+(function(){
+  var rail=document.getElementById('tlRail');
+  if(rail){
+    var nodes=[].slice.call(rail.querySelectorAll('.tl-node'));
+    var panes=[].slice.call(document.querySelectorAll('#tlPanel .tl-pane'));
+    rail.setAttribute('role','tablist'); rail.setAttribute('aria-label','Six steps of the process');
+    function sel(i){
+      nodes.forEach(function(x,j){
+        var on=(j===i);
+        x.classList.toggle('active',on);
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        if(panes[j]){ panes[j].classList.toggle('active',on); }
+      });
+    }
+    nodes.forEach(function(n,i){
+      var pid='tlp'+i; n.id='tlt'+i;
+      n.setAttribute('role','tab'); n.setAttribute('aria-controls',pid);
+      if(panes[i]){ panes[i].id=pid; panes[i].setAttribute('role','tabpanel'); panes[i].setAttribute('aria-labelledby','tlt'+i); }
+      n.addEventListener('click',function(){ sel(i); });
+      n.addEventListener('keydown',function(e){
+        var ni=-1,ln=nodes.length;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') ni=(i+1)%ln;
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') ni=(i-1+ln)%ln;
+        else if(e.key==='Home') ni=0; else if(e.key==='End') ni=ln-1; else return;
+        e.preventDefault(); nodes[ni].focus(); sel(ni);
+      });
+    });
+    // sync initial ARIA to the default-active node
+    nodes.forEach(function(n,i){ var on=n.classList.contains('active'); n.setAttribute('aria-selected',on?'true':'false'); n.tabIndex=on?0:-1; });
+  }
+  var VALUE=85000,OWED=67000,pay=document.getElementById('cuPay');
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function cushion(){
+    if(!pay)return;
+    var paid=parseFloat(pay.value)||0,room=VALUE-paid,ratio=room/VALUE;
+    document.getElementById('cuPayLabel').textContent='$'+fmt(paid);
+    document.getElementById('cuPaySeg').style.flex=paid;
+    var roomSeg=document.getElementById('cuRoomSeg');roomSeg.style.flex=room;
+    document.getElementById('cuTick').style.left=(OWED/VALUE*100)+'%';
+    var state=ratio>0.40?'good':(ratio>=0.22?'thin':'pass');
+    roomSeg.className='cu-room state-'+state;
+    var s=document.getElementById('cuSentence');s.className='cushion-sentence state-'+state;
+    var sr=document.getElementById('cuStatRoom'); if(sr) sr.textContent='$'+fmt(room);
+    var srb=document.getElementById('cuStatRoomBox'); if(srb) srb.className='cu-stat state-'+state;
+    var sc=document.getElementById('cuStatCents'); if(sc) sc.textContent=Math.round(paid/VALUE*100)+'¢';
+    if(state==='good')s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing the process.";
+    else if(state==='thin')s.innerHTML="There is still <b>$"+fmt(room)+"</b> of room, but it is getting thin. Selling costs and repairs would eat a good piece of it. This is close to the most we would pay.";
+    else s.innerHTML="Barely <b>$"+fmt(room)+"</b> of room. Your money would be at risk. <b>This is a deal we pass on.</b>";
+  }
+  if(pay){pay.addEventListener('input',cushion);cushion();}
+})();
+</script>
+
+<!-- HEX-GRID STATE MAP (R9 §1 — lifted to its own open section, R10) -->
+<section class="bg-black lay" id="statemap">
+<div class="shell g-map">
+<div class="rail fade-in">
+<div class="kicker">06 · Where is the paper?</div>
+<h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
+<p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
+<div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
+</div>
+<div class="wide statemap-wide fade-in">
+<div role="img" aria-label="Map of the United States with ten states highlighted where Take Notes Capital invests: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri">
+<div class="hexrow"><span class="hexcell" aria-hidden="true">AK</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">ME</span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">VT</span><span class="hexcell" aria-hidden="true">NH</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">WA</span><span class="hexcell" aria-hidden="true">ID</span><span class="hexcell" aria-hidden="true">MT</span><span class="hexcell" aria-hidden="true">ND</span><span class="hexcell" aria-hidden="true">MN</span><span class="hexcell" aria-hidden="true">WI</span><span class="hexcell" aria-hidden="true">IL</span><span class="hexcell on" title="Michigan — we operate here">MI</span><span class="hexcell" aria-hidden="true">NY</span><span class="hexcell" aria-hidden="true">RI</span><span class="hexcell" aria-hidden="true">MA</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">OR</span><span class="hexcell" aria-hidden="true">NV</span><span class="hexcell" aria-hidden="true">WY</span><span class="hexcell" aria-hidden="true">SD</span><span class="hexcell" aria-hidden="true">IA</span><span class="hexcell on" title="Indiana — we operate here">IN</span><span class="hexcell on" title="Ohio — we operate here">OH</span><span class="hexcell" aria-hidden="true">PA</span><span class="hexcell" aria-hidden="true">NJ</span><span class="hexcell" aria-hidden="true">CT</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">CA</span><span class="hexcell" aria-hidden="true">UT</span><span class="hexcell" aria-hidden="true">CO</span><span class="hexcell" aria-hidden="true">NE</span><span class="hexcell on" title="Missouri — we operate here">MO</span><span class="hexcell" aria-hidden="true">KY</span><span class="hexcell" aria-hidden="true">WV</span><span class="hexcell" aria-hidden="true">VA</span><span class="hexcell" aria-hidden="true">MD</span><span class="hexcell" aria-hidden="true">DE</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">AZ</span><span class="hexcell" aria-hidden="true">NM</span><span class="hexcell" aria-hidden="true">KS</span><span class="hexcell" aria-hidden="true">AR</span><span class="hexcell" aria-hidden="true">TN</span><span class="hexcell on" title="North Carolina — we operate here">NC</span><span class="hexcell" aria-hidden="true">SC</span><span class="hexcell" aria-hidden="true">DC</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">OK</span><span class="hexcell" aria-hidden="true">LA</span><span class="hexcell on" title="Mississippi — we operate here">MS</span><span class="hexcell on" title="Alabama — we operate here">AL</span><span class="hexcell on" title="Georgia — we operate here">GA</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">HI</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Texas — we operate here">TX</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Florida — we operate here">FL</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+</div>
+<div class="hex-legend"><span><span class="hex-swatch on"></span> We operate here</span><span><span class="hex-swatch off"></span> We do not</span></div>
+<p class="visually-hidden">Take Notes Capital invests in these ten states: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri.</p>
+</div>
+</div>
+</section>
+<!-- PILLAR ROW TWO — before you decide (R10 §5, R10 rename) -->
+<section class="bg-deep lay" id="market-pillars">
+<div class="shell">
+<div class="pil-head fade-in">
+<div class="kicker">07 · Is this better than what I am doing now?</div>
+<h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
+<p>The same questions, pointed outward instead of inward.</p>
+</div>
+<div class="pil-row three fade-in" role="tablist" aria-label="Market topics">
+<button class="pil on" role="tab" id="qt1" aria-controls="qp1" aria-selected="true" tabindex="0" type="button"><span class="pil-n">05</span><span class="pil-t">What idle cash costs</span><span class="pil-d">Ten years of inflation on your own number.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+<button class="pil" role="tab" id="qt2" aria-controls="qp2" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">06</span><span class="pil-t">Notes against everything else</span><span class="pil-d">Attributes, not returns.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+<button class="pil" role="tab" id="qt3" aria-controls="qp3" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">07</span><span class="pil-t">What a note actually is</span><span class="pil-d">The document, in plain words.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
+</div>
+<div class="pil-panels fade-in">
+<div class="panel" role="tabpanel" id="qp1" aria-labelledby="qt1">
+<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:20px;max-width:620px;">Money in a savings account earns a number. Inflation takes a bigger one. Move the sliders and watch what ten years does to it.</p>
+<div class="infl-controls">
+<div class="infl-ctl"><label>Balance <b id="inflBalV">$50,000</b></label><input id="inflBal" type="range" min="10000" max="500000" step="5000" value="50000" aria-label="Balance"/></div>
+<div class="infl-ctl"><label>Rate <b id="inflRateV">4.1%</b></label><input id="inflRate" type="range" min="0" max="8" step="0.1" value="4.1" aria-label="Annual rate"/></div>
+</div>
+<div class="infl-chart"><svg id="inflSvg" viewBox="0 0 560 320" role="img" aria-label="Line chart comparing a balance's nominal value against its inflation-adjusted purchasing power over ten years"></svg></div>
+<div class="infl-read" id="inflRead"></div>
+<p class="infl-foot">Assumes <span class="legal-pending" title="Pending Legal review">3% annual inflation</span>, a figure pending review. Compounding on both sides. This chart makes no claim about notes or any other investment.</p>
+</div>
+<div class="panel" role="tabpanel" id="qp2" aria-labelledby="qt2" hidden="">
+<div class="cmp-scroll">
+<table class="cmp-table">
+<thead>
+<tr><th></th><th class="cmp-hl">Notes</th><th>Rentals</th><th>Stocks</th><th>Bonds</th><th>Crypto</th></tr>
+</thead>
+<tbody>
+<tr><td class="cmp-attr">Pays monthly</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Secured by real property</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Nothing to manage</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
+<tr><td class="cmp-attr">Terms set by contract</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Held in an IRA or 401(k)</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="lim">Limited</span></td></tr>
+</tbody>
+</table>
+</div>
+<p class="cmp-cap">Attributes of each instrument. Not a comparison of returns.</p>
+</div>
+<div class="panel" role="tabpanel" id="qp3" aria-labelledby="qt3" hidden="">
+<div style="max-width:720px;font-size:15px;line-height:1.7;color:var(--muted);">
+<p style="margin-bottom:14px;">A mortgage note is the loan on a house, written down. When you own it, the borrower's monthly payment comes to you instead of the bank, and the property stands behind it as collateral. You never own, manage, or fix anything.</p>
+<p style="margin-bottom:14px;">Banks sell these notes to free up capital, often at a steep discount when the borrower has fallen behind. That discount is the point: you buy real-estate-backed debt below what the property is worth, and the gap between the two is what protects your position.</p>
+<p style="margin-bottom:16px;">A <strong style="color:var(--text);font-weight:600;">performing note</strong> pays on time. A <strong style="color:var(--text);font-weight:600;">non-performing note</strong> is behind, and sells cheaper. TNC buys the non-performing ones and works the borrower back to paying, so you get the discount going in and the cash flow coming out.</p>
+<p><a class="step-link" href="/education">The full primer &#8594;</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
+<section class="cred-strip">
+<div class="cred-logos">
+<span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
+<span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
+<span class="cred-chip"><img alt="Reva Global" src="partners/reva.jpg"/></span>
+<span class="cred-chip"><img alt="RDIS" src="partners/rdis.png"/></span>
+<span class="cred-chip"><img alt="Legal League" src="partners/legal-league.png"/></span>
+<span class="cred-chip"><img alt="Clear2Close Title &amp; Escrow" src="partners/clear2close.png"/></span>
+</div>
+</section>
+<!-- [P4] Who-It's-For grid cut (2026-09-08): persona routing now lives in the picker + calculator; SDIRA/401k detail in FAQ -->
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
 <!-- ══════════════════════════════════════════ -->
-<section class="bg-deep section-short" id="learn">
-<p class="label-text fade-in label-blue">Note Investing 101</p>
-<h2 class="headline-lg fade-in">Want to Understand Notes<br/>Before You Invest?</h2>
-<div class="divider-dark fade-in"></div>
-<p class="body-text fade-in text-muted-white-52">Education is at the core of what we do. We believe informed investors make better partners. Here's a fast primer on how mortgage note investing actually works.</p>
-<div class="learn-grid fade-in">
-<div class="learn-card">
-<div class="learn-number">01</div>
-<div class="learn-title">What Is a Mortgage Note?</div>
-<div class="learn-body">A mortgage note is the legal IOU a borrower signs when they take out a home loan. It outlines the loan amount, interest rate, and repayment terms. When you invest in a note, you buy the right to receive those payments — you step into the lender's seat, backed by the real estate as collateral.</div>
-</div>
-<div class="learn-card">
-<div class="learn-number">02</div>
-<div class="learn-title">Why Do Banks Sell Notes?</div>
-<div class="learn-body">Banks routinely sell mortgage notes to free up capital for new lending. Notes on delinquent borrowers are bundled and sold at steep discounts — creating an opportunity for investors to buy real estate-backed debt below market value and earn strong returns from day one.</div>
-</div>
-<div class="learn-card">
-<div class="learn-number">03</div>
-<div class="learn-title">Performing vs. Non-Performing</div>
-<div class="learn-body">A <strong class="text-white-strong">performing note</strong> pays on time every month — predictable, passive income. A <strong class="text-white-strong">non-performing note</strong> is 90+ days delinquent and bought at a deep discount. Both have strong return potential. We specialize in performing notes for steady, stress-free cash flow.</div>
-</div>
-<div class="learn-card">
-<div class="learn-number">04</div>
-<div class="learn-title">What's Your Downside Protection?</div>
-<div class="learn-body">Every note we acquire is backed by a physical property. We never pay more than the as-is property value — so even in a worst-case scenario, foreclosure and resale returns your capital, often with profit. The real estate is always your safety net.</div>
-</div>
-</div>
-<div class="fade-in learn-cta-wrap">
-<p class="quote-callout mb-8">Ready to go deeper?</p>
-<p class="cta-sub-sm">Get a free 30-minute walkthrough of how note investing works — and whether it fits your goals.</p>
-<a class="cta-btn-blue" href="#contact">Schedule a Learning Call</a>
-</div>
-</section>
+
 <!-- MISSION SECTION -->
 <section class="bg-black section-short" id="mission">
-<p class="label-text fade-in label-faint">Our Purpose</p>
-<h2 class="headline-lg fade-in">The TNC Mission</h2>
+<h2 class="headline-lg fade-in">The TNC mission</h2>
 <div class="divider-dark fade-in"></div>
 <div class="mission-content">
-<p class="fade-in body-text-lg">
-      Take Notes Capital is a mortgage note acquisition company and movement built for the <strong class="text-white-strong">bold and the curious.</strong> We acquire and resolve non-performing notes — turning distressed debt into real opportunity for private investors and self-directed retirement account holders who want hands-off, real estate-backed returns without the tenants, toilets, and headaches that come with traditional property ownership.
-    </p>
-<p class="fade-in body-text-lg">
-      Most people think real estate means owning property. We're here to change that thinking. At TNC, we are building the table we wish someone had invited us to — a place where the eager get educated, the investor gets rewarded, and everyone at the table wins. Because the smartest move in real estate isn't buying the building — <strong class="text-white-strong">it's owning the note.</strong>
-</p>
+<p class="fade-in body-text-lg">At TNC, we are building the table we wish someone had invited us to: a place where the eager get educated, the investor gets rewarded, and everyone at the table wins. The smartest move in real estate is not buying the building. <strong class="text-white-strong">It is owning the note.</strong></p>
 <div class="fade-in mission-highlight">
-<p>
-        Our mission is to flip the script on real estate — arm the curious with knowledge, put capital to work for the investor, and shatter the myth that you need to own property to build real estate wealth. Whether you're a private investor ready to put your money to work, a retirement account holder looking for passive returns, or someone who simply wants to learn how to become the bank — <strong class="text-white-strong">there's a seat at this table for you.</strong>
-</p>
+<p>Whether you have capital to put to work, a retirement account looking for a real-estate-backed home, or you just want to learn how to become the bank, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
 </div>
 <div class="fade-in mission-pillars">
 <div class="mission-pillar">Educate</div>
 <div class="mission-pillar">Entertain</div>
 <div class="mission-pillar">Execute</div>
 </div>
-<p class="fade-in mission-tagline">That's the TNC way.</p>
 </div>
 </section>
 <!-- ABOUT AJ -->
-<section class="bg-white">
-<div class="about-content fade-in">
-<h2 class="headline-lg about-aj-headline">I'm AJ Dent.</h2>
+<section class="bg-white lay" id="founder">
+<div class="shell g-founder">
+<div class="rail fade-in">
+<div class="kicker">08 · Who am I dealing with?</div>
+<h3 class="rail-h">I'm AJ Dent.</h3>
 <p class="text-sm-muted">Founder, Take Notes Capital</p>
-<div class="divider"></div>
-<p class="about-first-p">My path to mortgage notes wasn't a straight line — and I think that's exactly why it works.</p>
-<p>I spent years in <strong>life insurance</strong> learning how to listen before I pitched, then moved into <strong>nuclear contracting</strong> where precision and accountability weren't optional. From there I partnered to close <strong>over $1M in wholesale real estate transactions</strong> and went deep into the creative finance world alongside respected <strong>SubTo ✌️ community</strong> members.</p>
-<p>That work wasn't just deal-making — it was people work. I partnered on a <strong>co-living operation</strong> providing affordable monthly housing to residents who needed it. At the same time, I was working directly with <strong>distressed homeowners</strong> — people facing foreclosure, divorce, job loss, or financial hardship — and helping them find real exits when traditional real estate had no answer for them.</p>
-<div class="blockquote-blue">
-<p style="margin:0;font-size:15px;line-height:1.75;color:#333;">These weren't just transactions. My job was to understand their situation first — then engineer a solution. That meant structuring <strong>subject-to acquisitions</strong>, <strong>wrap arrangements</strong>, and <strong>creative finance deals</strong> tailored to fit the seller's needs <em>and</em> match the right investor buy box. Every deal was structured so that both sides walked away in a better position than they started.</p>
 </div>
-<p>I also spent time <strong>educating real estate agents</strong> — helping them understand how to identify distressed property situations their clients were stuck in, and how creative finance tools like subject-to, seller financing, and wrap mortgages could be used ethically and legally to engineer exits that traditional listings simply couldn't produce. Most agents had never been shown these structures. Giving them that language changed how they served their sellers.</p>
-<p>That hands-on experience with distressed debt, deal engineering, and working around difficult financial situations made the move into <strong>mortgage note investing</strong> a natural evolution. I deepened that work through formal underwriting and deal structuring training under <strong>Scott Carson</strong>, alongside resources from the <strong>Notes Association Program</strong> and <strong>Martin Saenz</strong>. 🎯</p>
-<p>Every stop taught me something different about how money, risk, and people actually work — and I brought all of it here.</p>
-<div class="blockquote-light">
-<p style="margin:0;font-size:15px;line-height:1.7;color:#333;"><em>"I don't provide investment advice or guarantee returns. My goal is to build a transparent, God-first, process-driven note business — and connect with investors who want to understand how this asset class actually works. I believe in showing the real journey: the systems, the wins, and the lessons along the way."</em></p>
-</div>
-<p>If you're a <strong>self-directed IRA or 401(k) holder</strong> exploring passive returns, an <strong>asset manager with NPN inventory</strong>, or simply someone curious about how mortgage note investing works — I'm always open to a conversation.</p>
-<p class="about-mission-p"><strong>You invest. We handle the due diligence, the asset management, and the structure. The rest is just a conversation.</strong></p>
-</div>
-</section>
-<!-- TESTIMONIALS -->
-<section class="bg-black section-short" id="testimonials">
-<p class="label-text fade-in">What Investors Say</p>
-<h2 class="headline-lg fade-in">Real People. Real Returns.</h2>
-<div class="divider-dark fade-in"></div>
-<div class="testimonials-grid fade-in">
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"I had money sitting in my self-directed IRA doing next to nothing for years. I was walked through how a performing note works, step by step. No pressure, no jargon — just real answers. I finally feel like my retirement funds are actually working for me."</p>
-<div class="testimonial-author">Marcus T.</div>
-<div class="testimonial-location">Alpharetta, GA</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"I've done rental properties for 12 years and the calls, repairs, and tenant drama wore me out. This is completely different. The whole process was explained on our discovery call and I understood it within 30 minutes. Passive is actually passive here."</p>
-<div class="testimonial-author">Denise W.</div>
-<div class="testimonial-location">Savannah, GA</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"What stood out to me was the transparency. Nothing was oversold. The due diligence process, the numbers, and even what could go wrong were all laid out clearly. That honesty is what made me comfortable moving forward."</p>
-<div class="testimonial-author">Raymond F.</div>
-<div class="testimonial-location">Birmingham, AL</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"I'm a retired teacher and I was skeptical at first — real estate investing always felt like something for people with a lot of capital. Everything was broken down in a way that made sense for where I am financially. Really grateful I reached out."</p>
-<div class="testimonial-author">Linda B.</div>
-<div class="testimonial-location">Huntsville, AL</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"Between my 9-to-5 and two kids, I don't have time to manage anything. AJ and the Notes were the answer I didn't know I was looking for. Everything is handled and I'm kept in the loop without being overwhelmed. Monthly deposits speak for themselves."</p>
-<div class="testimonial-author">Jerome K.</div>
-<div class="testimonial-location">Dallas, TX</div>
-</div>
-<div class="testimonial-card">
-<div class="testimonial-stars">★★★★★</div>
-<p class="testimonial-text">"I came in knowing nothing about mortgage notes. I never felt rushed or pressured — just educated. The discovery call felt like a conversation with someone who actually cares about your outcome, not just closing a deal."</p>
-<div class="testimonial-author">Stephanie M.</div>
-<div class="testimonial-location">Orlando, FL</div>
+<div class="wide fade-in">
+<p class="about-first-p">My path ran through life insurance, nuclear contracting, and creative real estate, working hands-on with distressed homeowners, before formal note-underwriting training under Scott Carson made mortgage notes the natural next step. I run a transparent, God-first, process-driven business. You invest, and we handle the due diligence, the asset management, and the structure.</p>
+<p><a class="about-link" href="/about">Read the full story</a></p>
 </div>
 </div>
 </section>
 <!-- FAQ -->
-<section class="bg-black section-short" id="faq">
-<p class="label-text fade-in">Got Questions?</p>
-<h2 class="headline-lg fade-in">Frequently Asked Questions</h2>
+<section class="bg-black lay" id="faq">
+<div class="shell g-faq">
+<div class="rail fade-in">
+<div class="kicker">FAQ</div>
+<h3 class="rail-h">Frequently asked questions</h3>
+</div>
+<div class="wide fade-in">
+<div class="faq-list">
+<details>
+<summary>What exactly is a mortgage note, and what do I actually own?</summary>
+<p>A mortgage note is the legal document a borrower signs when they take out a home loan. It spells out everything: the loan amount, interest rate, repayment schedule, and what happens if they don't pay. When you invest in a note, you're buying the lender's position in that agreement. You become the bank. The note is secured by a real property, which means if the borrower ever stops paying, you have a legal claim to that asset as collateral. You don't own the house. You own the debt backed by the house. That distinction is what makes note investing so much cleaner than being a landlord.</p>
+</details>
+<details>
+<summary>Can I invest using my IRA or 401(k)?</summary>
+<p>Yes, and this is one of the reasons investors use notes. A Self-Directed IRA (SDIRA) or Solo 401(k) allows you to hold mortgage notes as an alternative asset inside your retirement account. All interest income flows back into the account tax-deferred (Traditional) or tax-free (Roth). The IRA technically becomes the lender, so everything is titled in the name of your custodian for your benefit. You'll need a custodian that permits alternative investments. Standard Fidelity or Schwab accounts won't work, but there are SDIRA custodians set up specifically for this. One important IRS rule: your IRA cannot lend to you, your spouse, your children, or your parents. These are "disqualified persons," and violating the rule can strip your account of its tax-advantaged status. We walk through all of this on our discovery call and can point you to the right custodians to get started.</p>
+</details>
+<details>
+<summary>What's the difference between a performing and non-performing note?</summary>
+<p>A performing note is one where the borrower is making on-time monthly payments as agreed, so the payment comes to you as it is made. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts, sometimes 20 to 70% below the unpaid loan balance, because they want the headache off their books. At Take Notes Capital, we buy non-performing notes at that discount and do the active work of getting the borrower paying again, through loan modifications and resolution strategies. That discount going in, and the work of turning the note back to performing, is the mechanism at the center of what we do. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value, so you understand exactly what you're stepping into before you commit.</p>
+</details>
+<details>
+<summary>How is my investment protected if something goes wrong?</summary>
+<p>Every note we acquire is secured by a physical property. Before we buy, we underwrite to a strict discount: typically 30 to 60 cents on the dollar, and we hold the line at 70% loan-to-value or less. That built-in equity buffer is your first layer of protection. If a borrower defaults, you have legal recourse: loan modification, deed-in-lieu of foreclosure, or full foreclosure. One thing to know: we also check for any existing tax liens before acquiring a note, because tax liens take priority over mortgage liens. Skipping that step is one of the most common mistakes new note investors make. We don't. Thorough due diligence, property inspection, title reports, and attorney review are standard parts of our process on every deal.</p>
+</details>
+<details>
+<summary>How does this actually generate monthly income for me?</summary>
+<p>Simple: when a borrower makes their monthly mortgage payment, that money flows to the note holder, which is you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The amount a performing note pays depends on the interest rate, the discount you paid for the note, and the remaining loan term, all of which we walk through before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</p>
+</details>
+<details>
+<summary>What happens if a borrower stops paying?</summary>
+<p>This is the question every serious investor should ask, and I appreciate it. When a borrower goes delinquent, we don't panic, we have a playbook. First, we work with the loan servicer to reach the borrower and understand the situation. Many times, a loan modification (lower rate, extended term) gets the borrower back on track and turns the note back into a performing asset. If that doesn't work, we pursue deed-in-lieu of foreclosure or full foreclosure through our network of attorneys. Foreclosure timelines vary by state. Non-judicial states like Texas can resolve in months, while judicial states can take one to two years. This is one reason we pay close attention to property location and state law when underwriting every deal. The real estate behind the note stands behind your position the whole way.</p>
+</details>
+<details>
+<summary>What funds can I use to invest?</summary>
+<p>More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. A self-directed account lets that idle money hold a note instead of sitting in cash. Not sure which account type fits your situation? That's exactly what our discovery call is for.</p>
+</details>
+<details>
+<summary>Is note investing better than being a landlord?</summary>
+<p>I'll give you the honest answer: it depends on your goals. Notes and rentals are both backed by real estate, but the experience of holding them is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want a hands-off position backed by real estate, especially those using retirement accounts, notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</p>
+</details>
+<details>
+<summary>How is Take Notes Capital different from other note investing companies?</summary>
+<p>Transparency and relationship, that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers: the risks, the costs, the timelines, not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</p>
+</details>
+</div>
+</div>
+</div>
+</section>
+<!-- PROOF (spec section 9 - testimonials removed 2026-09-08; reserved for real anonymized Deal Breakdowns) -->
+<section class="bg-black section-short" id="proof">
+<h2 class="headline-lg fade-in">Real deals. Real numbers.<br/><span class="text-gold">Coming soon.</span></h2>
 <div class="divider-dark fade-in"></div>
-<div class="faq-list fade-in">
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What exactly is a mortgage note, and what do I actually own?<span class="faq-icon">+</span></button>
-<div class="faq-answer">A mortgage note is the legal document a borrower signs when they take out a home loan. It spells out everything: the loan amount, interest rate, repayment schedule, and what happens if they don't pay. When you invest in a note, you're purchasing the lender's position in that agreement — you become the bank. The note is secured by a real property, which means if the borrower ever stops paying, you have a legal claim to that asset as collateral. You don't own the house. You own the debt backed by the house. That distinction is what makes note investing so much cleaner than being a landlord.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">Can I invest using my IRA or 401(k)?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Yes — and this is one of the most powerful advantages of note investing. A Self-Directed IRA (SDIRA) or Solo 401(k) allows you to hold mortgage notes as an alternative asset inside your retirement account. All interest income flows back into the account tax-deferred (Traditional) or tax-free (Roth). The IRA technically becomes the lender, so everything is titled in the name of your custodian for your benefit. You'll need a custodian that permits alternative investments — standard Fidelity or Schwab accounts won't work, but there are excellent SDIRA custodians set up specifically for this. One important IRS rule: your IRA cannot lend to you, your spouse, your children, or parents — these are "disqualified persons." Violating this can strip your account of its tax-advantaged status. We walk through all of this on our discovery call and can point you to the right custodians to get started.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What's the difference between a performing and non-performing note?<span class="faq-icon">+</span></button>
-<div class="faq-answer">A performing note is one where the borrower is making on-time monthly payments as agreed — you receive predictable, passive income from day one. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts — sometimes 20–70% below the unpaid loan balance — because they want the headache off their books. At Take Notes Capital, we focus on performing notes for steady, stress-free cash flow. Non-performing notes can offer higher potential upside through loan modifications or resolution strategies, but they require more active management and patience. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value — so you understand exactly what you're stepping into before you commit.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How is my investment protected if something goes wrong?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Every note we acquire is secured by a physical property. Before we purchase, we evaluate the Loan-to-Value ratio (LTV) — we never pay more than the property's current as-is value. This built-in equity buffer is your first layer of protection. If a borrower defaults, you have legal recourse: loan modification, deed-in-lieu of foreclosure, or full foreclosure. One thing to know: we also check for any existing tax liens before acquiring a note, because tax liens take priority over mortgage liens. Skipping that step is one of the most common mistakes new note investors make — we don't. Thorough due diligence, property inspection, title reports, and attorney review are standard parts of our process on every deal.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How does this actually generate monthly income for me?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Simple: when a borrower makes their monthly mortgage payment, that money flows directly to the note holder — you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The yield on a performing note depends on the interest rate, the discount you paid for the note, and the remaining loan term — all factors we walk through transparently before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What happens if a borrower stops paying?<span class="faq-icon">+</span></button>
-<div class="faq-answer">This is the question every serious investor should ask, and I appreciate it. When a borrower goes delinquent, we don't panic — we have a playbook. First, we work with the loan servicer to reach the borrower and understand the situation. Many times, a loan modification (lower rate, extended term) gets the borrower back on track and turns the note back into a performing asset — often at a higher yield than before. If that doesn't work, we pursue deed-in-lieu of foreclosure or full foreclosure through our network of attorneys. Foreclosure timelines vary significantly by state — non-judicial states like Texas can resolve in 60–90 days, while judicial foreclosure states can take 1–2 years. This is one reason we pay close attention to property location and state law when underwriting every deal. The real estate behind the note remains your safety net throughout.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">What funds can I use to invest?<span class="faq-icon">+</span></button>
-<div class="faq-answer">More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. Note investing through a self-directed account is often the highest-impact shift someone can make with funds they've already saved. Not sure which account type fits your situation? That's exactly what our discovery call is for.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">Is note investing better than being a landlord?<span class="faq-icon">+</span></button>
-<div class="faq-answer">I'll give you the honest answer: it depends on your goals. Notes and rental properties can generate comparable returns — but the experience is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want passive income without the operational weight — especially those using retirement accounts — notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</div>
-</div>
-<div class="faq-item">
-<button class="faq-question" onclick="toggleFaq(this)" type="button">How is Take Notes Capital different from other note investing companies?<span class="faq-icon">+</span></button>
-<div class="faq-answer">Transparency and relationship — that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers — the risks, the costs, the timelines — not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</div>
-</div>
-</div>
+<p class="body-text fade-in text-muted-white-52 mt-0" style="max-width:60ch;margin:0 auto;">Anonymized deal breakdowns land here as deals close: the actual numbers, entry to exit, framed as partner and joint-venture deals. We would rather show you one real breakdown than a page of five-star quotes.</p>
 </section>
 <!-- NOTE BUYERS -->
 <section class="bg-black section-short" id="note-buyers">
 <div class="nb-shell fade-in">
 <div class="nb-card">
 <div class="nb-intro" id="nbIntro">
-<p class="nb-label">For Note Buyers</p>
-<h2 class="nb-title">Get Notified When We Have Notes That Fit Your Buy Box.</h2>
-<p class="nb-copy">Tell us what you're looking for — asset type, lien position, target states, and investment range — and we'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
-<button class="nb-btn" onclick="nbStart()" type="button">Submit My Buy Box →</button>
+<h2 class="nb-title">Get notified when we have notes that fit your buy box.</h2>
+<p class="nb-copy">Tell us what you're looking for: asset type, lien position, target states, and investment range. We'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
+<button class="nb-btn" onclick="nbStart()" type="button">Submit my buy box</button>
 </div>
 <div class="nb-form-wrap" id="nbFormWrap">
 <div class="nb-progress" id="nbProgressWrap">
@@ -859,7 +1442,7 @@
 <button class="nb-option" data-value="non_performing" onclick="nbToggleOption(this, 'assetTypes', 1)" type="button"><span class="nb-check">✓</span>Non-Performing</button>
 </div>
 <div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn1" onclick="nbNext(1)" type="button">Continue →</button>
+<button class="nb-btn" disabled="" id="nbBtn1" onclick="nbNext(1)" type="button">Continue</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep2">
@@ -872,7 +1455,7 @@
 <button class="nb-option" data-value="unsecured" onclick="nbToggleOption(this, 'lienPositions', 2)" type="button"><span class="nb-check">✓</span>Unsecured</button>
 </div>
 <div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn2" onclick="nbNext(2)" type="button">Continue →</button>
+<button class="nb-btn" disabled="" id="nbBtn2" onclick="nbNext(2)" type="button">Continue</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep3">
@@ -933,7 +1516,7 @@
 <button class="nb-state" data-value="WY" onclick="nbToggleState(this)" type="button">WY</button>
 </div>
 <div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn3" onclick="nbNext(3)" type="button">Continue →</button>
+<button class="nb-btn" disabled="" id="nbBtn3" onclick="nbNext(3)" type="button">Continue</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep4">
@@ -941,14 +1524,11 @@
 <h3 class="nb-question">How much are you planning to invest on your next deal?</h3>
 <p class="nb-sub">Select one.</p>
 <div class="nb-options">
-<button class="nb-option" data-value="under_5k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>&lt; $5,000</button>
-<button class="nb-option" data-value="5k_10k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$5,000 – $10,000</button>
-<button class="nb-option" data-value="10k_25k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$10,000 – $25,000</button>
+<button class="nb-option" data-value="under_25k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>Under $25,000</button>
 <button class="nb-option" data-value="25k_50k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$25,000 – $50,000</button>
 <button class="nb-option" data-value="50k_100k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$50,000 – $100,000</button>
 <button class="nb-option" data-value="100k_250k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$100,000 – $250,000</button>
-<button class="nb-option" data-value="250k_500k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$250,000 – $500,000</button>
-<button class="nb-option" data-value="over_500k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>&gt; $500,000</button>
+<button class="nb-option" data-value="250k_plus" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$250,000+</button>
 </div>
 </div>
 <div class="nb-step" id="nbStep5">
@@ -980,7 +1560,7 @@
 <p class="nb-sub">Optional — tell us anything else about your buy box.</p>
 <textarea class="nb-textarea" id="nbPreferences" placeholder="e.g. Prefer owner-occupied properties, no rural areas, minimum property value $50K..."></textarea>
 <div class="nb-actions">
-<button class="nb-btn" onclick="nbNext(7)" type="button">Continue →</button>
+<button class="nb-btn" onclick="nbNext(7)" type="button">Continue</button>
 <button class="nb-skip" onclick="nbNext(7)" type="button">Skip</button>
 </div>
 </div>
@@ -1007,7 +1587,7 @@
 </div>
 </div>
 <div class="nb-actions">
-<button class="nb-btn" id="nbSubmitBtn" onclick="nbSubmit()" type="button">Submit My Buy Box →</button>
+<button class="nb-btn" id="nbSubmitBtn" onclick="nbSubmit()" type="button">Submit my buy box</button>
 </div>
 <p class="nb-note">We'll only contact you about notes that match your criteria. No spam, ever.</p>
 </div>
@@ -1023,8 +1603,8 @@
 </section>
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
-<p class="label-text fade-in">Let's Talk</p>
-<h2 class="headline-xl fade-in">Ready to Become the Bank?</h2>
+<div class="kicker" style="text-align:center;margin-bottom:16px;">09 · What happens if I say yes?</div>
+<h2 class="headline-xl fade-in">Ready to become the bank?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in contact-note">No pressure. No pitch. Just a conversation about whether<br/>mortgage note investing fits your goals.</p>
 <div class="contact-wrapper fade-in">
@@ -1083,33 +1663,61 @@
 <label>Message (optional)</label>
 <textarea name="message" placeholder="Tell us about your goals or any questions you have..."></textarea>
 </div>
-<button class="form-submit" type="submit">Send Message →</button>
+<button class="form-submit" type="submit">Send message</button>
 </form>
 </div>
 <div class="form-success" id="formSuccess">
 <div class="form-success-icon">✅</div>
-<h3 class="form-success-title">Message Received!</h3>
+<h3 class="form-success-title">Message received!</h3>
 <p class="form-success-note">We'll be in touch within 48 hours.<br/>Feel free to also book a call directly.</p>
-<a class="cta-btn-outline cta-btn-outline-mt" href="https://talkwithajdent.com" target="_blank">Book a Call</a>
+<a class="cta-btn-outline cta-btn-outline-mt" href="https://talkwithajdent.com" target="_blank">Book a call</a>
 </div>
 </div>
 <p class="disclaimer fade-in disclaimer-section">
     THIS IS NOT A SECURITY. THE INFORMATION PROVIDED HEREIN IS NOT INTENDED TO BE FOR THE PURPOSES OF SOLICITING A SECURITY UNDER STATE OR FEDERAL REGULATIONS. THIS INFORMATION IS INTENDED TO GIVE THE PRIVATE INVESTOR ALTERNATIVES TO STOCK MARKET INVESTMENTS, BUT IS NOT INTENDED TO BE A SOLICITATION OF A SECURITY UNDER SEC RULES AND DEFINITIONS. THIS IS INTENDED TO BE A PRIVATE BORROWING TRANSACTION.
   </p>
 </section>
+<!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
+<section class="bg-black section-short" id="deal-desk">
+<div class="shell dd-wrap">
+<div class="dd-eyebrow">Not ready to talk?</div>
+<h3 class="rail-h">Stay in the loop.</h3>
+<p class="dd-sub">The <strong>Deal Desk Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
+<form class="dd-form" onsubmit="return dealDeskSubmit(event)">
+<input type="email" placeholder="you@email.com" aria-label="Your email for the Deal Desk newsletter" required=""/>
+<button type="submit">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- [RC] CATEGORIZED CONTENT CARDS (R11 §6 — blog verified current, newest Sep 7) -->
+<section class="bg-black lay" id="read-more">
+<div class="shell">
+<div class="pil-head fade-in" style="text-align:left;max-width:none;margin-bottom:6px;">
+<h3 class="rail-h">Not ready yet? Read something.</h3>
+</div>
+<div class="cards-grid fade-in">
+<a class="rcard" href="/first-lien-vs-second-lien-notes"><span class="rcard-tag">Underwriting</span><span class="rcard-title">First lien vs. second lien</span><span class="rcard-desc">Why your position in the stack decides the risk.</span></a>
+<a class="rcard" href="/sdira-real-estate-investing-guide"><span class="rcard-tag">SDIRA</span><span class="rcard-title">The self-directed IRA guide</span><span class="rcard-desc">Holding mortgage notes inside your retirement account.</span></a>
+<a class="rcard" href="/non-performing-note-exit-strategies"><span class="rcard-tag">Borrower workouts</span><span class="rcard-title">Exit strategies for non-performing notes</span><span class="rcard-desc">The common ways a delinquent note resolves, with the math.</span></a>
+<a class="rcard" href="/rental-properties-vs-note-investing"><span class="rcard-tag">Market</span><span class="rcard-title">Rentals vs. note investing</span><span class="rcard-desc">The honest comparison, without the landlord spin.</span></a>
+<a class="rcard" href="/why-use-a-note-servicer"><span class="rcard-tag">Getting started</span><span class="rcard-title">Why use a note servicer</span><span class="rcard-desc">The unglamorous job that keeps your income legal.</span></a>
+<a class="rcard" href="/how-to-spot-a-bad-note-deal"><span class="rcard-tag">Underwriting</span><span class="rcard-title">Spot a bad note deal in 30 seconds</span><span class="rcard-desc">The red flags that kill a deal before you bid.</span></a>
+</div>
+</div>
+</section>
 <!-- FOOTER -->
 <footer>
 <div class="footer-logo">
 <img alt="Take Notes Capital" src="logo.png"/>
 </div>
-<div class="footer-tagline">Earn Like You Own The Building.</div><ul class="footer-links"><li><a href="#for-investors">Who It's For</a></li><li><a href="#how-it-works">How It Works</a></li><li><a href="#learn">Learn Notes</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note Buyers</a></li><li><a href="blog.html">Blog</a></li><li><a href="#contact">Book a Call</a></li></ul>
+<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Who it's for</a></li><li><a href="#proof">Proof</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
 
 <div class="footer-legal-btns">
 <a class="footer-legal-btn" href="privacy-policy.html">Privacy Policy</a>
 <a class="footer-legal-btn" href="cookie-policy.html">Cookie Policy</a>
 <a class="footer-legal-btn" href="terms-and-conditions.html">Terms &amp; Conditions</a>
 </div>
-<div class="footer-copy">© 2026 Take Notes Capital · All Rights Reserved</div>
+<div class="footer-copy">© 2026 Take Notes Capital. All rights reserved.</div>
 </footer>
 <script>
   window.addEventListener("scroll", () => {
@@ -1124,11 +1732,13 @@
   function toggleMenu() {
     document.getElementById("mobileMenu").classList.toggle("open");
   }
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const isOpen = item.classList.contains("open");
-    document.querySelectorAll(".faq-item.open").forEach(el => el.classList.remove("open"));
-    if (!isOpen) item.classList.add("open");
+  function dealDeskSubmit(e){
+    e.preventDefault();
+    var f=e.target, email=(f.querySelector('input')||{}).value||'';
+    window.TNC=window.TNC||{}; window.TNC.dealDesk={email:email};
+    /* STUB: Deal Desk newsletter signup — GHL wiring parked */
+    f.innerHTML='<p class="dd-ok">You’re on the Deal Desk list. Watch your inbox.</p>';
+    return false;
   }
   async function submitToGHL(event) {
     event.preventDefault();
@@ -1161,7 +1771,7 @@
       alert('Something went wrong. Please try again or email us directly.');
       console.error(err);
       btn.disabled = false;
-      btn.textContent = 'Send Message →';
+      btn.textContent = 'Send Message';
     }
   }
 
@@ -1292,7 +1902,7 @@
       console.error(err);
       alert('Something went wrong. Please try again.');
       btn.disabled = false;
-      btn.textContent = 'Submit My Buy Box →';
+      btn.textContent = 'Submit my buy box';
     }
   }
 
@@ -1396,5 +2006,83 @@
 <p>If you have any questions about these Terms and Conditions, please reach out through the contact form on this site or book a discovery call. We're happy to clarify anything before you engage with our content or services.</p>
 </div>
 </div>
+<!-- [Q] IDLE-CASH INFLATION CHART (R9 §2) -->
+<script>
+(function(){
+  var INFL=0.03, L=66, R=546, T=22, B=280;
+  var balEl=document.getElementById('inflBal'), rateEl=document.getElementById('inflRate');
+  if(!balEl) return;
+  var svg=document.getElementById('inflSvg'), read=document.getElementById('inflRead');
+  var balV=document.getElementById('inflBalV'), rateV=document.getElementById('inflRateV');
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  function draw(){
+    var bal=+balEl.value, rate=(+rateEl.value)/100;
+    balV.textContent='$'+fmt(bal); rateV.textContent=(+rateEl.value).toFixed(1)+'%';
+    var nom=[], real=[], y;
+    for(y=0;y<=10;y++){ var n=bal*Math.pow(1+rate,y); nom.push(n); real.push(n/Math.pow(1+INFL,y)); }
+    var all=nom.concat(real), mn=Math.min.apply(null,all)*0.94, mx=Math.max.apply(null,all)*1.06;
+    function X(t){ return L+(R-L)*(t/10); }
+    function Y(v){ return B-(B-T)*((v-mn)/(mx-mn)); }
+    function line(a){ return a.map(function(v,t){ return X(t).toFixed(1)+','+Y(v).toFixed(1); }).join(' '); }
+    var gap=line(nom)+' '+real.slice().reverse().map(function(v,i){ var t=10-i; return X(t).toFixed(1)+','+Y(v).toFixed(1); }).join(' ');
+    var by=Y(bal), ticks='';
+    [0,5,10].forEach(function(t){ ticks+='<text x="'+X(t).toFixed(1)+'" y="302" fill="#5F7191" font-size="11" text-anchor="middle">'+(t===0?'today':'year '+t)+'</text>'; });
+    svg.innerHTML=''
+      +'<line x1="'+L+'" y1="'+by.toFixed(1)+'" x2="'+R+'" y2="'+by.toFixed(1)+'" stroke="#202B45" stroke-dasharray="3 4"/>'
+      +'<text x="'+(L-4)+'" y="'+(by-5).toFixed(1)+'" fill="#5F7191" font-size="11" text-anchor="end">$'+fmt(bal)+'</text>'
+      +'<polygon points="'+gap+'" fill="#E85D5D" fill-opacity="0.10"/>'
+      +'<polyline points="'+line(nom)+'" fill="none" stroke="#5F7191" stroke-width="1.5" stroke-dasharray="4 3"/>'
+      +'<polyline points="'+line(real)+'" fill="none" stroke="#E85D5D" stroke-width="2.5"/>'
+      +'<circle cx="'+X(10).toFixed(1)+'" cy="'+Y(nom[10]).toFixed(1)+'" r="3.5" fill="#5F7191"/>'
+      +'<circle cx="'+X(10).toFixed(1)+'" cy="'+Y(real[10]).toFixed(1)+'" r="4" fill="#E85D5D"/>'
+      +'<text x="'+(X(10)-6).toFixed(1)+'" y="'+(Y(nom[10])-8).toFixed(1)+'" fill="#5F7191" font-size="10.5" text-anchor="end">what the statement says</text>'
+      +'<text x="'+(X(10)-6).toFixed(1)+'" y="'+(Y(real[10])+15).toFixed(1)+'" fill="#E85D5D" font-size="10.5" text-anchor="end">what it actually buys</text>'
+      +ticks;
+    var sN=nom[10], sR=real[10], cls, msg;
+    if(Math.abs(rate-INFL)<0.0005){ cls='level'; msg="You are running exactly level. Ten years of saving and $"+fmt(bal)+" still buys $"+fmt(bal)+"."; }
+    else if(rate>INFL){ cls='good'; msg="After ten years the statement reads <b>$"+fmt(sN)+"</b>. In today's money it buys <b>$"+fmt(sR)+"</b>. You are ahead, by <b>$"+fmt(sR-bal)+"</b> over a decade."; }
+    else { cls='bad'; msg="After ten years the statement reads <b>$"+fmt(sN)+"</b>. In today's money it buys <b>$"+fmt(sR)+"</b>. Inflation took <b>$"+fmt(sN-sR)+"</b>, and you are <b>$"+fmt(bal-sR)+"</b> behind where you started."; }
+    read.className='infl-read '+cls; read.innerHTML=msg;
+  }
+  balEl.addEventListener('input',draw); rateEl.addEventListener('input',draw); draw();
+})();
+</script>
+<!-- [P] PILLAR ROWS controller (R10 §5/§8) -->
+<script>
+(function(){
+  function initRow(row){
+    var tabs=[].slice.call(row.querySelectorAll('.pil'));
+    var wrap=row.nextElementSibling;
+    var panels=wrap?[].slice.call(wrap.querySelectorAll('.panel')):[];
+    function set(i, allowClose){
+      var isOpen=tabs[i].classList.contains('on');
+      if(allowClose && isOpen){
+        tabs[i].classList.remove('on'); tabs[i].setAttribute('aria-selected','false');
+        if(panels[i]) panels[i].hidden=true; return;
+      }
+      tabs.forEach(function(t,j){
+        var on=(j===i);
+        t.classList.toggle('on',on);
+        t.setAttribute('aria-selected',on?'true':'false');
+        t.tabIndex = on?0:-1;
+        if(panels[j]) panels[j].hidden=!on;
+      });
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){ set(i,true); });
+      t.addEventListener('keydown',function(e){
+        var n=tabs.length, ni=-1;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') ni=(i+1)%n;
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') ni=(i-1+n)%n;
+        else if(e.key==='Home') ni=0;
+        else if(e.key==='End') ni=n-1;
+        else return;
+        e.preventDefault(); tabs[ni].focus(); set(ni,false);
+      });
+    });
+  }
+  document.querySelectorAll('.pil-row').forEach(initRow);
+})();
+</script>
 </body>
 </html>
