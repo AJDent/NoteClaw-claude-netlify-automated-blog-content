@@ -13,10 +13,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Take Notes Capital — Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." name="description"/>
-<title>Take Notes Capital — Earn Like You Own The Building</title>
+<title>Take Notes Capital: Earn Like You Own The Building</title>
 
 <!-- Open Graph -->
-<meta property="og:title" content="Take Notes Capital — Earn Like You Own The Building" />
+<meta property="og:title" content="Take Notes Capital: Earn Like You Own The Building" />
 <meta property="og:description" content="Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." />
 <meta property="og:image" content="https://takenotescapital.com/images/og-image.jpg" />
 <meta property="og:url" content="https://takenotescapital.com/" />
@@ -25,7 +25,7 @@
 
 <!-- Twitter/X Card -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Take Notes Capital — Earn Like You Own The Building" />
+<meta name="twitter:title" content="Take Notes Capital: Earn Like You Own The Building" />
 <meta name="twitter:description" content="Earn passive, real estate-backed returns through mortgage note investing. Become the bank: secured by real property, monthly cash flow, nothing to manage." />
 <meta name="twitter:image" content="https://takenotescapital.com/images/og-image.jpg" />
 
@@ -82,8 +82,9 @@
   /* SECTIONS */
   section { min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 72px 24px; position: relative; }
   .section-short { min-height: auto; padding: 72px 24px; }
-  #hero { padding: 118px 24px 92px; }
-  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 84px 24px 60px; } }
+  #hero { padding: 150px 24px 84px; }
+  .hero-orient { margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--hairline); }
+  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 96px 24px 56px; } .hero-orient { margin-top: 40px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
 
@@ -99,7 +100,7 @@
   .hl-blue { color: var(--blue); }
   /* three-number orientation block (R11 §3) */
   .orient-bar { background: var(--ground); border-bottom: 1px solid var(--hairline); }
-  .orient { display: grid; grid-template-columns: repeat(3, 1fr); padding: 34px 0; text-align: center; }
+  .orient { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; text-align: center; }
   .orient-item { display: flex; flex-direction: column; gap: 9px; padding: 4px 12px; }
   .orient-item:not(:last-child) { border-right: 1px solid var(--hairline); }
   .orient-val { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(23px, 3.2vw, 38px); line-height: 1.04; color: var(--text); font-variant-numeric: tabular-nums; }
@@ -495,9 +496,12 @@
   .sc-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; text-align: center; font-size: clamp(20px,2.6vw,31px); line-height: 1.35; max-width: 1080px; margin: 0 auto; }
   @media (min-width: 701px) { .sc-half { white-space: nowrap; } }
   .sc-half { display: inline-flex; align-items: center; gap: 10px; }
-  .calc-avatar { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-  .calc-avatar a { color: var(--blue); text-decoration: none; font-weight: 600; }
-  .calc-avatar a:hover { text-decoration: underline; }
+  .calc-transition { border-left: 3px solid var(--blue); padding-left: 16px; margin-bottom: 24px; }
+  .ct-echo { font-size: 14.5px; color: var(--text); font-weight: 600; margin-bottom: 10px; line-height: 1.5; }
+  .ct-echo a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .ct-echo a:hover { text-decoration: underline; }
+  .ct-insight { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+  .ct-permission { font-size: 13px; color: var(--dim); font-style: italic; }
   .sc-line select {
     font: inherit; font-size: 0.95em; color: var(--blue); background: transparent;
     border: none; border-bottom: 2px solid var(--blue); padding: 2px 28px 2px 6px; margin: 0 3px;
@@ -571,8 +575,8 @@
   .tl-node.you { background: rgba(78,203,113,0.05); }
   .tl-node.you::before { background: var(--green); box-shadow: 0 0 0 5px rgba(78,203,113,0.13); }
   .tl-node.you .tl-tag { color: var(--green); }
-  .tl-node.active { background: rgba(91,164,230,0.08); }
-  .tl-node.active .tl-label { color: var(--text); }
+  .tl-node.active { background: #17294A; }
+  .tl-node.active .tl-label { color: #FFFFFF; }
   .tl-node.active::before { transform: scale(1.35); }
   .tl-node.you.active { background: rgba(78,203,113,0.09); }
   .tl-panel { border-top: 1px solid var(--hairline); margin: 26px auto 0; padding-top: 26px; min-height: 210px; max-width: 720px; text-align: left; }
@@ -640,7 +644,7 @@
   .hexrow { display: flex; gap: 3px; margin-bottom: 3px; }
   .hexrow.odd { margin-left: calc((100% / 12 + 3px) / 2); }
   .hexcell { flex: 0 0 calc((100% - 33px) / 12); aspect-ratio: 1 / 1.1; display: grid; place-items: center; font-size: 9px; font-weight: 800; color: #2C3B58; background: #111A2C; clip-path: polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%); transition: background .2s, color .2s; }
-  .hexcell.on { background: #1C3A5C; color: #9ACBF2; }
+  .hexcell.on { background: #24568A; color: #CDE5FA; }
   .hexcell.on:hover { background: #25537F; color: #D3E8FB; }
   .hexcell.empty { background: none; }
   .hex-legend { display: flex; gap: 22px; margin-top: 22px; font-size: 12px; color: var(--muted); }
@@ -659,7 +663,8 @@
   .pil-row.three { grid-template-columns: repeat(3, 1fr); }
   .pil { background: #101828; border: 1px solid #1B2740; border-top: 2px solid #243350; padding: 16px 32px 15px 14px; cursor: pointer; text-align: left; position: relative; font: inherit; color: var(--text); transition: background .2s; }
   .pil:hover { background: #131D31; }
-  .pil.on { background: #13203A; border-color: #2F5580; border-top-color: #5BA4E6; }
+  .pil.on { background: #17294A; border-color: #3E6D9E; border-top-color: #5BA4E6; }
+  .pil.on .pil-t { color: #FFFFFF; }
   .pil-n { font-size: 12px; font-weight: 800; color: var(--blue); font-variant-numeric: tabular-nums; }
   .pil-t { display: block; margin-top: 8px; font-size: 15px; font-weight: 600; color: var(--text); }
   .pil-d { display: block; margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
@@ -783,7 +788,7 @@
       "name": "What is a mortgage note?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A mortgage note is the legal document a borrower signs when they take out a home loan. When you invest in a note, you're purchasing the lender's position — you become the bank."
+        "text": "A mortgage note is the legal document a borrower signs when they take out a home loan. When you invest in a note, you're purchasing the lender's position, and you become the bank."
       }
     },
     {
@@ -854,16 +859,13 @@
 <h1 class="headline-xl fade-in d1">Earn like you own the building.<br/><span class="text-gold">Live like you never bought one.</span></h1>
 <p class="body-text fade-in d2 hero-sub">Mortgage notes. You own the loan on the house, not the house. Paid first, secured by real estate, with nothing to manage.</p>
 <!-- hero CTA removed (P4): the picker below is the primary action -->
-<div class="scroll-arrow">↓</div>
-</section>
-<!-- [O] THREE-NUMBER ORIENTATION BLOCK (R11 §3) -->
-<div class="orient-bar">
-<div class="orient shell">
+<!-- [O] THREE-NUMBER ORIENTATION BLOCK (R11 §3, anchored inside the hero R12 §5a) -->
+<div class="orient shell hero-orient">
 <div class="orient-item"><span class="orient-val">Ten states</span><span class="orient-lbl">Footprint</span></div>
 <div class="orient-item"><span class="orient-val">First lien only</span><span class="orient-lbl">Position</span></div>
 <div class="orient-item"><span class="orient-val">Non-performing</span><span class="orient-lbl">Focus</span></div>
 </div>
-</div>
+</section>
 <!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
@@ -911,41 +913,39 @@
     income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
     operator: "You did not get tired of real estate. You got tired of the job that came with it."
   };
-  var AVATAR = {
-    retiree:  "You're a retiree putting a retirement account to work.",
-    income:   "You're an investor with cash sitting still.",
-    operator: "You're a real estate investor tired of the job that came with it."
+  var ECHO = {
+    retiree:  "Alright, we have the starting line. You're a retiree putting a retirement account to work.",
+    income:   "I like it, now we know. You're an investor with cash sitting still.",
+    operator: "Interesting, now let's take the first step. You're already in real estate. Just might be dealing with a few headaches on the other side of it."
   };
   window.TNC = window.TNC || {};
   var who  = document.getElementById('scWho');
   var want = document.getElementById('scWant');
   var res  = document.getElementById('scResult');
-  var txt  = document.getElementById('scResultText');
-  function updateAvatar(){
-    var avatar = document.getElementById('calcAvatar'), avatarText = document.getElementById('calcAvatarText');
-    if(!avatar) return; // calc markup is parsed after this script
-    var lane = window.TNC.lane;
-    var both = who && who.selectedIndex>0 && want && want.selectedIndex>0;
-    if(both && lane && AVATAR[lane]){
-      if(avatarText) avatarText.textContent = AVATAR[lane];
-      avatar.hidden = false;
-    } else { avatar.hidden = true; }
+  function updateTransition(lane){
+    var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
+    if(!box) return; // calc markup parses after this script
+    if(lane && ECHO[lane]){
+      if(e) e.textContent=ECHO[lane];
+      if(i) i.textContent=LANES[lane];
+      box.hidden=false;
+    } else { box.hidden=true; }
   }
   function setLane(lane){
     if(!LANES[lane]) return;
     window.TNC.lane = lane;
-    if(txt) txt.textContent = LANES[lane];
-    if(res) res.hidden = false;
+    if(res) res.hidden = true; // old below-selector echo retired; the transition block carries it
     if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
-    updateAvatar();
+    updateTransition(lane);
   }
   if (want){
     want.addEventListener('change', function(){
       var opt = want.options[want.selectedIndex];
-      setLane(opt && opt.getAttribute('data-lane'));
+      var lane = opt && opt.getAttribute('data-lane');
+      setLane(lane);
+      if(lane){ var calc=document.getElementById('calc'); if(calc) calc.scrollIntoView({behavior:'smooth'}); } // §2a: choosing navigates
     });
   }
-  if (who){ who.addEventListener('change', updateAvatar); }
   try{
     var p = new URLSearchParams(location.search).get('lane');
     if (p && LANES[p]){
@@ -954,10 +954,10 @@
     }
   }catch(e){}
   window.tncChangeAnswer=function(e){ if(e&&e.preventDefault) e.preventDefault();
-    var who=document.getElementById('scWho'); if(who) who.selectedIndex=0;
+    if(who) who.selectedIndex=0;
     if(want) want.selectedIndex=0;
     if(res) res.hidden=true;
-    var av=document.getElementById('calcAvatar'); if(av) av.hidden=true;
+    updateTransition(null);
     window.TNC=window.TNC||{}; window.TNC.lane=null;
     if(typeof window.tncCalcReset==='function') window.tncCalcReset();
     var pk=document.getElementById('pick'); if(pk) pk.scrollIntoView({behavior:'smooth'});
@@ -969,14 +969,17 @@
 <div class="shell g-calc">
 <div class="rail fade-in">
 <div class="kicker">03 · What is my money doing right now?</div>
+<div class="calc-transition" id="calcTransition" hidden="">
+<p class="ct-echo"><span id="ctEcho"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></p>
+<p class="ct-insight" id="ctInsight"></p>
+<p class="ct-permission">Rough numbers work. Nobody's checking your math.</p>
+</div>
 <h2 class="calc-frame rail-h" id="calcFrame">So what's your money doing right now?</h2>
 <p class="calc-intro">Here is where it gets interesting. Put in your real numbers, then let's see how <b>notes</b> stack up against them.</p>
 <p class="calc-intro-sub">No email needed to run your own math.</p>
-<p class="calc-change">Not quite you? <a href="#pick" onclick="tncChangeAnswer(event)">Change your answer</a></p>
 </div>
 <div class="wide fade-in">
 <div class="calc-card">
-<div class="calc-avatar" id="calcAvatar" hidden=""><span id="calcAvatarText"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></div>
 <div class="calc-inputs" id="calcInputs"></div>
 <div class="calc-stage1" id="calcStage1"></div>
 <div class="calc-gate" id="calcGate" hidden="">
@@ -985,7 +988,7 @@
 <input aria-label="Your email" id="calcEmail" placeholder="you@email.com" type="email"/>
 <button class="cta-btn" id="calcGateBtn" type="button">Show me</button>
 </div>
-<p class="calc-gate-sub">Plus the guide written for your situation.</p>
+<p class="calc-gate-sub" id="calcGuideLine">Plus a free guide written for investors like you.</p>
 </div>
 <div class="calc-stage2" id="calcStage2" hidden=""></div>
 </div>
@@ -1004,6 +1007,7 @@
       base:function(v){return v.bal;},
       stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
       gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"retirees",
       guide:"How to Invest Your IRA in Mortgage Notes"
     },
     income:{
@@ -1012,6 +1016,7 @@
       base:function(v){return v.bal;},
       stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
       gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"investors",
       guide:"7 Ways to Earn Passive Income with Mortgage Notes"
     },
     operator:{
@@ -1020,6 +1025,7 @@
       base:function(v){return v.cash;},
       stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
       gate:function(v){var res=v.rent*0.28;return "The reserves took $"+fmt(res)+" a month. Most rental math skips them. Want to see the same $"+fmt(v.cash)+" on the lending side?";},
+      aud:"real estate investors",
       guide:"Note Investing vs Rentals"
     }
   };
@@ -1027,9 +1033,11 @@
   var g=function(id){return document.getElementById(id);};
   var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
   function cfg(){return LANES[state.lane]||LANES.income;}
-  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);v[f.id]=el?(parseFloat(el.value)||0):f.val;});state.v=v;return v;}
-  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){return "<label class='calc-fld'>"+f.label+"<input type='number' id='cf_"+f.id+"' value='"+f.val+"' step='"+f.step+"'></label>";}).join('');c.fields.forEach(function(f){g('cf_'+f.id).addEventListener('input',update);});}
-  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;}
+  function isMoney(f){return f.step>=1;}
+  function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
+  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
+  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
+  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl)gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';}
   function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year. Overhead is roughly $25 a month for servicing.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
   elBtn.addEventListener('click',submitGate);
@@ -1074,7 +1082,7 @@
 </div>
 <div class="tl-pane">
 <h3 class="tl-pane-h"><span class="tl-pane-n">04</span> · We buy at a discount · <span class="tl-pane-tag tnc">TNC</span></h3>
-<p>We buy below what is owed, and below what the house could sell for. That gap is what protects your money, and it is the reason we can be patient with a borrower instead of rushing them.</p>
+<p>We buy below what is owed, and below what the house could sell for. That gap is what protects your money, and it is the reason we can be patient with a borrower instead of rushing the process.</p>
 <p class="tl-teaser">On an $85,000 house where the borrower owes $67,000, we might pay $30,000. That leaves $55,000 of room between what we paid and what the house could sell for. <a class="step-link" href="#cushion">See how the cushion moves →</a></p>
 </div>
 <div class="tl-pane">
@@ -1095,7 +1103,7 @@
 <div class="shell">
 <div class="pil-head fade-in">
 <div class="kicker">05 · Is my money safe?</div>
-<h3 class="rail-h">The parts that decide<br/><span class="hl-blue">whether this is safe.</span></h3>
+<h3 class="rail-h">The parts that decide<br/><span class="hl-blue">whether this is a fit.</span></h3>
 <p>Four things worth understanding before you put a dollar into notes. Open whichever one you came for.</p>
 </div>
 <div class="pil-row fade-in" role="tablist" aria-label="Protection topics">
@@ -1131,7 +1139,7 @@
 </div>
 <div class="panel" role="tabpanel" id="pp2" aria-labelledby="pt2" hidden="">
 <p class="ck-intro">This list runs in a specific order for a reason. The early checks are fast and binary, yes or no, keep or kill. The later ones build a picture. By the time we reach the bottom we know whether a note is worth a bid, and most of them are not.</p>
-<div class="ck-cols"><div class="ck-stage"><h5>Instant stops<span>Any one of these and the file closes.</span></h5><ul><li>Is the lien secured, and is it genuinely in first position</li><li>Has the statute of limitations run in that state</li><li>Is the property underwater with no path to equity</li><li>Have the property taxes gone far enough behind to risk a tax sale</li><li>Will the seller provide the basic data at all</li></ul></div><div class="ck-stage"><h5>The numbers<span>What the deal looks like before we spend a dollar on it.</span></h5><ul><li>Loan to value against a value we trust, not the seller's</li><li>How far below the loan balance we would be buying</li><li>How many months since the borrower last paid</li><li>An independent valuation, ordered fresh when the last one is old</li></ul></div><div class="ck-stage"><h5>The file<span>Whether the paperwork holds up.</span></h5><ul><li>Original note and mortgage, recorded assignments, clean chain</li><li>Title search for liens, judgments and transfers</li><li>Property taxes current, or how far behind</li><li>Bankruptcy, loss mitigation, or servicing notes on file</li></ul></div><div class="ck-stage"><h5>Can it resolve<span>Whether there is a realistic way out.</span></h5><ul><li>Occupancy, and whether the borrower has ever engaged</li><li>Foreclosure timeline and cost in that specific state</li><li>At least three exits that realistically work</li><li>What the recovery looks like after every cost comes off</li><li>Review these against the actual buy box before shipping</li></ul></div></div>
+<div class="ck-cols"><div class="ck-stage"><h5>Instant stops<span>Any one of these and the file closes.</span></h5><ul><li>Is the lien secured, and is it genuinely in first position</li><li>Has the statute of limitations run in that state</li><li>Is the property underwater with no path to equity</li><li>Have the property taxes gone far enough behind to risk a tax sale</li><li>Will the seller provide the basic data at all</li></ul></div><div class="ck-stage"><h5>The numbers<span>What the deal looks like before we spend a dollar on it.</span></h5><ul><li>Loan to value against a value we trust, not the seller's</li><li>How far below the loan balance we would be buying</li><li>How many months since the borrower last paid</li><li>An independent valuation, ordered fresh when the last one is old</li></ul></div><div class="ck-stage"><h5>The file<span>Whether the paperwork holds up.</span></h5><ul><li>Original note and mortgage, recorded assignments, clean chain</li><li>Title search for liens, judgments and transfers</li><li>Property taxes current, or how far behind</li><li>Bankruptcy, loss mitigation, or servicing notes on file</li></ul></div><div class="ck-stage"><h5>Can it resolve<span>Whether there is a realistic way out.</span></h5><ul><li>Occupancy, and whether the borrower has ever engaged</li><li>Foreclosure timeline and cost in that specific state</li><li>At least three exits that realistically work</li><li>What the recovery looks like after every cost comes off</li></ul></div></div>
 <div class="ck-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
 </div>
 <div class="panel" role="tabpanel" id="pp3" aria-labelledby="pt3" hidden="">
@@ -1161,7 +1169,7 @@
 <div class="fc-row"><span class="fc-code">OH</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:25.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;15 mo</span></div>
 <div class="fc-row"><span class="fc-code">FL</span><div class="fc-track"><div class="fc-fill" style="margin-left:60.0%;width:40.0%;background:#E85D5D"></div></div><span class="fc-months">12&#8211;20 mo</span></div>
 </div>
-<p class="fc-foot"><span class="fc-pending" title="Pending AJ's verified figures">Placeholder ranges &#8212; directionally correct but not yet sourced. Pending verified figures before publish.</span> Ranges are typical, not guaranteed, and vary by county, court backlog, and borrower response.</p>
+<p class="fc-foot"><span class="fc-pending" title="Pending AJ's verified figures">Placeholder ranges, directionally correct but not yet sourced. Pending verified figures before publish.</span> Ranges are typical, not guaranteed, and vary by county, court backlog, and borrower response.</p>
 </div>
 </div>
 </div>
@@ -1215,7 +1223,7 @@
     var sr=document.getElementById('cuStatRoom'); if(sr) sr.textContent='$'+fmt(room);
     var srb=document.getElementById('cuStatRoomBox'); if(srb) srb.className='cu-stat state-'+state;
     var sc=document.getElementById('cuStatCents'); if(sc) sc.textContent=Math.round(paid/VALUE*100)+'¢';
-    if(state==='good')s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing them.";
+    if(state==='good')s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing the process.";
     else if(state==='thin')s.innerHTML="There is still <b>$"+fmt(room)+"</b> of room, but it is getting thin. Selling costs and repairs would eat a good piece of it. This is close to the most we would pay.";
     else s.innerHTML="Barely <b>$"+fmt(room)+"</b> of room. Your money would be at risk. <b>This is a deal we pass on.</b>";
   }
@@ -1332,7 +1340,6 @@
 <div class="mission-pillar">Entertain</div>
 <div class="mission-pillar">Execute</div>
 </div>
-<p class="fade-in mission-tagline">That's the TNC way.</p>
 </div>
 </section>
 <!-- ABOUT AJ -->
@@ -1410,7 +1417,7 @@
 <div class="nb-card">
 <div class="nb-intro" id="nbIntro">
 <h2 class="nb-title">Get notified when we have notes that fit your buy box.</h2>
-<p class="nb-copy">Tell us what you're looking for — asset type, lien position, target states, and investment range — and we'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
+<p class="nb-copy">Tell us what you're looking for: asset type, lien position, target states, and investment range. We'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
 <button class="nb-btn" onclick="nbStart()" type="button">Submit my buy box</button>
 </div>
 <div class="nb-form-wrap" id="nbFormWrap">
