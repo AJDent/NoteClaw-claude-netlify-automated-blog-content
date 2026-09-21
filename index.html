@@ -523,6 +523,7 @@
   .sc-result p { font-size: 18px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
   /* credibility strip */
   .cred-strip { background: none; padding: 8px 24px 24px; text-align: center; }
+  .cred-line { max-width: 640px; margin: 16px auto 38px; color: var(--muted); font-size: clamp(15px,1.8vw,17px); line-height: 1.6; text-align: center; }
   .cred-label { font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; color: #5F7191; margin-bottom: 24px; }
   .cred-logos { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
   .cred-chip { background: #fff; border-radius: 10px; padding: 12px 22px; height: 72px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
@@ -1331,7 +1332,11 @@
 
 
 <!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
-<section class="cred-strip">
+<!-- PARTNERS (R12 §7 — real section, one collective line) -->
+<section class="bg-black section-short" id="partners">
+<div class="shell" style="text-align:center;">
+<h3 class="rail-h">Who does the heavy lifting.</h3>
+<p class="cred-line">Every note we buy runs through independent partners you can look up and check yourself. That is worth more than anything we could say about ourselves.</p>
 <div class="cred-logos">
 <span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
 <span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
@@ -1339,6 +1344,7 @@
 <span class="cred-chip"><img alt="RDIS" src="partners/rdis.png"/></span>
 <span class="cred-chip"><img alt="Legal League" src="partners/legal-league.png"/></span>
 <span class="cred-chip"><img alt="Clear2Close Title &amp; Escrow" src="partners/clear2close.png"/></span>
+</div>
 </div>
 </section>
 <!-- [P4] Who-It's-For grid cut (2026-09-08): persona routing now lives in the picker + calculator; SDIRA/401k detail in FAQ -->
