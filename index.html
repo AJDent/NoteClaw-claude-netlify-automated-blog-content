@@ -84,6 +84,7 @@
   .section-short { min-height: auto; padding: 72px 24px; }
   #hero { padding: 150px 24px 84px; }
   .hero-orient { margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--hairline); }
+  .hero-eyebrow { text-align: center; margin-bottom: 16px; }
   @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 96px 24px 56px; } .hero-orient { margin-top: 40px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
@@ -138,6 +139,12 @@
   .primer-body p { font-size: clamp(15.5px,1.8vw,18px); line-height: 1.7; color: var(--muted); margin-bottom: 16px; max-width: 620px; }
   .primer-body p:last-child { margin-bottom: 0; }
   .primer-close { color: var(--text); font-style: italic; }
+  .founder-mission { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline); }
+  .founder-mission p { color: var(--muted); font-size: 15px; line-height: 1.7; max-width: 600px; }
+  .founder-values { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+  .founder-values span { font-size: 14px; color: var(--muted); }
+  .founder-values b { color: var(--blue); }
+  .primer-panel-hook { font-family: 'Fraunces',Georgia,serif; font-weight: 400; font-size: clamp(21px,2.4vw,28px); line-height: 1.15; color: var(--red); margin-bottom: 16px; }
   .rail .calc-frame { max-width: none; margin: 0 0 14px; text-align: left; }
   /* two-column grids (R8 §2) — align center except process + faq (start) */
   .g-primer  { display: grid; grid-template-columns: 1fr 1.2fr 0.85fr; gap: 50px; align-items: center; }
@@ -845,7 +852,7 @@
 </a>
 <ul class="nav-links">
 <li><a href="#how-it-works">How it works</a></li>
-<li><a href="#pick">Who it's for</a></li>
+<li><a href="#pick">Start here</a></li>
 <li><a href="#proof">Proof</a></li>
 <li><a class="nav-cta" href="#contact">Book a call</a></li>
 </ul>
@@ -856,7 +863,7 @@
 <div id="mobileMenu">
 <ul>
 <li><a href="#how-it-works" onclick="toggleMenu()">How it works</a></li>
-<li><a href="#pick" onclick="toggleMenu()">Who it's for</a></li>
+<li><a href="#pick" onclick="toggleMenu()">Start here</a></li>
 <li><a href="#proof" onclick="toggleMenu()">Proof</a></li>
 <li><a href="#learn" onclick="toggleMenu()">Learn notes</a></li>
 <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
@@ -866,8 +873,8 @@
 </div>
 <!-- HERO -->
 <section class="bg-black" id="hero">
+<div class="kicker hero-eyebrow">Mortgage Note Investing</div>
 <h1 class="headline-xl fade-in d1">Earn like you own the building.<br/><span class="text-gold">Live like you never bought one.</span></h1>
-<p class="body-text fade-in d2 hero-sub">Mortgage notes. You own the loan on the house, not the house. Paid first, secured by real estate, with nothing to manage.</p>
 <!-- hero CTA removed (P4): the picker below is the primary action -->
 <!-- [O] THREE-NUMBER ORIENTATION BLOCK (R11 §3, anchored inside the hero R12 §5a) -->
 <div class="orient shell hero-orient">
@@ -1051,29 +1058,11 @@
   if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
 })();
 </script>
-<!-- [C3] NOTE PRIMER -->
-<section class="bg-black lay primer" id="note-primer">
-<div class="shell g-primer">
-<div class="rail fade-in">
-<div class="kicker">03 · What is a mortgage note?</div>
-<h3 class="rail-h" style="color:var(--red);">A note is the loan on a house.</h3>
-</div>
-<div class="wide fade-in">
-<div class="primer-body">
-<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
-<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
-<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
-<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
-<p class="primer-close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
-</div>
-</div>
-</div>
-</section>
 <!-- [E] SIX-STEP PROCESS + EQUITY CUSHION + EXITS (spec section 7) -->
 <section class="bg-deep lay" id="how-it-works">
 <div class="shell g-process">
 <div class="rail fade-in">
-<div class="kicker">04 · So how does this actually work?</div>
+<div class="kicker">03 · So how does this actually work?</div>
 <h3 class="rail-h">Six steps.<br/><span class="hl-blue">You touch two of them.</span></h3>
 <p>We handle the complexity. You provide the capital. Everything between funding and getting paid is ours.</p>
 </div>
@@ -1124,7 +1113,7 @@
 <section class="bg-deep lay" id="protection-pillars">
 <div class="shell">
 <div class="pil-head fade-in">
-<div class="kicker">05 · Is my money safe?</div>
+<div class="kicker">04 · Is my money safe?</div>
 <h3 class="rail-h">The parts that decide<br/><span class="hl-blue">whether this is a fit.</span></h3>
 <p>Four things worth understanding before you put a dollar into notes. Open whichever one you came for.</p>
 </div>
@@ -1257,7 +1246,7 @@
 <section class="bg-black lay" id="statemap">
 <div class="shell g-map">
 <div class="rail fade-in">
-<div class="kicker">06 · Where is the paper?</div>
+<div class="kicker">05 · Where is the paper?</div>
 <h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
 <p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
 <div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
@@ -1282,7 +1271,7 @@
 <section class="bg-deep lay" id="market-pillars">
 <div class="shell">
 <div class="pil-head fade-in">
-<div class="kicker">07 · Is this better than what I am doing now?</div>
+<div class="kicker">06 · Is this better than what I am doing now?</div>
 <h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
 <p>The same questions, pointed outward instead of inward.</p>
 </div>
@@ -1320,11 +1309,16 @@
 <p class="cmp-cap">Attributes of each instrument. Not a comparison of returns.</p>
 </div>
 <div class="panel" role="tabpanel" id="qp3" aria-labelledby="qt3" hidden="">
-<div style="max-width:720px;font-size:15px;line-height:1.7;color:var(--muted);">
-<p style="margin-bottom:14px;">A mortgage note is the loan on a house, written down. When you own it, the borrower's monthly payment comes to you instead of the bank, and the property stands behind it as collateral. You never own, manage, or fix anything.</p>
-<p style="margin-bottom:14px;">Banks sell these notes to free up capital, often at a steep discount when the borrower has fallen behind. That discount is the point: you buy real-estate-backed debt below what the property is worth, and the gap between the two is what protects your position.</p>
-<p style="margin-bottom:16px;">A <strong style="color:var(--text);font-weight:600;">performing note</strong> pays on time. A <strong style="color:var(--text);font-weight:600;">non-performing note</strong> is behind, and sells cheaper. TNC buys the non-performing ones and works the borrower back to paying, so you get the discount going in and the cash flow coming out.</p>
-<p><a class="step-link" href="/education">The full primer &#8594;</a></p>
+<div style="max-width:720px;">
+<p class="primer-panel-hook">A note is the loan on a house.</p>
+<div class="primer-body">
+<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
+<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
+<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
+<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
+<p class="primer-close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
+<p style="margin-top:16px;"><a class="step-link" href="/education">The full primer &#8594;</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -1337,7 +1331,7 @@
 <section class="bg-black section-short" id="partners">
 <div class="shell" style="text-align:center;">
 <h3 class="rail-h">Who does the heavy lifting.</h3>
-<p class="cred-line">Every note we buy runs through independent partners you can look up and check yourself. That is worth more than anything we could say about ourselves.</p>
+<p class="cred-line">A few of the nationwide partners we work with. Independent firms you can look up and check yourself.</p>
 <div class="cred-logos">
 <span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
 <span class="cred-chip"><img alt="National Association of Realtors" src="partners/nar.png"/></span>
@@ -1352,34 +1346,25 @@
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
 <!-- ══════════════════════════════════════════ -->
-
-<!-- MISSION SECTION -->
-<section class="bg-black section-short" id="mission">
-<h2 class="headline-lg fade-in">The TNC mission</h2>
-<div class="divider-dark fade-in"></div>
-<div class="mission-content">
-<p class="fade-in body-text-lg">At TNC, we are building the table we wish someone had invited us to: a place where the eager get educated, the investor gets rewarded, and everyone at the table wins. The smartest move in real estate is not buying the building. <strong class="text-white-strong">It is owning the note.</strong></p>
-<div class="fade-in mission-highlight">
-<p>Whether you have capital to put to work, a retirement account looking for a real-estate-backed home, or you just want to learn how to become the bank, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
-</div>
-<div class="fade-in mission-pillars">
-<div class="mission-pillar">Educate</div>
-<div class="mission-pillar">Entertain</div>
-<div class="mission-pillar">Execute</div>
-</div>
-</div>
-</section>
 <!-- ABOUT AJ -->
 <section class="bg-white lay" id="founder">
 <div class="shell g-founder">
 <div class="rail fade-in">
-<div class="kicker">08 · Who am I dealing with?</div>
+<div class="kicker">07 · Who am I dealing with?</div>
 <h3 class="rail-h">I'm AJ Dent.</h3>
 <p class="text-sm-muted">Founder, Take Notes Capital</p>
 </div>
 <div class="wide fade-in">
 <p class="about-first-p">My path ran through life insurance, nuclear contracting, and creative real estate, working hands-on with distressed homeowners, before formal note-underwriting training under Scott Carson made mortgage notes the natural next step. I run a transparent, God-first, process-driven business. You invest, and we handle the due diligence, the asset management, and the structure.</p>
 <p><a class="about-link" href="/about">Read the full story</a></p>
+<div class="founder-mission">
+<p>At TNC, we are building the table we wish someone had invited us to. Whether you have capital to put to work, a retirement account looking for a real-estate-backed home, or you just want to learn how to become the bank, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
+<div class="founder-values">
+<span><b>Educate.</b> The mechanism in plain English, no jargon.</span>
+<span><b>Entertain.</b> Keep it human. Nobody learns from a lecture.</span>
+<span><b>Execute.</b> Do the underwriting, close the deal, service the note.</span>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1621,7 +1606,7 @@
 </section>
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
-<div class="kicker" style="text-align:center;margin-bottom:16px;">09 · What happens if I say yes?</div>
+<div class="kicker" style="text-align:center;margin-bottom:16px;">08 · What happens if I say yes?</div>
 <h2 class="headline-xl fade-in">Ready to become the bank?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in contact-note">No pressure. No pitch. Just a conversation about whether<br/>mortgage note investing fits your goals.</p>
@@ -1691,9 +1676,6 @@
 <a class="cta-btn-outline cta-btn-outline-mt" href="https://talkwithajdent.com" target="_blank">Book a call</a>
 </div>
 </div>
-<p class="disclaimer fade-in disclaimer-section">
-    THIS IS NOT A SECURITY. THE INFORMATION PROVIDED HEREIN IS NOT INTENDED TO BE FOR THE PURPOSES OF SOLICITING A SECURITY UNDER STATE OR FEDERAL REGULATIONS. THIS INFORMATION IS INTENDED TO GIVE THE PRIVATE INVESTOR ALTERNATIVES TO STOCK MARKET INVESTMENTS, BUT IS NOT INTENDED TO BE A SOLICITATION OF A SECURITY UNDER SEC RULES AND DEFINITIONS. THIS IS INTENDED TO BE A PRIVATE BORROWING TRANSACTION.
-  </p>
 </section>
 <!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
 <section class="bg-black section-short" id="deal-desk">
@@ -1723,12 +1705,20 @@
 </div>
 </div>
 </section>
+<!-- LEGAL DISCLAIMER (R13 §7 — moved to last, above footer) -->
+<section class="bg-black" style="padding:28px 24px;">
+<div class="shell">
+<p class="disclaimer fade-in disclaimer-section">
+    THIS IS NOT A SECURITY. THE INFORMATION PROVIDED HEREIN IS NOT INTENDED TO BE FOR THE PURPOSES OF SOLICITING A SECURITY UNDER STATE OR FEDERAL REGULATIONS. THIS INFORMATION IS INTENDED TO GIVE THE PRIVATE INVESTOR ALTERNATIVES TO STOCK MARKET INVESTMENTS, BUT IS NOT INTENDED TO BE A SOLICITATION OF A SECURITY UNDER SEC RULES AND DEFINITIONS. THIS IS INTENDED TO BE A PRIVATE BORROWING TRANSACTION.
+  </p>
+</div>
+</section>
 <!-- FOOTER -->
 <footer>
 <div class="footer-logo">
 <img alt="Take Notes Capital" src="logo.png"/>
 </div>
-<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Who it's for</a></li><li><a href="#proof">Proof</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
+<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Start here</a></li><li><a href="#proof">Proof</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
 
 <div class="footer-legal-btns">
 <a class="footer-legal-btn" href="privacy-policy.html">Privacy Policy</a>
