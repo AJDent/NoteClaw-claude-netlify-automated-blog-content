@@ -700,7 +700,8 @@
   @media (max-width: 700px) { .cu-panel { grid-template-columns: 1fr; gap: 24px; } }
   /* checklist (R10 §7) */
   .ck-intro { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 780px; margin-bottom: 22px; }
-  .ck-cols { columns: 2; column-gap: 40px; }
+  .ck-cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; align-items: start; }
+  @media (max-width: 640px) { .ck-cols { grid-template-columns: 1fr; } }
   .ck-stage { break-inside: avoid; margin: 0 0 20px; }
   .ck-stage h5 { font-size: 14px; font-weight: 700; color: var(--text); break-after: avoid; }
   .ck-stage h5 span { display: block; font-size: 12.5px; font-weight: 400; color: var(--muted); margin-top: 3px; }
