@@ -98,6 +98,11 @@
   .rail p { max-width: 520px; color: var(--muted); }
   .wide p { max-width: 600px; }
   .hl-blue { color: var(--blue); }
+  /* under-hero agitation strip (R12 flow work) */
+  .underhero { background: var(--ground); padding: 66px 24px; border-bottom: 1px solid var(--hairline); }
+  .underhero .shell { max-width: 760px; }
+  .underhero p { font-size: clamp(19px, 2.3vw, 25px); line-height: 1.55; color: var(--muted); text-align: center; }
+  .underhero .uh-punch { display: block; margin-top: 20px; color: var(--text); font-weight: 600; }
   /* three-number orientation block (R11 §3) */
   .orient-bar { background: var(--ground); border-bottom: 1px solid var(--hairline); }
   .orient { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; text-align: center; }
@@ -867,6 +872,12 @@
 <div class="orient-item"><span class="orient-val">Ten states</span><span class="orient-lbl">Footprint</span></div>
 <div class="orient-item"><span class="orient-val">First lien only</span><span class="orient-lbl">Position</span></div>
 <div class="orient-item"><span class="orient-val">Non-performing</span><span class="orient-lbl">Focus</span></div>
+</div>
+</section>
+<!-- [U] UNDER-HERO AGITATION STRIP (R12 flow work) -->
+<section class="underhero" id="underhero">
+<div class="shell">
+<p>Most of your money is probably sitting still. A retirement account in a fund you forgot you own. Cash losing a quiet race against inflation. It could be doing what the bank does instead: holding the loan on a real house, secured by the property, first in line to get paid. <span class="uh-punch">Most people never knew this existed.</span></p>
 </div>
 </section>
 <!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
