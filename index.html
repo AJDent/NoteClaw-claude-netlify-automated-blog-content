@@ -648,6 +648,20 @@
   .cushion-sentence.state-thin { border-color: var(--blue); }
   .cushion-sentence.state-pass { border-color: var(--red); }
   .cushion-sentence b { color: var(--white); }
+  /* homepage-only minimal cushion (R14 §1) — distinct treatment from /protection */
+  .g-cushion { display: grid; grid-template-columns: 0.82fr 1fr; gap: 52px; align-items: start; }
+  @media (max-width: 860px) { .g-cushion { grid-template-columns: 1fr; gap: 30px; } }
+  .hp-cu-lead { color: var(--muted); font-size: clamp(16px, 1.6vw, 18px); line-height: 1.7; }
+  .hp-cu-lead b { color: var(--text); font-weight: 600; }
+  .hp-axis { display: flex; justify-content: space-between; font-size: 11px; color: var(--dim, #5F7191); margin-top: 22px; font-variant-numeric: tabular-nums; }
+  .hp-cu-figure { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(42px, 5.4vw, 46px); line-height: 1; letter-spacing: -0.02em; margin-top: 40px; color: var(--green); transition: color .2s; }
+  .hp-cu-figure.pass { color: var(--red); }
+  .hp-cu-figlabel { display: block; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: #5F7191; margin-top: 12px; line-height: 1.5; max-width: 30ch; }
+  .hp-cu-figlabel.pass { color: var(--red); }
+  .hp-handoff { border-top: 1px solid var(--hairline); margin-top: 44px; padding-top: 24px; }
+  .hp-handoff p { color: var(--muted); font-size: 15px; line-height: 1.7; max-width: 70ch; margin-bottom: 12px; }
+  .hp-handoff a { color: var(--blue); font-weight: 600; text-decoration: none; }
+  .hp-handoff a:hover { text-decoration: underline; }
   /* seven exits */
   .exits-grid { display: flex; flex-direction: column; margin: 16px 0; }
   .exit { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: baseline; font-size: 14.5px; line-height: 1.55; padding: 14px 0; border-bottom: 1px solid var(--hairline); background: none; border-radius: 0; }
@@ -864,6 +878,7 @@
 <ul class="nav-links">
 <li><a href="#how-it-works">How it works</a></li>
 <li><a href="#pick">Start here</a></li>
+<li><a href="/protection">Protection</a></li>
 <li><a href="#proof">Proof</a></li>
 <li><a class="nav-cta" href="#contact">Book a call</a></li>
 </ul>
@@ -875,6 +890,7 @@
 <ul>
 <li><a href="#how-it-works" onclick="toggleMenu()">How it works</a></li>
 <li><a href="#pick" onclick="toggleMenu()">Start here</a></li>
+<li><a href="/protection" onclick="toggleMenu()">Protection</a></li>
 <li><a href="#proof" onclick="toggleMenu()">Proof</a></li>
 <li><a href="#learn" onclick="toggleMenu()">Learn notes</a></li>
 <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
@@ -897,7 +913,7 @@
 <!-- [U] UNDER-HERO AGITATION STRIP (R12 flow work) -->
 <section class="underhero" id="underhero">
 <div class="shell">
-<p>Most of your money is probably sitting still. A retirement account in a fund you forgot you own. Cash losing a quiet race against inflation. It could be doing what the bank does instead: holding the loan on a real house, secured by the property, first in line to get paid. <span class="uh-punch">Most people never knew this existed.</span></p>
+<p>Most of your money is probably sitting still. A retirement account in a fund you forgot you own. Cash losing a quiet race against inflation. A property that pays, as long as nothing breaks. It could be doing what the bank does instead: holding the loan on a real house, secured by the property, first in line to get paid. <span class="uh-punch">Most people never knew this existed.</span></p>
 </div>
 </section>
 <!-- [FS] FOUNDER STRIP (R13 §3) — hidden until images/aj.jpg loads -->
@@ -1128,78 +1144,30 @@
 </div>
 </section>
 <!-- PILLAR ROW ONE — protection (R10 §5) -->
-<section class="bg-deep lay" id="protection-pillars">
+<section class="bg-black lay" id="protection">
 <div class="shell">
-<div class="pil-head fade-in">
-<div class="kicker">04 · Is my money safe?</div>
-<h3 class="rail-h">The parts that decide<br/><span class="hl-blue">whether this is a fit.</span></h3>
-<p>Four things worth understanding before you put a dollar into notes. Open whichever one you came for.</p>
-</div>
-<div class="pil-row fade-in" role="tablist" aria-label="Protection topics">
-<button class="pil on" role="tab" id="pt1" aria-controls="pp1" aria-selected="true" tabindex="0" type="button"><span class="pil-n">01</span><span class="pil-t">How your capital is protected</span><span class="pil-d">The gap between what we pay and what the house is worth.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-<button class="pil" role="tab" id="pt2" aria-controls="pp2" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">02</span><span class="pil-t">What we check before we buy</span><span class="pil-d">The list that decides. Most notes fail it.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-<button class="pil" role="tab" id="pt3" aria-controls="pp3" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">03</span><span class="pil-t">How this ends</span><span class="pil-d">Seven exits. One of them is foreclosure.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-<button class="pil" role="tab" id="pt4" aria-controls="pp4" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">04</span><span class="pil-t">How long a resolution takes</span><span class="pil-d">Timelines by state, fastest to slowest.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-</div>
-<div class="pil-panels fade-in">
-<div class="panel" role="tabpanel" id="pp1" aria-labelledby="pt1">
-<div class="cu-setup-box"><span class="lbl">The house</span>A house is worth <b>$85,000</b>. The borrower still owes <b>$67,000</b> on their home loan. We buy that loan.</div>
-<div class="cu-panel">
+<div class="g-cushion fade-in">
 <div>
-<label class="cushion-lbl">What we pay for the loan: <b id="cuPayLabel">$30,000</b>
-<input id="cuPay" max="82000" min="15000" step="1000" type="range" value="30000"/></label>
-<div class="cushion-bar" id="cuBar">
-<div class="cu-pay" id="cuPaySeg"><span>We pay</span></div>
-<div class="cu-room state-good" id="cuRoomSeg"><span>Room left over</span></div>
-<div class="cu-tick" id="cuTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
-</div>
+<div class="kicker">04 &middot; Is my money safe?</div>
+<h3 class="rail-h">We never pay<br/><span class="hl-blue">what the house is worth.</span></h3>
+<p class="hp-cu-lead">Take a house worth <b>$85,000</b> where the borrower still owes <b>$67,000</b>. We buy that loan, and we buy it for less than either number. Everything else we do to protect your position follows from that gap.</p>
 </div>
 <div>
-<p class="cushion-sentence state-good" id="cuSentence"></p>
-<div class="cu-stats">
-<div class="cu-stat state-good" id="cuStatRoomBox"><span class="lbl">Room between what we pay and what the house is worth</span><span class="val" id="cuStatRoom">$55,000</span></div>
-<div class="cu-stat" id="cuStatCentsBox"><span class="lbl">For every $1 the house is worth, we pay</span><span class="val" id="cuStatCents">35&#162;</span></div>
+<label class="cushion-lbl">What we pay for the loan: <b id="hpPayLabel">$30,000</b>
+<input id="hpPay" max="82000" min="15000" step="1000" type="range" value="30000" aria-label="What we pay for the loan"/></label>
+<div class="cushion-bar" id="hpBar">
+<div class="cu-pay" id="hpPaySeg"><span>We pay</span></div>
+<div class="cu-room state-good" id="hpRoomSeg"><span>Room left over</span></div>
+<div class="cu-tick" id="hpTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
 </div>
-<p class="cu-close">That room has a name. We call it the <span class="red">equity cushion</span>. It is the space between what we paid and what the house could sell for, and the money it protects is yours, not ours.</p>
-<p class="cu-close" style="margin-top:12px;">If the borrower stops paying and nothing we try works, we can take the house back and sell it. We have the legal right because we own the loan, and the house is what backs it. That is our last resort, never our plan.</p>
-</div>
-</div>
-<p class="cu-foot">Illustrative example with round numbers. Real deals vary by property, market and borrower.</p>
-</div>
-<div class="panel" role="tabpanel" id="pp2" aria-labelledby="pt2" hidden="">
-<p class="ck-intro">This list runs in a specific order for a reason. The early checks are fast and binary, yes or no, keep or kill. The later ones build a picture. By the time we reach the bottom we know whether a note is worth a bid, and most of them are not.</p>
-<div class="ck-cols"><div class="ck-stage"><h5>Instant stops<span>Any one of these and the file closes.</span></h5><ul><li>Is the lien secured, and is it genuinely in first position</li><li>Has the statute of limitations run in that state</li><li>Is the property underwater with no path to equity</li><li>Have the property taxes gone far enough behind to risk a tax sale</li><li>Will the seller provide the basic data at all</li></ul></div><div class="ck-stage"><h5>The numbers<span>What the deal looks like before we spend a dollar on it.</span></h5><ul><li>Loan to value against a value we trust, not the seller's</li><li>How far below the loan balance we would be buying</li><li>How many months since the borrower last paid</li><li>An independent valuation, ordered fresh when the last one is old</li></ul></div><div class="ck-stage"><h5>The file<span>Whether the paperwork holds up.</span></h5><ul><li>Original note and mortgage, recorded assignments, clean chain</li><li>Title search for liens, judgments and transfers</li><li>Property taxes current, or how far behind</li><li>Bankruptcy, loss mitigation, or servicing notes on file</li></ul></div><div class="ck-stage"><h5>Can it resolve<span>Whether there is a realistic way out.</span></h5><ul><li>Occupancy, and whether the borrower has ever engaged</li><li>Foreclosure timeline and cost in that specific state</li><li>At least three exits that realistically work</li><li>What the recovery looks like after every cost comes off</li></ul></div></div>
-<div class="ck-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
-</div>
-<div class="panel" role="tabpanel" id="pp3" aria-labelledby="pt3" hidden="">
-<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:16px;max-width:760px;">Modification, repayment plan, or reinstatement. The goal is a borrower who pays and stays. Here is every way a note can end, from the one we aim for to the one we reach for last.</p>
-<div class="exits-grid">
-<div class="exit"><span class="exit-n">1</span><div><b>Reinstatement.</b> Borrower catches up. Loan continues as written.</div></div>
-<div class="exit"><span class="exit-n">2</span><div><b>Repayment plan.</b> Arrears spread across future payments.</div></div>
-<div class="exit"><span class="exit-n">3</span><div><b>Loan modification.</b> New rate or term they can meet. Most common.</div></div>
-<div class="exit"><span class="exit-n">4</span><div><b>Discounted payoff.</b> Borrower settles with a lump sum.</div></div>
-<div class="exit"><span class="exit-n">5</span><div><b>Short sale.</b> Property sells for less than owed, with our approval.</div></div>
-<div class="exit"><span class="exit-n">6</span><div><b>Deed in lieu.</b> Borrower hands over the deed instead of fighting.</div></div>
-<div class="exit exit-last"><span class="exit-n">7</span><div><b>Foreclosure.</b> The floor. Recovery through the collateral itself.</div></div>
+<div class="hp-axis"><span>$0</span><span>house worth $85,000</span></div>
+<div class="hp-cu-figure" id="hpRoom">$55,000</div>
+<span class="hp-cu-figlabel" id="hpRoomLbl">Room between what we pay and what the house could sell for</span>
 </div>
 </div>
-<div class="panel" role="tabpanel" id="pp4" aria-labelledby="pt4" hidden="">
-<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:18px;max-width:760px;">How long a foreclosure takes decides what a note is worth before anything else does. Non-judicial states resolve in months. Judicial states can take years. We buy where the math works.</p>
-<div class="fc-legend"><span><span class="fc-dot" style="background:#4ECB71"></span> Non-judicial</span><span><span class="fc-dot" style="background:#5BA4E6"></span> Mixed</span><span><span class="fc-dot" style="background:#E85D5D"></span> Judicial</span></div>
-<div class="fc-list" role="img" aria-label="Foreclosure timeline ranges by state, fastest to slowest, from Texas at 2 to 4 months to Florida at 12 to 20 months">
-<div class="fc-row"><span class="fc-code">TX</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
-<div class="fc-row"><span class="fc-code">GA</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
-<div class="fc-row"><span class="fc-code">MS</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
-<div class="fc-row"><span class="fc-code">AL</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
-<div class="fc-row"><span class="fc-code">MO</span><div class="fc-track"><div class="fc-fill" style="margin-left:20.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">4&#8211;6 mo</span></div>
-<div class="fc-row"><span class="fc-code">NC</span><div class="fc-track"><div class="fc-fill" style="margin-left:25.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">5&#8211;8 mo</span></div>
-<div class="fc-row"><span class="fc-code">MI</span><div class="fc-track"><div class="fc-fill" style="margin-left:30.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">6&#8211;9 mo</span></div>
-<div class="fc-row"><span class="fc-code">IN</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:20.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;14 mo</span></div>
-<div class="fc-row"><span class="fc-code">OH</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:25.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;15 mo</span></div>
-<div class="fc-row"><span class="fc-code">FL</span><div class="fc-track"><div class="fc-fill" style="margin-left:60.0%;width:40.0%;background:#E85D5D"></div></div><span class="fc-months">12&#8211;20 mo</span></div>
-</div>
-<p class="fc-foot"><span class="fc-pending" title="Pending AJ's verified figures">Placeholder ranges, directionally correct but not yet sourced. Pending verified figures before publish.</span> Ranges are typical, not guaranteed, and vary by county, court backlog, and borrower response.</p>
-</div>
+<div class="hp-handoff fade-in">
+<p>That is one of four things standing between a borrower missing a payment and your money being at risk. The other three are on the protection page.</p>
+<a href="/protection#what-we-vet">See how we decide what to buy &rarr;</a>
 </div>
 </div>
 </section>
@@ -1237,26 +1205,23 @@
     // sync initial ARIA to the default-active node
     nodes.forEach(function(n,i){ var on=n.classList.contains('active'); n.setAttribute('aria-selected',on?'true':'false'); n.tabIndex=on?0:-1; });
   }
-  var VALUE=85000,OWED=67000,pay=document.getElementById('cuPay');
-  function fmt(n){return Math.round(n).toLocaleString('en-US');}
-  function cushion(){
-    if(!pay)return;
-    var paid=parseFloat(pay.value)||0,room=VALUE-paid,ratio=room/VALUE;
-    document.getElementById('cuPayLabel').textContent='$'+fmt(paid);
-    document.getElementById('cuPaySeg').style.flex=paid;
-    var roomSeg=document.getElementById('cuRoomSeg');roomSeg.style.flex=room;
-    document.getElementById('cuTick').style.left=(OWED/VALUE*100)+'%';
-    var state=ratio>0.40?'good':(ratio>=0.22?'thin':'pass');
-    roomSeg.className='cu-room state-'+state;
-    var s=document.getElementById('cuSentence');s.className='cushion-sentence state-'+state;
-    var sr=document.getElementById('cuStatRoom'); if(sr) sr.textContent='$'+fmt(room);
-    var srb=document.getElementById('cuStatRoomBox'); if(srb) srb.className='cu-stat state-'+state;
-    var sc=document.getElementById('cuStatCents'); if(sc) sc.textContent=Math.round(paid/VALUE*100)+'¢';
-    if(state==='good')s.innerHTML="We pay $"+fmt(paid)+" for a loan on a house worth $85,000. If the borrower stopped paying and we ended up with the house, your money would still be <b>$"+fmt(room)+"</b> ahead. That is why we can be patient and work with the borrower instead of rushing the process.";
-    else if(state==='thin')s.innerHTML="There is still <b>$"+fmt(room)+"</b> of room, but it is getting thin. Selling costs and repairs would eat a good piece of it. This is close to the most we would pay.";
-    else s.innerHTML="Barely <b>$"+fmt(room)+"</b> of room. Your money would be at risk. <b>This is a deal we pass on.</b>";
+  var HPVALUE=85000,HPOWED=67000,hpPay=document.getElementById('hpPay');
+  function hpFmt(n){return Math.round(n).toLocaleString('en-US');}
+  function hpCushion(){
+    if(!hpPay)return;
+    var paid=parseFloat(hpPay.value)||0,room=HPVALUE-paid,ratio=room/HPVALUE,pass=ratio<0.22;
+    document.getElementById('hpPayLabel').textContent='$'+hpFmt(paid);
+    document.getElementById('hpPaySeg').style.flex=paid;
+    var roomSeg=document.getElementById('hpRoomSeg');roomSeg.style.flex=room;
+    roomSeg.className='cu-room state-'+(pass?'pass':'good');
+    document.getElementById('hpTick').style.left=(HPOWED/HPVALUE*100)+'%';
+    var fig=document.getElementById('hpRoom'),lbl=document.getElementById('hpRoomLbl');
+    fig.textContent='$'+hpFmt(room);
+    fig.className='hp-cu-figure'+(pass?' pass':'');
+    lbl.className='hp-cu-figlabel'+(pass?' pass':'');
+    lbl.textContent=pass?'Not enough room. This is a deal we pass on.':'Room between what we pay and what the house could sell for';
   }
-  if(pay){pay.addEventListener('input',cushion);cushion();}
+  if(hpPay){hpPay.addEventListener('input',hpCushion);hpCushion();}
 })();
 </script>
 
