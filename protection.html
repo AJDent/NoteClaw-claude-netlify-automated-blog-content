@@ -83,6 +83,21 @@
   .exit-row.last { border-color:rgba(232,93,93,0.4); background:rgba(232,93,93,0.06); }
   .exit-row.last .n { color:var(--red); }
   .exit-banner { font-family:'Fraunces', Georgia, serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; text-align:center; margin:40px auto 0; max-width:600px; color:var(--white); }
+  /* outcome distribution bar */
+  .outcome-bar { display:flex; max-width:720px; margin:32px auto 0; gap:3px; }
+  .ob-seg { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:18px 8px; text-align:center; min-width:0; border-radius:8px; }
+  .ob-seg:first-child { border-radius:10px 4px 4px 10px; }
+  .ob-seg:last-child { border-radius:4px 10px 10px 4px; }
+  .ob-good { background:rgba(78,203,113,0.14); border-top:3px solid var(--green); }
+  .ob-vol { background:rgba(91,164,230,0.14); border-top:3px solid var(--blue); }
+  .ob-fc { background:rgba(232,93,93,0.14); border-top:3px solid var(--red); }
+  .ob-pct { font-family:'Figtree', system-ui, sans-serif; font-weight:700; font-size:clamp(20px,4vw,28px); line-height:1; }
+  .ob-good .ob-pct { color:var(--green); }
+  .ob-vol .ob-pct { color:var(--blue); }
+  .ob-fc .ob-pct { color:var(--red); }
+  .ob-name { font-size:13.5px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:9px; line-height:1.25; }
+  .ob-sub { font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:5px; }
+  @media (max-width:520px) { .ob-name { font-size:11.5px; } .ob-seg { padding:14px 4px; } }
   .dist { max-width:60ch; margin:24px auto 0; text-align:center; font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; }
   .dist b { color:var(--white); }
   .legal-pending { border-bottom:1px dashed var(--red); cursor:help; }
@@ -228,6 +243,17 @@
 <div class="exit-row last"><span class="n">7</span><div><h4>Foreclosure</h4><p>The floor, not the plan. If nothing else works, we recover through the collateral itself, the property that secured the loan from day one. Timelines and costs vary by state.</p></div></div>
 </div>
 <p class="exit-banner">Multiple exit paths. Three outcomes. Zero dead ends.</p>
+<div class="outcome-bar" role="img" aria-label="Where notes land: about 50 percent re-perform, 25 percent exit voluntarily, 25 percent reach foreclosure" title="Pending Legal review">
+<div class="ob-seg ob-good" style="flex:50">
+<span class="ob-pct">~50%</span><span class="ob-name">Re-performing</span><span class="ob-sub">Exits 1&ndash;3</span>
+</div>
+<div class="ob-seg ob-vol" style="flex:25">
+<span class="ob-pct">~25%</span><span class="ob-name">Voluntary exit</span><span class="ob-sub">Exits 4&ndash;6</span>
+</div>
+<div class="ob-seg ob-fc" style="flex:25">
+<span class="ob-pct">~25%</span><span class="ob-name">Foreclosure</span><span class="ob-sub">Exit 7</span>
+</div>
+</div>
 <p class="dist"><span class="legal-pending" title="Pending Legal review">Roughly half of our notes re-perform, about a quarter exit voluntarily, and about a quarter reach foreclosure.</span> Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
 </div>
 </section>
