@@ -83,21 +83,20 @@
   .exit-row.last { border-color:rgba(232,93,93,0.4); background:rgba(232,93,93,0.06); }
   .exit-row.last .n { color:var(--red); }
   .exit-banner { font-family:'Fraunces', Georgia, serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; text-align:center; margin:40px auto 0; max-width:600px; color:var(--white); }
-  /* outcome distribution bar */
-  .outcome-bar { display:flex; max-width:720px; margin:32px auto 0; gap:3px; }
-  .ob-seg { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:18px 8px; text-align:center; min-width:0; border-radius:8px; }
-  .ob-seg:first-child { border-radius:10px 4px 4px 10px; }
-  .ob-seg:last-child { border-radius:4px 10px 10px 4px; }
-  .ob-good { background:rgba(78,203,113,0.14); border-top:3px solid var(--green); }
-  .ob-vol { background:rgba(91,164,230,0.14); border-top:3px solid var(--blue); }
-  .ob-fc { background:rgba(232,93,93,0.14); border-top:3px solid var(--red); }
-  .ob-pct { font-family:'Figtree', system-ui, sans-serif; font-weight:700; font-size:clamp(20px,4vw,28px); line-height:1; }
-  .ob-good .ob-pct { color:var(--green); }
-  .ob-vol .ob-pct { color:var(--blue); }
-  .ob-fc .ob-pct { color:var(--red); }
-  .ob-name { font-size:13.5px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:9px; line-height:1.25; }
-  .ob-sub { font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:5px; }
-  @media (max-width:520px) { .ob-name { font-size:11.5px; } .ob-seg { padding:14px 4px; } }
+  /* outcome distribution — vertical side rail aligned to the exit rows */
+  .exit-group { display:flex; gap:14px; align-items:stretch; }
+  .grp-bar { flex:0 0 104px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border-radius:12px; padding:14px 8px; }
+  .grp-bar.good { background:rgba(78,203,113,0.12); border:1px solid rgba(78,203,113,0.4); }
+  .grp-bar.vol { background:rgba(91,164,230,0.12); border:1px solid rgba(91,164,230,0.4); }
+  .grp-bar.fc { background:rgba(232,93,93,0.12); border:1px solid rgba(232,93,93,0.4); }
+  .g-pct { font-family:'Figtree', system-ui, sans-serif; font-weight:700; font-size:26px; line-height:1; }
+  .grp-bar.good .g-pct { color:var(--green); }
+  .grp-bar.vol .g-pct { color:var(--blue); }
+  .grp-bar.fc .g-pct { color:var(--red); }
+  .g-name { font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:8px; line-height:1.25; }
+  .g-sub { font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:5px; }
+  .grp-rows { flex:1; display:flex; flex-direction:column; gap:12px; min-width:0; }
+  @media (max-width:520px) { .grp-bar { flex-basis:76px; padding:12px 4px; } .g-pct { font-size:20px; } .g-name { font-size:11px; } }
   .dist { max-width:60ch; margin:24px auto 0; text-align:center; font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; }
   .dist b { color:var(--white); }
   .legal-pending { border-bottom:1px dashed var(--red); cursor:help; }
@@ -233,27 +232,31 @@
 </svg>
 <h2>What happens when a borrower stops paying.</h2>
 <p class="lead">A note is not a single bet on one outcome. There is a ladder of ways this can end, and we work them in order.</p>
-<div class="exits-list">
+<div class="exits-list" title="Pending Legal review">
+<div class="exit-group">
+<div class="grp-bar good"><span class="g-pct">~50%</span><span class="g-name">Re-performing</span><span class="g-sub">Exits 1&ndash;3</span></div>
+<div class="grp-rows">
 <div class="exit-row"><span class="n">1</span><div><h4>Reinstatement</h4><p>The borrower brings the loan current, paying the missed payments plus fees, and the loan continues exactly as written. The cleanest outcome, and more common than people expect.</p></div></div>
 <div class="exit-row"><span class="n">2</span><div><h4>Repayment plan</h4><p>The borrower cannot clear the arrears all at once, so the past-due amount is spread across future payments on top of the regular payment until they are caught up.</p></div></div>
 <div class="exit-row"><span class="n">3</span><div><h4>Loan modification</h4><p>We change the rate, the term, or both to a payment the borrower can actually make. The most common workout, and the one that turns a non-performing note back into a performing one.</p></div></div>
+</div>
+</div>
+<div class="exit-group">
+<div class="grp-bar vol"><span class="g-pct">~25%</span><span class="g-name">Voluntary exit</span><span class="g-sub">Exits 4&ndash;6</span></div>
+<div class="grp-rows">
 <div class="exit-row"><span class="n">4</span><div><h4>Discounted payoff</h4><p>The borrower or a family member settles the loan for a lump sum that is less than the full balance. We take the cash and release the lien.</p></div></div>
 <div class="exit-row"><span class="n">5</span><div><h4>Short sale</h4><p>With our approval, the borrower sells the property for less than what is owed. We recover from the sale proceeds and the borrower avoids a foreclosure on their record.</p></div></div>
 <div class="exit-row"><span class="n">6</span><div><h4>Deed in lieu</h4><p>The borrower voluntarily signs the property over to us instead of fighting a foreclosure. Faster and cheaper for everyone than a contested case.</p></div></div>
+</div>
+</div>
+<div class="exit-group">
+<div class="grp-bar fc"><span class="g-pct">~25%</span><span class="g-name">Foreclosure</span><span class="g-sub">Exit 7</span></div>
+<div class="grp-rows">
 <div class="exit-row last"><span class="n">7</span><div><h4>Foreclosure</h4><p>The floor, not the plan. If nothing else works, we recover through the collateral itself, the property that secured the loan from day one. Timelines and costs vary by state.</p></div></div>
 </div>
+</div>
+</div>
 <p class="exit-banner">Multiple exit paths. Three outcomes. Zero dead ends.</p>
-<div class="outcome-bar" role="img" aria-label="Where notes land: about 50 percent re-perform, 25 percent exit voluntarily, 25 percent reach foreclosure" title="Pending Legal review">
-<div class="ob-seg ob-good" style="flex:50">
-<span class="ob-pct">~50%</span><span class="ob-name">Re-performing</span><span class="ob-sub">Exits 1&ndash;3</span>
-</div>
-<div class="ob-seg ob-vol" style="flex:25">
-<span class="ob-pct">~25%</span><span class="ob-name">Voluntary exit</span><span class="ob-sub">Exits 4&ndash;6</span>
-</div>
-<div class="ob-seg ob-fc" style="flex:25">
-<span class="ob-pct">~25%</span><span class="ob-name">Foreclosure</span><span class="ob-sub">Exit 7</span>
-</div>
-</div>
 <p class="dist"><span class="legal-pending" title="Pending Legal review">Roughly half of our notes re-perform, about a quarter exit voluntarily, and about a quarter reach foreclosure.</span> Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
 </div>
 </section>
