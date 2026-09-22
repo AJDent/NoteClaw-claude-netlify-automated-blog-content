@@ -83,20 +83,55 @@
   .exit-row.last { border-color:rgba(232,93,93,0.4); background:rgba(232,93,93,0.06); }
   .exit-row.last .n { color:var(--red); }
   .exit-banner { font-family:'Fraunces', Georgia, serif; font-size:clamp(22px,3.5vw,32px); font-weight:700; text-align:center; margin:40px auto 0; max-width:600px; color:var(--white); }
-  /* outcome distribution — vertical side rail aligned to the exit rows */
-  .exit-group { display:flex; gap:14px; align-items:stretch; }
-  .grp-bar { flex:0 0 104px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; border-radius:12px; padding:14px 8px; }
-  .grp-bar.good { background:rgba(78,203,113,0.12); border:1px solid rgba(78,203,113,0.4); }
-  .grp-bar.vol { background:rgba(91,164,230,0.12); border:1px solid rgba(91,164,230,0.4); }
-  .grp-bar.fc { background:rgba(232,93,93,0.12); border:1px solid rgba(232,93,93,0.4); }
-  .g-pct { font-family:'Figtree', system-ui, sans-serif; font-weight:700; font-size:26px; line-height:1; }
-  .grp-bar.good .g-pct { color:var(--green); }
-  .grp-bar.vol .g-pct { color:var(--blue); }
-  .grp-bar.fc .g-pct { color:var(--red); }
-  .g-name { font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.85); margin-top:8px; line-height:1.25; }
-  .g-sub { font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-top:5px; }
-  .grp-rows { flex:1; display:flex; flex-direction:column; gap:12px; min-width:0; }
-  @media (max-width:520px) { .grp-bar { flex-basis:76px; padding:12px 4px; } .g-pct { font-size:20px; } .g-name { font-size:11px; } }
+  /* outcome distribution — group headers above each exit group (R14 §4) */
+  .exit-groups { max-width:760px; margin:34px auto 0; text-align:left; }
+  .egroup { margin-bottom:30px; }
+  .eg-head { display:flex; align-items:baseline; gap:14px; padding-bottom:11px; border-bottom:2px solid; }
+  .eg-head.good { border-color:rgba(78,203,113,0.45); }
+  .eg-head.vol { border-color:rgba(91,164,230,0.45); }
+  .eg-head.fc { border-color:rgba(232,93,93,0.45); }
+  .eg-pct { font-family:'Fraunces', Georgia, serif; font-weight:700; font-size:clamp(26px,4vw,34px); line-height:1; }
+  .eg-head.good .eg-pct { color:var(--green); }
+  .eg-head.vol .eg-pct { color:var(--blue); }
+  .eg-head.fc .eg-pct { color:var(--red); }
+  .eg-name { font-size:16px; font-weight:700; color:var(--white); }
+  .eg-range { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-left:auto; }
+  .eg-rows { display:flex; flex-direction:column; }
+  .eg-rows .exit-row { background:none; border:0; border-radius:0; border-bottom:1px solid rgba(255,255,255,0.08); padding:16px 2px; }
+  .eg-rows .exit-row:last-child { border-bottom:0; }
+  .eg-rows .exit-row.last { background:none; }
+  /* checklist stage description (R14 §3a) */
+  .vet-desc { display:block; font-size:13px; color:rgba(255,255,255,0.5); line-height:1.45; margin-bottom:14px; }
+  .vet-group.stops .vet-desc { color:rgba(232,93,93,0.85); }
+  /* cushion closing paragraphs (R14 §3d) */
+  .cushion-close { max-width:620px; margin:26px auto 0; text-align:left; }
+  .cushion-close p { font-size:15px; line-height:1.75; color:rgba(255,255,255,0.7); }
+  .cushion-close p + p { margin-top:14px; }
+  .cushion-close .red { color:var(--red); font-weight:600; }
+  /* foreclosure timeline bars (R14 §3e, ported from homepage) */
+  .fc-head { font-size:15px; line-height:1.6; color:rgba(255,255,255,0.6); max-width:640px; margin:46px auto 18px; text-align:left; }
+  .fc-legend { display:flex; gap:18px; font-size:12px; color:rgba(255,255,255,0.6); margin-bottom:20px; flex-wrap:wrap; }
+  .fc-legend span { display:inline-flex; align-items:center; gap:7px; }
+  .fc-dot { width:11px; height:11px; border-radius:2px; }
+  .fc-list { display:grid; gap:13px; max-width:640px; margin:0 auto; }
+  .fc-row { display:grid; grid-template-columns:32px 1fr 86px; gap:12px; align-items:center; }
+  .fc-code { font-weight:700; font-size:13px; color:var(--white); }
+  .fc-track { height:7px; background:#111A2C; border-radius:4px; position:relative; }
+  .fc-fill { position:absolute; top:0; height:100%; border-radius:4px; }
+  .fc-months { font-size:12.5px; color:rgba(255,255,255,0.6); text-align:right; font-variant-numeric:tabular-nums; }
+  .fc-foot { font-size:12px; color:rgba(255,255,255,0.4); margin:18px auto 0; max-width:640px; text-align:left; }
+  .fc-pending { color:var(--red); border-bottom:1px dashed var(--red); }
+  /* Deal Desk block (R14 §5a) */
+  .pdd { max-width:560px; margin:0 auto; text-align:center; }
+  .pdd-eyebrow { color:var(--blue); font-size:12px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; margin-bottom:12px; }
+  .pdd-sub { color:rgba(255,255,255,0.65); margin:0 auto 22px; max-width:460px; font-size:15px; }
+  .pdd-sub strong { color:var(--white); font-weight:600; }
+  .pdd-form { display:flex; gap:10px; max-width:440px; margin:0 auto; }
+  .pdd-form input { flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(91,164,230,0.2); border-radius:10px; padding:14px 16px; color:var(--white); font:inherit; font-size:15px; }
+  .pdd-form input:focus { outline:none; border-color:var(--blue); }
+  .pdd-form button { background:var(--blue); color:#fff; border:none; border-radius:10px; padding:14px 26px; font-weight:700; cursor:pointer; font:inherit; white-space:nowrap; }
+  .pdd-ok { color:var(--green); font-weight:600; }
+  @media (max-width:520px) { .pdd-form { flex-direction:column; } .eg-range { margin-left:0; } }
   .dist { max-width:60ch; margin:24px auto 0; text-align:center; font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; }
   .dist b { color:var(--white); }
   .legal-pending { border-bottom:1px dashed var(--red); cursor:help; }
@@ -140,47 +175,47 @@
 <circle cx="48" cy="92" r="3" fill="#4ecb71"/>
 </svg>
 <h2>What we check before we buy anything.</h2>
-<p class="lead">Most of what we look at, we pass on. This is the list that decides. If a note fails the first group, nothing else matters and we stop reading.</p>
+<p class="lead">This list runs in a specific order for a reason. The early checks are fast and binary, keep or kill. The later ones build a picture. By the time we reach the bottom we know whether a note is worth a bid, and most of them are not.</p>
 <div class="vet-groups">
 <div class="vet-group stops">
-<h3>Group 1</h3><span class="grp-tag">Instant stops</span>
+<h3>Instant stops</h3><span class="vet-desc">Any one of these and the file closes.</span>
 <ul>
-<li>Is the lien secured, and in what position</li>
+<li>Is the lien secured, and is it genuinely in first position</li>
 <li>Has the statute of limitations run in that state</li>
 <li>Is the property underwater with no path to equity</li>
-<li>For a second lien: is the senior lien already in foreclosure</li>
+<li>Have the property taxes gone far enough behind to risk a tax sale</li>
 <li>Will the seller provide the basic data at all</li>
 </ul>
 </div>
 <div class="vet-group">
-<h3>Group 2</h3><span class="grp-tag">The numbers</span>
+<h3>The numbers</h3><span class="vet-desc">What the deal looks like before we spend a dollar on it.</span>
 <ul>
 <li>Loan to value against a value we trust, not the seller's</li>
-<li>What we would pay as a share of what is owed</li>
+<li>How far below the loan balance we would be buying</li>
 <li>How many months since the borrower last paid</li>
-<li>A property value we can stand behind, refreshed if stale</li>
+<li>An independent valuation, ordered fresh when the last one is old</li>
 </ul>
 </div>
 <div class="vet-group">
-<h3>Group 3</h3><span class="grp-tag">The file</span>
+<h3>The file</h3><span class="vet-desc">Whether the paperwork holds up.</span>
 <ul>
 <li>Original note and mortgage, recorded assignments, clean chain</li>
-<li>Title search for liens, judgments and transfers we were not told about</li>
+<li>Title search for liens, judgments and transfers</li>
 <li>Property taxes current, or how far behind</li>
-<li>Bankruptcy, active loss mitigation, or servicing notes on file</li>
+<li>Bankruptcy, loss mitigation, or servicing notes on file</li>
 </ul>
 </div>
 <div class="vet-group">
-<h3>Group 4</h3><span class="grp-tag">Can it resolve</span>
+<h3>Can it resolve</h3><span class="vet-desc">Whether there is a realistic way out.</span>
 <ul>
-<li>Occupancy status and whether the borrower has ever engaged</li>
+<li>Occupancy, and whether the borrower has ever engaged</li>
 <li>Foreclosure timeline and cost in that specific state</li>
-<li>At least two exits that realistically work</li>
+<li>At least three exits that realistically work</li>
 <li>What the recovery looks like after every cost comes off</li>
 </ul>
 </div>
 </div>
-<div class="vet-close">A note has to have at least two workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
+<div class="vet-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
 <p class="vet-note">We describe the checks here, not the thresholds. The exact bands and state tables are in the 60-Second Tape Filter. This page proves there is a process; the guide gives you the process.</p>
 </div>
 </section>
@@ -212,6 +247,10 @@
 <div class="cu-stat"><div class="lbl">For every $1 the house is worth, we pay</div><div class="val" id="cuStatCents">35&cent;</div></div>
 </div>
 </div>
+<div class="cushion-close">
+<p>That room has a name. We call it the <span class="red">equity cushion</span>. It is the space between what we paid and what the house could sell for, and the money it protects is yours, not ours.</p>
+<p>If the borrower stops paying and nothing we try works, we can take the house back and sell it. We have the legal right because we own the loan, and the house is what backs it. That is our last resort, never our plan.</p>
+</div>
 </div>
 </section>
 
@@ -232,32 +271,59 @@
 </svg>
 <h2>What happens when a borrower stops paying.</h2>
 <p class="lead">A note is not a single bet on one outcome. There is a ladder of ways this can end, and we work them in order.</p>
-<div class="exits-list" title="Pending Legal review">
-<div class="exit-group">
-<div class="grp-bar good"><span class="g-pct">~50%</span><span class="g-name">Re-performing</span><span class="g-sub">Exits 1&ndash;3</span></div>
-<div class="grp-rows">
+<div class="exit-groups" title="Pending Legal review">
+<div class="egroup">
+<div class="eg-head good"><span class="eg-pct">~50%</span><span class="eg-name">Re-performing</span><span class="eg-range">Exits 1 to 3</span></div>
+<div class="eg-rows">
 <div class="exit-row"><span class="n">1</span><div><h4>Reinstatement</h4><p>The borrower brings the loan current, paying the missed payments plus fees, and the loan continues exactly as written. The cleanest outcome, and more common than people expect.</p></div></div>
 <div class="exit-row"><span class="n">2</span><div><h4>Repayment plan</h4><p>The borrower cannot clear the arrears all at once, so the past-due amount is spread across future payments on top of the regular payment until they are caught up.</p></div></div>
 <div class="exit-row"><span class="n">3</span><div><h4>Loan modification</h4><p>We change the rate, the term, or both to a payment the borrower can actually make. The most common workout, and the one that turns a non-performing note back into a performing one.</p></div></div>
 </div>
 </div>
-<div class="exit-group">
-<div class="grp-bar vol"><span class="g-pct">~25%</span><span class="g-name">Voluntary exit</span><span class="g-sub">Exits 4&ndash;6</span></div>
-<div class="grp-rows">
+<div class="egroup">
+<div class="eg-head vol"><span class="eg-pct">~25%</span><span class="eg-name">Voluntary exit</span><span class="eg-range">Exits 4 to 6</span></div>
+<div class="eg-rows">
 <div class="exit-row"><span class="n">4</span><div><h4>Discounted payoff</h4><p>The borrower or a family member settles the loan for a lump sum that is less than the full balance. We take the cash and release the lien.</p></div></div>
 <div class="exit-row"><span class="n">5</span><div><h4>Short sale</h4><p>With our approval, the borrower sells the property for less than what is owed. We recover from the sale proceeds and the borrower avoids a foreclosure on their record.</p></div></div>
 <div class="exit-row"><span class="n">6</span><div><h4>Deed in lieu</h4><p>The borrower voluntarily signs the property over to us instead of fighting a foreclosure. Faster and cheaper for everyone than a contested case.</p></div></div>
 </div>
 </div>
-<div class="exit-group">
-<div class="grp-bar fc"><span class="g-pct">~25%</span><span class="g-name">Foreclosure</span><span class="g-sub">Exit 7</span></div>
-<div class="grp-rows">
+<div class="egroup">
+<div class="eg-head fc"><span class="eg-pct">~25%</span><span class="eg-name">Foreclosure</span><span class="eg-range">Exit 7</span></div>
+<div class="eg-rows">
 <div class="exit-row last"><span class="n">7</span><div><h4>Foreclosure</h4><p>The floor, not the plan. If nothing else works, we recover through the collateral itself, the property that secured the loan from day one. Timelines and costs vary by state.</p></div></div>
 </div>
 </div>
 </div>
 <p class="exit-banner">Multiple exit paths. Three outcomes. Zero dead ends.</p>
-<p class="dist"><span class="legal-pending" title="Pending Legal review">Roughly half of our notes re-perform, about a quarter exit voluntarily, and about a quarter reach foreclosure.</span> Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
+<p class="dist">Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
+<div class="fc-head">How long a foreclosure takes decides what a note is worth before anything else does. Non-judicial states resolve in months. Judicial states can take years. We buy where the math works.</div>
+<div class="fc-legend"><span><span class="fc-dot" style="background:#4ECB71"></span> Non-judicial</span><span><span class="fc-dot" style="background:#5BA4E6"></span> Mixed</span><span><span class="fc-dot" style="background:#E85D5D"></span> Judicial</span></div>
+<div class="fc-list" role="img" aria-label="Foreclosure timeline ranges by state, fastest to slowest, from Texas at 2 to 4 months to Florida at 12 to 20 months">
+<div class="fc-row"><span class="fc-code">TX</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
+<div class="fc-row"><span class="fc-code">GA</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
+<div class="fc-row"><span class="fc-code">MS</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
+<div class="fc-row"><span class="fc-code">AL</span><div class="fc-track"><div class="fc-fill" style="margin-left:15.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">3&#8211;5 mo</span></div>
+<div class="fc-row"><span class="fc-code">MO</span><div class="fc-track"><div class="fc-fill" style="margin-left:20.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">4&#8211;6 mo</span></div>
+<div class="fc-row"><span class="fc-code">NC</span><div class="fc-track"><div class="fc-fill" style="margin-left:25.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">5&#8211;8 mo</span></div>
+<div class="fc-row"><span class="fc-code">MI</span><div class="fc-track"><div class="fc-fill" style="margin-left:30.0%;width:15.0%;background:#5BA4E6"></div></div><span class="fc-months">6&#8211;9 mo</span></div>
+<div class="fc-row"><span class="fc-code">IN</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:20.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;14 mo</span></div>
+<div class="fc-row"><span class="fc-code">OH</span><div class="fc-track"><div class="fc-fill" style="margin-left:50.0%;width:25.0%;background:#E85D5D"></div></div><span class="fc-months">10&#8211;15 mo</span></div>
+<div class="fc-row"><span class="fc-code">FL</span><div class="fc-track"><div class="fc-fill" style="margin-left:60.0%;width:40.0%;background:#E85D5D"></div></div><span class="fc-months">12&#8211;20 mo</span></div>
+</div>
+<p class="fc-foot"><span class="fc-pending" title="Pending AJ's verified figures">Placeholder ranges, directionally correct but not yet sourced. Pending verified figures before publish.</span> Ranges are typical, not guaranteed, and vary by county, court backlog, and borrower response.</p>
+</div>
+</section>
+
+<section id="deal-desk">
+<div class="wrap pdd">
+<div class="pdd-eyebrow">Not ready to talk?</div>
+<h2>Stay in the loop.</h2>
+<p class="pdd-sub">The <strong>Deal Desk Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
+<form class="pdd-form" onsubmit="return pddSubmit(event)">
+<input type="email" placeholder="you@email.com" aria-label="Your email for the Deal Desk newsletter" required=""/>
+<button type="submit">Subscribe</button>
+</form>
 </div>
 </section>
 
@@ -288,6 +354,13 @@
   }
   if(pay){ pay.addEventListener('input',cushion); cushion(); }
 })();
+function pddSubmit(e){
+  e.preventDefault();
+  var f=e.target;
+  /* STUB: Deal Desk newsletter signup — GHL wiring parked */
+  f.innerHTML='<p class="pdd-ok">You’re on the Deal Desk list. Watch your inbox.</p>';
+  return false;
+}
 </script>
 </body>
 </html>
