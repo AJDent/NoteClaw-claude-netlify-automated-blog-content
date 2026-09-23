@@ -48,7 +48,6 @@
   .vet-group.stops li::before { content:"✕"; color:var(--red); }
   .vet-group.stops .grp-tag { color:var(--red); }
   .vet-close { margin:32px auto 0; background:rgba(91,164,230,0.08); border-left:3px solid var(--blue); border-radius:8px; padding:20px 22px; font-size:17px; font-style:italic; color:var(--white); max-width:720px; }
-  .vet-note { font-size:13px; color:rgba(255,255,255,0.45); margin-top:20px; text-align:center; max-width:60ch; margin-left:auto; margin-right:auto; }
   /* cushion */
   .cushion { max-width:600px; margin:36px auto 0; background:rgba(0,0,0,0.25); border:1px solid rgba(91,164,230,0.15); border-radius:12px; padding:24px; text-align:left; }
   .cushion-setup { font-size:16px; color:var(--white); margin-bottom:16px; line-height:1.6; }
@@ -95,7 +94,6 @@
   .eg-head.vol .eg-pct { color:var(--blue); }
   .eg-head.fc .eg-pct { color:var(--red); }
   .eg-name { font-size:16px; font-weight:700; color:var(--white); }
-  .eg-range { font-size:11px; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,0.42); margin-left:auto; }
   .eg-rows { display:flex; flex-direction:column; }
   .eg-rows .exit-row { background:none; border:0; border-radius:0; border-bottom:1px solid rgba(255,255,255,0.08); padding:16px 2px; }
   .eg-rows .exit-row:last-child { border-bottom:0; }
@@ -109,8 +107,9 @@
   .cushion-close p + p { margin-top:14px; }
   .cushion-close .red { color:var(--red); font-weight:600; }
   /* foreclosure timeline bars (R14 §3e, ported from homepage) */
-  .fc-head { font-size:15px; line-height:1.6; color:rgba(255,255,255,0.6); max-width:640px; margin:46px auto 18px; text-align:left; }
-  .fc-legend { display:flex; gap:18px; font-size:12px; color:rgba(255,255,255,0.6); margin-bottom:20px; flex-wrap:wrap; }
+  .fc-title { font-family:'Fraunces', Georgia, serif; font-weight:400; font-size:clamp(23px,3.2vw,30px); line-height:1.15; color:var(--white); max-width:640px; margin:52px auto 14px; text-align:center; }
+  .fc-head { font-size:15px; line-height:1.7; color:rgba(255,255,255,0.62); max-width:600px; margin:0 auto 26px; text-align:center; }
+  .fc-legend { display:flex; gap:18px; font-size:12px; color:rgba(255,255,255,0.6); margin:0 auto 20px; flex-wrap:wrap; justify-content:center; max-width:640px; }
   .fc-legend span { display:inline-flex; align-items:center; gap:7px; }
   .fc-dot { width:11px; height:11px; border-radius:2px; }
   .fc-list { display:grid; gap:13px; max-width:640px; margin:0 auto; }
@@ -131,7 +130,7 @@
   .pdd-form input:focus { outline:none; border-color:var(--blue); }
   .pdd-form button { background:var(--blue); color:#fff; border:none; border-radius:10px; padding:14px 26px; font-weight:700; cursor:pointer; font:inherit; white-space:nowrap; }
   .pdd-ok { color:var(--green); font-weight:600; }
-  @media (max-width:520px) { .pdd-form { flex-direction:column; } .eg-range { margin-left:0; } }
+  @media (max-width:520px) { .pdd-form { flex-direction:column; } }
   .dist { max-width:60ch; margin:24px auto 0; text-align:center; font-size:16px; color:rgba(255,255,255,0.8); line-height:1.7; }
   .dist b { color:var(--white); }
   .legal-pending { border-bottom:1px dashed var(--red); cursor:help; }
@@ -215,9 +214,7 @@
 </ul>
 </div>
 </div>
-<div class="vet-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div>
-<p class="vet-note">We describe the checks here, not the thresholds. The exact bands and state tables are in the 60-Second Tape Filter. This page proves there is a process; the guide gives you the process.</p>
-</div>
+<div class="vet-close">A note has to have at least three workable exits before we bid. One exit is a gamble. Two is a strategy plan. Three is a game plan.</div></div>
 </section>
 
 <!-- ═══ #the-cushion ═══ -->
@@ -273,7 +270,7 @@
 <p class="lead">A note is not a single bet on one outcome. There is a ladder of ways this can end, and we work them in order.</p>
 <div class="exit-groups" title="Pending Legal review">
 <div class="egroup">
-<div class="eg-head good"><span class="eg-pct">~50%</span><span class="eg-name">Re-performing</span><span class="eg-range">Exits 1 to 3</span></div>
+<div class="eg-head good"><span class="eg-pct">~50%</span><span class="eg-name">Re-performing</span></div>
 <div class="eg-rows">
 <div class="exit-row"><span class="n">1</span><div><h4>Reinstatement</h4><p>The borrower brings the loan current, paying the missed payments plus fees, and the loan continues exactly as written. The cleanest outcome, and more common than people expect.</p></div></div>
 <div class="exit-row"><span class="n">2</span><div><h4>Repayment plan</h4><p>The borrower cannot clear the arrears all at once, so the past-due amount is spread across future payments on top of the regular payment until they are caught up.</p></div></div>
@@ -281,7 +278,7 @@
 </div>
 </div>
 <div class="egroup">
-<div class="eg-head vol"><span class="eg-pct">~25%</span><span class="eg-name">Voluntary exit</span><span class="eg-range">Exits 4 to 6</span></div>
+<div class="eg-head vol"><span class="eg-pct">~25%</span><span class="eg-name">Voluntary exit</span></div>
 <div class="eg-rows">
 <div class="exit-row"><span class="n">4</span><div><h4>Discounted payoff</h4><p>The borrower or a family member settles the loan for a lump sum that is less than the full balance. We take the cash and release the lien.</p></div></div>
 <div class="exit-row"><span class="n">5</span><div><h4>Short sale</h4><p>With our approval, the borrower sells the property for less than what is owed. We recover from the sale proceeds and the borrower avoids a foreclosure on their record.</p></div></div>
@@ -289,15 +286,15 @@
 </div>
 </div>
 <div class="egroup">
-<div class="eg-head fc"><span class="eg-pct">~25%</span><span class="eg-name">Foreclosure</span><span class="eg-range">Exit 7</span></div>
+<div class="eg-head fc"><span class="eg-pct">~25%</span><span class="eg-name">Foreclosure</span></div>
 <div class="eg-rows">
 <div class="exit-row last"><span class="n">7</span><div><h4>Foreclosure</h4><p>The floor, not the plan. If nothing else works, we recover through the collateral itself, the property that secured the loan from day one. Timelines and costs vary by state.</p></div></div>
 </div>
 </div>
 </div>
 <p class="exit-banner">Multiple exit paths. Three outcomes. Zero dead ends.</p>
-<p class="dist">Foreclosure at about one in four is not rare. It is planned for, priced in, and secured by the property the whole way.</p>
-<div class="fc-head">How long a foreclosure takes decides what a note is worth before anything else does. Non-judicial states resolve in months. Judicial states can take years. We buy where the math works.</div>
+<h3 class="fc-title">And if we do foreclose, how long does it take?</h3>
+<p class="fc-head">That is exit seven, the last resort. How long it takes decides what a note is worth before anything else does. Non-judicial states resolve in months, judicial states can take years, and we buy where the math works.</p>
 <div class="fc-legend"><span><span class="fc-dot" style="background:#4ECB71"></span> Non-judicial</span><span><span class="fc-dot" style="background:#5BA4E6"></span> Mixed</span><span><span class="fc-dot" style="background:#E85D5D"></span> Judicial</span></div>
 <div class="fc-list" role="img" aria-label="Foreclosure timeline ranges by state, fastest to slowest, from Texas at 2 to 4 months to Florida at 12 to 20 months">
 <div class="fc-row"><span class="fc-code">TX</span><div class="fc-track"><div class="fc-fill" style="margin-left:10.0%;width:10.0%;background:#4ECB71"></div></div><span class="fc-months">2&#8211;4 mo</span></div>
