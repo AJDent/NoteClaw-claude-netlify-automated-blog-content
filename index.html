@@ -94,7 +94,11 @@
   .lay { padding: 92px 0; }
   .lay.dense { padding: 72px 0; }
   .lay.primer { padding: 62px 0; }
-  .kicker { color: var(--blue); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  .kicker { color: var(--blue); font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+  /* section separator — short left rule above the kicker, only between consecutive --ground sections (R: separators) */
+  .section-sep { position: relative; padding-top: 30px; }
+  .section-sep::before { content: ""; position: absolute; top: 0; left: 0; width: 64px; height: 1px; background: #2F4A6E; }
+  .section-sep.sep-c::before { left: 50%; transform: translateX(-50%); }
   .rail-h { font-size: clamp(34px, 3.6vw, 50px); line-height: 1.04; letter-spacing: -0.02em; margin-bottom: 18px; }
   .rail p { max-width: 520px; color: var(--muted); }
   .wide p { max-width: 600px; }
@@ -839,7 +843,7 @@
 <!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
-<div class="kicker" style="text-align:center;margin-bottom:20px;">01 · Which one of these is me?</div>
+<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:20px;">01 · Which one of these is me?</div>
 <h2 class="sc-line fade-in">
 <span class="sc-half">I'm a
 <select id="scWho" aria-label="I'm a">
@@ -926,7 +930,7 @@
 <section class="bg-black lay" id="calc">
 <div class="shell g-calc">
 <div class="rail fade-in">
-<div class="kicker">02 · What is my money doing right now?</div>
+<div class="kicker section-sep">02 · What is my money doing right now?</div>
 <div class="calc-transition" id="calcTransition" hidden="">
 <p class="ct-echo"><span id="ctEcho"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></p>
 <p class="ct-insight" id="ctInsight"></p>
@@ -1154,7 +1158,7 @@
 <section class="bg-black lay" id="statemap">
 <div class="shell g-map">
 <div class="rail fade-in">
-<div class="kicker">05 · Where is the paper?</div>
+<div class="kicker section-sep">05 · Where is the paper?</div>
 <h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
 <p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
 <div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
@@ -1228,7 +1232,7 @@
 <section class="bg-white lay" id="founder">
 <div class="shell g-founder">
 <div class="rail fade-in">
-<div class="kicker">07 · Who am I dealing with?</div>
+<div class="kicker section-sep">07 · Who am I dealing with?</div>
 <h3 class="rail-h">I'm AJ Dent.</h3>
 <p class="text-sm-muted">Founder, Take Notes Capital</p>
 </div>
@@ -1254,7 +1258,7 @@
 <section class="bg-black lay" id="faq">
 <div class="shell g-faq">
 <div class="rail fade-in">
-<div class="kicker">FAQ</div>
+<div class="kicker section-sep">FAQ</div>
 <h3 class="rail-h">Frequently asked questions</h3>
 </div>
 <div class="wide fade-in">
@@ -1285,7 +1289,7 @@
 
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
-<div class="kicker" style="text-align:center;margin-bottom:16px;">08 · What happens if I say yes?</div>
+<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:16px;">08 · What happens if I say yes?</div>
 <h2 class="headline-xl fade-in">Ready to become the bank?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in contact-note">No pressure. No pitch. Just a conversation about whether<br/>mortgage note investing fits your goals.</p>
