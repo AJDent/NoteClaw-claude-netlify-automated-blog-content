@@ -423,105 +423,13 @@
   .footer-legal-btn:hover { color: rgba(250,248,244,0.7); }
 
   /* NOTE BUYERS */
-  #note-buyers { min-height: auto; padding-top: 120px; padding-bottom: 100px; }
-  .nb-shell { width: 100%; max-width: 980px; margin: 0 auto; }
-  .nb-card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    border: 1px solid rgba(91,164,230,0.18);
-    border-radius: 24px;
-    padding: 48px 36px;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-  }
-  .nb-intro, .nb-success { max-width: 700px; margin: 0 auto; text-align: center; }
-  .nb-label { font-size: 12px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue); opacity: 0.9; margin-bottom: 18px; }
-  .nb-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(30px, 5vw, 52px); line-height: 1.18; margin-bottom: 18px; }
-  .nb-copy { font-size: clamp(15px, 2vw, 18px); line-height: 1.85; font-weight: 300; color: rgba(250,248,244,0.68); margin-bottom: 32px; }
-  .nb-progress { width: 100%; max-width: 700px; margin: 0 auto 34px; }
-  .nb-progress-label { font-size: 12px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,248,244,0.42); margin-bottom: 10px; }
-  .nb-progress-track { width: 100%; height: 4px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
-  .nb-progress-fill { height: 100%; width: 16.666%; background: var(--blue); border-radius: 999px; transition: width 0.35s ease; }
-  .nb-form-wrap { display: none; width: 100%; }
-  .nb-step { display: none; width: 100%; max-width: 700px; margin: 0 auto; animation: nbFadeUp 0.35s ease; }
-  .nb-step.active { display: block; }
-  @keyframes nbFadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
-  .nb-back { background: none; border: none; color: rgba(250,248,244,0.38); font-family: inherit; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 20px; padding: 0; }
-  .nb-back:hover { color: rgba(250,248,244,0.75); }
-  .nb-question { font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 38px); line-height: 1.22; margin-bottom: 10px; }
-  .nb-sub { font-size: 14px; color: rgba(250,248,244,0.48); margin-bottom: 28px; font-weight: 300; }
-  .nb-options { display: grid; gap: 12px; margin-bottom: 26px; }
-  .nb-options.two-col { grid-template-columns: repeat(2, 1fr); }
-  .nb-option, .nb-state {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(91,164,230,0.18);
-    border-radius: 14px;
-    color: var(--white);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .nb-option {
-    display: flex; align-items: center; gap: 12px;
-    padding: 16px 18px; text-align: left;
-    font-family: inherit; font-size: 15px;
-  }
-  .nb-option:hover, .nb-state:hover { border-color: rgba(91,164,230,0.42); background: rgba(91,164,230,0.06); }
-  .nb-option.selected, .nb-state.selected { border-color: var(--blue); background: rgba(91,164,230,0.14); }
-  .nb-check {
-    width: 20px; height: 20px; border-radius: 50%;
-    border: 2px solid rgba(91,164,230,0.28);
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 11px; flex-shrink: 0;
-  }
-  .nb-option.selected .nb-check { border-color: var(--blue); background: var(--blue); }
-  .nb-states {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: 8px; max-height: 360px; overflow-y: auto;
-    padding-right: 4px; margin-bottom: 26px;
-  }
-  .nb-states::-webkit-scrollbar { width: 4px; }
-  .nb-states::-webkit-scrollbar-thumb { background: rgba(91,164,230,0.35); border-radius: 999px; }
-  .nb-states::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 999px; }
-  .nb-state { padding: 10px 8px; text-align: center; font-family: inherit; font-size: 13px; font-weight: 500; color: rgba(250,248,244,0.8); }
-  .nb-state.nationwide { grid-column: 1 / -1; font-weight: 700; letter-spacing: 0.12em; font-size: 14px; color: var(--blue); padding: 14px; }
-  .nb-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-  .nb-btn {
-    display: inline-flex; align-items: center; justify-content: center;
-    background: var(--blue); color: #fff; border: none; border-radius: 999px;
-    padding: 16px 34px; font-family: inherit; font-size: 16px; font-weight: 700;
-    cursor: pointer; transition: all 0.25s ease;
-  }
-  .nb-btn:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(91,164,230,0.2); }
-  .nb-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
-  .nb-skip { background: none; border: none; color: rgba(250,248,244,0.4); font-family: inherit; font-size: 14px; cursor: pointer; }
-  .nb-skip:hover { color: rgba(250,248,244,0.7); }
-  .nb-textarea, .nb-input {
-    width: 100%;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(91,164,230,0.2);
-    border-radius: 12px;
-    padding: 15px 16px;
-    color: var(--white);
-    font-family: inherit;
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s ease, background 0.2s ease;
-  }
-  .nb-textarea:focus, .nb-input:focus { border-color: var(--blue); background: rgba(91,164,230,0.05); }
-  .nb-textarea { min-height: 110px; resize: vertical; margin-bottom: 26px; }
-  .nb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 24px; }
-  .nb-group { display: flex; flex-direction: column; gap: 7px; }
-  .nb-group label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(250,248,244,0.52); }
-  .nb-success { display: none; }
-  .nb-success-icon { font-size: 56px; margin-bottom: 18px; }
-  .nb-success-title { font-family: 'Fraunces', Georgia, serif; font-size: clamp(30px, 5vw, 46px); margin-bottom: 12px; }
-  .nb-success-copy { font-size: 17px; line-height: 1.8; color: rgba(250,248,244,0.68); margin-bottom: 20px; }
-  .nb-mini-link { color: var(--blue); text-decoration: none; font-size: 15px; font-weight: 600; }
-  .nb-mini-link:hover { color: var(--gold-light); }
-  .nb-note { margin-top: 20px; font-size: 13px; line-height: 1.7; color: rgba(250,248,244,0.42); }
-  @media (max-width: 768px) {
-    .nb-card { padding: 36px 20px; border-radius: 18px; }
-    .nb-options.two-col, .nb-grid { grid-template-columns: 1fr; }
-    .nb-states { grid-template-columns: repeat(3, 1fr); }
-  }
+  /* note-buyer entry block (R14 B3) */
+  .nbf-block { text-align: center; }
+  .nbf-lead { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
+  .nbf-links { display: inline-flex; flex-wrap: wrap; gap: 8px 14px; justify-content: center; align-items: center; }
+  .nbf-links a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 15px; }
+  .nbf-links a:hover { text-decoration: underline; }
+  .nbf-dot { color: var(--dim); }
 
   /* ═══ homepage-revamp: sentence completion ═══ */
   .sc-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; text-align: center; font-size: clamp(20px,2.6vw,31px); line-height: 1.35; max-width: 1080px; margin: 0 auto; }
@@ -1389,187 +1297,8 @@
 </div>
 </section>
 <!-- PROOF section removed (R14 B1): its one line now lives in the founder section; no /proof page until real Deal Breakdowns exist. -->
-<!-- NOTE BUYERS -->
-<section class="bg-black section-short" id="note-buyers">
-<div class="nb-shell fade-in">
-<div class="nb-card">
-<div class="nb-intro" id="nbIntro">
-<h2 class="nb-title">Get notified when we have notes that fit your buy box.</h2>
-<p class="nb-copy">Tell us what you're looking for: asset type, lien position, target states, and investment range. We'll reach out when we have a note that matches. No spam. Just deal flow that fits your criteria.</p>
-<button class="nb-btn" onclick="nbStart()" type="button">Submit my buy box</button>
-</div>
-<div class="nb-form-wrap" id="nbFormWrap">
-<div class="nb-progress" id="nbProgressWrap">
-<div class="nb-progress-label" id="nbProgressLabel">Step 1 of 8</div>
-<div class="nb-progress-track"><div class="nb-progress-fill" id="nbProgressFill"></div></div>
-</div>
-<div class="nb-step active" id="nbStep1">
-<h3 class="nb-question">What type of assets are you interested in?</h3>
-<p class="nb-sub">Select all that apply.</p>
-<div class="nb-options two-col">
-<button class="nb-option" data-value="performing" onclick="nbToggleOption(this, 'assetTypes', 1)" type="button"><span class="nb-check">✓</span>Performing</button>
-<button class="nb-option" data-value="non_performing" onclick="nbToggleOption(this, 'assetTypes', 1)" type="button"><span class="nb-check">✓</span>Non-Performing</button>
-</div>
-<div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn1" onclick="nbNext(1)" type="button">Continue</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep2">
-<button class="nb-back" onclick="nbPrev(2)" type="button">← Back</button>
-<h3 class="nb-question">What lien position do you prefer?</h3>
-<p class="nb-sub">Select all that apply.</p>
-<div class="nb-options">
-<button class="nb-option" data-value="senior_1st" onclick="nbToggleOption(this, 'lienPositions', 2)" type="button"><span class="nb-check">✓</span>Senior (1st)</button>
-<button class="nb-option" data-value="junior_2nd" onclick="nbToggleOption(this, 'lienPositions', 2)" type="button"><span class="nb-check">✓</span>Junior (2nd)</button>
-<button class="nb-option" data-value="unsecured" onclick="nbToggleOption(this, 'lienPositions', 2)" type="button"><span class="nb-check">✓</span>Unsecured</button>
-</div>
-<div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn2" onclick="nbNext(2)" type="button">Continue</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep3">
-<button class="nb-back" onclick="nbPrev(3)" type="button">← Back</button>
-<h3 class="nb-question">Which states do you target assets in?</h3>
-<p class="nb-sub">If you have no preference, choose Nationwide.</p>
-<div class="nb-states" id="nbStatesGrid">
-<button class="nb-state nationwide" data-value="nationwide" onclick="nbToggleState(this)" type="button">NATIONWIDE</button>
-<button class="nb-state" data-value="AL" onclick="nbToggleState(this)" type="button">AL</button>
-<button class="nb-state" data-value="AK" onclick="nbToggleState(this)" type="button">AK</button>
-<button class="nb-state" data-value="AZ" onclick="nbToggleState(this)" type="button">AZ</button>
-<button class="nb-state" data-value="AR" onclick="nbToggleState(this)" type="button">AR</button>
-<button class="nb-state" data-value="CA" onclick="nbToggleState(this)" type="button">CA</button>
-<button class="nb-state" data-value="CO" onclick="nbToggleState(this)" type="button">CO</button>
-<button class="nb-state" data-value="CT" onclick="nbToggleState(this)" type="button">CT</button>
-<button class="nb-state" data-value="DE" onclick="nbToggleState(this)" type="button">DE</button>
-<button class="nb-state" data-value="FL" onclick="nbToggleState(this)" type="button">FL</button>
-<button class="nb-state" data-value="GA" onclick="nbToggleState(this)" type="button">GA</button>
-<button class="nb-state" data-value="HI" onclick="nbToggleState(this)" type="button">HI</button>
-<button class="nb-state" data-value="ID" onclick="nbToggleState(this)" type="button">ID</button>
-<button class="nb-state" data-value="IL" onclick="nbToggleState(this)" type="button">IL</button>
-<button class="nb-state" data-value="IN" onclick="nbToggleState(this)" type="button">IN</button>
-<button class="nb-state" data-value="IA" onclick="nbToggleState(this)" type="button">IA</button>
-<button class="nb-state" data-value="KS" onclick="nbToggleState(this)" type="button">KS</button>
-<button class="nb-state" data-value="KY" onclick="nbToggleState(this)" type="button">KY</button>
-<button class="nb-state" data-value="LA" onclick="nbToggleState(this)" type="button">LA</button>
-<button class="nb-state" data-value="ME" onclick="nbToggleState(this)" type="button">ME</button>
-<button class="nb-state" data-value="MD" onclick="nbToggleState(this)" type="button">MD</button>
-<button class="nb-state" data-value="MA" onclick="nbToggleState(this)" type="button">MA</button>
-<button class="nb-state" data-value="MI" onclick="nbToggleState(this)" type="button">MI</button>
-<button class="nb-state" data-value="MN" onclick="nbToggleState(this)" type="button">MN</button>
-<button class="nb-state" data-value="MS" onclick="nbToggleState(this)" type="button">MS</button>
-<button class="nb-state" data-value="MO" onclick="nbToggleState(this)" type="button">MO</button>
-<button class="nb-state" data-value="MT" onclick="nbToggleState(this)" type="button">MT</button>
-<button class="nb-state" data-value="NE" onclick="nbToggleState(this)" type="button">NE</button>
-<button class="nb-state" data-value="NV" onclick="nbToggleState(this)" type="button">NV</button>
-<button class="nb-state" data-value="NH" onclick="nbToggleState(this)" type="button">NH</button>
-<button class="nb-state" data-value="NJ" onclick="nbToggleState(this)" type="button">NJ</button>
-<button class="nb-state" data-value="NM" onclick="nbToggleState(this)" type="button">NM</button>
-<button class="nb-state" data-value="NY" onclick="nbToggleState(this)" type="button">NY</button>
-<button class="nb-state" data-value="NC" onclick="nbToggleState(this)" type="button">NC</button>
-<button class="nb-state" data-value="ND" onclick="nbToggleState(this)" type="button">ND</button>
-<button class="nb-state" data-value="OH" onclick="nbToggleState(this)" type="button">OH</button>
-<button class="nb-state" data-value="OK" onclick="nbToggleState(this)" type="button">OK</button>
-<button class="nb-state" data-value="OR" onclick="nbToggleState(this)" type="button">OR</button>
-<button class="nb-state" data-value="PA" onclick="nbToggleState(this)" type="button">PA</button>
-<button class="nb-state" data-value="RI" onclick="nbToggleState(this)" type="button">RI</button>
-<button class="nb-state" data-value="SC" onclick="nbToggleState(this)" type="button">SC</button>
-<button class="nb-state" data-value="SD" onclick="nbToggleState(this)" type="button">SD</button>
-<button class="nb-state" data-value="TN" onclick="nbToggleState(this)" type="button">TN</button>
-<button class="nb-state" data-value="TX" onclick="nbToggleState(this)" type="button">TX</button>
-<button class="nb-state" data-value="UT" onclick="nbToggleState(this)" type="button">UT</button>
-<button class="nb-state" data-value="VT" onclick="nbToggleState(this)" type="button">VT</button>
-<button class="nb-state" data-value="VA" onclick="nbToggleState(this)" type="button">VA</button>
-<button class="nb-state" data-value="WA" onclick="nbToggleState(this)" type="button">WA</button>
-<button class="nb-state" data-value="WV" onclick="nbToggleState(this)" type="button">WV</button>
-<button class="nb-state" data-value="WI" onclick="nbToggleState(this)" type="button">WI</button>
-<button class="nb-state" data-value="WY" onclick="nbToggleState(this)" type="button">WY</button>
-</div>
-<div class="nb-actions">
-<button class="nb-btn" disabled="" id="nbBtn3" onclick="nbNext(3)" type="button">Continue</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep4">
-<button class="nb-back" onclick="nbPrev(4)" type="button">← Back</button>
-<h3 class="nb-question">How much are you planning to invest on your next deal?</h3>
-<p class="nb-sub">Select one.</p>
-<div class="nb-options">
-<button class="nb-option" data-value="under_25k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>Under $25,000</button>
-<button class="nb-option" data-value="25k_50k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$25,000 – $50,000</button>
-<button class="nb-option" data-value="50k_100k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$50,000 – $100,000</button>
-<button class="nb-option" data-value="100k_250k" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$100,000 – $250,000</button>
-<button class="nb-option" data-value="250k_plus" onclick="nbSelectSingle(this, 'investmentAmount', 4)" type="button"><span class="nb-check">✓</span>$250,000+</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep5">
-<button class="nb-back" onclick="nbPrev(5)" type="button">← Back</button>
-<h3 class="nb-question">How quickly can you move on a deal?</h3>
-<p class="nb-sub">Select one. This helps us prioritize deal flow for you.</p>
-<div class="nb-options">
-<button class="nb-option" data-value="24_48_hours" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>24–48 hours</button>
-<button class="nb-option" data-value="within_a_week" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>Within a week</button>
-<button class="nb-option" data-value="flexible" onclick="nbSelectSingle(this, 'decisionSpeed', 5)" type="button"><span class="nb-check">✓</span>Flexible</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep6">
-<button class="nb-back" onclick="nbPrev(6)" type="button">← Back</button>
-<h3 class="nb-question">What's the maximum LTV you're comfortable with?</h3>
-<p class="nb-sub">Loan-to-value ratio on the collateral property.</p>
-<div class="nb-options">
-<button class="nb-option" data-value="under_50" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>Under 50%</button>
-<button class="nb-option" data-value="50_65" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>50–65%</button>
-<button class="nb-option" data-value="65_75" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>65–75%</button>
-<button class="nb-option" data-value="75_85" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>75–85%</button>
-<button class="nb-option" data-value="85_plus" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>85%+</button>
-<button class="nb-option" data-value="no_preference" onclick="nbSelectSingle(this, 'maxLtv', 6)" type="button"><span class="nb-check">✓</span>No Preference</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep7">
-<button class="nb-back" onclick="nbPrev(7)" type="button">← Back</button>
-<h3 class="nb-question">Any additional preferences?</h3>
-<p class="nb-sub">Optional — tell us anything else about your buy box.</p>
-<textarea class="nb-textarea" id="nbPreferences" placeholder="e.g. Prefer owner-occupied properties, no rural areas, minimum property value $50K..."></textarea>
-<div class="nb-actions">
-<button class="nb-btn" onclick="nbNext(7)" type="button">Continue</button>
-<button class="nb-skip" onclick="nbNext(7)" type="button">Skip</button>
-</div>
-</div>
-<div class="nb-step" id="nbStep8">
-<button class="nb-back" onclick="nbPrev(8)" type="button">← Back</button>
-<h3 class="nb-question">How can we reach you?</h3>
-<p class="nb-sub">We'll notify you when we have notes that match your buy box.</p>
-<div class="nb-grid">
-<div class="nb-group">
-<label for="nbFirstName">First Name *</label>
-<input class="nb-input" id="nbFirstName" placeholder="John" required="" type="text"/>
-</div>
-<div class="nb-group">
-<label for="nbLastName">Last Name *</label>
-<input class="nb-input" id="nbLastName" placeholder="Smith" required="" type="text"/>
-</div>
-<div class="nb-group">
-<label for="nbPhone">Phone *</label>
-<input class="nb-input" id="nbPhone" placeholder="(555) 000-0000" required="" type="tel"/>
-</div>
-<div class="nb-group">
-<label for="nbEmail">Email *</label>
-<input class="nb-input" id="nbEmail" placeholder="john@example.com" required="" type="email"/>
-</div>
-</div>
-<div class="nb-actions">
-<button class="nb-btn" id="nbSubmitBtn" onclick="nbSubmit()" type="button">Submit my buy box</button>
-</div>
-<p class="nb-note">We'll only contact you about notes that match your criteria. No spam, ever.</p>
-</div>
-</div>
-<div class="nb-success" id="nbSuccess">
-<div class="nb-success-icon">🎯</div>
-<h3 class="nb-success-title">You're on the list.</h3>
-<p class="nb-success-copy">Thanks. We'll notify you when we have notes that match your buy box. Keep an eye on your inbox.</p>
-<a class="nb-mini-link" href="#hero">← Back to top</a>
-</div>
-</div>
-</div>
-</section>
+<!-- NOTE BUYERS form moved to /buy-box (R14 B3); entry block now sits above Deal Desk. -->
+
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
 <div class="kicker" style="text-align:center;margin-bottom:16px;">08 · What happens if I say yes?</div>
@@ -1641,6 +1370,13 @@
 <p class="form-success-note">We'll be in touch within 48 hours.<br/>Feel free to also book a call directly.</p>
 <a class="cta-btn-outline cta-btn-outline-mt" href="https://talkwithajdent.com" target="_blank">Book a call</a>
 </div>
+</div>
+</section>
+<!-- [NBF] NOTE-BUYER ENTRY BLOCK (R14 B3) -->
+<section class="bg-black section-short" id="note-buyers">
+<div class="shell nbf-block fade-in">
+<p class="nbf-lead">Already in the note business?</p>
+<p class="nbf-links"><a href="/buy-box">I want to sell notes &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I have notes to discuss &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I work in the industry &rarr;</a></p>
 </div>
 </section>
 <!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
@@ -1761,124 +1497,7 @@
     if (e.target === document.getElementById('modal-' + type)) closeLegal(type);
   }
 
-  const nbData = {
-    assetTypes: [],
-    lienPositions: [],
-    targetStates: [],
-    investmentAmount: '',
-    decisionSpeed: '',
-    maxLtv: ''
-  };
-  const NB_TOTAL_STEPS = 8;
-
-  function nbStart() {
-    document.getElementById('nbIntro').style.display = 'none';
-    document.getElementById('nbFormWrap').style.display = 'block';
-    nbShowStep(1);
-    document.getElementById('note-buyers').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  function nbUpdateProgress(step) {
-    document.getElementById('nbProgressLabel').textContent = `Step ${step} of ${NB_TOTAL_STEPS}`;
-    document.getElementById('nbProgressFill').style.width = ((step / NB_TOTAL_STEPS) * 100) + '%';
-  }
-  function nbShowStep(step) {
-    document.querySelectorAll('.nb-step').forEach(el => el.classList.remove('active'));
-    document.getElementById('nbStep' + step).classList.add('active');
-    nbUpdateProgress(step);
-  }
-  function nbNext(current) { nbShowStep(current + 1); }
-  function nbPrev(current) { nbShowStep(current - 1); }
-
-  function nbToggleOption(btn, field, stepNum) {
-    const val = btn.dataset.value;
-    btn.classList.toggle('selected');
-    if (btn.classList.contains('selected')) {
-      if (!nbData[field].includes(val)) nbData[field].push(val);
-    } else {
-      nbData[field] = nbData[field].filter(v => v !== val);
-    }
-    const nextBtn = document.getElementById('nbBtn' + stepNum);
-    if (nextBtn) nextBtn.disabled = nbData[field].length === 0;
-  }
-
-  function nbSelectSingle(btn, field, stepNum) {
-    btn.closest('.nb-options').querySelectorAll('.nb-option').forEach(el => el.classList.remove('selected'));
-    btn.classList.add('selected');
-    nbData[field] = btn.dataset.value;
-    setTimeout(() => nbNext(stepNum), 220);
-  }
-
-  function nbToggleState(btn) {
-    const val = btn.dataset.value;
-    if (val === 'nationwide') {
-      const isSelected = btn.classList.contains('selected');
-      document.querySelectorAll('.nb-state').forEach(el => el.classList.remove('selected'));
-      nbData.targetStates = [];
-      if (!isSelected) {
-        btn.classList.add('selected');
-        nbData.targetStates = ['nationwide'];
-      }
-    } else {
-      const nationwide = document.querySelector('.nb-state.nationwide');
-      nationwide.classList.remove('selected');
-      nbData.targetStates = nbData.targetStates.filter(v => v !== 'nationwide');
-      btn.classList.toggle('selected');
-      if (btn.classList.contains('selected')) {
-        if (!nbData.targetStates.includes(val)) nbData.targetStates.push(val);
-      } else {
-        nbData.targetStates = nbData.targetStates.filter(v => v !== val);
-      }
-    }
-    document.getElementById('nbBtn3').disabled = nbData.targetStates.length === 0;
-  }
-
-  async function nbSubmit() {
-    const firstName = document.getElementById('nbFirstName').value.trim();
-    const lastName = document.getElementById('nbLastName').value.trim();
-    const phone = document.getElementById('nbPhone').value.trim();
-    const email = document.getElementById('nbEmail').value.trim();
-    if (!firstName || !lastName || !phone || !email) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-
-    const btn = document.getElementById('nbSubmitBtn');
-    btn.disabled = true;
-    btn.textContent = 'Submitting...';
-
-    const payload = {
-      _form: 'buybox',
-      asset_types: nbData.assetTypes,
-      lien_positions: nbData.lienPositions,
-      target_states: nbData.targetStates,
-      investment_amount: nbData.investmentAmount,
-      decision_speed: nbData.decisionSpeed,
-      max_ltv: nbData.maxLtv,
-      preferences: document.getElementById('nbPreferences').value.trim(),
-      first_name: firstName,
-      last_name: lastName,
-      phone: phone,
-      email: email
-    };
-
-    try {
-      const res = await fetch('/.netlify/functions/intake', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!res.ok) throw new Error('Submission failed');
-      document.getElementById('nbProgressWrap').style.display = 'none';
-      document.getElementById('nbFormWrap').style.display = 'none';
-      document.getElementById('nbSuccess').style.display = 'block';
-      document.getElementById('nbIntro').style.display = 'none';
-    } catch (err) {
-      console.error(err);
-      alert('Something went wrong. Please try again.');
-      btn.disabled = false;
-      btn.textContent = 'Submit my buy box';
-    }
-  }
+  /* buy-box form JS moved to buy-box.html (R14 B3) */
 
 </script>
 <!-- PRIVACY POLICY MODAL -->
