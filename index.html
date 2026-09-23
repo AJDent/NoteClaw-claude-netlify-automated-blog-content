@@ -534,6 +534,7 @@
   .tl-pane p { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.8); margin: 0 0 12px; }
   .tl-pane b, .tl-pane .text-white-strong { color: var(--white); }
   .tl-teaser { border-left: 3px solid var(--blue); padding-left: 16px; margin: 18px 0; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.85); }
+  .tl-payoff { font-family: 'Fraunces', Georgia, serif; font-size: 22px; font-weight: 400; line-height: 1.25; color: var(--white); margin: 14px 0 0; }
   .step-link { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 14px; }
   @media (max-width: 1024px) { .tl-rail { grid-template-columns: repeat(3, 1fr); } .tl-node { min-height: 132px; } }
   @media (max-width: 720px) {
@@ -801,7 +802,7 @@
 <li><a href="#how-it-works" onclick="toggleMenu()">How it works</a></li>
 <li><a href="#pick" onclick="toggleMenu()">Start here</a></li>
 <li><a href="/protection" onclick="toggleMenu()">Protection</a></li>
-<li><a href="#learn" onclick="toggleMenu()">Learn notes</a></li>
+<li><a href="/education" onclick="toggleMenu()">Learn notes</a></li>
 <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
 <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
 <li><a class="nav-cta-mobile" href="#contact" onclick="toggleMenu()">Book a call</a></li>
@@ -1002,7 +1003,7 @@
   function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
   function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
   function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
-  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl)gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';}
+  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
   function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year. Overhead is roughly $25 a month for servicing.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
   elBtn.addEventListener('click',submitGate);
@@ -1058,7 +1059,8 @@
 </div>
 <div class="tl-pane">
 <h3 class="tl-pane-h"><span class="tl-pane-n">06</span> · Servicing collects, you get paid · <span class="tl-pane-tag you">YOU</span></h3>
-<p>A licensed servicer collects and sends your money back home. No calls, no repairs, no tenants, no property management. Just cashflow every payment period.</p>
+<p>A licensed servicer collects and sends your money back home. Just cashflow every payment period.</p>
+<p class="tl-payoff">No tenants. No toilets. No calls at 2AM.</p>
 </div>
 </div>
 </div>
@@ -1250,7 +1252,7 @@
 <section class="bg-black lay" id="faq">
 <div class="shell g-faq">
 <div class="rail fade-in">
-<div class="kicker section-sep">FAQ</div>
+<div class="kicker section-sep">What else are people asking?</div>
 <h3 class="rail-h">Frequently asked questions</h3>
 </div>
 <div class="wide fade-in">
@@ -1400,7 +1402,7 @@
 <div class="footer-logo">
 <img alt="Take Notes Capital" src="logo.png"/>
 </div>
-<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Start here</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
+<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Start here</a></li><li><a href="/education">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="/buy-box">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
 
 <div class="footer-legal-btns">
 <a class="footer-legal-btn" href="privacy-policy.html">Privacy Policy</a>
