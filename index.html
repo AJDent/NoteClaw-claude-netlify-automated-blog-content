@@ -148,6 +148,8 @@
   .primer-body p { font-size: clamp(15.5px,1.8vw,18px); line-height: 1.7; color: var(--muted); margin-bottom: 16px; max-width: 620px; }
   .primer-body p:last-child { margin-bottom: 0; }
   .primer-close { color: var(--text); font-style: italic; }
+  .founder-proof { margin-top: 20px; border-left: 3px solid var(--blue); padding-left: 16px; }
+  .founder-proof p { color: var(--muted); font-size: 15px; line-height: 1.7; max-width: 600px; }
   .founder-mission { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--hairline); }
   .founder-mission p { color: var(--muted); font-size: 15px; line-height: 1.7; max-width: 600px; }
   .founder-values { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
@@ -272,6 +274,9 @@
   .faq-list summary::after { content: "+"; color: var(--blue); font-size: 21px; line-height: 1; flex-shrink: 0; }
   .faq-list details[open] summary::after { content: "−"; }
   .faq-list p { color: var(--muted); max-width: 700px; margin: 12px 0 0; font-size: clamp(14px, 1.8vw, 16px); line-height: 1.75; }
+  .faq-more { margin-top: 22px; }
+  .faq-more a { color: var(--blue); font-weight: 600; text-decoration: none; font-size: 15px; }
+  .faq-more a:hover { text-decoration: underline; }
 
   /* CONTACT */
   .contact-wrapper { max-width: 580px; width: 100%; margin-top: 38px; }
@@ -879,7 +884,6 @@
 <li><a href="#how-it-works">How it works</a></li>
 <li><a href="#pick">Start here</a></li>
 <li><a href="/protection">Protection</a></li>
-<li><a href="#proof">Proof</a></li>
 <li><a class="nav-cta" href="#contact">Book a call</a></li>
 </ul>
 <div class="hamburger" onclick="toggleMenu()">
@@ -891,7 +895,6 @@
 <li><a href="#how-it-works" onclick="toggleMenu()">How it works</a></li>
 <li><a href="#pick" onclick="toggleMenu()">Start here</a></li>
 <li><a href="/protection" onclick="toggleMenu()">Protection</a></li>
-<li><a href="#proof" onclick="toggleMenu()">Proof</a></li>
 <li><a href="#learn" onclick="toggleMenu()">Learn notes</a></li>
 <li><a href="#faq" onclick="toggleMenu()">FAQ</a></li>
 <li><a href="blog.html" onclick="toggleMenu()">Blog</a></li>
@@ -1340,6 +1343,9 @@
 <div class="wide fade-in">
 <p class="about-first-p">My path ran through life insurance, nuclear contracting, and creative real estate, working hands-on with distressed homeowners, before formal note-underwriting training under Scott Carson made mortgage notes the natural next step. I run a transparent, God-first, process-driven business. You invest, and we handle the due diligence, the asset management, and the structure.</p>
 <p><a class="about-link" href="/about">Read the full story</a></p>
+<div class="founder-proof">
+<p>We would rather show you one real breakdown than a page of five-star quotes. When deals close, the numbers land here.</p>
+</div>
 <div class="founder-mission">
 <p>At TNC, we are building the table we wish someone had invited us to. Whether you have capital to put to work, a retirement account looking for a real-estate-backed home, or you just want to learn how to become the bank, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
 <div class="founder-values">
@@ -1363,50 +1369,26 @@
 <div class="faq-list">
 <details>
 <summary>What exactly is a mortgage note, and what do I actually own?</summary>
-<p>A mortgage note is the legal document a borrower signs when they take out a home loan. It spells out everything: the loan amount, interest rate, repayment schedule, and what happens if they don't pay. When you invest in a note, you're buying the lender's position in that agreement. You become the bank. The note is secured by a real property, which means if the borrower ever stops paying, you have a legal claim to that asset as collateral. You don't own the house. You own the debt backed by the house. That distinction is what makes note investing so much cleaner than being a landlord.</p>
+<p>A mortgage note is the legal document a borrower signs for a home loan: the amount, the rate, the schedule, and what happens if they stop paying. Invest in it and you step into the lender's seat. You become the bank. You do not own the house, you own the debt secured by it, with a legal claim to the property if the borrower stops paying. That is what makes it cleaner than being a landlord.</p>
 </details>
 <details>
 <summary>Can I invest using my IRA or 401(k)?</summary>
-<p>Yes, and this is one of the reasons investors use notes. A Self-Directed IRA (SDIRA) or Solo 401(k) allows you to hold mortgage notes as an alternative asset inside your retirement account. All interest income flows back into the account tax-deferred (Traditional) or tax-free (Roth). The IRA technically becomes the lender, so everything is titled in the name of your custodian for your benefit. You'll need a custodian that permits alternative investments. Standard Fidelity or Schwab accounts won't work, but there are SDIRA custodians set up specifically for this. One important IRS rule: your IRA cannot lend to you, your spouse, your children, or your parents. These are "disqualified persons," and violating the rule can strip your account of its tax-advantaged status. We walk through all of this on our discovery call and can point you to the right custodians to get started.</p>
-</details>
-<details>
-<summary>What's the difference between a performing and non-performing note?</summary>
-<p>A performing note is one where the borrower is making on-time monthly payments as agreed, so the payment comes to you as it is made. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts, sometimes 20 to 70% below the unpaid loan balance, because they want the headache off their books. At Take Notes Capital, we buy non-performing notes at that discount and do the active work of getting the borrower paying again, through loan modifications and resolution strategies. That discount going in, and the work of turning the note back to performing, is the mechanism at the center of what we do. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value, so you understand exactly what you're stepping into before you commit.</p>
+<p>Yes, and it is one of the main reasons investors use notes. A Self-Directed IRA or Solo 401(k) can hold mortgage notes, with the interest flowing back tax-deferred or tax-free. Your account becomes the lender, so the note is titled to your custodian. You will need a custodian that allows alternative assets. One IRS rule: your account cannot lend to you or close family. We walk through all of it on the call.</p>
 </details>
 <details>
 <summary>How is my investment protected if something goes wrong?</summary>
-<p>Every note we acquire is secured by a physical property. Before we buy, we underwrite to a strict discount: typically 30 to 60 cents on the dollar, and we hold the line at 70% loan-to-value or less. That built-in equity buffer is your first layer of protection. If a borrower defaults, you have legal recourse: loan modification, deed-in-lieu of foreclosure, or full foreclosure. One thing to know: we also check for any existing tax liens before acquiring a note, because tax liens take priority over mortgage liens. Skipping that step is one of the most common mistakes new note investors make. We don't. Thorough due diligence, property inspection, title reports, and attorney review are standard parts of our process on every deal.</p>
-</details>
-<details>
-<summary>How does this actually generate monthly income for me?</summary>
-<p>Simple: when a borrower makes their monthly mortgage payment, that money flows to the note holder, which is you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The amount a performing note pays depends on the interest rate, the discount you paid for the note, and the remaining loan term, all of which we walk through before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</p>
+<p>Every note is secured by a physical property, and we buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less. That equity buffer is your first layer of protection. If a borrower defaults, you have recourse: modification, deed-in-lieu, or foreclosure. We also check for tax liens first, since they outrank the mortgage. Skipping that is a common rookie mistake. We do not.</p>
 </details>
 <details>
 <summary>What happens if a borrower stops paying?</summary>
-<p>This is the question every serious investor should ask, and I appreciate it. When a borrower goes delinquent, we don't panic, we have a playbook. First, we work with the loan servicer to reach the borrower and understand the situation. Many times, a loan modification (lower rate, extended term) gets the borrower back on track and turns the note back into a performing asset. If that doesn't work, we pursue deed-in-lieu of foreclosure or full foreclosure through our network of attorneys. Foreclosure timelines vary by state. Non-judicial states like Texas can resolve in months, while judicial states can take one to two years. This is one reason we pay close attention to property location and state law when underwriting every deal. The real estate behind the note stands behind your position the whole way.</p>
-</details>
-<details>
-<summary>What funds can I use to invest?</summary>
-<p>More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. A self-directed account lets that idle money hold a note instead of sitting in cash. Not sure which account type fits your situation? That's exactly what our discovery call is for.</p>
-</details>
-<details>
-<summary>Is note investing better than being a landlord?</summary>
-<p>I'll give you the honest answer: it depends on your goals. Notes and rentals are both backed by real estate, but the experience of holding them is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want a hands-off position backed by real estate, especially those using retirement accounts, notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</p>
-</details>
-<details>
-<summary>How is Take Notes Capital different from other note investing companies?</summary>
-<p>Transparency and relationship, that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers: the risks, the costs, the timelines, not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</p>
+<p>We do not panic, we have a playbook. First we work with the servicer to reach the borrower. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If that fails, we pursue deed-in-lieu or foreclosure through our attorneys. Timelines vary by state, from months to a couple of years. The real estate behind the note stands behind your position the whole way.</p>
 </details>
 </div>
+<p class="faq-more"><a href="/education#faq">More questions, answered in full &rarr;</a></p>
 </div>
 </div>
 </section>
-<!-- PROOF (spec section 9 - testimonials removed 2026-09-08; reserved for real anonymized Deal Breakdowns) -->
-<section class="bg-black section-short" id="proof">
-<h2 class="headline-lg fade-in">Real deals. Real numbers.<br/><span class="text-gold">Coming soon.</span></h2>
-<div class="divider-dark fade-in"></div>
-<p class="body-text fade-in text-muted-white-52 mt-0" style="max-width:60ch;margin:0 auto;">Anonymized deal breakdowns land here as deals close: the actual numbers, entry to exit, framed as partner and joint-venture deals. We would rather show you one real breakdown than a page of five-star quotes.</p>
-</section>
+<!-- PROOF section removed (R14 B1): its one line now lives in the founder section; no /proof page until real Deal Breakdowns exist. -->
 <!-- NOTE BUYERS -->
 <section class="bg-black section-short" id="note-buyers">
 <div class="nb-shell fade-in">
@@ -1702,7 +1684,7 @@
 <div class="footer-logo">
 <img alt="Take Notes Capital" src="logo.png"/>
 </div>
-<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Start here</a></li><li><a href="#proof">Proof</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
+<div class="footer-tagline">Earn like you own the building.</div><ul class="footer-links"><li><a href="#how-it-works">How it works</a></li><li><a href="#pick">Start here</a></li><li><a href="#learn">Learn notes</a></li><li><a href="#faq">FAQ</a></li><li><a href="#note-buyers">Note buyers</a></li><li><a href="blog.html">Blog</a></li></ul>
 
 <div class="footer-legal-btns">
 <a class="footer-legal-btn" href="privacy-policy.html">Privacy Policy</a>
