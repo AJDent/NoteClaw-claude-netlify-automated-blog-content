@@ -677,6 +677,8 @@
   .infl-read.good { border-color: var(--green); } .infl-read.bad { border-color: var(--red); } .infl-read.level { border-color: var(--blue); }
   .infl-read b { color: var(--text); font-weight: 700; }
   .infl-foot { font-size: 12px; color: var(--dim); margin-top: 16px; max-width: 620px; }
+  .calc-infl { margin-top: 30px; padding-top: 26px; border-top: 1px solid var(--hairline); }
+  .calc-infl-head { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(19px,2.2vw,24px); color: var(--text); margin-bottom: 6px; }
   @media (max-width: 1024px) { .uw-grid { grid-template-columns: 1fr; gap: 34px; } }
   /* ═══ comparison table ═══ */
   .headline-dark { color: var(--text); }
@@ -948,6 +950,17 @@
 </div>
 <div class="calc-stage2" id="calcStage2" hidden=""></div>
 </div>
+<div class="calc-infl" id="calcInflation" hidden="">
+<p class="calc-infl-head">Meanwhile, the cash you did not move.</p>
+<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:20px;max-width:620px;">Money in a savings account earns a number. Inflation takes a bigger one. Move the sliders and watch what ten years does to it.</p>
+<div class="infl-controls">
+<div class="infl-ctl"><label>Balance <b id="inflBalV">$50,000</b></label><input id="inflBal" type="range" min="10000" max="500000" step="5000" value="50000" aria-label="Balance"/></div>
+<div class="infl-ctl"><label>Rate <b id="inflRateV">4.1%</b></label><input id="inflRate" type="range" min="0" max="8" step="0.1" value="4.1" aria-label="Annual rate"/></div>
+</div>
+<div class="infl-chart"><svg id="inflSvg" viewBox="0 0 560 320" role="img" aria-label="Line chart comparing a balance's nominal value against its inflation-adjusted purchasing power over ten years"></svg></div>
+<div class="infl-read" id="inflRead"></div>
+<p class="infl-foot">Assumes <span class="legal-pending" title="Pending Legal review">3% annual inflation</span>, a figure pending review. Compounding on both sides. This chart makes no claim about notes or any other investment.</p>
+</div>
 </div>
 </div>
 </section>
@@ -997,8 +1010,9 @@
   function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year. Overhead is roughly $25 a month for servicing.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
   elBtn.addEventListener('click',submitGate);
-  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();};
-  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();};
+  function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
+  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(lane);};
+  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(null);};
   renderInputs();update();
   if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
 })();
@@ -1039,7 +1053,7 @@
 <div class="tl-pane">
 <h3 class="tl-pane-h"><span class="tl-pane-n">04</span> · We buy at a discount · <span class="tl-pane-tag tnc">TNC</span></h3>
 <p>We buy below what is owed, and below what the house could sell for. That gap is what protects your money, and it is the reason we can be patient with a borrower instead of rushing the process.</p>
-<p class="tl-teaser">On an $85,000 house where the borrower owes $67,000, we might pay $30,000. That leaves $55,000 of room between what we paid and what the house could sell for. <a class="step-link" href="#cushion">See how the cushion moves →</a></p>
+<p class="tl-teaser">On an $85,000 house where the borrower owes $67,000, we might pay $30,000. That leaves $55,000 of room between what we paid and what the house could sell for. <a class="step-link" href="#protection">See how the cushion moves →</a></p>
 </div>
 <div class="tl-pane">
 <h3 class="tl-pane-h"><span class="tl-pane-n">05</span> · We work with the borrower · <span class="tl-pane-tag tnc">TNC</span></h3>
@@ -1162,30 +1176,15 @@
 </div>
 </section>
 <!-- PILLAR ROW TWO — before you decide (R10 §5, R10 rename) -->
-<section class="bg-deep lay" id="market-pillars">
+<!-- [CMP] COMPARISON TABLE — own open section (R14 B4) -->
+<section class="bg-deep lay" id="compare">
 <div class="shell">
 <div class="pil-head fade-in">
-<div class="kicker">06 · Is this better than what I am doing now?</div>
+<div class="kicker">06 &middot; Is this better than what I am doing now?</div>
 <h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
-<p>The same questions, pointed outward instead of inward.</p>
+<p>Attributes of each instrument. Not a comparison of returns.</p>
 </div>
-<div class="pil-row three fade-in" role="tablist" aria-label="Market topics">
-<button class="pil on" role="tab" id="qt1" aria-controls="qp1" aria-selected="true" tabindex="0" type="button"><span class="pil-n">05</span><span class="pil-t">What idle cash costs</span><span class="pil-d">Ten years of inflation on your own number.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-<button class="pil" role="tab" id="qt2" aria-controls="qp2" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">06</span><span class="pil-t">Notes against everything else</span><span class="pil-d">Attributes, not returns.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-<button class="pil" role="tab" id="qt3" aria-controls="qp3" aria-selected="false" tabindex="-1" type="button"><span class="pil-n">07</span><span class="pil-t">What a note actually is</span><span class="pil-d">The document, in plain words.</span><span class="pil-chev" aria-hidden="true">&#9662;</span></button>
-</div>
-<div class="pil-panels fade-in">
-<div class="panel" role="tabpanel" id="qp1" aria-labelledby="qt1">
-<p style="font-size:15px;line-height:1.6;color:var(--muted);margin-bottom:20px;max-width:620px;">Money in a savings account earns a number. Inflation takes a bigger one. Move the sliders and watch what ten years does to it.</p>
-<div class="infl-controls">
-<div class="infl-ctl"><label>Balance <b id="inflBalV">$50,000</b></label><input id="inflBal" type="range" min="10000" max="500000" step="5000" value="50000" aria-label="Balance"/></div>
-<div class="infl-ctl"><label>Rate <b id="inflRateV">4.1%</b></label><input id="inflRate" type="range" min="0" max="8" step="0.1" value="4.1" aria-label="Annual rate"/></div>
-</div>
-<div class="infl-chart"><svg id="inflSvg" viewBox="0 0 560 320" role="img" aria-label="Line chart comparing a balance's nominal value against its inflation-adjusted purchasing power over ten years"></svg></div>
-<div class="infl-read" id="inflRead"></div>
-<p class="infl-foot">Assumes <span class="legal-pending" title="Pending Legal review">3% annual inflation</span>, a figure pending review. Compounding on both sides. This chart makes no claim about notes or any other investment.</p>
-</div>
-<div class="panel" role="tabpanel" id="qp2" aria-labelledby="qt2" hidden="">
+<div class="fade-in">
 <div class="cmp-scroll">
 <table class="cmp-table">
 <thead>
@@ -1199,21 +1198,6 @@
 <tr><td class="cmp-attr">Held in an IRA or 401(k)</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="lim">Limited</span></td></tr>
 </tbody>
 </table>
-</div>
-<p class="cmp-cap">Attributes of each instrument. Not a comparison of returns.</p>
-</div>
-<div class="panel" role="tabpanel" id="qp3" aria-labelledby="qt3" hidden="">
-<div style="max-width:720px;">
-<p class="primer-panel-hook">A note is the loan on a house.</p>
-<div class="primer-body">
-<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
-<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
-<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
-<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
-<p class="primer-close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
-<p style="margin-top:16px;"><a class="step-link" href="/education">The full primer &#8594;</a></p>
-</div>
-</div>
 </div>
 </div>
 </div>
