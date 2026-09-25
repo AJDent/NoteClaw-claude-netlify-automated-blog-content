@@ -944,7 +944,7 @@
 </div>
 <div class="infl-chart"><svg id="inflSvg" viewBox="0 0 560 320" role="img" aria-label="Line chart comparing a balance's nominal value against its inflation-adjusted purchasing power over ten years"></svg></div>
 <div class="infl-read" id="inflRead"></div>
-<p class="infl-foot">Assumes <span class="legal-pending" title="Pending Legal review">3% annual inflation</span>, a figure pending review. Compounding on both sides. This chart makes no claim about notes or any other investment.</p>
+<p class="infl-foot">Assumes 3% annual inflation, roughly the long-run U.S. average (about 3.2% a year since 1913). Compounding on both sides. This chart makes no claim about notes or any other investment.</p>
 </div>
 </div>
 </div>
@@ -959,7 +959,7 @@
       frame:"What's that old 401(k) or IRA doing right now?",
       fields:[{id:'bal',label:'Account balance ($)',val:60000,step:5000},{id:'rate',label:'Current annual return (%)',val:6.5,step:0.1}],
       base:function(v){return v.bal;},
-      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
       gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
       aud:"retirees",
       guide:"How to Invest Your IRA in Mortgage Notes"
@@ -968,7 +968,7 @@
       frame:"What's your idle cash earning right now?",
       fields:[{id:'bal',label:'Idle cash or savings ($)',val:50000,step:5000},{id:'rate',label:'Current annual return (%)',val:4.1,step:0.1}],
       base:function(v){return v.bal;},
-      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After "+pending("3% inflation")+", you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
       gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
       aud:"investors",
       guide:"7 Ways to Earn Passive Income with Mortgage Notes"
