@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Note Investing 101 | Take Notes Capital</title>
+<meta name="description" content="A plain-language primer on mortgage note investing: what a note is, why banks sell them, performing vs non-performing, and how downside protection works."/>
+<link rel="canonical" href="https://takenotescapital.com/education"/>
+<style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
+  :root{ --ground:#0A0E1A; --band:#0E1424; --hairline:#202B45; --text:#E8ECF4; --muted:#94A3B8; --dim:#5F7191; --blue:#5ba4e6; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-optical-sizing:auto;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--ground);color:var(--text);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .shell{width:min(900px,calc(100% - 48px));margin-inline:auto;}
+  header{border-bottom:1px solid var(--hairline);padding:18px 0;}
+  header .shell{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+  .logo img{height:40px;width:auto;}
+  .back{color:var(--blue);text-decoration:none;font-size:14px;font-weight:600;}
+  .hero{padding:70px 0 20px;}
+  .kicker{color:var(--blue);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.02;letter-spacing:-.02em;}
+  h1 span{color:var(--blue);}
+  .lead{color:var(--muted);max-width:640px;margin-top:18px;font-size:clamp(16px,2vw,19px);}
+  .topics{padding:48px 0 20px;display:grid;gap:44px;}
+  .topic{border-top:1px solid var(--hairline);padding-top:26px;}
+  .topic .n{font-family:'Fraunces',Georgia,serif;font-size:15px;color:var(--dim);}
+  .topic h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.1;letter-spacing:-.01em;margin:8px 0 14px;}
+  .topic p{color:var(--muted);max-width:680px;}
+  .topic p strong{color:var(--text);font-weight:600;}
+  .cta{border-top:1px solid var(--hairline);margin:56px 0;padding-top:40px;text-align:center;}
+  .cta h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,34px);margin-bottom:20px;}
+  .btn{display:inline-block;background:var(--blue);color:#fff;font-weight:700;padding:15px 40px;border-radius:50px;text-decoration:none;}
+  footer{border-top:1px solid var(--hairline);padding:28px 0;color:var(--dim);font-size:13px;}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .faq{padding:20px 0 8px;}
+  .faq h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,36px);line-height:1.1;margin-bottom:8px;}
+  .faq .faq-intro{color:var(--muted);margin-bottom:22px;max-width:640px;}
+  .faq details{border-top:1px solid var(--hairline);padding:18px 0;}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:clamp(16px,2vw,19px);color:var(--text);line-height:1.5;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";color:var(--blue);font-size:22px;line-height:1;flex-shrink:0;}
+  .faq details[open] summary::after{content:"\2212";}
+  .faq details p{color:var(--muted);max-width:680px;margin-top:12px;line-height:1.75;}
+  .primer{padding:8px 0 26px;}
+  .primer .hook{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3.5vw,34px);color:var(--blue);line-height:1.15;margin-bottom:18px;}
+  .primer p{color:var(--muted);max-width:680px;line-height:1.75;margin-bottom:12px;}
+  .primer p.close{color:var(--text);font-style:italic;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between a performing and non-performing note?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A performing note is one where the borrower is making on-time monthly payments as agreed, so the payment comes to you as it is made. A non-performing note is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts because they want the headache off their books. Take Notes Capital buys non-performing notes at that discount and does the active work of getting the borrower paying again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this actually generate monthly income for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a borrower makes their monthly mortgage payment, that money flows to the note holder, which is you. You are collecting principal and interest every month, just like a bank does. No tenants, no repairs, no emergency calls. For IRA investors, those payments flow back into your retirement account. Professional loan servicers handle collection, reporting, and borrower communication on your behalf."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What funds can I use to invest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More than most people realize: cash savings, Self-Directed IRAs, Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts, equity lines of credit on existing property, and joint ventures where investors pool capital. A self-directed account lets idle retirement money hold a note instead of sitting in cash."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is note investing better than being a landlord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your goals. Notes and rentals are both backed by real estate, but the experience is different. Rentals come with vacancies, maintenance, and tenants. With notes, none of that is your problem. The trade-off: as a note investor you do not benefit from property appreciation or depreciation write-offs. For investors who want a hands-off position backed by real estate, especially in retirement accounts, notes are hard to beat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is Take Notes Capital different from other note investing companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Transparency and relationship. The business is built on a process-driven foundation, with formal note underwriting training under Scott Carson and resources from the Notes Association Program and Martin Saenz. Every deal is put through the same due diligence AJ would want done on his own money, with the real numbers shown: risks, costs, and timelines, not just the upside. If a deal is not right for you, he will tell you."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+<div class="shell">
+<a class="logo" href="/"><img src="logo.png" alt="Take Notes Capital"/></a>
+<a class="back" href="/">&#8592; Back to home</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="shell">
+<div class="kicker">Note Investing 101</div>
+<h1>Mortgage notes,<br/><span>in plain words.</span></h1>
+<p class="lead">Four short answers to the questions every new note investor asks. No jargon, no pitch, just how the instrument actually works.</p>
+</div>
+</section>
+<section class="primer">
+<div class="shell">
+<p class="hook">A note is the loan on a house.</p>
+<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
+<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
+<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
+<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
+<p class="close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
+</div>
+</section>
+<section class="topics">
+<div class="shell" style="display:grid;gap:44px;">
+<article class="topic">
+<div class="n">01</div>
+<h2>What is a mortgage note?</h2>
+<p>A mortgage note is the legal IOU a borrower signs when they take out a home loan. It outlines the loan amount, interest rate, and repayment terms. When you invest in a note, you buy the right to receive those payments. You step into the lender's seat, backed by the real estate as collateral.</p>
+</article>
+<article class="topic">
+<div class="n">02</div>
+<h2>Why do banks sell notes?</h2>
+<p>Banks routinely sell mortgage notes to free up capital for new lending. Notes on delinquent borrowers are bundled and sold at steep discounts. That discount is the point: you acquire real-estate-backed debt below what the property is worth, and the gap between the two is what stands behind your position.</p>
+</article>
+<article class="topic">
+<div class="n">03</div>
+<h2>Performing vs. non-performing</h2>
+<p>A <strong>performing note</strong> pays on time every month: steady, passive income. A <strong>non-performing note</strong> is 90+ days behind and sells at a deep discount. TNC buys the non-performing ones, then works the borrower back to paying. You get the discount going in and the cash flow coming out, secured by real property the whole way.</p>
+</article>
+<article class="topic">
+<div class="n">04</div>
+<h2>What's your downside protection?</h2>
+<p>Every note we buy is backed by a physical property, and we buy below what the property is worth. That gap is what stands behind your position if a borrower stops paying. Foreclosure is the last resort, not the plan, and how long it takes depends on the state.</p>
+</article>
+</div>
+</section>
+<section class="faq" id="faq">
+<div class="shell">
+<div class="kicker">More questions</div>
+<h2>Answered in full.</h2>
+<p class="faq-intro">The deeper questions, the ones worth reading rather than skimming.</p>
+<details>
+<summary>What's the difference between a performing and non-performing note?</summary>
+<p>A performing note is one where the borrower is making on-time monthly payments as agreed, so the payment comes to you as it is made. A non-performing note (NPN) is one where the borrower is 90+ days delinquent. Banks sell non-performing notes at steep discounts, sometimes 20 to 70% below the unpaid loan balance, because they want the headache off their books. At Take Notes Capital, we buy non-performing notes at that discount and do the active work of getting the borrower paying again, through loan modifications and resolution strategies. That discount going in, and the work of turning the note back to performing, is the mechanism at the center of what we do. Every deal we bring to investors is evaluated for both the note's payment history and the underlying property value, so you understand exactly what you're stepping into before you commit.</p>
+</details>
+<details>
+<summary>How does this actually generate monthly income for me?</summary>
+<p>Simple: when a borrower makes their monthly mortgage payment, that money flows to the note holder, which is you. You're collecting principal and interest every month, just like a bank does. No tenants to manage, no toilets to fix, no 2AM emergency calls. For IRA investors, those payments flow directly back into your retirement account, compounding tax-advantaged. The amount a performing note pays depends on the interest rate, the discount you paid for the note, and the remaining loan term, all of which we walk through before any investment is made. We also use professional loan servicers who handle payment collection, reporting, and borrower communication on your behalf.</p>
+</details>
+<details>
+<summary>What funds can I use to invest?</summary>
+<p>More than most people realize. The most common sources include: cash savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, Coverdell Education Savings Accounts, Health Savings Accounts (HSAs), equity lines of credit on existing property, and joint ventures or partnerships where investors pool capital. Coming from a background in life insurance and financial planning, I've seen a lot of money sitting idle in retirement accounts earning next to nothing. A self-directed account lets that idle money hold a note instead of sitting in cash. Not sure which account type fits your situation? That's exactly what our discovery call is for.</p>
+</details>
+<details>
+<summary>Is note investing better than being a landlord?</summary>
+<p>I'll give you the honest answer: it depends on your goals. Notes and rentals are both backed by real estate, but the experience of holding them is completely different. With rentals, you deal with vacancies, maintenance, tenants, property taxes, insurance, and the possibility of a 2AM call about a broken pipe. With notes, none of that is your problem. The trade-off is real: as a note investor you don't benefit from property appreciation, and you can't use depreciation as a tax write-off the way a landlord can. But for investors who want a hands-off position backed by real estate, especially those using retirement accounts, notes are hard to beat. I spent years in real estate before landing on notes, and the difference in mental overhead is significant. I'm not anti-landlord. I just know which one lets me sleep at night.</p>
+</details>
+<details>
+<summary>How is Take Notes Capital different from other note investing companies?</summary>
+<p>Transparency and relationship, that's the short answer. I built Take Notes Capital on a God-first, process-driven foundation. I'm not here to sell you on a deal and disappear. My background includes life insurance (learning to listen before pitching), nuclear contracting (where precision and accountability aren't optional), over $1M in wholesale real estate, and formal note underwriting training under Scott Carson alongside resources from the Notes Association Program and Martin Saenz. Every deal I present to investors has been through the same due diligence I would want done on my own money. I show you the real numbers: the risks, the costs, the timelines, not just the upside. If a deal isn't right for you, I'll tell you. That honesty is what makes this a long-term relationship, not a one-time transaction.</p>
+</details>
+</div>
+</section>
+<section class="cta">
+<div class="shell">
+<h3>Ready to run your own numbers?</h3>
+<a class="btn" href="/#calc">Run the numbers</a>
+</div>
+</section>
+</main>
+<footer>
+<div class="shell">&#169; 2026 Take Notes Capital. Educational content only. Not an offer, solicitation, or investment advice.</div>
+</footer>
+</body>
+</html>
