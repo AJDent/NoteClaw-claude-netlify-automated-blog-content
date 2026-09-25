@@ -952,8 +952,7 @@
 <script>
 (function(){
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
-  function pending(t){ return "<span class='legal-pending' title='Pending Legal review'>"+t+"</span>"; }
-  var INFLATION=0.03, LOW=0.08, HIGH=0.12; // PENDING LEGAL
+  var INFLATION=0.03; // long-run US CPI average (~3.2% since 1913)
   var LANES={
     retiree:{
       frame:"What's that old 401(k) or IRA doing right now?",
@@ -992,7 +991,7 @@
   function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
   function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
   function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
-  function showStage2(){var c=cfg(),v=state.v,base=c.base(v),lo=base*LOW,hi=base*HIGH;elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>$"+fmt(base)+" in a note structure, at an illustrative "+pending("8% to 12%")+", would generate <b>$"+fmt(lo)+" to $"+fmt(hi)+"</b> a year.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Illustrative range only. Not a projection, not an offer, not a guarantee.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
   elBtn.addEventListener('click',submitGate);
   function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
