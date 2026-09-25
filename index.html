@@ -310,18 +310,6 @@
   .disclaimer { max-width: 760px; text-align: center; font-size: 11px; line-height: 1.7; opacity: 0.3; padding: 0 20px; }
 
   /* LEGAL MODALS */
-  .legal-modal { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); overflow-y: auto; padding: 40px 20px; }
-  .legal-modal.open { display: block; }
-  .legal-modal-inner { max-width: 760px; margin: 0 auto; background: #0e0e0e; border: 1px solid rgba(91,164,230,0.15); border-radius: 12px; padding: 48px 40px 56px; position: relative; }
-  .legal-modal-inner h1 { font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 4vw, 36px); color: var(--white); margin-bottom: 6px; }
-  .legal-modal-inner .legal-date { font-size: 12px; opacity: 0.35; margin-bottom: 36px; display: block; }
-  .legal-modal-inner h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin: 36px 0 12px; }
-  .legal-modal-inner p { font-size: 14px; line-height: 1.85; color: rgba(250,248,244,0.65); margin-bottom: 14px; }
-  .legal-modal-inner ul { padding-left: 20px; margin-bottom: 14px; }
-  .legal-modal-inner ul li { font-size: 14px; line-height: 1.85; color: rgba(250,248,244,0.65); margin-bottom: 6px; }
-  .legal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: rgba(250,248,244,0.4); font-size: 28px; cursor: pointer; line-height: 1; transition: color 0.2s; }
-  .legal-close:hover { color: var(--white); }
-  @media (max-width: 768px) { .legal-modal-inner { padding: 36px 20px 48px; } }
 
   /* ANIMATIONS */
   .fade-in { opacity: 0; transform: translateY(26px); transition: opacity 0.75s ease, transform 0.75s ease; }
@@ -1467,120 +1455,10 @@
     }
   }
 
-  function openLegal(type) {
-    document.getElementById('modal-' + type).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLegal(type) {
-    document.getElementById('modal-' + type).classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeLegalOutside(e, type) {
-    if (e.target === document.getElementById('modal-' + type)) closeLegal(type);
-  }
 
   /* buy-box form JS moved to buy-box.html (R14 B3) */
 
 </script>
-<!-- PRIVACY POLICY MODAL -->
-<div class="legal-modal" id="modal-privacy" onclick="closeLegalOutside(event, 'privacy')">
-<div class="legal-modal-inner">
-<button class="legal-close" onclick="closeLegal('privacy')" type="button">×</button>
-<h1>Privacy Policy</h1>
-<span class="legal-date">Effective Date: January 1, 2025</span>
-<p>Take Notes Capital ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and interact with our content or services. Please read this policy carefully. If you disagree with its terms, please discontinue use of the site.</p>
-<h2>1. Information We Collect</h2>
-<p>We may collect information about you in the following ways:</p>
-<ul>
-<li><strong>Information You Provide:</strong> When you fill out our contact form or book a discovery call, you voluntarily provide us with your name, email address, phone number, and any messages or questions you submit.</li>
-<li><strong>Automatically Collected Information:</strong> When you visit our site, we may automatically collect certain information about your device, including your browser type, IP address, referring URLs, and pages visited. This data is used solely for site analytics and improvement.</li>
-<li><strong>Cookies:</strong> We may use cookies or similar tracking technologies to enhance your experience. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</li>
-</ul>
-<h2>2. How We Use Your Information</h2>
-<p>We use the information we collect to:</p>
-<ul>
-<li>Respond to your inquiries and schedule discovery calls</li>
-<li>Send you information about mortgage note investing that you have requested</li>
-<li>Improve our website content and user experience</li>
-<li>Comply with applicable legal obligations</li>
-</ul>
-<p>We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>
-<h2>3. Sharing Your Information</h2>
-<p>We may share your information in the following limited circumstances:</p>
-<ul>
-<li><strong>Service Providers:</strong> We may share data with trusted third-party vendors (such as scheduling platforms or email services) who assist in operating our website and communicating with you, provided they agree to keep your information confidential.</li>
-<li><strong>Legal Requirements:</strong> We may disclose your information if required to do so by law or in response to valid legal process.</li>
-<li><strong>Business Transfers:</strong> In the event of a merger or acquisition, your information may be transferred as part of that transaction.</li>
-</ul>
-<h2>4. Data Retention</h2>
-<p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this policy or as required by law. Contact form submissions and scheduling data are retained for a reasonable period to allow for follow-up communication.</p>
-<h2>5. Your Rights</h2>
-<p>Depending on your location, you may have the right to:</p>
-<ul>
-<li>Access the personal information we hold about you</li>
-<li>Request correction of inaccurate data</li>
-<li>Request deletion of your personal information</li>
-<li>Opt out of any marketing communications at any time</li>
-</ul>
-<p>To exercise any of these rights, please contact us at the email address listed below.</p>
-<h2>6. Third-Party Links</h2>
-<p>Our website may contain links to third-party websites or platforms (such as scheduling tools or social media). We are not responsible for the privacy practices or content of those sites and encourage you to review their policies separately.</p>
-<h2>7. Children's Privacy</h2>
-<p>Our website is not directed to individuals under the age of 18. We do not knowingly collect personal information from minors. If you believe a minor has provided us with personal information, please contact us so we can remove it.</p>
-<h2>8. Security</h2>
-<p>We use reasonable administrative and technical safeguards to protect your personal information. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
-<h2>9. Changes to This Policy</h2>
-<p>We reserve the right to update this Privacy Policy at any time. Changes will be posted on this page with an updated effective date. Your continued use of the site after any changes constitutes your acceptance of the revised policy.</p>
-<h2>10. Contact Us</h2>
-<p>If you have questions or concerns about this Privacy Policy, please reach out to us directly through the contact form on this site or by booking a discovery call. We're happy to address any concerns.</p>
-</div>
-</div>
-<!-- TERMS & CONDITIONS MODAL -->
-<div class="legal-modal" id="modal-terms" onclick="closeLegalOutside(event, 'terms')">
-<div class="legal-modal-inner">
-<button class="legal-close" onclick="closeLegal('terms')" type="button">×</button>
-<h1>Terms &amp; Conditions</h1>
-<span class="legal-date">Effective Date: January 1, 2025</span>
-<p>Welcome to Take Notes Capital. By accessing or using this website, you agree to be bound by these Terms and Conditions. Please read them carefully before proceeding. If you do not agree with any part of these terms, you should discontinue use of this site immediately.</p>
-<h2>1. About This Website</h2>
-<p>This website is operated by Take Notes Capital, an educational and informational platform focused on mortgage note investing. The content provided here is intended for general informational and educational purposes only. Nothing on this site constitutes financial, legal, investment, or tax advice.</p>
-<h2>2. Not an Offer or Solicitation</h2>
-<p>The information presented on this website does not constitute an offer to sell or a solicitation of an offer to buy any security, investment product, or financial instrument. Take Notes Capital is not a registered investment advisor, broker-dealer, or financial planner. Any discussions of past performance, returns, or deal outcomes are provided for illustrative purposes only and are not indicative of future results.</p>
-<p>All investment activities carry risk, including the possible loss of principal. You should consult a licensed financial advisor, attorney, or tax professional before making any investment decisions.</p>
-<h2>3. Educational Content Only</h2>
-<p>All written content, videos, calls, presentations, and other materials provided through this website or any associated communication are strictly educational in nature. They are designed to help you understand how mortgage note investing works as an asset class — not to direct your investment decisions.</p>
-<h2>4. No Guarantees</h2>
-<p>Take Notes Capital makes no representations, warranties, or guarantees — express or implied — regarding the accuracy, completeness, or reliability of any information on this site. We do not guarantee any specific investment outcome, return, or result. Results discussed on this site may not be typical and will vary based on individual circumstances, market conditions, and other factors outside our control.</p>
-<h2>5. Use of This Website</h2>
-<p>By using this website, you agree to:</p>
-<ul>
-<li>Use the site only for lawful purposes and in a manner consistent with all applicable laws and regulations</li>
-<li>Refrain from copying, reproducing, distributing, or republishing any content from this site without prior written permission</li>
-<li>Refrain from attempting to gain unauthorized access to any part of the site or its underlying systems</li>
-<li>Not use any automated tools, bots, or scrapers to access or collect data from this site</li>
-</ul>
-<h2>6. Intellectual Property</h2>
-<p>All content on this website — including but not limited to text, graphics, logos, images, and the overall site design — is the property of Take Notes Capital and is protected by applicable copyright and intellectual property laws. You may not use, reproduce, or distribute any content from this site without our express written consent.</p>
-<h2>7. Discovery Calls &amp; Communications</h2>
-<p>Booking a discovery call or submitting a contact form does not create a client relationship, partnership, or investment agreement of any kind. Communications through this site are for informational and exploratory purposes only. Any business relationship will be governed by a separate written agreement.</p>
-<h2>8. Third-Party Links &amp; Services</h2>
-<p>This website may contain links to third-party websites, scheduling tools, or platforms. These links are provided for convenience only. Take Notes Capital does not endorse, control, or assume responsibility for the content, privacy practices, or reliability of any third-party sites. Your use of third-party services is at your own risk.</p>
-<h2>9. Limitation of Liability</h2>
-<p>To the fullest extent permitted by law, Take Notes Capital, its owners, operators, and affiliates shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your use of this website, reliance on any information provided herein, or any investment decisions made based on content found on this site.</p>
-<h2>10. Indemnification</h2>
-<p>You agree to indemnify and hold harmless Take Notes Capital and its principals from any claims, losses, liabilities, damages, or expenses (including legal fees) arising out of your use of this site, your violation of these Terms, or your violation of any rights of a third party.</p>
-<h2>11. Privacy</h2>
-<p>Your use of this site is also governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our Privacy Policy to understand our data practices.</p>
-<h2>12. Modifications</h2>
-<p>We reserve the right to modify these Terms and Conditions at any time without prior notice. Changes become effective immediately upon posting. Your continued use of the site after any changes constitutes your acceptance of the updated Terms.</p>
-<h2>13. Governing Law</h2>
-<p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the State of Georgia, without regard to its conflict of law provisions. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Georgia.</p>
-<h2>14. Severability</h2>
-<p>If any provision of these Terms is found to be unenforceable or invalid under applicable law, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
-<h2>15. Contact</h2>
-<p>If you have any questions about these Terms and Conditions, please reach out through the contact form on this site or book a discovery call. We're happy to clarify anything before you engage with our content or services.</p>
-</div>
-</div>
 <!-- [Q] IDLE-CASH INFLATION CHART (R9 §2) -->
 <script>
 (function(){
