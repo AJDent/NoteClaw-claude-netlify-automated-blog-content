@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Your Numbers | Take Notes Capital</title>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23212c52'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-weight='700' font-size='11' fill='%235ba4e6'%3ETNC%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap;}
+  :root{
+    --ground:#0A0E1A; --band:#0E1424; --card:#131a2b; --hairline:#202B45;
+    --text:#E8ECF4; --muted:#94A3B8; --dim:#5F7191;
+    --blue:#5BA4E6; --green:#4ECB71; --red:#E85D5D; --white:#fff;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-optical-sizing:auto;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--ground);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.65;font-size:17px;font-variant-numeric:tabular-nums lining-nums;}
+  a{color:inherit;}
+  .shell{width:min(1180px,calc(100% - 48px));margin-inline:auto;}
+  h1,h2,h3,.fr{font-family:'Fraunces',Georgia,serif;font-variation-settings:'wght' 400,'SOFT' 30,'WONK' 0;font-weight:400;}
+  /* nav */
+  .ynav{border-bottom:1px solid var(--hairline);padding:16px 0;}
+  .ynav .shell{display:flex;align-items:center;justify-content:space-between;}
+  .ynav .logo{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:18px;color:var(--text);text-decoration:none;}
+  .ynav .logo span{color:var(--blue);}
+  .ynav .back{color:var(--muted);text-decoration:none;font-size:14px;}
+  .ynav .back:hover{color:var(--blue);}
+  /* header + recap */
+  header.yn{padding:52px 0 8px;}
+  .kicker{color:var(--blue);font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  header.yn h1{font-size:clamp(32px,5vw,50px);line-height:1.05;letter-spacing:-.02em;max-width:16ch;}
+  header.yn h1 span{color:var(--blue);}
+  .recap{margin-top:20px;font-size:clamp(15px,1.8vw,18px);line-height:1.7;color:var(--muted);max-width:64ch;border-left:3px solid var(--blue);padding-left:16px;}
+  .recap b{color:var(--text);font-weight:600;}
+  /* video block */
+  section.vid{padding:40px 0 8px;}
+  .vid h2{font-size:clamp(24px,3vw,32px);line-height:1.12;margin-bottom:14px;}
+  .vid-copy{color:var(--muted);max-width:66ch;line-height:1.75;margin-bottom:6px;}
+  .vid-copy a.gate-link{color:var(--dim);text-decoration:none;border-bottom:1px dashed var(--dim);cursor:default;pointer-events:none;transition:color .3s,border-color .3s;}
+  .vid-copy a.gate-link.live{color:var(--blue);border-bottom:1px solid var(--blue);cursor:pointer;pointer-events:auto;}
+  .vid-sub{font-size:13px;color:var(--dim);margin-bottom:22px;}
+  .vid-sub.live{display:none;}
+  /* player — play button only, no timeline */
+  .pitch-player{position:relative;background:#000;border-radius:14px;overflow:hidden;max-width:900px;aspect-ratio:16/9;border:1px solid var(--hairline);}
+  .pitch-player video{width:100%;height:100%;display:block;object-fit:contain;background:#000;}
+  .pp-poster{position:absolute;inset:0;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+  .pp-poster::after{content:"";position:absolute;inset:0;background:rgba(8,10,20,.32);}
+  .pp-play{position:relative;z-index:2;width:84px;height:84px;border-radius:50%;background:var(--blue);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 40px rgba(0,0,0,.4);transition:transform .2s,background .2s;}
+  .pp-play:hover{transform:scale(1.06);background:#6fb2ec;}
+  .pp-play svg{width:34px;height:34px;fill:#fff;margin-left:5px;}
+  .pitch-player.playing .pp-poster{display:none;}
+  .pp-click{position:absolute;inset:0;z-index:1;cursor:pointer;}
+  /* chapter list */
+  .chapters{max-width:900px;margin:20px 0 0;border-top:1px solid var(--hairline);}
+  .ch-head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;background:none;border:none;color:var(--text);font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:16px 2px;cursor:pointer;}
+  .ch-head .ct{color:var(--muted);font-weight:600;letter-spacing:.02em;}
+  .ch-head .chev{color:var(--blue);transition:transform .2s;font-size:12px;}
+  .chapters.collapsed .ch-head .chev{transform:rotate(-90deg);}
+  .ch-list{display:flex;flex-direction:column;padding-bottom:8px;}
+  .chapters.collapsed .ch-list{display:none;}
+  .ch-row{display:grid;grid-template-columns:20px 1fr;gap:14px;align-items:center;padding:11px 2px;border-top:1px solid rgba(255,255,255,.05);font-size:14.5px;color:var(--muted);}
+  .ch-row:first-child{border-top:none;}
+  .ch-dot{width:11px;height:11px;border-radius:50%;background:#2a3348;transition:background .3s,box-shadow .3s;}
+  .ch-row.on .ch-dot{background:var(--green);box-shadow:0 0 0 3px rgba(78,203,113,.16);}
+  .ch-row.on .ch-name{color:var(--text);}
+  .ch-name{line-height:1.4;}
+  /* booking gate section */
+  section.book{padding:40px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;}
+  .book h2{font-size:clamp(22px,3vw,30px);margin-bottom:14px;}
+  .book-copy{color:var(--muted);max-width:66ch;line-height:1.8;margin-bottom:22px;}
+  .book-cta{display:inline-flex;align-items:center;gap:10px;background:#1a2233;color:var(--dim);border:1px solid var(--hairline);border-radius:50px;padding:15px 30px;font-weight:700;font-size:16px;text-decoration:none;cursor:default;pointer-events:none;transition:all .3s;}
+  .book-cta.live{background:var(--blue);color:#fff;border-color:var(--blue);cursor:pointer;pointer-events:auto;box-shadow:0 12px 34px rgba(91,164,230,.22);}
+  .book-cta.live:hover{background:#6fb2ec;}
+  .book-status{display:block;margin-top:14px;font-size:13px;color:var(--dim);}
+  .book-status.live{color:var(--green);font-weight:600;}
+  /* not-ready exit */
+  section.exit{padding:34px 0;border-top:1px solid var(--hairline);margin-top:36px;}
+  .exit p{color:var(--muted);max-width:64ch;line-height:1.7;}
+  .exit b{color:var(--text);}
+  .exit a{color:var(--blue);text-decoration:none;font-weight:600;}
+  .exit a:hover{text-decoration:underline;}
+  /* toast */
+  .toast{position:fixed;top:20px;right:20px;z-index:200;width:min(340px,calc(100vw - 32px));background:var(--card);border:1px solid var(--hairline);border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.45);overflow:hidden;transform:translateX(0);transition:transform .35s ease,opacity .35s ease;}
+  .toast.hide{transform:translateX(120%);opacity:0;pointer-events:none;}
+  .toast-in{padding:16px 16px 15px;display:flex;gap:12px;}
+  .toast-check{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(78,203,113,.16);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;margin-top:1px;}
+  .toast-body{font-size:13.5px;line-height:1.5;}
+  .toast-body .t1{color:var(--text);font-weight:700;}
+  .toast-body .t2{color:var(--muted);margin-top:3px;}
+  .toast-body .t2 b{color:var(--text);}
+  .toast-body .t3{color:var(--dim);font-size:12px;margin-top:5px;}
+  .toast-x{position:absolute;top:9px;right:11px;background:none;border:none;color:var(--dim);font-size:18px;line-height:1;cursor:pointer;padding:2px 4px;}
+  .toast-x:hover{color:var(--text);}
+  .toast-bar{height:3px;background:var(--green);width:100%;transform-origin:left;}
+  .toast.run .toast-bar{animation:drain 8s linear forwards;}
+  @keyframes drain{from{transform:scaleX(1);}to{transform:scaleX(0);}}
+  /* footer */
+  footer.yn{background:#050505;padding:40px 0;border-top:1px solid var(--hairline);margin-top:40px;}
+  .disclaimer{font-size:11px;color:rgba(255,255,255,.35);max-width:900px;margin:0 auto;line-height:1.7;letter-spacing:.4px;text-align:center;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  @media(prefers-reduced-motion:reduce){*,::before,::after{transition-duration:.01ms!important;animation-duration:.01ms!important;}}
+  @media(max-width:640px){.pp-play{width:66px;height:66px;}.pp-play svg{width:28px;height:28px;}}
+</style>
+</head>
+<body>
+
+<nav class="ynav">
+<div class="shell">
+<a class="logo" href="index.html">Take Notes <span>Capital</span></a>
+<a class="back" href="index.html">&#8592; Home</a>
+</div>
+</nav>
+
+<header class="yn">
+<div class="shell">
+<div class="kicker">You're on the list</div>
+<h1>Here's the <span>full picture.</span></h1>
+<p class="recap" id="recap">You ran the numbers: <b>$60,000 at 6.5%</b>, up <b>$2,100 a year after inflation</b>. The full breakdown and your guide are in your inbox.</p>
+</div>
+</header>
+
+<section class="vid">
+<div class="shell">
+<h2>This is a brief hello.</h2>
+<p class="vid-copy">Who I am, what we actually do at TNC, and how we operate start to finish. Watch it and take three minutes to see where this could be a good fit for you. Then catch up with me here <a class="gate-link" id="inlineLink" href="https://talkwithajdent.com" target="_blank" rel="noopener">Talkwithajdent.com</a></p>
+<p class="vid-sub" id="vidSub">The link goes live a few minutes in.</p>
+
+<div class="pitch-player" id="player">
+<video id="pitchVideo" playsinline preload="metadata" poster="media/pitch-poster.jpg">
+<source src="media/tnc-pitch-deck.mp4" type="video/mp4"/>
+Your browser does not support embedded video.
+</video>
+<div class="pp-click" id="ppClick"></div>
+<div class="pp-poster" id="ppPoster" style="background-image:url('media/pitch-poster.jpg')" tabindex="0" role="button" aria-label="Play the video">
+<button class="pp-play" id="ppPlay" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
+</div>
+</div>
+
+<div class="chapters" id="chapters">
+<button class="ch-head" id="chHead" type="button" aria-expanded="true">
+<span>What we cover <span class="ct" id="chCount">&middot; 0 of 9</span></span>
+<span class="chev" aria-hidden="true">&#9660;</span>
+</button>
+<div class="ch-list" id="chList"></div>
+</div>
+</div>
+</section>
+
+<section class="book">
+<div class="shell">
+<h2>Catch up with me here</h2>
+<p class="book-copy" id="bookCopy"><span id="bookLead">The booking link opens soon... </span>if this is something that aligns with you in anyway. Remember its just two humans having a real conversation about a different way to put your money to work, stepping into the bank's seat instead of chasing headaches and below-average returns, and whether it actually fits what you're building for you or your family.</p>
+<a class="book-cta" id="bookCta" href="https://talkwithajdent.com" target="_blank" rel="noopener"><span id="bookCtaText">Book a call with AJ</span></a>
+<span class="book-status" id="bookStatus">Locked: Opens a few minutes into the video.</span>
+</div>
+</section>
+
+<section class="exit">
+<div class="shell">
+<p><b>Not ready to book?</b> Fair enough. Here is how we decide what to buy, and why the price we pay is what protects your money. <a href="protection.html#what-we-vet">Read what we vet &rarr;</a></p>
+</div>
+</section>
+
+<div class="toast" id="toast">
+<button class="toast-x" id="toastX" type="button" aria-label="Dismiss">&times;</button>
+<div class="toast-in">
+<span class="toast-check">&#10003;</span>
+<div class="toast-body">
+<div class="t1">Your guide is on the way.</div>
+<div class="t2">"<b id="toastGuide">7 Ways to Earn Passive Income with Mortgage Notes</b>" sent to <b id="toastEmail">you@email.com</b>.</div>
+<div class="t3">Check spam if it is not there in five minutes.</div>
+</div>
+</div>
+<div class="toast-bar"></div>
+</div>
+
+<footer class="yn">
+<div class="shell">
+<p class="disclaimer">THIS IS NOT A SECURITY. THIS INFORMATION IS INTENDED TO BE A PRIVATE BORROWING TRANSACTION, NOT A SOLICITATION OF A SECURITY UNDER STATE OR FEDERAL REGULATIONS. EDUCATIONAL ONLY. ALL EXAMPLES ARE ILLUSTRATIVE AND NOT A PROJECTION, OFFER, OR GUARANTEE.</p>
+</div>
+</footer>
+
+<script>
+(function(){
+  var GATE = 280; // seconds of real playback before the booking link goes live
+  var CH = [
+    {t:0,   name:'Who I am'},
+    {t:98,  name:'What a mortgage note is | Deal Example'},
+    {t:154, name:'One lane, one focus'},
+    {t:294, name:'Who does the heavy lifting'},
+    {t:378, name:'How the money actually works'},
+    {t:462, name:'Deal Breakdown #1'},
+    {t:546, name:'Deal Breakdown #2'},
+    {t:602, name:'How your capital is protected'},
+    {t:658, name:'Who is this actually for'}
+  ];
+  var GUIDES = {
+    retiree:  'How to Invest Your IRA in Mortgage Notes',
+    income:   '7 Ways to Earn Passive Income with Mortgage Notes',
+    operator: 'Note Investing vs Rentals'
+  };
+  function g(id){return document.getElementById(id);}
+  function fmt(n){return Math.round(n).toLocaleString('en-US');}
+
+  /* ---- STUB: GHL tag writes (parked wiring). On real build POST /.netlify/functions/intake. ---- */
+  var fired = {};
+  function tncTag(name){ if(fired[name])return; fired[name]=true; try{console.log('[GHL tag]', name);}catch(e){} }
+
+  /* ---- merge data: localStorage (from the calculator) with example fallback for standalone review ---- */
+  function readData(){
+    var d = null;
+    try{ d = JSON.parse(localStorage.getItem('tncCalc')||'null'); }catch(e){}
+    if(!d){ d = {lane:'income', email:'you@email.com', bal:60000, rate:6.5, recap:null}; }
+    return d;
+  }
+  var DATA = readData();
+
+  // guide name + toast merge
+  var guideName = GUIDES[DATA.lane] || GUIDES.income;
+  g('toastGuide').textContent = guideName;
+  g('toastEmail').textContent = DATA.email || 'your inbox';
+
+  // results recap (merge). Prefer a prebuilt recap string; else compute from bal/rate for the cash/retirement lanes.
+  (function(){
+    var line = DATA.recap;
+    if(!line && DATA.bal && DATA.rate){
+      var up = DATA.bal*DATA.rate/100 - DATA.bal*0.03;
+      line = 'You ran the numbers: <b>$'+fmt(DATA.bal)+' at '+DATA.rate+'%</b>, up <b>$'+fmt(up)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.';
+    }
+    if(line) g('recap').innerHTML = line;
+  })();
+
+  /* ---- chapter list ---- */
+  var chList = g('chList'), rows = [];
+  CH.forEach(function(c,i){
+    var row = document.createElement('div');
+    row.className='ch-row';
+    row.innerHTML = '<span class="ch-dot"></span><span class="ch-name">'+(i+1)+'. '+c.name+'</span>';
+    chList.appendChild(row); rows.push(row);
+  });
+  function updateCount(){
+    var n=0; rows.forEach(function(r){ if(r.classList.contains('on')) n++; });
+    g('chCount').innerHTML='&middot; '+n+' of 9';
+  }
+  updateCount();
+  // collapse toggle (defaults open)
+  g('chHead').addEventListener('click', function(){
+    var c=g('chapters'); var open=!c.classList.toggle('collapsed');
+    this.setAttribute('aria-expanded', open?'true':'false');
+  });
+
+  /* ---- gate ---- */
+  var inlineLink=g('inlineLink'), bookCta=g('bookCta'), bookStatus=g('bookStatus'),
+      vidSub=g('vidSub'), bookLead=g('bookLead');
+  var gateOpen=false;
+  function openGate(){
+    if(gateOpen) return; gateOpen=true;
+    inlineLink.classList.add('live');
+    bookCta.classList.add('live');
+    vidSub.classList.add('live');
+    if(bookLead) bookLead.remove();               // drop "The booking link opens soon..."
+    bookStatus.textContent='Link is live.';
+    bookStatus.classList.add('live');
+    try{ localStorage.setItem('tncWatchedPitch','1'); }catch(e){}
+  }
+  // returning visitor: already watched -> link live on load
+  try{ if(localStorage.getItem('tncWatchedPitch')==='1') openGate(); }catch(e){}
+
+  /* ---- video wiring ---- */
+  var v=g('pitchVideo'), player=g('player'), poster=g('ppPoster'), ppClick=g('ppClick');
+  var started=false;
+  function toggle(){ v.paused ? v.play() : v.pause(); }
+  poster.addEventListener('click', function(){ v.play(); });
+  poster.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); v.play(); } });
+  ppClick.addEventListener('click', toggle);
+  v.addEventListener('play', function(){
+    player.classList.add('playing');
+    if(!started){ started=true; tncTag('video-started'); }
+    dismissToast();  // notification over playing video is clutter
+  });
+  v.addEventListener('pause', function(){ player.classList.remove('playing'); });
+  v.addEventListener('ended', function(){
+    player.classList.remove('playing');
+    tncTag('video-completed');
+  });
+  v.addEventListener('timeupdate', function(){
+    var ct=v.currentTime;
+    var changed=false;
+    for(var i=0;i<CH.length;i++){
+      if(ct>=CH[i].t && !rows[i].classList.contains('on')){ rows[i].classList.add('on'); changed=true; }
+    }
+    if(changed) updateCount();
+    if(!gateOpen && ct>=GATE){ tncTag('gate-reached-280'); openGate(); }
+  });
+
+  // booking click -> booked-early vs booked-after (relative to video completion)
+  function onBook(){ tncTag(v.ended ? 'booked-after' : 'booked-early'); }
+  inlineLink.addEventListener('click', function(e){ if(!gateOpen){e.preventDefault();return;} onBook(); });
+  bookCta.addEventListener('click', function(e){ if(!gateOpen){e.preventDefault();return;} onBook(); });
+
+  /* ---- toast: show, drain over 8s, dismiss on x / play / timeout ---- */
+  var toast=g('toast'), toastTimer;
+  function dismissToast(){ if(!toast) return; toast.classList.add('hide'); clearTimeout(toastTimer); }
+  (function startToast(){
+    if(!toast) return;
+    requestAnimationFrame(function(){ toast.classList.add('run'); });
+    toastTimer=setTimeout(dismissToast, 8000);
+  })();
+  g('toastX').addEventListener('click', dismissToast);
+
+  tncTag('page-reached');
+})();
+</script>
+</body>
+</html>
