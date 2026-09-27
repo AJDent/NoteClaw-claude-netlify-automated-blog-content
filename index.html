@@ -117,6 +117,11 @@
   .fs-link { color: var(--blue); text-decoration: none; font-weight: 600; white-space: nowrap; }
   .fs-link:hover { text-decoration: underline; }
   @media (max-width: 640px) { .fs-inner { flex-direction: column; text-align: center; } }
+  /* [CLIP] founder 60-90s clip slot (Flow 1) — coming soon */
+  .clip-frame { position: relative; max-width: 820px; margin: 0 auto; aspect-ratio: 16/9; background: linear-gradient(160deg,#131a2b,#0c1120); border: 1px solid var(--hairline); border-radius: 16px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .clip-play { width: 76px; height: 76px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 40px rgba(91,164,230,0.22); opacity: .55; }
+  .clip-play svg { width: 30px; height: 30px; fill: #fff; margin-left: 4px; }
+  .clip-soon { position: absolute; top: 14px; left: 14px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); background: rgba(255,255,255,0.05); border: 1px solid var(--hairline); border-radius: 999px; padding: 5px 12px; }
   /* three-number orientation block (R11 §3) */
   .orient-bar { background: var(--ground); border-bottom: 1px solid var(--hairline); }
   .orient { display: grid; grid-template-columns: repeat(3, 1fr); padding: 0; text-align: center; }
@@ -810,6 +815,7 @@
 <div class="orient-item"><span class="orient-val">Non-performing</span><span class="orient-lbl">Focus</span></div>
 </div>
 </section>
+
 <!-- [FS] FOUNDER STRIP (R13 §3) — hidden until images/aj.jpg loads -->
 <section class="founder-strip" id="founderStrip" hidden="" aria-label="About the founder">
 <div class="shell fs-inner">
@@ -817,16 +823,116 @@
 <p class="fs-copy"><b>I'm AJ Dent.</b> I buy distressed loans, the ones stuck between a borrower who fell behind and a bank that wants them gone. I turn those loans into a win-win for the borrower and the investor, secured by real estate the whole way. <a class="fs-link" href="#founder">More about me →</a></p>
 </div>
 </section>
+
+<!-- [CLIP] FOUNDER 60-90s CLIP (Flow 1) — coming soon placeholder -->
+<section class="bg-black section-short" id="clip">
+<div class="shell" style="text-align:center;">
+<div class="kicker section-sep sep-c">A quick hello</div>
+<h3 class="rail-h" style="max-width:20ch;margin:0 auto 8px;">Meet AJ. Sixty seconds.</h3>
+<p style="color:var(--muted);max-width:56ch;margin:0 auto 26px;">Who I am and what we do at TNC, before you run your own numbers.</p>
+<div class="clip-frame" role="img" aria-label="Founder intro clip, coming soon">
+<span class="clip-soon">Clip coming soon</span>
+<div class="clip-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+</div>
+<div><a class="cta-btn" href="#pick">Run your numbers &rarr;</a></div>
+</div>
+</section>
+
+<!-- [P4] Who-It's-For grid cut (2026-09-08): persona routing now lives in the picker + calculator; SDIRA/401k detail in FAQ -->
+<!-- ══════════════════════════════════════════ -->
+<!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
+<!-- ══════════════════════════════════════════ -->
+<!-- ABOUT AJ -->
+<section class="bg-white lay" id="founder">
+<div class="shell g-founder">
+<div class="rail fade-in">
+<div class="kicker section-sep">01 · Who am I dealing with?</div>
+<h3 class="rail-h">I'm AJ Dent.</h3>
+<p class="text-sm-muted">Founder, Take Notes Capital</p>
+</div>
+<div class="wide fade-in">
+<p class="about-first-p">Real estate builds wealth, but it grinds you down doing it: the rehabs, the tenants, the 2AM calls. So I went a different route and built Take Notes Capital around it. We buy the loans behind the houses, not the houses, and work the non-performing ones back to paying. No tenants, no toilets, just cashflow backed by real collateral.</p>
+<p class="about-p">I came up through life insurance, nuclear contracting, and real estate, out of Vicksburg, Mississippi. Over $1M in acquisitions and 30+ notes created since 2023.</p>
+<p class="about-p">It's a different way to invest, and we're building the table we wish someone had invited us to. Whether you're an investor putting capital to work, an SDIRA owner looking for a real-estate-backed home, or a retiree who just wants cashflow every month without lifting a pen, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
+<p><a class="about-link" href="/about">Read the full story</a></p>
+<div class="founder-proof">
+<p>Every deal I bring you has been through the same due diligence I would want done on my own money.</p>
+</div>
+</div>
+<div class="founder-photo fade-in"><img src="images/aj.jpg" alt="AJ Dent, founder of Take Notes Capital"/></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="bg-black lay" id="faq">
+<div class="shell g-faq">
+<div class="rail fade-in">
+<div class="kicker section-sep">02 · What else are people asking?</div>
+<h3 class="rail-h">Frequently asked questions</h3>
+</div>
+<div class="wide fade-in">
+<div class="faq-list">
+<details>
+<summary>What exactly is a mortgage note, and what do I actually own?</summary>
+<p>A mortgage note is the legal document a borrower signs for a home loan: the amount, the rate, the schedule, and what happens if they stop paying. Invest in it and you step into the lender's seat. You become the bank. You do not own the house, you own the debt secured by it, with a legal claim to the property if the borrower stops paying. That is what makes it cleaner than being a landlord.</p>
+</details>
+<details>
+<summary>Can I invest using my IRA or 401(k)?</summary>
+<p>Yes, and it is one of the main reasons investors use notes. A Self-Directed IRA or Solo 401(k) can hold mortgage notes, with the interest flowing back tax-deferred or tax-free. Your account becomes the lender, so the note is titled to your custodian. You will need a custodian that allows alternative assets. One IRS rule: your account cannot lend to you or close family. We walk through all of it on the call.</p>
+</details>
+<details>
+<summary>How is my investment protected if something goes wrong?</summary>
+<p>Every note is secured by a physical property, and we buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less. That equity buffer is your first layer of protection. If a borrower defaults, you have recourse: modification, deed-in-lieu, or foreclosure. We also check for tax liens first, since they outrank the mortgage. Skipping that is a common rookie mistake. We do not.</p>
+</details>
+<details>
+<summary>What happens if a borrower stops paying?</summary>
+<p>We do not panic, we have a playbook. First we work with the servicer to reach the borrower. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If that fails, we pursue deed-in-lieu or foreclosure through our attorneys. Timelines vary by state, from months to a couple of years. The real estate behind the note stands behind your position the whole way.</p>
+</details>
+</div>
+<p class="faq-more"><a href="/education#faq">More questions, answered in full &rarr;</a></p>
+</div>
+</div>
+</section>
+
+<!-- PILLAR ROW ONE — protection (R10 §5) -->
+<section class="bg-black lay" id="protection">
+<div class="shell">
+<div class="g-cushion fade-in">
+<div>
+<div class="kicker section-sep">03 &middot; Is my money safe?</div>
+<h3 class="rail-h">We never pay<br/><span class="hl-blue">what the house is worth.</span></h3>
+<p class="hp-cu-lead">Take a house worth <b>$85,000</b> where the borrower still owes <b>$67,000</b>. We buy that loan, and we buy it for less than either number. Everything else we do to protect your position follows from that gap.</p>
+</div>
+<div>
+<label class="cushion-lbl">What we pay for the loan: <b id="hpPayLabel">$30,000</b>
+<input id="hpPay" max="82000" min="15000" step="1000" type="range" value="30000" aria-label="What we pay for the loan"/></label>
+<div class="cushion-bar" id="hpBar">
+<div class="cu-pay" id="hpPaySeg"><span>We pay</span></div>
+<div class="cu-room state-good" id="hpRoomSeg"><span>Room left over</span></div>
+<div class="cu-tick" id="hpTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
+</div>
+<div class="hp-axis"><span>$0</span><span>house worth $85,000</span></div>
+<div class="hp-cu-figure" id="hpRoom">$55,000</div>
+<span class="hp-cu-figlabel" id="hpRoomLbl">Room between what we pay and what the house could sell for</span>
+</div>
+</div>
+<div class="hp-handoff fade-in">
+<p>That is one of four things standing between a borrower missing a payment and your money being at risk. The other three are on the protection page.</p>
+<a href="/protection#what-we-vet">See how we decide what to buy &rarr;</a>
+</div>
+</div>
+</section>
+
 <!-- [U] UNDER-HERO AGITATION STRIP (R12 flow work) -->
 <section class="underhero" id="underhero">
 <div class="shell">
 <p>Most of your money is probably sitting still. A retirement account in a fund you forgot you own. Cash losing a quiet race against inflation. A property that pays, as long as nothing breaks. None of that is broken. It's just not doing the thing banks do: getting paid first, month after month, with a real house as collateral, the thing you get if payments stop. <span class="uh-punch">Most people never knew this existed.</span></p>
 </div>
 </section>
-<!-- ═══ NEW SPINE (homepage-revamp) — Sarah arc removed 2026-09-08 ═══ -->
+
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
-<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:20px;">01 · Which one of these is me?</div>
+<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:20px;">04 · Which one of these is me?</div>
 <h2 class="sc-line fade-in">
 <span class="sc-half">I'm a
 <select id="scWho" aria-label="I'm a">
@@ -849,71 +955,12 @@
 <p id="scResultText"></p>
 </div>
 </section>
-<!-- [C2] credibility strip relocated below the comparison table (R4) -->
-<!-- [C] routing JS -->
-<script>
-(function(){
-  var LANES = {
-    retiree:  "Most people never find out their retirement account is allowed to hold these types of assets. It has been legal since 1974.",
-    income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
-    operator: "You did not get tired of real estate. You got tired of the job that came with it."
-  };
-  var ECHO = {
-    retiree:  "Alright, we have the starting line. You're a retiree putting a retirement account to work.",
-    income:   "I like it, now we know. You're an investor with cash sitting still.",
-    operator: "Interesting, now let's take the first step. You're already in real estate. Just might be dealing with a few headaches on the other side of it."
-  };
-  window.TNC = window.TNC || {};
-  var who  = document.getElementById('scWho');
-  var want = document.getElementById('scWant');
-  var res  = document.getElementById('scResult');
-  function updateTransition(lane){
-    var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
-    if(!box) return; // calc markup parses after this script
-    if(lane && ECHO[lane]){
-      if(e) e.textContent=ECHO[lane];
-      if(i) i.textContent=LANES[lane];
-      box.hidden=false;
-    } else { box.hidden=true; }
-  }
-  function setLane(lane){
-    if(!LANES[lane]) return;
-    window.TNC.lane = lane;
-    if(res) res.hidden = true; // old below-selector echo retired; the transition block carries it
-    if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
-    updateTransition(lane);
-  }
-  if (want){
-    want.addEventListener('change', function(){
-      var opt = want.options[want.selectedIndex];
-      var lane = opt && opt.getAttribute('data-lane');
-      setLane(lane);
-      if(lane){ var calc=document.getElementById('calc'); if(calc) calc.scrollIntoView({behavior:'smooth'}); } // §2a: choosing navigates
-    });
-  }
-  try{
-    var p = new URLSearchParams(location.search).get('lane');
-    if (p && LANES[p]){
-      setLane(p);
-      if (want){ for (var i=0;i<want.options.length;i++){ if(want.options[i].getAttribute('data-lane')===p){ want.selectedIndex=i; break; } } }
-    }
-  }catch(e){}
-  window.tncChangeAnswer=function(e){ if(e&&e.preventDefault) e.preventDefault();
-    if(who) who.selectedIndex=0;
-    if(want) want.selectedIndex=0;
-    if(res) res.hidden=true;
-    updateTransition(null);
-    window.TNC=window.TNC||{}; window.TNC.lane=null;
-    if(typeof window.tncCalcReset==='function') window.tncCalcReset();
-    var pk=document.getElementById('pick'); if(pk) pk.scrollIntoView({behavior:'smooth'});
-  };
-})();
-</script>
+
 <!-- [D] CALCULATOR (routed centerpiece — spec section 6) -->
 <section class="bg-black lay" id="calc">
 <div class="shell g-calc">
 <div class="rail fade-in">
-<div class="kicker section-sep">02 · What is my money doing right now?</div>
+<div class="kicker section-sep">05 · What is my money doing right now?</div>
 <div class="calc-transition" id="calcTransition" hidden="">
 <p class="ct-echo"><span id="ctEcho"></span> · <a href="#pick" onclick="tncChangeAnswer(event)">Not you?</a></p>
 <p class="ct-insight" id="ctInsight"></p>
@@ -951,70 +998,12 @@
 </div>
 </div>
 </section>
-<script>
-(function(){
-  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
-  var INFLATION=0.03; // long-run US CPI average (~3.2% since 1913)
-  var LANES={
-    retiree:{
-      frame:"What's that old 401(k) or IRA doing right now?",
-      fields:[{id:'bal',label:'Account balance ($)',val:60000,step:5000},{id:'rate',label:'Current annual return (%)',val:6.5,step:0.1}],
-      base:function(v){return v.bal;},
-      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
-      gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
-      aud:"retirees",
-      guide:"How to Invest Your IRA in Mortgage Notes"
-    },
-    income:{
-      frame:"What's your idle cash earning right now?",
-      fields:[{id:'bal',label:'Idle cash or savings ($)',val:50000,step:5000},{id:'rate',label:'Current annual return (%)',val:4.1,step:0.1}],
-      base:function(v){return v.bal;},
-      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
-      gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
-      aud:"investors",
-      guide:"7 Ways to Earn Passive Income with Mortgage Notes"
-    },
-    operator:{
-      frame:"What's your RE investment netting after reserves?",
-      fields:[{id:'rent',label:'Monthly rent ($)',val:1100,step:50},{id:'costs',label:'Costs, taxes, insurance ($/mo)',val:591,step:25},{id:'cash',label:'Cash you put in ($)',val:30000,step:5000}],
-      base:function(v){return v.cash;},
-      stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
-      gate:function(v){var res=v.rent*0.28;return "The reserves took $"+fmt(res)+" a month. Most rental math skips them. Want to see the same $"+fmt(v.cash)+" on the lending side?";},
-      aud:"real estate investors",
-      guide:"Note Investing vs Rentals"
-    }
-  };
-  var state={lane:null,v:{}};
-  var g=function(id){return document.getElementById(id);};
-  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
-  function cfg(){return LANES[state.lane]||LANES.income;}
-  function isMoney(f){return f.step>=1;}
-  function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
-  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
-  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
-  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
-  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p><div class='calc-next'><a class='calc-next-btn primary' href='your-numbers.html'>Watch the full walkthrough &rarr;</a><a class='calc-next-btn' href='https://talkwithajdent.com' target='_blank' rel='noopener'>Book a call</a></div><p class='calc-next-note'>Your guide is on its way to your inbox. Watch, book, or keep exploring below.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
-  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}
-    var v=state.v, lane=state.lane||'income', c=cfg(), recap;
-    if(lane==='operator'){ var res=v.rent*0.28, net=v.rent-v.costs-res; recap='You ran the numbers: <b>$'+fmt(net)+' a month net</b> on $'+fmt(v.cash)+' deployed, after reserves. The full breakdown and your guide are in your inbox.'; }
-    else { var a=v.bal*v.rate/100, r=a-v.bal*INFLATION; recap='You ran the numbers: <b>$'+fmt(v.bal)+' at '+v.rate+'%</b>, up <b>$'+fmt(r)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.'; }
-    window.TNC=window.TNC||{};window.TNC.calcLead={lane:lane,email:email,inputs:v,guide:c.guide};
-    try{ localStorage.setItem('tncCalc', JSON.stringify({lane:lane,email:email,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
-    /* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...}. No redirect: inline choices below, /your-numbers is opt-in via the Watch button. */
-    showStage2();}
-  elBtn.addEventListener('click',submitGate);
-  function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
-  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(lane);};
-  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(null);};
-  renderInputs();update();
-  if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
-})();
-</script>
+
 <!-- [E] SIX-STEP PROCESS + EQUITY CUSHION + EXITS (spec section 7) -->
 <section class="bg-deep lay" id="how-it-works">
 <div class="shell g-process">
 <div class="rail fade-in">
-<div class="kicker">03 · So how does this actually work?</div>
+<div class="kicker">06 · So how does this actually work?</div>
 <h3 class="rail-h">Six steps.<br/><span class="hl-blue">You touch two of them.</span></h3>
 <p>We handle the complexity. You provide the capital. Everything between funding and getting paid is ours.</p>
 </div>
@@ -1062,119 +1051,13 @@
 </div>
 </div>
 </section>
-<!-- PILLAR ROW ONE — protection (R10 §5) -->
-<section class="bg-black lay" id="protection">
-<div class="shell">
-<div class="g-cushion fade-in">
-<div>
-<div class="kicker">04 &middot; Is my money safe?</div>
-<h3 class="rail-h">We never pay<br/><span class="hl-blue">what the house is worth.</span></h3>
-<p class="hp-cu-lead">Take a house worth <b>$85,000</b> where the borrower still owes <b>$67,000</b>. We buy that loan, and we buy it for less than either number. Everything else we do to protect your position follows from that gap.</p>
-</div>
-<div>
-<label class="cushion-lbl">What we pay for the loan: <b id="hpPayLabel">$30,000</b>
-<input id="hpPay" max="82000" min="15000" step="1000" type="range" value="30000" aria-label="What we pay for the loan"/></label>
-<div class="cushion-bar" id="hpBar">
-<div class="cu-pay" id="hpPaySeg"><span>We pay</span></div>
-<div class="cu-room state-good" id="hpRoomSeg"><span>Room left over</span></div>
-<div class="cu-tick" id="hpTick"><span class="cu-tick-lbl">borrower owes $67,000</span></div>
-</div>
-<div class="hp-axis"><span>$0</span><span>house worth $85,000</span></div>
-<div class="hp-cu-figure" id="hpRoom">$55,000</div>
-<span class="hp-cu-figlabel" id="hpRoomLbl">Room between what we pay and what the house could sell for</span>
-</div>
-</div>
-<div class="hp-handoff fade-in">
-<p>That is one of four things standing between a borrower missing a payment and your money being at risk. The other three are on the protection page.</p>
-<a href="/protection#what-we-vet">See how we decide what to buy &rarr;</a>
-</div>
-</div>
-</section>
 
-
-<script>
-(function(){
-  var rail=document.getElementById('tlRail');
-  if(rail){
-    var nodes=[].slice.call(rail.querySelectorAll('.tl-node'));
-    var panes=[].slice.call(document.querySelectorAll('#tlPanel .tl-pane'));
-    rail.setAttribute('role','tablist'); rail.setAttribute('aria-label','Six steps of the process');
-    function sel(i){
-      nodes.forEach(function(x,j){
-        var on=(j===i);
-        x.classList.toggle('active',on);
-        x.setAttribute('aria-selected',on?'true':'false');
-        x.tabIndex=on?0:-1;
-        if(panes[j]){ panes[j].classList.toggle('active',on); }
-      });
-    }
-    nodes.forEach(function(n,i){
-      var pid='tlp'+i; n.id='tlt'+i;
-      n.setAttribute('role','tab'); n.setAttribute('aria-controls',pid);
-      if(panes[i]){ panes[i].id=pid; panes[i].setAttribute('role','tabpanel'); panes[i].setAttribute('aria-labelledby','tlt'+i); }
-      n.addEventListener('click',function(){ sel(i); });
-      n.addEventListener('keydown',function(e){
-        var ni=-1,ln=nodes.length;
-        if(e.key==='ArrowRight'||e.key==='ArrowDown') ni=(i+1)%ln;
-        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') ni=(i-1+ln)%ln;
-        else if(e.key==='Home') ni=0; else if(e.key==='End') ni=ln-1; else return;
-        e.preventDefault(); nodes[ni].focus(); sel(ni);
-      });
-    });
-    // sync initial ARIA to the default-active node
-    nodes.forEach(function(n,i){ var on=n.classList.contains('active'); n.setAttribute('aria-selected',on?'true':'false'); n.tabIndex=on?0:-1; });
-  }
-  var HPVALUE=85000,HPOWED=67000,hpPay=document.getElementById('hpPay');
-  function hpFmt(n){return Math.round(n).toLocaleString('en-US');}
-  function hpCushion(){
-    if(!hpPay)return;
-    var paid=parseFloat(hpPay.value)||0,room=HPVALUE-paid,ratio=room/HPVALUE,pass=ratio<0.22;
-    document.getElementById('hpPayLabel').textContent='$'+hpFmt(paid);
-    document.getElementById('hpPaySeg').style.flex=paid;
-    var roomSeg=document.getElementById('hpRoomSeg');roomSeg.style.flex=room;
-    roomSeg.className='cu-room state-'+(pass?'pass':'good');
-    document.getElementById('hpTick').style.left=(HPOWED/HPVALUE*100)+'%';
-    var fig=document.getElementById('hpRoom'),lbl=document.getElementById('hpRoomLbl');
-    fig.textContent='$'+hpFmt(room);
-    fig.className='hp-cu-figure'+(pass?' pass':'');
-    lbl.className='hp-cu-figlabel'+(pass?' pass':'');
-    lbl.textContent=pass?'Not enough room. This is a deal we pass on.':'Room between what we pay and what the house could sell for';
-  }
-  if(hpPay){hpPay.addEventListener('input',hpCushion);hpCushion();}
-})();
-</script>
-
-<!-- HEX-GRID STATE MAP (R9 §1 — lifted to its own open section, R10) -->
-<section class="bg-black lay" id="statemap">
-<div class="shell g-map">
-<div class="rail fade-in">
-<div class="kicker section-sep">05 · Where is the paper?</div>
-<h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
-<p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
-<div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
-</div>
-<div class="wide statemap-wide fade-in">
-<div role="img" aria-label="Map of the United States with ten states highlighted where Take Notes Capital invests: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri">
-<div class="hexrow"><span class="hexcell" aria-hidden="true">AK</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">ME</span></div>
-<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">VT</span><span class="hexcell" aria-hidden="true">NH</span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow"><span class="hexcell" aria-hidden="true">WA</span><span class="hexcell" aria-hidden="true">ID</span><span class="hexcell" aria-hidden="true">MT</span><span class="hexcell" aria-hidden="true">ND</span><span class="hexcell" aria-hidden="true">MN</span><span class="hexcell" aria-hidden="true">WI</span><span class="hexcell" aria-hidden="true">IL</span><span class="hexcell on" title="Michigan — we operate here">MI</span><span class="hexcell" aria-hidden="true">NY</span><span class="hexcell" aria-hidden="true">RI</span><span class="hexcell" aria-hidden="true">MA</span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow odd"><span class="hexcell" aria-hidden="true">OR</span><span class="hexcell" aria-hidden="true">NV</span><span class="hexcell" aria-hidden="true">WY</span><span class="hexcell" aria-hidden="true">SD</span><span class="hexcell" aria-hidden="true">IA</span><span class="hexcell on" title="Indiana — we operate here">IN</span><span class="hexcell on" title="Ohio — we operate here">OH</span><span class="hexcell" aria-hidden="true">PA</span><span class="hexcell" aria-hidden="true">NJ</span><span class="hexcell" aria-hidden="true">CT</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow"><span class="hexcell" aria-hidden="true">CA</span><span class="hexcell" aria-hidden="true">UT</span><span class="hexcell" aria-hidden="true">CO</span><span class="hexcell" aria-hidden="true">NE</span><span class="hexcell on" title="Missouri — we operate here">MO</span><span class="hexcell" aria-hidden="true">KY</span><span class="hexcell" aria-hidden="true">WV</span><span class="hexcell" aria-hidden="true">VA</span><span class="hexcell" aria-hidden="true">MD</span><span class="hexcell" aria-hidden="true">DE</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">AZ</span><span class="hexcell" aria-hidden="true">NM</span><span class="hexcell" aria-hidden="true">KS</span><span class="hexcell" aria-hidden="true">AR</span><span class="hexcell" aria-hidden="true">TN</span><span class="hexcell on" title="North Carolina — we operate here">NC</span><span class="hexcell" aria-hidden="true">SC</span><span class="hexcell" aria-hidden="true">DC</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">OK</span><span class="hexcell" aria-hidden="true">LA</span><span class="hexcell on" title="Mississippi — we operate here">MS</span><span class="hexcell on" title="Alabama — we operate here">AL</span><span class="hexcell on" title="Georgia — we operate here">GA</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
-<div class="hexrow odd"><span class="hexcell" aria-hidden="true">HI</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Texas — we operate here">TX</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Florida — we operate here">FL</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
-</div>
-<div class="hex-legend"><span><span class="hex-swatch on"></span> We operate here</span><span><span class="hex-swatch off"></span> We do not</span></div>
-<p class="visually-hidden">Take Notes Capital invests in these ten states: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri.</p>
-</div>
-</div>
-</section>
 <!-- PILLAR ROW TWO — before you decide (R10 §5, R10 rename) -->
 <!-- [CMP] COMPARISON TABLE — own open section (R14 B4) -->
 <section class="bg-deep lay" id="compare">
 <div class="shell">
 <div class="pil-head fade-in">
-<div class="kicker">06 &middot; Is this better than what I am doing now?</div>
+<div class="kicker">07 &middot; Is this better than what I am doing now?</div>
 <h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
 <p>Attributes of each instrument. Not a comparison of returns.</p>
 </div>
@@ -1197,6 +1080,31 @@
 </div>
 </section>
 
+<!-- HEX-GRID STATE MAP (R9 §1 — lifted to its own open section, R10) -->
+<section class="bg-black lay" id="statemap">
+<div class="shell g-map">
+<div class="rail fade-in">
+<div class="kicker">08 · Where is the paper?</div>
+<h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
+<p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
+<div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
+</div>
+<div class="wide statemap-wide fade-in">
+<div role="img" aria-label="Map of the United States with ten states highlighted where Take Notes Capital invests: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri">
+<div class="hexrow"><span class="hexcell" aria-hidden="true">AK</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">ME</span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">VT</span><span class="hexcell" aria-hidden="true">NH</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">WA</span><span class="hexcell" aria-hidden="true">ID</span><span class="hexcell" aria-hidden="true">MT</span><span class="hexcell" aria-hidden="true">ND</span><span class="hexcell" aria-hidden="true">MN</span><span class="hexcell" aria-hidden="true">WI</span><span class="hexcell" aria-hidden="true">IL</span><span class="hexcell on" title="Michigan — we operate here">MI</span><span class="hexcell" aria-hidden="true">NY</span><span class="hexcell" aria-hidden="true">RI</span><span class="hexcell" aria-hidden="true">MA</span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">OR</span><span class="hexcell" aria-hidden="true">NV</span><span class="hexcell" aria-hidden="true">WY</span><span class="hexcell" aria-hidden="true">SD</span><span class="hexcell" aria-hidden="true">IA</span><span class="hexcell on" title="Indiana — we operate here">IN</span><span class="hexcell on" title="Ohio — we operate here">OH</span><span class="hexcell" aria-hidden="true">PA</span><span class="hexcell" aria-hidden="true">NJ</span><span class="hexcell" aria-hidden="true">CT</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell" aria-hidden="true">CA</span><span class="hexcell" aria-hidden="true">UT</span><span class="hexcell" aria-hidden="true">CO</span><span class="hexcell" aria-hidden="true">NE</span><span class="hexcell on" title="Missouri — we operate here">MO</span><span class="hexcell" aria-hidden="true">KY</span><span class="hexcell" aria-hidden="true">WV</span><span class="hexcell" aria-hidden="true">VA</span><span class="hexcell" aria-hidden="true">MD</span><span class="hexcell" aria-hidden="true">DE</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">AZ</span><span class="hexcell" aria-hidden="true">NM</span><span class="hexcell" aria-hidden="true">KS</span><span class="hexcell" aria-hidden="true">AR</span><span class="hexcell" aria-hidden="true">TN</span><span class="hexcell on" title="North Carolina — we operate here">NC</span><span class="hexcell" aria-hidden="true">SC</span><span class="hexcell" aria-hidden="true">DC</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow"><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell" aria-hidden="true">OK</span><span class="hexcell" aria-hidden="true">LA</span><span class="hexcell on" title="Mississippi — we operate here">MS</span><span class="hexcell on" title="Alabama — we operate here">AL</span><span class="hexcell on" title="Georgia — we operate here">GA</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+<div class="hexrow odd"><span class="hexcell" aria-hidden="true">HI</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Texas — we operate here">TX</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell on" title="Florida — we operate here">FL</span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span><span class="hexcell empty" aria-hidden="true"></span></div>
+</div>
+<div class="hex-legend"><span><span class="hex-swatch on"></span> We operate here</span><span><span class="hex-swatch off"></span> We do not</span></div>
+<p class="visually-hidden">Take Notes Capital invests in these ten states: Texas, Georgia, North Carolina, Florida, Alabama, Mississippi, Indiana, Ohio, Michigan, Missouri.</p>
+</div>
+</div>
+</section>
 
 <!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
 <!-- PARTNERS (R12 §7 — real section, one collective line) -->
@@ -1214,61 +1122,7 @@
 </div>
 </div>
 </section>
-<!-- [P4] Who-It's-For grid cut (2026-09-08): persona routing now lives in the picker + calculator; SDIRA/401k detail in FAQ -->
-<!-- ══════════════════════════════════════════ -->
-<!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
-<!-- ══════════════════════════════════════════ -->
-<!-- ABOUT AJ -->
-<section class="bg-white lay" id="founder">
-<div class="shell g-founder">
-<div class="rail fade-in">
-<div class="kicker section-sep">07 · Who am I dealing with?</div>
-<h3 class="rail-h">I'm AJ Dent.</h3>
-<p class="text-sm-muted">Founder, Take Notes Capital</p>
-</div>
-<div class="wide fade-in">
-<p class="about-first-p">Real estate builds wealth, but it grinds you down doing it: the rehabs, the tenants, the 2AM calls. So I went a different route and built Take Notes Capital around it. We buy the loans behind the houses, not the houses, and work the non-performing ones back to paying. No tenants, no toilets, just cashflow backed by real collateral.</p>
-<p class="about-p">I came up through life insurance, nuclear contracting, and real estate, out of Vicksburg, Mississippi. Over $1M in acquisitions and 30+ notes created since 2023.</p>
-<p class="about-p">It's a different way to invest, and we're building the table we wish someone had invited us to. Whether you're an investor putting capital to work, an SDIRA owner looking for a real-estate-backed home, or a retiree who just wants cashflow every month without lifting a pen, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
-<p><a class="about-link" href="/about">Read the full story</a></p>
-<div class="founder-proof">
-<p>Every deal I bring you has been through the same due diligence I would want done on my own money.</p>
-</div>
-</div>
-<div class="founder-photo fade-in"><img src="images/aj.jpg" alt="AJ Dent, founder of Take Notes Capital"/></div>
-</div>
-</section>
-<!-- FAQ -->
-<section class="bg-black lay" id="faq">
-<div class="shell g-faq">
-<div class="rail fade-in">
-<div class="kicker section-sep">08 · What else are people asking?</div>
-<h3 class="rail-h">Frequently asked questions</h3>
-</div>
-<div class="wide fade-in">
-<div class="faq-list">
-<details>
-<summary>What exactly is a mortgage note, and what do I actually own?</summary>
-<p>A mortgage note is the legal document a borrower signs for a home loan: the amount, the rate, the schedule, and what happens if they stop paying. Invest in it and you step into the lender's seat. You become the bank. You do not own the house, you own the debt secured by it, with a legal claim to the property if the borrower stops paying. That is what makes it cleaner than being a landlord.</p>
-</details>
-<details>
-<summary>Can I invest using my IRA or 401(k)?</summary>
-<p>Yes, and it is one of the main reasons investors use notes. A Self-Directed IRA or Solo 401(k) can hold mortgage notes, with the interest flowing back tax-deferred or tax-free. Your account becomes the lender, so the note is titled to your custodian. You will need a custodian that allows alternative assets. One IRS rule: your account cannot lend to you or close family. We walk through all of it on the call.</p>
-</details>
-<details>
-<summary>How is my investment protected if something goes wrong?</summary>
-<p>Every note is secured by a physical property, and we buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less. That equity buffer is your first layer of protection. If a borrower defaults, you have recourse: modification, deed-in-lieu, or foreclosure. We also check for tax liens first, since they outrank the mortgage. Skipping that is a common rookie mistake. We do not.</p>
-</details>
-<details>
-<summary>What happens if a borrower stops paying?</summary>
-<p>We do not panic, we have a playbook. First we work with the servicer to reach the borrower. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If that fails, we pursue deed-in-lieu or foreclosure through our attorneys. Timelines vary by state, from months to a couple of years. The real estate behind the note stands behind your position the whole way.</p>
-</details>
-</div>
-<p class="faq-more"><a href="/education#faq">More questions, answered in full &rarr;</a></p>
-</div>
-</div>
-</section>
-<!-- PROOF section removed (R14 B1): its one line now lives in the founder section; no /proof page until real Deal Breakdowns exist. -->
+
 <!-- NOTE BUYERS form moved to /buy-box (R14 B3); entry block now sits above Deal Desk. -->
 
 <!-- CONTACT -->
@@ -1344,6 +1198,7 @@
 </div>
 </div>
 </section>
+
 <!-- [NBF] NOTE-BUYER ENTRY BLOCK (R14 B3) -->
 <section class="bg-black section-short" id="note-buyers">
 <div class="shell nbf-block fade-in">
@@ -1351,6 +1206,7 @@
 <p class="nbf-links"><a href="/buy-box">I want to sell notes &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I have notes to discuss &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I work in the industry &rarr;</a></p>
 </div>
 </section>
+
 <!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
 <section class="bg-black section-short" id="deal-desk">
 <div class="shell dd-wrap">
@@ -1363,6 +1219,7 @@
 </form>
 </div>
 </section>
+
 <!-- [RC] CATEGORIZED CONTENT CARDS (R11 §6 — blog verified current, newest Sep 7) -->
 <section class="bg-black lay" id="read-more">
 <div class="shell">
@@ -1379,7 +1236,180 @@
 </div>
 </div>
 </section>
-<!-- LEGAL DISCLAIMER (R13 §7 — moved to last, above footer) -->
+
+<!-- [C2] credibility strip relocated below the comparison table (R4) -->
+<!-- [C] routing JS -->
+<script>
+(function(){
+  var LANES = {
+    retiree:  "Most people never find out their retirement account is allowed to hold these types of assets. It has been legal since 1974.",
+    income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
+    operator: "You did not get tired of real estate. You got tired of the job that came with it."
+  };
+  var ECHO = {
+    retiree:  "Alright, we have the starting line. You're a retiree putting a retirement account to work.",
+    income:   "I like it, now we know. You're an investor with cash sitting still.",
+    operator: "Interesting, now let's take the first step. You're already in real estate. Just might be dealing with a few headaches on the other side of it."
+  };
+  window.TNC = window.TNC || {};
+  var who  = document.getElementById('scWho');
+  var want = document.getElementById('scWant');
+  var res  = document.getElementById('scResult');
+  function updateTransition(lane){
+    var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
+    if(!box) return; // calc markup parses after this script
+    if(lane && ECHO[lane]){
+      if(e) e.textContent=ECHO[lane];
+      if(i) i.textContent=LANES[lane];
+      box.hidden=false;
+    } else { box.hidden=true; }
+  }
+  function setLane(lane){
+    if(!LANES[lane]) return;
+    window.TNC.lane = lane;
+    if(res) res.hidden = true; // old below-selector echo retired; the transition block carries it
+    if (typeof window.tncCalcSetLane === 'function') window.tncCalcSetLane(lane); // calculator hook (chunk D)
+    updateTransition(lane);
+  }
+  if (want){
+    want.addEventListener('change', function(){
+      var opt = want.options[want.selectedIndex];
+      var lane = opt && opt.getAttribute('data-lane');
+      setLane(lane);
+      if(lane){ var calc=document.getElementById('calc'); if(calc) calc.scrollIntoView({behavior:'smooth'}); } // §2a: choosing navigates
+    });
+  }
+  try{
+    var p = new URLSearchParams(location.search).get('lane');
+    if (p && LANES[p]){
+      setLane(p);
+      if (want){ for (var i=0;i<want.options.length;i++){ if(want.options[i].getAttribute('data-lane')===p){ want.selectedIndex=i; break; } } }
+    }
+  }catch(e){}
+  window.tncChangeAnswer=function(e){ if(e&&e.preventDefault) e.preventDefault();
+    if(who) who.selectedIndex=0;
+    if(want) want.selectedIndex=0;
+    if(res) res.hidden=true;
+    updateTransition(null);
+    window.TNC=window.TNC||{}; window.TNC.lane=null;
+    if(typeof window.tncCalcReset==='function') window.tncCalcReset();
+    var pk=document.getElementById('pick'); if(pk) pk.scrollIntoView({behavior:'smooth'});
+  };
+})();
+</script>
+
+<script>
+(function(){
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+  var INFLATION=0.03; // long-run US CPI average (~3.2% since 1913)
+  var LANES={
+    retiree:{
+      frame:"What's that old 401(k) or IRA doing right now?",
+      fields:[{id:'bal',label:'Account balance ($)',val:60000,step:5000},{id:'rate',label:'Current annual return (%)',val:6.5,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's your real return. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"retirees",
+      guide:"How to Invest Your IRA in Mortgage Notes"
+    },
+    income:{
+      frame:"What's your idle cash earning right now?",
+      fields:[{id:'bal',label:'Idle cash or savings ($)',val:50000,step:5000},{id:'rate',label:'Current annual return (%)',val:4.1,step:0.1}],
+      base:function(v){return v.bal;},
+      stage1:function(v){var a=v.bal*v.rate/100,r=a-v.bal*INFLATION;return "<p>$"+fmt(v.bal)+" at "+v.rate+"% earns <b>$"+fmt(a)+"</b> a year.</p><p>After 3% inflation, you're really up <b>$"+fmt(r)+"</b>.</p>";},
+      gate:function(v){return "That's what it earns now. Want to see what the same $"+fmt(v.bal)+" looks like backed by real property?";},
+      aud:"investors",
+      guide:"7 Ways to Earn Passive Income with Mortgage Notes"
+    },
+    operator:{
+      frame:"What's your RE investment netting after reserves?",
+      fields:[{id:'rent',label:'Monthly rent ($)',val:1100,step:50},{id:'costs',label:'Costs, taxes, insurance ($/mo)',val:591,step:25},{id:'cash',label:'Cash you put in ($)',val:30000,step:5000}],
+      base:function(v){return v.cash;},
+      stage1:function(v){var res=v.rent*0.28,net=v.rent-v.costs-res,pct=(net*12/v.cash)*100;return "<p>Rent of $"+fmt(v.rent)+", minus $"+fmt(v.costs)+" in costs, minus $"+fmt(res)+" in reserves for management, maintenance, vacancy and CapEx.</p><p>Net: <b>$"+fmt(net)+" a month</b> on $"+fmt(v.cash)+" deployed. That is <b>"+pct.toFixed(1)+"%</b> a year, assuming nothing breaks.</p>";},
+      gate:function(v){var res=v.rent*0.28;return "The reserves took $"+fmt(res)+" a month. Most rental math skips them. Want to see the same $"+fmt(v.cash)+" on the lending side?";},
+      aud:"real estate investors",
+      guide:"Note Investing vs Rentals"
+    }
+  };
+  var state={lane:null,v:{}};
+  var g=function(id){return document.getElementById(id);};
+  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
+  function cfg(){return LANES[state.lane]||LANES.income;}
+  function isMoney(f){return f.step>=1;}
+  function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
+  function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
+  function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
+  function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
+  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p><div class='calc-next'><a class='calc-next-btn primary' href='your-numbers.html'>Watch the full walkthrough &rarr;</a><a class='calc-next-btn' href='https://talkwithajdent.com' target='_blank' rel='noopener'>Book a call</a></div><p class='calc-next-note'>Your guide is on its way to your inbox. Watch, book, or keep exploring below.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}
+    var v=state.v, lane=state.lane||'income', c=cfg(), recap;
+    if(lane==='operator'){ var res=v.rent*0.28, net=v.rent-v.costs-res; recap='You ran the numbers: <b>$'+fmt(net)+' a month net</b> on $'+fmt(v.cash)+' deployed, after reserves. The full breakdown and your guide are in your inbox.'; }
+    else { var a=v.bal*v.rate/100, r=a-v.bal*INFLATION; recap='You ran the numbers: <b>$'+fmt(v.bal)+' at '+v.rate+'%</b>, up <b>$'+fmt(r)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.'; }
+    window.TNC=window.TNC||{};window.TNC.calcLead={lane:lane,email:email,inputs:v,guide:c.guide};
+    try{ localStorage.setItem('tncCalc', JSON.stringify({lane:lane,email:email,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
+    /* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...}. No redirect: inline choices below, /your-numbers is opt-in via the Watch button. */
+    showStage2();}
+  elBtn.addEventListener('click',submitGate);
+  function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
+  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(lane);};
+  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(null);};
+  renderInputs();update();
+  if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
+})();
+</script>
+
+<script>
+(function(){
+  var rail=document.getElementById('tlRail');
+  if(rail){
+    var nodes=[].slice.call(rail.querySelectorAll('.tl-node'));
+    var panes=[].slice.call(document.querySelectorAll('#tlPanel .tl-pane'));
+    rail.setAttribute('role','tablist'); rail.setAttribute('aria-label','Six steps of the process');
+    function sel(i){
+      nodes.forEach(function(x,j){
+        var on=(j===i);
+        x.classList.toggle('active',on);
+        x.setAttribute('aria-selected',on?'true':'false');
+        x.tabIndex=on?0:-1;
+        if(panes[j]){ panes[j].classList.toggle('active',on); }
+      });
+    }
+    nodes.forEach(function(n,i){
+      var pid='tlp'+i; n.id='tlt'+i;
+      n.setAttribute('role','tab'); n.setAttribute('aria-controls',pid);
+      if(panes[i]){ panes[i].id=pid; panes[i].setAttribute('role','tabpanel'); panes[i].setAttribute('aria-labelledby','tlt'+i); }
+      n.addEventListener('click',function(){ sel(i); });
+      n.addEventListener('keydown',function(e){
+        var ni=-1,ln=nodes.length;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') ni=(i+1)%ln;
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') ni=(i-1+ln)%ln;
+        else if(e.key==='Home') ni=0; else if(e.key==='End') ni=ln-1; else return;
+        e.preventDefault(); nodes[ni].focus(); sel(ni);
+      });
+    });
+    // sync initial ARIA to the default-active node
+    nodes.forEach(function(n,i){ var on=n.classList.contains('active'); n.setAttribute('aria-selected',on?'true':'false'); n.tabIndex=on?0:-1; });
+  }
+  var HPVALUE=85000,HPOWED=67000,hpPay=document.getElementById('hpPay');
+  function hpFmt(n){return Math.round(n).toLocaleString('en-US');}
+  function hpCushion(){
+    if(!hpPay)return;
+    var paid=parseFloat(hpPay.value)||0,room=HPVALUE-paid,ratio=room/HPVALUE,pass=ratio<0.22;
+    document.getElementById('hpPayLabel').textContent='$'+hpFmt(paid);
+    document.getElementById('hpPaySeg').style.flex=paid;
+    var roomSeg=document.getElementById('hpRoomSeg');roomSeg.style.flex=room;
+    roomSeg.className='cu-room state-'+(pass?'pass':'good');
+    document.getElementById('hpTick').style.left=(HPOWED/HPVALUE*100)+'%';
+    var fig=document.getElementById('hpRoom'),lbl=document.getElementById('hpRoomLbl');
+    fig.textContent='$'+hpFmt(room);
+    fig.className='hp-cu-figure'+(pass?' pass':'');
+    lbl.className='hp-cu-figlabel'+(pass?' pass':'');
+    lbl.textContent=pass?'Not enough room. This is a deal we pass on.':'Room between what we pay and what the house could sell for';
+  }
+  if(hpPay){hpPay.addEventListener('input',hpCushion);hpCushion();}
+})();
+</script>
+
 <section class="bg-black" style="padding:28px 24px;">
 <div class="shell">
 <p class="disclaimer fade-in disclaimer-section">
