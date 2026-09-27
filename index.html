@@ -401,6 +401,7 @@
   .mission-content { max-width: 780px; width: 100%; margin-top: 10px; }
   .about-aj-headline { margin-bottom: 6px; color: var(--text-dark); }
   .about-first-p { margin-top: 22px; }
+  .about-p { margin-top: 14px; }
   .about-mission-p { margin-bottom: 0; }
   .calendly-widget { min-width: 320px; height: 700px; }
   .form-success-note { opacity: 0.55; font-size: 16px; }
@@ -479,6 +480,12 @@
   .calc-secured-cap { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
   .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
   .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
+  .calc-next { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .calc-next-btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 24px; border-radius: 50px; font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid var(--hairline); color: var(--text); background: rgba(255,255,255,0.04); transition: background .2s, border-color .2s, transform .2s; }
+  .calc-next-btn:hover { border-color: rgba(91,164,230,0.5); transform: translateY(-2px); }
+  .calc-next-btn.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .calc-next-btn.primary:hover { background: var(--gold-light); }
+  .calc-next-note { font-size: 12px; color: var(--dim); margin-top: 12px; }
   .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
   .calc-intro { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 4px; line-height: 1.5; }
   .calc-intro b { color: var(--blue); }
@@ -986,8 +993,15 @@
   function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
   function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
   function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
-  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
-  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}window.TNC=window.TNC||{};window.TNC.calcLead={lane:state.lane||'income',email:email,inputs:state.v,guide:cfg().guide};/* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...} then redirect to /your-numbers */ showStage2();}
+  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p><div class='calc-next'><a class='calc-next-btn primary' href='your-numbers.html'>Watch the full walkthrough &rarr;</a><a class='calc-next-btn' href='https://talkwithajdent.com' target='_blank' rel='noopener'>Book a call</a></div><p class='calc-next-note'>Your guide is on its way to your inbox. Watch, book, or keep exploring below.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
+  function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}
+    var v=state.v, lane=state.lane||'income', c=cfg(), recap;
+    if(lane==='operator'){ var res=v.rent*0.28, net=v.rent-v.costs-res; recap='You ran the numbers: <b>$'+fmt(net)+' a month net</b> on $'+fmt(v.cash)+' deployed, after reserves. The full breakdown and your guide are in your inbox.'; }
+    else { var a=v.bal*v.rate/100, r=a-v.bal*INFLATION; recap='You ran the numbers: <b>$'+fmt(v.bal)+' at '+v.rate+'%</b>, up <b>$'+fmt(r)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.'; }
+    window.TNC=window.TNC||{};window.TNC.calcLead={lane:lane,email:email,inputs:v,guide:c.guide};
+    try{ localStorage.setItem('tncCalc', JSON.stringify({lane:lane,email:email,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
+    /* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...}. No redirect: inline choices below, /your-numbers is opt-in via the Watch button. */
+    showStage2();}
   elBtn.addEventListener('click',submitGate);
   function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
   window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(lane);};
@@ -1213,7 +1227,9 @@
 <p class="text-sm-muted">Founder, Take Notes Capital</p>
 </div>
 <div class="wide fade-in">
-<p class="about-first-p">My path ran through life insurance, nuclear contracting, and creative real estate before formal note-underwriting training under Scott Carson made mortgage notes the natural next step. I run a transparent, God-first business: you invest, and I handle the due diligence, the asset management, and the structure.</p>
+<p class="about-first-p">Real estate builds wealth, but it grinds you down doing it: the rehabs, the tenants, the 2AM calls. So I went a different route and built Take Notes Capital around it. We buy the loans behind the houses, not the houses, and work the non-performing ones back to paying. No tenants, no toilets, just cashflow backed by real collateral.</p>
+<p class="about-p">I came up through life insurance, nuclear contracting, and real estate, out of Vicksburg, Mississippi. Over $1M in acquisitions and 30+ notes created since 2023.</p>
+<p class="about-p">It's a different way to invest, and we're building the table we wish someone had invited us to. Whether you're an investor putting capital to work, an SDIRA owner looking for a real-estate-backed home, or a retiree who just wants cashflow every month without lifting a pen, <strong class="text-white-strong">there's a seat at this table for you.</strong></p>
 <p><a class="about-link" href="/about">Read the full story</a></p>
 <div class="founder-proof">
 <p>Every deal I bring you has been through the same due diligence I would want done on my own money.</p>
