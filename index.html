@@ -686,8 +686,9 @@
   .cmp-table { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 15px; }
   .cmp-table th, .cmp-table td { padding: 14px 12px; text-align: center; border-bottom: 1px solid var(--hairline); }
   .cmp-table thead th { font-weight: 700; color: var(--muted); font-size: 14px; letter-spacing: 0.3px; }
-  .cmp-attr { text-align: left !important; font-weight: 600; color: var(--text); white-space: nowrap; }
-  .cmp-hl { background: rgba(91,164,230,0.10); }
+  .cmp-attr, .cmp-table thead th:first-child { position: sticky; left: 0; z-index: 3; background: var(--band); width: 172px; min-width: 172px; max-width: 172px; }
+  .cmp-attr { text-align: left !important; font-weight: 600; color: var(--text); white-space: normal; }
+  .cmp-hl { position: sticky; left: 172px; z-index: 2; background: #162237; box-shadow: 8px 0 10px -8px rgba(0,0,0,0.55); }
   .cmp-table thead .cmp-hl { color: var(--blue); border-top: 3px solid #5ba4e6; }
   .cmp-table tbody tr:last-child .cmp-hl { border-radius: 0 0 8px 8px; }
   .cmp-table .yes { color: var(--green); font-weight: 700; }
