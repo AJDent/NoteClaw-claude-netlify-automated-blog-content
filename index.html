@@ -702,6 +702,49 @@
     font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0;
     font-weight: 400;
   }
+  /* [BTB] Be the bank section */
+  #be-the-bank .btb-shell { text-align: center; }
+  .btb-h { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0; font-weight: 400; font-size: clamp(30px, 4.2vw, 48px); line-height: 1.05; letter-spacing: -0.01em; margin: 0 auto 22px; max-width: 22ch; }
+  .btb-frame { font-size: 15.5px; line-height: 1.7; color: var(--muted); max-width: 64ch; margin: 0 auto 26px; }
+  .btb-frame .btb-bank { color: var(--blue); font-weight: 600; }
+  .btb-value { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0; font-weight: 400; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4; max-width: 52ch; margin: 0 auto 30px; color: var(--text); }
+  .btb-cue { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.14em; color: #4E5E7C; margin: 0 auto 40px; }
+  .btb-diagram { display: grid; grid-template-columns: 1fr 150px 1fr; align-items: center; gap: 0; max-width: 720px; margin: 0 auto 40px; }
+  .btb-node { background: var(--band); border: 1px solid #1E2942; border-radius: 14px; padding: 24px 18px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .btb-emoji { font-size: 26px; line-height: 1; margin-bottom: 12px; }
+  .btb-nt { font-weight: 700; font-size: 16px; color: var(--text); margin-bottom: 4px; }
+  .btb-ns { font-size: 13px; color: var(--muted); line-height: 1.45; max-width: 22ch; }
+  .btb-pipe { position: relative; height: 2px; background: #1B2740; margin: 0 8px; }
+  .btb-pipe-lbl { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 11px; color: var(--green); font-weight: 600; }
+  .btb-coin { position: absolute; top: 50%; left: 0; width: 20px; height: 20px; border-radius: 50%; background: #153024; border: 1px solid #2F6B49; color: var(--green); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; transform: translate(-50%, -50%); animation: btb-flow 2.8s cubic-bezier(.4,0,.6,1) infinite; }
+  @keyframes btb-flow { 0% { left: 0; opacity: 0; } 12% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+  .btb-bubble { background: #13203A; border: 1px solid #2F5580; border-radius: 18px; padding: 26px 26px 24px; max-width: 900px; margin: 0 auto 34px; text-align: left; }
+  .btb-secure { font-size: 15.5px; line-height: 1.6; color: #D5E4F5; max-width: 80ch; margin: 0 0 24px; }
+  .btb-secure b { color: #fff; font-weight: 600; }
+  .btb-steps { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .btb-step { padding: 0 22px; }
+  .btb-step + .btb-step { border-left: 1px solid #2F5580; }
+  .btb-num { display: block; font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0; font-weight: 400; font-size: 27px; color: var(--blue); line-height: 1; margin-bottom: 10px; }
+  .btb-sh { display: block; font-size: 14.5px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .btb-sb { display: block; font-size: 13px; color: #A8C2DC; line-height: 1.5; }
+  .btb-btns { display: flex; justify-content: center; gap: 11px; flex-wrap: wrap; }
+  .btb-btn { display: inline-block; font-family: 'Figtree', system-ui, sans-serif; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 10px; text-decoration: none; border: 1px solid #2A3550; color: #C9D4E4; transition: all .2s; }
+  .btb-btn.primary { background: var(--blue); border-color: var(--blue); color: #08101F; }
+  .btb-btn:hover { border-color: var(--blue); }
+  .btb-btn.primary:hover { background: #7bbef0; }
+  @media (max-width: 760px) {
+    .btb-diagram { grid-template-columns: 1fr; max-width: 340px; }
+    .btb-pipe { width: 2px; height: 44px; margin: 16px auto; justify-self: center; }
+    .btb-pipe-lbl { top: 50%; left: auto; right: calc(100% + 12px); transform: translateY(-50%); }
+    .btb-coin { left: 50%; top: 0; animation: btb-flow-v 2.8s cubic-bezier(.4,0,.6,1) infinite; }
+    @keyframes btb-flow-v { 0% { top: 0; opacity: 0; } 12% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+    .btb-steps { grid-template-columns: 1fr; }
+    .btb-step { padding: 18px 0; }
+    .btb-step + .btb-step { border-left: none; border-top: 1px solid #2F5580; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btb-coin { animation: none !important; left: 50%; top: 50%; }
+  }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
@@ -813,6 +856,34 @@
 </div>
 </section>
 
+<!-- [BTB] BE THE BANK (value-first section 01, no kicker) -->
+<section class="bg-black lay" id="be-the-bank">
+<div class="shell btb-shell fade-in">
+<h2 class="btb-h">Real estate income, <span class="hl-blue">without the real estate headaches.</span></h2>
+<p class="btb-frame">Every road into real estate hands you a headache. Buy a rental and you inherit the roof, the tenants, and all the busted pipes. Skip all that, and you hand your money to a fund and hope for the best. But nobody mentions the third way: <span class="btb-bank">being the bank.</span></p>
+<p class="btb-value">We help people collect a monthly payment on a real house, <span class="hl-blue">without owning a single door.</span></p>
+<p class="btb-cue">Here's how it works &darr;</p>
+<div class="btb-diagram" role="img" aria-label="A homeowner's monthly mortgage payment flows to you, the note holder.">
+<div class="btb-node"><span class="btb-emoji" aria-hidden="true">&#127968;</span><span class="btb-nt">The homeowner</span><span class="btb-ns">Lives in the house. Pays the loan every month.</span></div>
+<div class="btb-pipe"><span class="btb-pipe-lbl">monthly payment &rarr;</span><span class="btb-coin" aria-hidden="true">$</span></div>
+<div class="btb-node"><span class="btb-emoji" aria-hidden="true">&#127974;</span><span class="btb-nt">You</span><span class="btb-ns">Hold the note. Collect the payment.</span></div>
+</div>
+<div class="btb-bubble">
+<p class="btb-secure">The house secures your position. We buy the loan <b>below what the property is worth</b>, so that gap stands behind you, and you are first in line if the borrower stops paying.</p>
+<div class="btb-steps">
+<div class="btb-step"><span class="btb-num">01</span><span class="btb-sh">We buy the loan</span><span class="btb-sb">The mortgage behind a real home, bought at a discount. We handle the diligence.</span></div>
+<div class="btb-step"><span class="btb-num">02</span><span class="btb-sh">You collect monthly</span><span class="btb-sb">The homeowner's payment flows to you. A licensed servicer handles the paperwork.</span></div>
+<div class="btb-step"><span class="btb-num">03</span><span class="btb-sh">Real estate backs it</span><span class="btb-sb">If they stop paying, the property stands behind your position. You are the bank now.</span></div>
+</div>
+</div>
+<div class="btb-btns">
+<a class="btb-btn primary" href="#calc">Run your numbers &darr;</a>
+<a class="btb-btn" href="#protection">Test the cushion</a>
+<a class="btb-btn" href="#how-it-works">How this works</a>
+</div>
+</div>
+</section>
+
 <!-- [FS] FOUNDER STRIP (R13 §3) — hidden until images/aj.jpg loads -->
 <section class="founder-strip" id="founderStrip" hidden="" aria-label="About the founder">
 <div class="shell fs-inner">
@@ -826,53 +897,11 @@
 <!-- ══════════════════════════════════════════ -->
 <!-- NEW: LEARN ABOUT MORTGAGE NOTE INVESTING -->
 <!-- ══════════════════════════════════════════ -->
-<!-- ABOUT AJ -->
-<section class="bg-white lay" id="founder">
-<div class="shell g-founder">
-<div class="rail fade-in">
-<div class="kicker section-sep">01 · Who am I dealing with?</div>
-<h3 class="rail-h">I'm AJ Dent.</h3>
-<p class="text-sm-muted">Founder, Take Notes Capital</p>
-</div>
-<div class="wide fade-in">
-<p class="about-first-p">Real estate builds wealth, but it grinds you down doing it: the rehabs, the tenants, the endless headaches. So I went a different route and built Take Notes Capital around it. We buy the loans behind the houses, NOT the houses, and we work the non-performing loans back to paying. No tenants, no toilets, just cashflow backed by real collateral.</p>
-<p class="about-p">Me... I came up through life insurance, nuclear contracting, and real estate, out of southern Mississippi. Over $1M in acquisitions and 30+ notes created since 2023.</p>
-<p class="about-p">It's a different way to invest, and we're building the table we wish someone had invited us to. Whether you're a real estate operator ready to get out of the landlord grind, an investor putting capital to work, a W-2 earner with a 401(k) at the mercy of the market, an SDIRA owner looking for a real-estate-backed home, or a retiree who just wants cashflow every month without lifting a pen, <strong class="text-white-strong">there's a seat at this table for you.</strong></p><div class="founder-proof">
-<p>Every opportunity I bring you has been through the same due diligence I would want done on my own money.</p>
-</div>
-</div>
-<div class="founder-photo fade-in"><img src="images/aj.jpg" alt="AJ Dent, founder of Take Notes Capital"/></div>
-</div>
-</section>
-
-<!-- FAQ -->
-<section class="bg-black lay" id="faq">
-<div class="shell g-faq">
-<div class="rail fade-in">
-<div class="kicker section-sep">02 · What else are people asking?</div>
-<h3 class="rail-h">Frequently asked questions</h3>
-</div>
-<div class="wide fade-in">
-<div class="faq-list">
-<details>
-<summary>What exactly is a mortgage note, and what do I actually own?</summary>
-<p>A mortgage note is the legal document a borrower signs for a home loan: the amount, the rate, the schedule, and what happens if they stop paying. Invest in it and you step into the lender's seat. You become the bank. You do not own the house, you own the debt secured by it, with a legal claim to the property if the borrower stops paying. That is what makes it cleaner than being a landlord.</p>
-</details>
-<details>
-<summary>Can I invest using my IRA or 401(k)?</summary>
-<p>Yes, and it is one of the main reasons investors use notes. A Self-Directed IRA or Solo 401(k) can hold mortgage notes, with the interest flowing back tax-deferred or tax-free. Your account becomes the lender, so the note is titled to your custodian. You will need a custodian that allows alternative assets. One IRS rule: your account cannot lend to you or close family. We walk through all of it on the call.</p>
-</details>
-<details>
-<summary>How is my investment protected if something goes wrong?</summary>
-<p>Every note is secured by a physical property, and we buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less. That equity buffer is your first layer of protection. If a borrower defaults, you have recourse: modification, deed-in-lieu, or foreclosure. We also check for tax liens first, since they outrank the mortgage. Skipping that is a common rookie mistake. We do not.</p>
-</details>
-<details>
-<summary>What happens if a borrower stops paying?</summary>
-<p>We do not panic, we have a playbook. First we work with the servicer to reach the borrower. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If that fails, we pursue deed-in-lieu or foreclosure through our attorneys. Timelines vary by state, from months to a couple of years. The real estate behind the note stands behind your position the whole way.</p>
-</details>
-</div>
-<p class="faq-more"><a href="/education#faq">More questions, answered in full &rarr;</a></p>
-</div>
+<!-- [U] UNDER-HERO AGITATION STRIP (R12 flow work) -->
+<section class="underhero" id="underhero">
+<div class="shell">
+<p>You didn't land here by accident. Maybe it's a rental property that pays, as long as nothing breaks. Or a 401(k) riding every market swing with your hands nowhere near the wheel. That self-directed account that isn't directed anywhere yet. Cash sitting still, losing its quiet race against inflation. Honestly, it could be you wanting a retirement that pays you every month, not one that keeps you up at night wondering "will this actually work for me?"</p>
+<p class="uh-close">Different starting points, same problem: <span class="uh-punch">your money is working part-time.</span></p>
 </div>
 </section>
 
@@ -881,7 +910,7 @@
 <div class="shell">
 <div class="g-cushion fade-in">
 <div>
-<div class="kicker section-sep">03 &middot; Is my money safe?</div>
+<div class="kicker section-sep">02 &middot; Is my money safe?</div>
 <h3 class="rail-h">We never pay<br/><span class="hl-blue">what the house is worth.</span></h3>
 <p class="hp-cu-lead">Take a house worth <b>$85,000</b> where the borrower still owes <b>$67,000</b>. We buy that loan, and we buy it for less than either number. Everything else we do to protect your position follows from that gap.</p>
 </div>
@@ -905,17 +934,37 @@
 </div>
 </section>
 
-<!-- [U] UNDER-HERO AGITATION STRIP (R12 flow work) -->
-<section class="underhero" id="underhero">
+<!-- [CMP] COMPARISON TABLE — own open section (R14 B4) -->
+<section class="bg-deep lay" id="compare">
 <div class="shell">
-<p>You didn't land here by accident. Maybe it's a rental property that pays, as long as nothing breaks. Or a 401(k) riding every market swing with your hands nowhere near the wheel. That self-directed account that isn't directed anywhere yet. Cash sitting still, losing its quiet race against inflation. Honestly, it could be you wanting a retirement that pays you every month, not one that keeps you up at night wondering "will this actually work for me?"</p>
-<p class="uh-close">Different starting points, same problem: <span class="uh-punch">your money is working part-time.</span></p>
+<div class="pil-head fade-in">
+<div class="kicker">03 &middot; Is this better than what I am doing now?</div>
+<h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
+<p>Attributes of each instrument. Not a comparison of returns.</p>
+</div>
+<div class="fade-in">
+<div class="cmp-scroll">
+<table class="cmp-table">
+<thead>
+<tr><th></th><th class="cmp-hl">Notes</th><th>Rentals</th><th>REITs</th><th>CDs</th><th>Bonds</th><th>Annuities</th><th>Stocks</th><th>Crypto</th></tr>
+</thead>
+<tbody>
+<tr><td class="cmp-attr">Pays monthly</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="some">Some</span></td><td><span class="some">Some</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Secured by real property</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Bought at a discount</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Nothing to manage</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
+<tr><td class="cmp-attr">Not tied to the stock market</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
+<tr><td class="cmp-attr">Held in an IRA or 401(k)</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="lim">Limited</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </section>
 
 <!-- [C1] SENTENCE COMPLETION (routed picker — only 2nd dropdown routes) -->
 <section class="bg-navy section-short" id="pick">
-<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:20px;">04 · Which one of these is me?</div>
+<div class="kicker sep-c" style="text-align:center;margin-bottom:20px;">04 · Which one of these is me?</div>
 <h2 class="sc-line fade-in">
 <span class="sc-half">I'm a
 <select id="scWho" aria-label="I'm a">
@@ -1035,40 +1084,11 @@
 </div>
 </section>
 
-<!-- PILLAR ROW TWO — before you decide (R10 §5, R10 rename) -->
-<!-- [CMP] COMPARISON TABLE — own open section (R14 B4) -->
-<section class="bg-deep lay" id="compare">
-<div class="shell">
-<div class="pil-head fade-in">
-<div class="kicker">07 &middot; Is this better than what I am doing now?</div>
-<h3 class="rail-h">How this stacks up<br/><span class="hl-blue">against what you're doing now.</span></h3>
-<p>Attributes of each instrument. Not a comparison of returns.</p>
-</div>
-<div class="fade-in">
-<div class="cmp-scroll">
-<table class="cmp-table">
-<thead>
-<tr><th></th><th class="cmp-hl">Notes</th><th>Rentals</th><th>REITs</th><th>CDs</th><th>Bonds</th><th>Annuities</th><th>Stocks</th><th>Crypto</th></tr>
-</thead>
-<tbody>
-<tr><td class="cmp-attr">Pays monthly</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="some">Some</span></td><td><span class="some">Some</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
-<tr><td class="cmp-attr">Secured by real property</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
-<tr><td class="cmp-attr">Bought at a discount</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
-<tr><td class="cmp-attr">Nothing to manage</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td></tr>
-<tr><td class="cmp-attr">Not tied to the stock market</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="no">No</span></td><td><span class="no">No</span></td></tr>
-<tr><td class="cmp-attr">Held in an IRA or 401(k)</td><td class="cmp-hl"><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="yes">Yes</span></td><td><span class="lim">Limited</span></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-
 <!-- HEX-GRID STATE MAP (R9 §1 — lifted to its own open section, R10) -->
 <section class="bg-black lay" id="statemap">
 <div class="shell g-map">
 <div class="rail fade-in">
-<div class="kicker">08 · Where is the paper?</div>
+<div class="kicker">07 · Where is the paper?</div>
 <h3 class="rail-h">Ten states.<br/><span class="hl-blue">Focused, not scattered.</span></h3>
 <p>We buy non-performing first-lien residential mortgage notes in ten states. We know the foreclosure timelines, the costs, and the attorneys in each one.</p>
 <div class="state-cloud" aria-hidden="true"><span>TX</span><span>GA</span><span>NC</span><span>FL</span><span>AL</span><span>MS</span><span>IN</span><span>OH</span><span>MI</span><span>MO</span></div>
@@ -1090,7 +1110,25 @@
 </div>
 </section>
 
-<!-- [C2] CREDIBILITY STRIP (relocated lower, R4) -->
+<!-- ABOUT AJ -->
+<section class="bg-white lay" id="founder">
+<div class="shell g-founder">
+<div class="rail fade-in">
+<div class="kicker section-sep">08 · Who am I dealing with?</div>
+<h3 class="rail-h">I'm AJ Dent.</h3>
+<p class="text-sm-muted">Founder, Take Notes Capital</p>
+</div>
+<div class="wide fade-in">
+<p class="about-first-p">Real estate builds wealth, but it grinds you down doing it: the rehabs, the tenants, the endless headaches. So I went a different route and built Take Notes Capital around it. We buy the loans behind the houses, NOT the houses, and we work the non-performing loans back to paying. No tenants, no toilets, just cashflow backed by real collateral.</p>
+<p class="about-p">Me... I came up through life insurance, nuclear contracting, and real estate, out of southern Mississippi. Over $1M in acquisitions and 30+ notes created since 2023.</p>
+<p class="about-p">It's a different way to invest, and we're building the table we wish someone had invited us to. Whether you're a real estate operator ready to get out of the landlord grind, an investor putting capital to work, a W-2 earner with a 401(k) at the mercy of the market, an SDIRA owner looking for a real-estate-backed home, or a retiree who just wants cashflow every month without lifting a pen, <strong class="text-white-strong">there's a seat at this table for you.</strong></p><div class="founder-proof">
+<p>Every opportunity I bring you has been through the same due diligence I would want done on my own money.</p>
+</div>
+</div>
+<div class="founder-photo fade-in"><img src="images/aj.jpg" alt="AJ Dent, founder of Take Notes Capital"/></div>
+</div>
+</section>
+
 <!-- PARTNERS (R12 §7 — real section, one collective line) -->
 <section class="bg-black section-short" id="partners">
 <div class="shell" style="text-align:center;">
@@ -1107,11 +1145,42 @@
 </div>
 </section>
 
+<!-- FAQ -->
+<section class="bg-black lay" id="faq">
+<div class="shell g-faq">
+<div class="rail fade-in">
+<div class="kicker section-sep">09 · What else are people asking?</div>
+<h3 class="rail-h">Frequently asked questions</h3>
+</div>
+<div class="wide fade-in">
+<div class="faq-list">
+<details>
+<summary>What exactly is a mortgage note, and what do I actually own?</summary>
+<p>A mortgage note is the legal document a borrower signs for a home loan: the amount, the rate, the schedule, and what happens if they stop paying. Invest in it and you step into the lender's seat. You become the bank. You do not own the house, you own the debt secured by it, with a legal claim to the property if the borrower stops paying. That is what makes it cleaner than being a landlord.</p>
+</details>
+<details>
+<summary>Can I invest using my IRA or 401(k)?</summary>
+<p>Yes, and it is one of the main reasons investors use notes. A Self-Directed IRA or Solo 401(k) can hold mortgage notes, with the interest flowing back tax-deferred or tax-free. Your account becomes the lender, so the note is titled to your custodian. You will need a custodian that allows alternative assets. One IRS rule: your account cannot lend to you or close family. We walk through all of it on the call.</p>
+</details>
+<details>
+<summary>How is my investment protected if something goes wrong?</summary>
+<p>Every note is secured by a physical property, and we buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less. That equity buffer is your first layer of protection. If a borrower defaults, you have recourse: modification, deed-in-lieu, or foreclosure. We also check for tax liens first, since they outrank the mortgage. Skipping that is a common rookie mistake. We do not.</p>
+</details>
+<details>
+<summary>What happens if a borrower stops paying?</summary>
+<p>We do not panic, we have a playbook. First we work with the servicer to reach the borrower. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If that fails, we pursue deed-in-lieu or foreclosure through our attorneys. Timelines vary by state, from months to a couple of years. The real estate behind the note stands behind your position the whole way.</p>
+</details>
+</div>
+<p class="faq-more"><a href="/education#faq">More questions, answered in full &rarr;</a></p>
+</div>
+</div>
+</section>
+
 <!-- NOTE BUYERS form moved to /buy-box (R14 B3); entry block now sits above Deal Desk. -->
 
 <!-- CONTACT -->
 <section class="bg-black section-short" id="contact">
-<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:16px;">09 · What happens if I say yes?</div>
+<div class="kicker section-sep sep-c" style="text-align:center;margin-bottom:16px;">10 · What happens if I say yes?</div>
 <h2 class="headline-xl fade-in">Ready to become the bank?</h2>
 <div class="divider-dark fade-in"></div>
 <p class="body-text fade-in contact-note">No pressure. No pitch. Just a conversation about whether<br/>mortgage note investing fits your goals.</p>
