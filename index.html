@@ -124,9 +124,9 @@
   .orient-item { display: flex; flex-direction: column; gap: 9px; padding: 4px 12px; }
   .orient-item:not(:last-child) { border-right: 1px solid var(--hairline); }
   .orient-val { font-family: 'Fraunces', Georgia, serif; font-weight: 400; font-size: clamp(23px, 3.2vw, 38px); line-height: 1.04; color: var(--text); font-variant-numeric: tabular-nums; }
-  .orient-lbl { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .orient-lbl { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B8C4D6; font-weight: 700; }
   @media (max-width: 640px) { .orient { grid-template-columns: 1fr; gap: 22px; } .orient-item:not(:last-child) { border-right: 0; border-bottom: 1px solid var(--hairline); padding-bottom: 22px; } }
-  /* Deal Desk newsletter (R11 §8) */
+  /* TNC newsletter (R11 §8) */
   .dd-wrap { max-width: 640px; margin: 0 auto; text-align: center; }
   .dd-eyebrow { color: var(--blue); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
   .dd-sub { color: var(--muted); margin: 14px auto 24px; max-width: 520px; }
@@ -303,7 +303,7 @@
   .footer-links a { color: rgba(250,248,244,0.4); text-decoration: none; font-size: 13px; transition: color 0.2s; }
   .footer-links a:hover { color: var(--blue); }
   .footer-copy { font-size: 12px; opacity: 0.28; }
-  .disclaimer { max-width: 760px; text-align: center; font-size: 11px; line-height: 1.7; opacity: 0.3; padding: 0 20px; }
+  .disclaimer { max-width: 760px; margin: 0 auto; text-align: center; font-size: 11px; line-height: 1.7; opacity: 0.5; padding: 0 20px; }
 
   /* LEGAL MODALS */
 
@@ -708,7 +708,7 @@
   .btb-frame { font-size: 15.5px; line-height: 1.7; color: var(--muted); max-width: 64ch; margin: 0 auto 26px; }
   .btb-frame .btb-bank { color: var(--blue); font-weight: 600; }
   .btb-value { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0; font-weight: 400; font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4; max-width: 52ch; margin: 0 auto 30px; color: var(--text); }
-  .btb-cue { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.14em; color: #4E5E7C; margin: 0 auto 40px; }
+  .btb-cue { font-size: 13px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 700; margin: 0 auto 40px; }
   .btb-diagram { display: grid; grid-template-columns: 1fr 150px 1fr; align-items: center; gap: 0; max-width: 720px; margin: 0 auto 40px; }
   .btb-node { background: var(--band); border: 1px solid #1E2942; border-radius: 14px; padding: 24px 18px; text-align: center; display: flex; flex-direction: column; align-items: center; }
   .btb-emoji { font-size: 26px; line-height: 1; margin-bottom: 12px; }
@@ -717,7 +717,7 @@
   .btb-pipe { position: relative; height: 2px; background: #1B2740; margin: 0 8px; }
   .btb-pipe-lbl { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 11px; color: var(--green); font-weight: 600; }
   .btb-coin { position: absolute; top: 50%; left: 0; width: 20px; height: 20px; border-radius: 50%; background: #153024; border: 1px solid #2F6B49; color: var(--green); font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; transform: translate(-50%, -50%); animation: btb-flow 2.8s cubic-bezier(.4,0,.6,1) infinite; }
-  @keyframes btb-flow { 0% { left: 0; opacity: 0; } 12% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+  @keyframes btb-flow { 0% { left: 0; opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
   .btb-bubble { background: #13203A; border: 1px solid #2F5580; border-radius: 18px; padding: 26px 26px 24px; max-width: 900px; margin: 0 auto 34px; text-align: left; }
   .btb-secure { font-size: 15.5px; line-height: 1.6; color: #D5E4F5; max-width: 80ch; margin: 0 0 24px; }
   .btb-secure b { color: #fff; font-weight: 600; }
@@ -737,7 +737,7 @@
     .btb-pipe { width: 2px; height: 44px; margin: 16px auto; justify-self: center; }
     .btb-pipe-lbl { top: 50%; left: auto; right: calc(100% + 12px); transform: translateY(-50%); }
     .btb-coin { left: 50%; top: 0; animation: btb-flow-v 2.8s cubic-bezier(.4,0,.6,1) infinite; }
-    @keyframes btb-flow-v { 0% { top: 0; opacity: 0; } 12% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+    @keyframes btb-flow-v { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
     .btb-steps { grid-template-columns: 1fr; }
     .btb-step { padding: 18px 0; }
     .btb-step + .btb-step { border-left: none; border-top: 1px solid #2F5580; }
@@ -878,8 +878,8 @@
 </div>
 <div class="btb-btns">
 <a class="btb-btn primary" href="#calc">Run your numbers &darr;</a>
-<a class="btb-btn" href="#protection">Test the cushion</a>
-<a class="btb-btn" href="#how-it-works">How this works</a>
+<a class="btb-btn" href="#protection">Test the cushion &darr;</a>
+<a class="btb-btn" href="#how-it-works">How this works &darr;</a>
 </div>
 </div>
 </section>
@@ -1132,7 +1132,7 @@
 <!-- PARTNERS (R12 §7 — real section, one collective line) -->
 <section class="bg-black section-short" id="partners">
 <div class="shell" style="text-align:center;">
-<h3 class="rail-h">Who does the heavy lifting.</h3>
+<h3 class="rail-h">Our partners do the heavy lifting.</h3>
 <p class="cred-line">A few of the nationwide partners we work with. Independent firms you can look up and check yourself.</p>
 <div class="cred-logos">
 <span class="cred-chip"><img alt="Covey Financial" src="partners/covey.png"/></span>
@@ -1265,9 +1265,9 @@
 <div class="shell dd-wrap">
 <div class="dd-eyebrow">Not ready to talk?</div>
 <h3 class="rail-h">Stay in the loop.</h3>
-<p class="dd-sub">The <strong>Deal Desk Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
+<p class="dd-sub">The <strong>TNC Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
 <form class="dd-form" onsubmit="return dealDeskSubmit(event)">
-<input type="email" placeholder="you@email.com" aria-label="Your email for the Deal Desk newsletter" required=""/>
+<input type="email" placeholder="you@email.com" aria-label="Your email for the TNC newsletter" required=""/>
 <button type="submit">Subscribe</button>
 </form>
 </div>
@@ -1277,7 +1277,7 @@
 <section class="bg-black lay" id="read-more">
 <div class="shell">
 <div class="pil-head fade-in" style="text-align:left;max-width:none;margin-bottom:6px;">
-<h3 class="rail-h">Not ready yet? Read something.</h3>
+<h3 class="rail-h">Need more? Read something on our blog.</h3>
 </div>
 <div class="cards-grid fade-in">
 <a class="rcard" href="/first-lien-vs-second-lien-notes"><span class="rcard-tag">Underwriting</span><span class="rcard-title">First lien vs. second lien</span><span class="rcard-desc">Why your position in the stack decides the risk.</span></a>
@@ -1501,8 +1501,8 @@
     e.preventDefault();
     var f=e.target, email=(f.querySelector('input')||{}).value||'';
     window.TNC=window.TNC||{}; window.TNC.dealDesk={email:email};
-    /* STUB: Deal Desk newsletter signup — GHL wiring parked */
-    f.innerHTML='<p class="dd-ok">You’re on the Deal Desk list. Watch your inbox.</p>';
+    /* STUB: TNC newsletter signup — GHL wiring parked */
+    f.innerHTML='<p class="dd-ok">You’re on the TNC newsletter list. Watch your inbox.</p>';
     return false;
   }
   async function submitToGHL(event) {
