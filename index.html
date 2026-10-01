@@ -1263,7 +1263,7 @@
 <p class="nbf-lead">Already buying notes?</p>
 <div class="nbf-paths">
 <p class="nbf-path"><a href="/buy-box">Send us your buy box &rarr;</a> <span class="nbf-desc">We'll reach out when a deal fits your criteria.</span></p>
-<p class="nbf-path"><a href="#contact" onclick="tncNoteBuyerAsk(event)">Ask us something specific &rarr;</a> <span class="nbf-desc">For anything that isn't a buy box.</span></p>
+<p class="nbf-path"><a href="#formWrap" onclick="tncNoteBuyerAsk(event)">Ask us something specific &rarr;</a> <span class="nbf-desc">For anything that isn't a buy box.</span></p>
 </div>
 </div>
 </section>
@@ -1279,8 +1279,8 @@ function tncNoteBuyerAsk(e){
     var msg=f.querySelector('textarea[name="message"]');
     if(msg && !msg.value){msg.value="I'm already in the note business and wanted to ask about ";}
   }
-  var c=document.getElementById('contact');
-  if(c)c.scrollIntoView({behavior:'smooth'});
+  var c=document.getElementById('formWrap')||document.getElementById('contact');
+  if(c)c.scrollIntoView({behavior:'smooth',block:'start'});
 }
 </script>
 
@@ -1300,7 +1300,7 @@ function tncNoteBuyerAsk(e){
 <!-- [RC] CATEGORIZED CONTENT CARDS (R11 §6 — blog verified current, newest Sep 7) -->
 <section class="bg-black lay" id="read-more">
 <div class="shell">
-<div class="pil-head fade-in" style="text-align:left;max-width:none;margin-bottom:6px;">
+<div class="pil-head fade-in" style="text-align:center;max-width:none;margin-bottom:6px;">
 <h3 class="rail-h">Need more? Read something on our blog.</h3>
 </div>
 <div class="cards-grid fade-in">
