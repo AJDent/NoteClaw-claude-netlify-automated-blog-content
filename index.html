@@ -419,6 +419,11 @@
   .nbf-links a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 15px; }
   .nbf-links a:hover { text-decoration: underline; }
   .nbf-dot { color: var(--dim); }
+  .nbf-paths { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 4px; }
+  .nbf-path { font-size: 15px; }
+  .nbf-path a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .nbf-path a:hover { text-decoration: underline; }
+  .nbf-desc { color: var(--dim); font-size: 14px; }
 
   /* ═══ homepage-revamp: sentence completion ═══ */
   .sc-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; text-align: center; font-size: clamp(20px,2.6vw,31px); line-height: 1.35; max-width: 1080px; margin: 0 auto; }
@@ -1255,10 +1260,29 @@
 <!-- [NBF] NOTE-BUYER ENTRY BLOCK (R14 B3) -->
 <section class="bg-black section-short" id="note-buyers">
 <div class="shell nbf-block fade-in">
-<p class="nbf-lead">Already in the note business?</p>
-<p class="nbf-links"><a href="/buy-box">I want to sell notes &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I have notes to discuss &rarr;</a><span class="nbf-dot">&middot;</span><a href="/buy-box">I work in the industry &rarr;</a></p>
+<p class="nbf-lead">Already buying notes?</p>
+<div class="nbf-paths">
+<p class="nbf-path"><a href="/buy-box">Send us your buy box &rarr;</a> <span class="nbf-desc">We'll reach out when a deal fits your criteria.</span></p>
+<p class="nbf-path"><a href="#contact" onclick="tncNoteBuyerAsk(event)">Ask us something specific &rarr;</a> <span class="nbf-desc">For anything that isn't a buy box.</span></p>
+</div>
 </div>
 </section>
+<script>
+/* Note-buyer "ask" routes to the one contact form, marked as a note-buyer inquiry (source tag fires in wiring). */
+function tncNoteBuyerAsk(e){
+  e.preventDefault();
+  var f=document.getElementById('intakeForm');
+  if(f){
+    var src=f.querySelector('input[name="_src"]');
+    if(!src){src=document.createElement('input');src.type='hidden';src.name='_src';f.appendChild(src);}
+    src.value='notebuyer';
+    var msg=f.querySelector('textarea[name="message"]');
+    if(msg && !msg.value){msg.value="I'm already in the note business and wanted to ask about ";}
+  }
+  var c=document.getElementById('contact');
+  if(c)c.scrollIntoView({behavior:'smooth'});
+}
+</script>
 
 <!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
 <section class="bg-black section-short" id="deal-desk">
