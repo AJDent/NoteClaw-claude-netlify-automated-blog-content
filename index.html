@@ -978,7 +978,7 @@
 <option>busy professional</option>
 <option>real estate investor</option>
 <option>business owner</option>
-<option>new to all this</option>
+<option>newcomer</option>
 </select></span>
 <span class="sc-half">who wants
 <select id="scWant" aria-label="who wants">
@@ -1323,20 +1323,32 @@ function tncNoteBuyerAsk(e){
     income:   "Cash sitting still is the one asset that gets smaller while you do nothing. Time to fix that.",
     operator: "You did not get tired of real estate. You got tired of the job that came with it."
   };
-  var ECHO = {
-    retiree:  "Alright, we have the starting line. You're a retiree putting a retirement account to work.",
-    income:   "I like it, now we know. You're an investor with cash sitting still.",
-    operator: "Interesting, now let's take the first step. You're already in real estate. Just might be dealing with a few headaches on the other side of it."
+  var LEADIN = {
+    retiree:  "Alright, we have the starting line.",
+    income:   "I like it, now we know.",
+    operator: "Interesting, let's take the first step."
   };
+  var GOAL = {
+    retiree:  "looking to put a retirement account to work.",
+    income:   "ready to turn idle money into monthly income.",
+    operator: "done with the landlord grind and after the returns, minus the tenants."
+  };
+  var WHO_DEFAULT = { retiree:"investor", income:"investor", operator:"real estate investor" };
   window.TNC = window.TNC || {};
   var who  = document.getElementById('scWho');
   var want = document.getElementById('scWant');
   var res  = document.getElementById('scResult');
+  function buildEcho(lane){
+    var sel = (who && who.selectedIndex>0) ? who.options[who.selectedIndex] : null;
+    var whoVal = (sel && !sel.disabled) ? sel.text : (WHO_DEFAULT[lane]||"investor");
+    var art = /^[aeiou]/i.test(whoVal) ? "an " : "a ";
+    return LEADIN[lane] + " You're " + art + whoVal + " " + GOAL[lane];
+  }
   function updateTransition(lane){
     var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
     if(!box) return; // calc markup parses after this script
-    if(lane && ECHO[lane]){
-      if(e) e.textContent=ECHO[lane];
+    if(lane && LANES[lane]){
+      if(e) e.textContent=buildEcho(lane);
       if(i) i.textContent=LANES[lane];
       box.hidden=false;
     } else { box.hidden=true; }
@@ -1355,6 +1367,9 @@ function tncNoteBuyerAsk(e){
       setLane(lane);
       if(lane){ var calc=document.getElementById('calc'); if(calc) calc.scrollIntoView({behavior:'smooth'}); } // §2a: choosing navigates
     });
+  }
+  if (who){
+    who.addEventListener('change', function(){ if(window.TNC && window.TNC.lane) updateTransition(window.TNC.lane); });
   }
   try{
     var p = new URLSearchParams(location.search).get('lane');
