@@ -751,7 +751,9 @@
   @media (prefers-reduced-motion: reduce) {
     .btb-coin { animation: none !important; left: 50%; top: 50%; }
   }
-  /* [MOBILE CLEANUP] tighten section gaps + contain the protection bar on phones */
+  /* [MOBILE CLEANUP] kill horizontal overflow (page was wider than the phone, shifting everything left) */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  .cmp-scroll { max-width: 100%; }
   @media (max-width: 600px) {
     .lay { padding: 54px 0; }
     .lay.dense { padding: 44px 0; }
