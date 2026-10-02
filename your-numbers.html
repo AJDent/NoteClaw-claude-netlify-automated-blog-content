@@ -160,7 +160,7 @@ Your browser does not support embedded video.
 
 <section class="exit">
 <div class="shell">
-<p><b>Not ready to book?</b> Fair enough. Here is how we decide what to buy, and why the price we pay is what protects your money. <a href="protection.html#what-we-vet">Read what we vet &rarr;</a></p>
+<p><b>Not ready to book?</b> Fair enough. Here is how we decide what to buy, and why the price we pay is what protects your money. <a id="nrExit" href="protection.html#what-we-vet">Read what we vet &rarr;</a></p>
 </div>
 </section>
 
@@ -207,12 +207,20 @@ Your browser does not support embedded video.
 
   /* ---- STUB: GHL tag writes (parked wiring). On real build POST /.netlify/functions/intake. ---- */
   var fired = {};
-  function tncTag(name){ if(fired[name])return; fired[name]=true; try{console.log('[GHL tag]', name);}catch(e){} }
+  var hasRealLead = false;
+  var EVENT_MAP = { 'gate-reached-280':'gate', 'video-completed':'completed', 'declined':'declined' };
+  function tncTag(name){
+    if(fired[name]) return; fired[name]=true;
+    var ev = EVENT_MAP[name];
+    if(!ev || !hasRealLead){ try{console.log('[pitch-video]', name, ev?'(no identified lead, not sent)':'(not tracked)');}catch(e){} return; }
+    try{ fetch('/.netlify/functions/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ _form:'pitch-video', event:ev, email:DATA.email, lane:DATA.lane||'' })}); }catch(e){}
+  }
 
   /* ---- merge data: localStorage (from the calculator) with example fallback for standalone review ---- */
   function readData(){
     var d = null;
     try{ d = JSON.parse(localStorage.getItem('tncCalc')||'null'); }catch(e){}
+    if(d && d.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){ hasRealLead = true; }
     if(!d){ d = {lane:'income', email:'you@email.com', bal:60000, rate:6.5, recap:null}; }
     return d;
   }
@@ -300,6 +308,7 @@ Your browser does not support embedded video.
   function onBook(){ tncTag(v.ended ? 'booked-after' : 'booked-early'); }
   inlineLink.addEventListener('click', function(e){ if(!gateOpen){e.preventDefault();return;} onBook(); });
   bookCta.addEventListener('click', function(e){ if(!gateOpen){e.preventDefault();return;} onBook(); });
+  var nrExit=g('nrExit'); if(nrExit) nrExit.addEventListener('click', function(){ if(!gateOpen) tncTag('declined'); });
 
   /* ---- toast: show, drain over 8s, dismiss on x / play / timeout ---- */
   var toast=g('toast'), toastTimer;
