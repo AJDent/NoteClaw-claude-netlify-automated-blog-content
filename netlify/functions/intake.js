@@ -1,5 +1,8 @@
 const GHL_API_KEY = process.env.GHL_API_KEY;
 const GHL_LOCATION_ID = process.env.GHL_LOCATION_ID;
+const GHL_BASE = 'https://services.leadconnectorhq.com';
+const GHL_HEADERS = { 'Authorization': `Bearer ${GHL_API_KEY}`, 'Version': '2021-07-28', 'Content-Type': 'application/json' };
+const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 const FIELD_IDS = {
   contact_type:       'jB52kzxVk10zf09kUyX9',
@@ -19,224 +22,211 @@ const FIELD_IDS = {
 const INVESTING_WITH_MAP = {
   'sdira':           'Self-Directed IRA (SDIRA)',
   'traditional_ira': 'Traditional IRA',
+  'roth_ira':        'Roth IRA',
   '401k':            '401(k) / Solo 401(k)',
   'cash':            'Cash / Savings',
   'entity':          'LLC / Business Entity',
   'not_sure':        'Not sure yet'
 };
-
 const INVESTMENT_RANGE_MAP = {
-  'under_25k':  'Under $25,000',
-  '25k_50k':    '$25,000 - $50,000',
-  '50k_100k':   '$50,000 - $100,000',
-  '100k_250k':  '$100,000 - $250,000',
-  '250k_plus':  '$250,000+'
+  'under_25k':  'Under $25,000', '25k_50k': '$25,000 - $50,000', '50k_100k': '$50,000 - $100,000',
+  '100k_250k':  '$100,000 - $250,000', '250k_plus': '$250,000+'
 };
-
 const LIEN_MAP = { 'senior_1st': '1st', 'junior_2nd': '2nd', 'unsecured': 'Other' };
-
-const DECISION_SPEED_MAP = {
-  '24_48_hours':    '24-48 hours',
-  'within_a_week':  'Within a week',
-  'flexible':       'Flexible'
-};
-
-const MAX_LTV_MAP = {
-  'under_50':      'Under 50%',
-  '50_65':         '50-65%',
-  '65_75':         '65-75%',
-  '75_85':         '75-85%',
-  '85_plus':       '85%+',
-  'no_preference': 'No Preference'
-};
-
+const DECISION_SPEED_MAP = { '24_48_hours': '24-48 hours', 'within_a_week': 'Within a week', 'flexible': 'Flexible' };
+const MAX_LTV_MAP = { 'under_50':'Under 50%', '50_65':'50-65%', '65_75':'65-75%', '75_85':'75-85%', '85_plus':'85%+', 'no_preference':'No Preference' };
 const BUYBOX_INVESTMENT_MAP = {
-  'under_5k':   '< $5,000',
-  '5k_10k':     '$5,000 - $10,000',
-  '10k_25k':    '$10,000 - $25,000',
-  '25k_50k':    '$25,000 - $50,000',
-  '50k_100k':   '$50,000 - $100,000',
-  '100k_250k':  '$100,000 - $250,000',
-  '250k_500k':  '$250,000 - $500,000',
-  'over_500k':  '> $500,000'
+  'under_5k':'< $5,000', '5k_10k':'$5,000 - $10,000', '10k_25k':'$10,000 - $25,000', '25k_50k':'$25,000 - $50,000',
+  '50k_100k':'$50,000 - $100,000', '100k_250k':'$100,000 - $250,000', '250k_500k':'$250,000 - $500,000', 'over_500k':'> $500,000'
 };
-
-async function createGHLContact(payload) {
-  return fetch('https://services.leadconnectorhq.com/contacts/', {
-    method: 'POST',
-    headers: { 'Authorization': `Bearer ${GHL_API_KEY}`, 'Version': '2021-07-28', 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  });
-}
-
-async function handleIntake(data) {
-  const ghlPayload = {
-    firstName: data.first_name || '', lastName: data.last_name || '',
-    email: data.email || '', phone: data.phone || '',
-    source: 'Website', tags: ['website-intake'], locationId: GHL_LOCATION_ID,
-    customFields: [
-      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
-      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
-      { id: FIELD_IDS.contact_source,   field_value: 'Website' }
-    ]
-  };
-  if (data.investing_with) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: INVESTING_WITH_MAP[data.investing_with] || data.investing_with });
-  }
-  if (data.investment_range) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.investment_range, field_value: INVESTMENT_RANGE_MAP[data.investment_range] || data.investment_range });
-  }
-  if (data.message) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: data.message });
-  }
-  return createGHLContact(ghlPayload);
-}
-
-// === BLOG OPT-INS: exit popup / newsletter bar / mini-CTA (from blog.js) ===
-// blog.js sends investorType as the human label; map it onto the Investing With picklist.
 const BLOG_INVESTOR_TYPE_MAP = {
-  'Self-Directed IRA Holder':            'Self-Directed IRA (SDIRA)',
-  '401(k) / Solo 401(k) Holder':         '401(k) / Solo 401(k)',
-  'Private Capital / Cash Investor':     'Cash / Savings',
-  'Just Learning About Note Investing':  'Not sure yet'
+  'Self-Directed IRA Holder':'Self-Directed IRA (SDIRA)', '401(k) / Solo 401(k) Holder':'401(k) / Solo 401(k)',
+  'Private Capital / Cash Investor':'Cash / Savings', 'Just Learning About Note Investing':'Not sure yet'
 };
-
-// The avatar the reader picks in the blog popup / mini-CTA -> an explicit routing tag,
-// so lead-magnet delivery + nurture can branch on it exactly like the landing-page tags.
 const BLOG_AVATAR_TAG = {
-  'Self-Directed IRA Holder':            'avatar-sdira',
-  '401(k) / Solo 401(k) Holder':         'avatar-401k',
-  'Private Capital / Cash Investor':     'avatar-private',
-  'Just Learning About Note Investing':  'avatar-learning'
+  'Self-Directed IRA Holder':'avatar-sdira', '401(k) / Solo 401(k) Holder':'avatar-401k',
+  'Private Capital / Cash Investor':'avatar-private', 'Just Learning About Note Investing':'avatar-learning'
 };
+const LANDING_INVESTING_WITH = { 'sdira':'Self-Directed IRA (SDIRA)', '401k':'401(k) / Solo 401(k)', 'private':'Cash / Savings' };
 
-async function handleBlog(data) {
-  const email = (data.email || '').trim();
-  // Guard: no email (e.g. a stray comment) must not create a junk contact.
-  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
+// Homepage lane (selector/calculator) -> canonical lane tag
+const LANE_TAG = { retiree:'lane-retiree', income:'lane-income', operator:'lane-operator' };
+// Pitch-video behaviour -> tag (gate / completed / declined only)
+const VIDEO_TAG = { gate:'pitch-video-gate-280', completed:'pitch-video-completed', declined:'declined-pitch-video' };
 
+// ---- helpers ----
+function laneTags(data){ return (data.lane && LANE_TAG[data.lane]) ? [LANE_TAG[data.lane]] : []; }
+function splitName(full){ const parts = String(full||'').trim().split(/\s+/).filter(Boolean); return { first: parts.shift()||'', last: parts.join(' ')||'' }; }
+function utmNote(data){
+  const p = [];
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => { if (data[k]) p.push(k.replace('utm_','') + '=' + String(data[k]).slice(0,80)); });
+  if (data.referrer) p.push('ref=' + String(data.referrer).slice(0,160));
+  return p.length ? 'Source: ' + p.join(' · ') : '';
+}
+function baseFields(contactType, temp, source){
+  return [
+    { id: FIELD_IDS.contact_type,     field_value: contactType },
+    { id: FIELD_IDS.lead_temperature, field_value: temp },
+    { id: FIELD_IDS.contact_source,   field_value: source }
+  ];
+}
+// Upsert by email: merges into an existing contact and accumulates tags (one person = one record).
+async function upsert(payload){
+  return fetch(GHL_BASE + '/contacts/upsert', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify(payload) });
+}
+
+// ---- handlers ----
+async function handleIntake(data){
+  const tags = ['source-website-intake', ...laneTags(data)];
+  if (data._src === 'notebuyer') tags.push('note-buyer', 'note-buyer-inquiry');
+  const payload = {
+    email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
+    source: 'Website', tags, locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Website')
+  };
+  if (data.investing_with)   payload.customFields.push({ id: FIELD_IDS.investing_with,   field_value: INVESTING_WITH_MAP[data.investing_with] || data.investing_with });
+  if (data.investment_range) payload.customFields.push({ id: FIELD_IDS.investment_range, field_value: INVESTMENT_RANGE_MAP[data.investment_range] || data.investment_range });
+  const notes = [data.message||'', utmNote(data)].filter(Boolean).join('\n');
+  if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
+  return upsert(payload);
+}
+
+async function handleCalculator(data){
+  const n = (data.first_name || data.last_name) ? { first: data.first_name||'', last: data.last_name||'' } : splitName(data.name);
+  const payload = {
+    email: data.email, firstName: n.first, lastName: n.last,
+    source: 'Calculator', tags: ['source-calculator', ...laneTags(data)], locationId: GHL_LOCATION_ID,
+    customFields: baseFields('Investor','Warm','Calculator')
+  };
+  const notes = utmNote(data); if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
+  return upsert(payload);
+}
+
+async function handleNewsletter(data){
+  const payload = {
+    email: data.email,
+    source: 'TNC Newsletter', tags: ['source-newsletter', 'consent-newsletter'], locationId: GHL_LOCATION_ID,
+    customFields: baseFields('Investor','Cold','Newsletter')
+  };
+  return upsert(payload);
+}
+
+async function handleVideo(data){
+  const tag = VIDEO_TAG[data.event];
+  if (!tag) return { ok: true, json: async () => ({ contact: { id: null } }) };
+  const temp = (data.event === 'gate' || data.event === 'completed') ? 'Hot' : 'Warm';
+  const payload = {
+    email: data.email,
+    source: 'Pitch Video', tags: ['source-pitch-video', tag, ...laneTags(data)], locationId: GHL_LOCATION_ID,
+    customFields: baseFields('Investor', temp, 'Pitch Video')
+  };
+  return upsert(payload);
+}
+
+async function handleBlog(data){
+  const email = (data.email || '').trim().toLowerCase();
+  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) }; // stray comment, no junk contact
   const srcTags = Array.isArray(data.source_tags) ? data.source_tags : [];
   const avatarTag = BLOG_AVATAR_TAG[data.investor_type];
-  const tags = Array.from(new Set(['blog-lead', ...srcTags, ...(avatarTag ? [avatarTag] : [])]));
-
-  const ghlPayload = {
-    firstName: data.first_name || '',
-    email,
-    source: 'Blog', tags, locationId: GHL_LOCATION_ID,
-    customFields: [
-      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
-      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
-      { id: FIELD_IDS.contact_source,   field_value: 'Blog' }
-    ]
+  const tags = Array.from(new Set(['source-blog', 'blog-lead', ...srcTags, ...(avatarTag ? [avatarTag] : [])]));
+  const payload = {
+    email, firstName: data.first_name || '',
+    source: 'Blog', tags, locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Blog')
   };
-  if (data.investor_type) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
-  }
-  return createGHLContact(ghlPayload);
+  if (data.investor_type) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
+  return upsert(payload);
 }
 
-// === LANDING PAGES: sdira / 401k / private-investor (from /landing/*.html) ===
-// Each page sets `page`; investing_with is derived from the page, the qualifier answer -> Deal Notes.
-const LANDING_INVESTING_WITH = {
-  'sdira':   'Self-Directed IRA (SDIRA)',
-  '401k':    '401(k) / Solo 401(k)',
-  'private': 'Cash / Savings'
-};
-
-async function handleLanding(data) {
-  const email = (data.email || '').trim();
-  if (!email) return { ok: true, json: async () => ({ contact: { id: null } }) };
-
-  const page = ['sdira', '401k', 'private'].includes(data.page) ? data.page : 'private';
-  const tags = ['landing-lead', `landing-${page}`];
-
-  const ghlPayload = {
-    firstName: data.first_name || '', lastName: data.last_name || '',
-    email, phone: data.phone || '',
-    source: `Landing: ${page}`, tags, locationId: GHL_LOCATION_ID,
-    customFields: [
-      { id: FIELD_IDS.contact_type,     field_value: 'Investor' },
-      { id: FIELD_IDS.lead_temperature, field_value: 'Warm' },
-      { id: FIELD_IDS.contact_source,   field_value: 'Landing Page' }
-    ]
+async function handleLanding(data){
+  const page = ['sdira','401k','private'].includes(data.page) ? data.page : 'private';
+  const payload = {
+    email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
+    source: `Landing: ${page}`, tags: [`source-landing-${page}`, 'landing-lead'], locationId: GHL_LOCATION_ID,
+    customFields: baseFields('Investor','Warm','Landing Page')
   };
-  if (LANDING_INVESTING_WITH[page]) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
-  }
-  // Qualifier select (accountType / planType / capitalRange) -> Deal Notes, verbatim, as segmentation context.
-  if (data.qualifier) {
-    ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: `Landing (${page}) qualifier: ${data.qualifier}` });
-  }
-  return createGHLContact(ghlPayload);
+  if (LANDING_INVESTING_WITH[page]) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
+  const notes = [ data.qualifier ? `Landing (${page}) qualifier: ${data.qualifier}` : '', utmNote(data) ].filter(Boolean).join('\n');
+  if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
+  return upsert(payload);
 }
 
-async function handleBuyBox(data) {
+async function handleBuyBox(data){
   const assets = data.asset_types || [];
   let noteType = '';
   if (assets.includes('performing') && assets.includes('non_performing')) noteType = 'Both';
   else if (assets.includes('performing')) noteType = 'Performing';
   else if (assets.includes('non_performing')) noteType = 'NPN';
-
   const liens = data.lien_positions || [];
-  let lienValue = liens.length >= 1 ? (LIEN_MAP[liens[0]] || liens[0]) : '';
-
+  const lienValue = liens.length ? (LIEN_MAP[liens[0]] || liens[0]) : '';
   const states = data.target_states || [];
   const isNationwide = states.includes('nationwide');
   let targetStateValue = '';
   if (isNationwide) targetStateValue = 'Other';
   else if (states.length === 1) targetStateValue = states[0];
   else if (states.length > 0) targetStateValue = 'Other';
-
-  const investAmt = data.investment_amount || '';
-  const investValue = BUYBOX_INVESTMENT_MAP[investAmt] || '';
-
-  let bbParts = ['--- NOTE BUYER BUY BOX ---'];
-  if (assets.length) bbParts.push('Asset Types: ' + assets.map(a => a === 'non_performing' ? 'Non-Performing' : 'Performing').join(', '));
-  if (liens.length) bbParts.push('Lien Positions: ' + liens.map(l => l === 'senior_1st' ? 'Senior (1st)' : l === 'junior_2nd' ? 'Junior (2nd)' : 'Unsecured').join(', '));
-  if (isNationwide) bbParts.push('Target States: NATIONWIDE');
-  else if (states.length) bbParts.push('Target States: ' + states.join(', '));
-  if (investValue) bbParts.push('Investment Per Deal: ' + investValue);
+  const investValue = BUYBOX_INVESTMENT_MAP[data.investment_amount || ''] || '';
   const decisionSpeedValue = DECISION_SPEED_MAP[data.decision_speed] || '';
   const maxLtvValue = MAX_LTV_MAP[data.max_ltv] || '';
-  if (decisionSpeedValue) bbParts.push('Decision Speed: ' + decisionSpeedValue);
-  if (maxLtvValue) bbParts.push('Max LTV: ' + maxLtvValue);
-  if (data.preferences) bbParts.push('Additional Preferences: ' + data.preferences);
 
-  const ghlPayload = {
-    firstName: data.first_name || '', lastName: data.last_name || '',
-    email: data.email || '', phone: data.phone || '',
-    source: 'Website', tags: ['buybox-submission', 'note-buyer'], locationId: GHL_LOCATION_ID,
-    customFields: [
-      { id: FIELD_IDS.contact_type,     field_value: 'Buyer' },
-      { id: FIELD_IDS.lead_temperature, field_value: 'Hot' },
-      { id: FIELD_IDS.contact_source,   field_value: 'Website' },
-      { id: FIELD_IDS.buy_box_details,  field_value: bbParts.join('\n') }
-    ]
+  const bb = ['--- NOTE BUYER BUY BOX ---'];
+  if (assets.length) bb.push('Asset Types: ' + assets.map(a => a === 'non_performing' ? 'Non-Performing' : 'Performing').join(', '));
+  if (liens.length)  bb.push('Lien Positions: ' + liens.map(l => l === 'senior_1st' ? 'Senior (1st)' : l === 'junior_2nd' ? 'Junior (2nd)' : 'Unsecured').join(', '));
+  if (isNationwide)  bb.push('Target States: NATIONWIDE'); else if (states.length) bb.push('Target States: ' + states.join(', '));
+  if (investValue)   bb.push('Investment Per Deal: ' + investValue);
+  if (decisionSpeedValue) bb.push('Decision Speed: ' + decisionSpeedValue);
+  if (maxLtvValue)   bb.push('Max LTV: ' + maxLtvValue);
+  if (data.preferences) bb.push('Additional Preferences: ' + data.preferences);
+  const utm = utmNote(data); if (utm) bb.push(utm);
+
+  const payload = {
+    email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
+    source: 'Website', tags: ['source-buybox', 'buybox-submission', 'note-buyer'], locationId: GHL_LOCATION_ID,
+    customFields: [ ...baseFields('Buyer','Hot','Website'), { id: FIELD_IDS.buy_box_details, field_value: bb.join('\n') } ]
   };
-  if (noteType)         ghlPayload.customFields.push({ id: FIELD_IDS.note_type_interest, field_value: noteType });
-  if (lienValue)        ghlPayload.customFields.push({ id: FIELD_IDS.lien_position,      field_value: lienValue });
-  if (targetStateValue) ghlPayload.customFields.push({ id: FIELD_IDS.target_state,       field_value: targetStateValue });
-  if (investValue)      ghlPayload.customFields.push({ id: FIELD_IDS.investment_range,   field_value: investValue });
-  if (data.preferences) ghlPayload.customFields.push({ id: FIELD_IDS.deal_notes,         field_value: data.preferences });
-  if (decisionSpeedValue) ghlPayload.customFields.push({ id: FIELD_IDS.decision_speed,   field_value: decisionSpeedValue });
-  if (maxLtvValue)        ghlPayload.customFields.push({ id: FIELD_IDS.max_ltv,           field_value: maxLtvValue });
-  return createGHLContact(ghlPayload);
+  if (noteType)           payload.customFields.push({ id: FIELD_IDS.note_type_interest, field_value: noteType });
+  if (lienValue)          payload.customFields.push({ id: FIELD_IDS.lien_position,      field_value: lienValue });
+  if (targetStateValue)   payload.customFields.push({ id: FIELD_IDS.target_state,       field_value: targetStateValue });
+  if (investValue)        payload.customFields.push({ id: FIELD_IDS.investment_range,   field_value: investValue });
+  if (data.preferences)   payload.customFields.push({ id: FIELD_IDS.deal_notes,         field_value: data.preferences });
+  if (decisionSpeedValue) payload.customFields.push({ id: FIELD_IDS.decision_speed,     field_value: decisionSpeedValue });
+  if (maxLtvValue)        payload.customFields.push({ id: FIELD_IDS.max_ltv,            field_value: maxLtvValue });
+  return upsert(payload);
 }
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
+  let data;
+  try { data = JSON.parse(event.body); } catch { return { statusCode: 400, body: JSON.stringify({ error: 'Bad request' }) }; }
+
+  // Bot traps: respond 200 so bots get no signal, but do nothing.
+  if (data._hp) return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true }) };
+  if (typeof data._elapsed === 'number' && data._elapsed >= 0 && data._elapsed < 2000) {
+    return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true }) };
+  }
+
+  // Email required + valid for every form except blog (which handles its own comment/opt-in split).
+  const email = (data.email || '').trim().toLowerCase();
+  if (data._form !== 'blog') {
+    if (!EMAIL_RE.test(email)) return { statusCode: 400, body: JSON.stringify({ error: 'A valid email is required.' }) };
+    data.email = email;
+  }
+
   try {
-    const data = JSON.parse(event.body);
-    const response = (data._form === 'buybox')  ? await handleBuyBox(data)
-                   : (data._form === 'blog')    ? await handleBlog(data)
-                   : (data._form === 'landing') ? await handleLanding(data)
-                   : await handleIntake(data);
-    if (response.ok) {
-      const result = await response.json();
+    let resp;
+    switch (data._form) {
+      case 'buybox':      resp = await handleBuyBox(data);    break;
+      case 'blog':        resp = await handleBlog(data);      break;
+      case 'landing':     resp = await handleLanding(data);   break;
+      case 'calculator':  resp = await handleCalculator(data);break;
+      case 'newsletter':  resp = await handleNewsletter(data);break;
+      case 'pitch-video': resp = await handleVideo(data);     break;
+      default:            resp = await handleIntake(data);
+    }
+    if (resp.ok) {
+      const result = await resp.json();
       return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true, contactId: result.contact?.id }) };
     } else {
-      const errorText = await response.text();
-      return { statusCode: response.status, body: JSON.stringify({ error: errorText }) };
+      const errorText = await resp.text();
+      return { statusCode: resp.status, body: JSON.stringify({ error: errorText }) };
     }
   } catch (err) {
     return { statusCode: 500, body: JSON.stringify({ error: 'Internal server error' }) };

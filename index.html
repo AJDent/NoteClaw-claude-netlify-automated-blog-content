@@ -138,6 +138,7 @@
   .dd-form button:hover { background: var(--gold-light); }
   .dd-ok { color: var(--green); font-weight: 600; }
   @media (max-width: 520px) { .dd-form { flex-direction: column; } }
+  .dd-consent { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 12px; text-align: center; max-width: 460px; margin-left:auto; margin-right:auto; }
   /* categorized content cards (R11 §6) */
   .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hairline); margin-top: 34px; }
   .rcard { background: var(--ground); padding: 26px 24px; text-decoration: none; display: block; transition: background 0.2s; }
@@ -822,6 +823,11 @@
 </script>
 </head>
 <body>
+<script>
+window.TNC=window.TNC||{};window.TNC._loadedAt=Date.now();
+(function(){try{var q=new URLSearchParams(location.search),u={};['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(k){if(q.get(k))u[k]=q.get(k);});if(document.referrer&&document.referrer.indexOf(location.host)===-1)u.referrer=document.referrer;var s={};try{s=JSON.parse(sessionStorage.getItem('tncUtm')||'{}');}catch(e){}u=Object.assign(s,u);if(Object.keys(u).length){try{sessionStorage.setItem('tncUtm',JSON.stringify(u));}catch(e){}}window.TNC.utm=u;}catch(e){}})();
+window.TNC.enrich=function(p){p=p||{};p._elapsed=Date.now()-(window.TNC._loadedAt||Date.now());var u=window.TNC.utm||{};Object.keys(u).forEach(function(k){p[k]=u[k];});return p;};
+</script>
 <!-- NAV -->
 <nav id="mainNav">
 <a class="nav-logo" href="#hero">
@@ -1014,9 +1020,11 @@
 <div class="calc-gate" id="calcGate" hidden="">
 <p class="calc-gate-q" id="calcGateQ"></p>
 <div class="calc-gate-row">
-<input aria-label="Your email" id="calcEmail" placeholder="you@email.com" type="email"/>
+<input aria-label="Your name" id="calcName" placeholder="Your name" type="text" autocomplete="name"/>
+<input aria-label="Your email" id="calcEmail" placeholder="you@email.com" type="email" autocomplete="email"/>
 <button class="cta-btn" id="calcGateBtn" type="button">Show me</button>
 </div>
+<input type="text" id="calcHp" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
 <p class="calc-gate-sub" id="calcGuideLine">Plus a free guide written for investors like you.</p>
 </div>
 <div class="calc-stage2" id="calcStage2" hidden=""></div>
@@ -1199,6 +1207,7 @@
 </div>
 <div id="formWrap">
 <form class="contact-form" id="intakeForm" onsubmit="submitToGHL(event)">
+<input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
 <div class="form-row">
 <div class="form-group">
 <label>First Name</label>
@@ -1292,8 +1301,10 @@ function tncNoteBuyerAsk(e){
 <p class="dd-sub">The <strong>TNC Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
 <form class="dd-form" onsubmit="return dealDeskSubmit(event)">
 <input type="email" placeholder="you@email.com" aria-label="Your email for the TNC newsletter" required=""/>
+<input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
 <button type="submit">Subscribe</button>
 </form>
+<p class="dd-consent">By subscribing you agree to receive emails from Take Notes Capital. Unsubscribe anytime.</p>
 </div>
 </section>
 
@@ -1433,12 +1444,13 @@ function tncNoteBuyerAsk(e){
   function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
   function showStage2(){var c=cfg(),v=state.v,base=c.base(v);elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p><div class='calc-next'><a class='calc-next-btn primary' href='your-numbers.html'>Watch the full walkthrough &rarr;</a><a class='calc-next-btn' href='https://talkwithajdent.com' target='_blank' rel='noopener'>Book a call</a></div><p class='calc-next-note'>Your guide is on its way to your inbox. Watch, book, or keep exploring below.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}
-    var v=state.v, lane=state.lane||'income', c=cfg(), recap;
+    var name=((g('calcName')&&g('calcName').value)||'').trim();
+    var realLane=state.lane, lane=realLane||'income', v=state.v, c=cfg(), recap;
     if(lane==='operator'){ var res=v.rent*0.28, net=v.rent-v.costs-res; recap='You ran the numbers: <b>$'+fmt(net)+' a month net</b> on $'+fmt(v.cash)+' deployed, after reserves. The full breakdown and your guide are in your inbox.'; }
     else { var a=v.bal*v.rate/100, r=a-v.bal*INFLATION; recap='You ran the numbers: <b>$'+fmt(v.bal)+' at '+v.rate+'%</b>, up <b>$'+fmt(r)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.'; }
-    window.TNC=window.TNC||{};window.TNC.calcLead={lane:lane,email:email,inputs:v,guide:c.guide};
-    try{ localStorage.setItem('tncCalc', JSON.stringify({lane:lane,email:email,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
-    /* STUB: GHL wiring parked. On real build POST /.netlify/functions/intake {_form:'calculator',...}. No redirect: inline choices below, /your-numbers is opt-in via the Watch button. */
+    window.TNC=window.TNC||{};window.TNC.calcLead={lane:realLane,email:email,inputs:v,guide:c.guide};
+    try{ localStorage.setItem('tncCalc', JSON.stringify({lane:realLane,email:email,name:name,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
+    try{ var hp=((g('calcHp')&&g('calcHp').value)||''); var p=(window.TNC.enrich?window.TNC.enrich({}):{}); p._form='calculator'; p.email=email; p.name=name; p.lane=realLane||''; p._hp=hp; fetch('/.netlify/functions/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}); }catch(e){}
     showStage2();}
   elBtn.addEventListener('click',submitGate);
   function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
@@ -1537,9 +1549,10 @@ function tncNoteBuyerAsk(e){
   }
   function dealDeskSubmit(e){
     e.preventDefault();
-    var f=e.target, email=(f.querySelector('input')||{}).value||'';
+    var f=e.target, email=(f.querySelector('input[type=email]')||{}).value||'';
+    var hp=(f.querySelector('input[name=_hp]')||{}).value||'';
     window.TNC=window.TNC||{}; window.TNC.dealDesk={email:email};
-    /* STUB: TNC newsletter signup — GHL wiring parked */
+    try{ var p=(window.TNC.enrich?window.TNC.enrich({}):{}); p._form='newsletter'; p.email=email; p._hp=hp; fetch('/.netlify/functions/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}); }catch(err){}
     f.innerHTML='<p class="dd-ok">You’re on the TNC newsletter list. Watch your inbox.</p>';
     return false;
   }
@@ -1551,15 +1564,17 @@ function tncNoteBuyerAsk(e){
     btn.textContent = 'Sending...';
 
     const fd = new FormData(form);
-    const payload = {
-      first_name: fd.get('first_name') || '',
-      last_name: fd.get('last_name') || '',
-      email: fd.get('email') || '',
-      phone: fd.get('phone') || '',
-      investing_with: fd.get('investing_with') || '',
-      investment_range: fd.get('investment_range') || '',
-      message: fd.get('message') || ''
-    };
+    const payload = (window.TNC && window.TNC.enrich) ? window.TNC.enrich({}) : {};
+    payload.first_name = fd.get('first_name') || '';
+    payload.last_name = fd.get('last_name') || '';
+    payload.email = fd.get('email') || '';
+    payload.phone = fd.get('phone') || '';
+    payload.investing_with = fd.get('investing_with') || '';
+    payload.investment_range = fd.get('investment_range') || '';
+    payload.message = fd.get('message') || '';
+    payload._src = fd.get('_src') || '';
+    payload.lane = (window.TNC && window.TNC.lane) || '';
+    payload._hp = fd.get('_hp') || '';
 
     try {
       const res = await fetch('/.netlify/functions/intake', {
