@@ -5,6 +5,14 @@ exports.handler = async (event) => {
   if (q.k !== GUARD) return { statusCode: 404, body: 'Not found' };
   const email = (q.email || '').trim().toLowerCase();
   try {
+    if (q.id) {
+      const rr = await fetch(`https://services.leadconnectorhq.com/contacts/${encodeURIComponent(q.id)}`,
+        { headers: { Authorization: `Bearer ${process.env.GHL_API_KEY}`, Version: '2021-07-28' } });
+      const dd = await rr.json();
+      const cc = dd.contact || null;
+      return { statusCode: 200, headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ found: !!cc, id: cc && cc.id, email: cc && cc.email, tags: cc ? (cc.tags || []) : [], customFields: cc ? (cc.customFields || []) : [] }) };
+    }
     const r = await fetch(
       `https://services.leadconnectorhq.com/contacts/?locationId=${encodeURIComponent(process.env.GHL_LOCATION_ID)}&query=${encodeURIComponent(email)}&limit=10`,
       { headers: { Authorization: `Bearer ${process.env.GHL_API_KEY}`, Version: '2021-07-28' } }
