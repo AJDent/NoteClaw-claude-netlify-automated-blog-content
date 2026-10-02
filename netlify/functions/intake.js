@@ -70,9 +70,18 @@ function baseFields(contactType, temp, source){
     { id: FIELD_IDS.contact_source,   field_value: source }
   ];
 }
-// Upsert by email: merges into an existing contact and accumulates tags (one person = one record).
-async function upsert(payload){
-  return fetch(GHL_BASE + '/contacts/upsert', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify(payload) });
+// Upsert by email (merges fields into the existing contact), THEN add tags via the dedicated
+// endpoint so tags ACCUMULATE. GHL's upsert overwrites a tags[] in the payload, so tags never
+// go in the upsert body -- they are added separately and additively.
+async function submit(payload, tags){
+  const r = await fetch(GHL_BASE + '/contacts/upsert', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify(payload) });
+  if (!r.ok) return r; // surface the GHL error to the router
+  let id = null;
+  try { const d = await r.json(); id = d && d.contact && d.contact.id; } catch (e) {}
+  if (id && Array.isArray(tags) && tags.length) {
+    try { await fetch(GHL_BASE + '/contacts/' + encodeURIComponent(id) + '/tags', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify({ tags }) }); } catch (e) {}
+  }
+  return { ok: true, status: 200, json: async () => ({ contact: { id } }), text: async () => '' };
 }
 
 // ---- handlers ----
@@ -81,33 +90,33 @@ async function handleIntake(data){
   if (data._src === 'notebuyer') tags.push('note-buyer', 'note-buyer-inquiry');
   const payload = {
     email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
-    source: 'Website', tags, locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Website')
+    source: 'Website', locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Website')
   };
   if (data.investing_with)   payload.customFields.push({ id: FIELD_IDS.investing_with,   field_value: INVESTING_WITH_MAP[data.investing_with] || data.investing_with });
   if (data.investment_range) payload.customFields.push({ id: FIELD_IDS.investment_range, field_value: INVESTMENT_RANGE_MAP[data.investment_range] || data.investment_range });
   const notes = [data.message||'', utmNote(data)].filter(Boolean).join('\n');
   if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
-  return upsert(payload);
+  return submit(payload, tags);
 }
 
 async function handleCalculator(data){
   const n = (data.first_name || data.last_name) ? { first: data.first_name||'', last: data.last_name||'' } : splitName(data.name);
   const payload = {
     email: data.email, firstName: n.first, lastName: n.last,
-    source: 'Calculator', tags: ['source-calculator', ...laneTags(data)], locationId: GHL_LOCATION_ID,
+    source: 'Calculator', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor','Warm','Calculator')
   };
   const notes = utmNote(data); if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
-  return upsert(payload);
+  return submit(payload, ['source-calculator', ...laneTags(data)]);
 }
 
 async function handleNewsletter(data){
   const payload = {
     email: data.email,
-    source: 'TNC Newsletter', tags: ['source-newsletter', 'consent-newsletter'], locationId: GHL_LOCATION_ID,
+    source: 'TNC Newsletter', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor','Cold','Newsletter')
   };
-  return upsert(payload);
+  return submit(payload, ['source-newsletter', 'consent-newsletter']);
 }
 
 async function handleVideo(data){
@@ -116,10 +125,10 @@ async function handleVideo(data){
   const temp = (data.event === 'gate' || data.event === 'completed') ? 'Hot' : 'Warm';
   const payload = {
     email: data.email,
-    source: 'Pitch Video', tags: ['source-pitch-video', tag, ...laneTags(data)], locationId: GHL_LOCATION_ID,
+    source: 'Pitch Video', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor', temp, 'Pitch Video')
   };
-  return upsert(payload);
+  return submit(payload, ['source-pitch-video', tag, ...laneTags(data)]);
 }
 
 async function handleBlog(data){
@@ -130,23 +139,23 @@ async function handleBlog(data){
   const tags = Array.from(new Set(['source-blog', 'blog-lead', ...srcTags, ...(avatarTag ? [avatarTag] : [])]));
   const payload = {
     email, firstName: data.first_name || '',
-    source: 'Blog', tags, locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Blog')
+    source: 'Blog', locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Blog')
   };
   if (data.investor_type) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
-  return upsert(payload);
+  return submit(payload, tags);
 }
 
 async function handleLanding(data){
   const page = ['sdira','401k','private'].includes(data.page) ? data.page : 'private';
   const payload = {
     email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
-    source: `Landing: ${page}`, tags: [`source-landing-${page}`, 'landing-lead'], locationId: GHL_LOCATION_ID,
+    source: `Landing: ${page}`, locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor','Warm','Landing Page')
   };
   if (LANDING_INVESTING_WITH[page]) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
   const notes = [ data.qualifier ? `Landing (${page}) qualifier: ${data.qualifier}` : '', utmNote(data) ].filter(Boolean).join('\n');
   if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
-  return upsert(payload);
+  return submit(payload, [`source-landing-${page}`, 'landing-lead']);
 }
 
 async function handleBuyBox(data){
@@ -179,7 +188,7 @@ async function handleBuyBox(data){
 
   const payload = {
     email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
-    source: 'Website', tags: ['source-buybox', 'buybox-submission', 'note-buyer'], locationId: GHL_LOCATION_ID,
+    source: 'Website', locationId: GHL_LOCATION_ID,
     customFields: [ ...baseFields('Buyer','Hot','Website'), { id: FIELD_IDS.buy_box_details, field_value: bb.join('\n') } ]
   };
   if (noteType)           payload.customFields.push({ id: FIELD_IDS.note_type_interest, field_value: noteType });
@@ -189,7 +198,7 @@ async function handleBuyBox(data){
   if (data.preferences)   payload.customFields.push({ id: FIELD_IDS.deal_notes,         field_value: data.preferences });
   if (decisionSpeedValue) payload.customFields.push({ id: FIELD_IDS.decision_speed,     field_value: decisionSpeedValue });
   if (maxLtvValue)        payload.customFields.push({ id: FIELD_IDS.max_ltv,            field_value: maxLtvValue });
-  return upsert(payload);
+  return submit(payload, ['source-buybox', 'buybox-submission', 'note-buyer']);
 }
 
 exports.handler = async (event) => {
