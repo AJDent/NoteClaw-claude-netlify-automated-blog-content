@@ -971,14 +971,14 @@
 <section class="bg-navy section-short" id="pick">
 <div class="kicker sep-c" style="text-align:center;margin-bottom:20px;">04 · Which one of these is me?</div>
 <h2 class="sc-line fade-in">
-<span class="sc-half">I'm a
-<select id="scWho" aria-label="I'm a">
+<span class="sc-half">I'm
+<select id="scWho" aria-label="I'm">
 <option value="" selected="" disabled="">choose…</option>
-<option>retiree</option>
-<option>busy professional</option>
-<option>real estate investor</option>
-<option>business owner</option>
-<option>newcomer</option>
+<option>a retiree</option>
+<option>a busy professional</option>
+<option>a real estate investor</option>
+<option>a business owner</option>
+<option>new to all this</option>
 </select></span>
 <span class="sc-half">who wants
 <select id="scWant" aria-label="who wants">
@@ -1333,16 +1333,15 @@ function tncNoteBuyerAsk(e){
     income:   "ready to turn idle money into monthly income.",
     operator: "done with the landlord grind and after the returns, minus the tenants."
   };
-  var WHO_DEFAULT = { retiree:"investor", income:"investor", operator:"real estate investor" };
+  var WHO_DEFAULT = { retiree:"an investor", income:"an investor", operator:"a real estate investor" };
   window.TNC = window.TNC || {};
   var who  = document.getElementById('scWho');
   var want = document.getElementById('scWant');
   var res  = document.getElementById('scResult');
   function buildEcho(lane){
     var sel = (who && who.selectedIndex>0) ? who.options[who.selectedIndex] : null;
-    var whoVal = (sel && !sel.disabled) ? sel.text : (WHO_DEFAULT[lane]||"investor");
-    var art = /^[aeiou]/i.test(whoVal) ? "an " : "a ";
-    return LEADIN[lane] + " You're " + art + whoVal + " " + GOAL[lane];
+    var whoVal = (sel && !sel.disabled) ? sel.text : (WHO_DEFAULT[lane]||"an investor");
+    return LEADIN[lane] + " You're " + whoVal + " " + GOAL[lane];
   }
   function updateTransition(lane){
     var box=document.getElementById('calcTransition'), e=document.getElementById('ctEcho'), i=document.getElementById('ctInsight');
