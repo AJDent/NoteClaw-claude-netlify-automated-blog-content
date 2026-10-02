@@ -751,6 +751,20 @@
   @media (prefers-reduced-motion: reduce) {
     .btb-coin { animation: none !important; left: 50%; top: 50%; }
   }
+  /* [MOBILE CLEANUP] tighten section gaps + contain the protection bar on phones */
+  @media (max-width: 600px) {
+    .lay { padding: 54px 0; }
+    .lay.dense { padding: 44px 0; }
+    .lay.primer { padding: 40px 0; }
+    .underhero { padding: 46px 24px; }
+    .uh-close { margin-top: 18px; }
+    .cushion-bar { font-size: 10px; }
+    .cu-pay, .cu-room { min-width: 38px; }
+    .cu-tick-lbl { font-size: 9px; }
+    .hp-axis { font-size: 10px; }
+    .hp-cu-figure { font-size: clamp(34px, 11vw, 42px); }
+    .hp-cu-figlabel { max-width: none; }
+  }
 </style>
 <!-- Organization Schema -->
 <script type="application/ld+json">
