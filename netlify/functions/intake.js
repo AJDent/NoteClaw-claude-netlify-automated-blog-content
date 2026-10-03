@@ -74,6 +74,10 @@ function baseFields(contactType, temp, source){
 // endpoint so tags ACCUMULATE. GHL's upsert overwrites a tags[] in the payload, so tags never
 // go in the upsert body -- they are added separately and additively.
 async function submit(payload, tags){
+  // Mirror the lead-temperature field as a hot/warm/cold tag so workflows can trigger on it.
+  const tf = (payload.customFields || []).find(f => f.id === FIELD_IDS.lead_temperature);
+  const tempTag = tf && { Hot:'hot', Warm:'warm', Cold:'cold' }[tf.field_value];
+  if (tempTag) tags = Array.from(new Set([...(tags || []), tempTag]));
   const r = await fetch(GHL_BASE + '/contacts/upsert', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify(payload) });
   if (!r.ok) return r; // surface the GHL error to the router
   let id = null;
@@ -90,7 +94,7 @@ async function handleIntake(data){
   if (data._src === 'notebuyer') tags.push('note-buyer', 'note-buyer-inquiry');
   const payload = {
     email: data.email, firstName: data.first_name||'', lastName: data.last_name||'', phone: data.phone||'',
-    source: 'Website', locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Website')
+    source: 'Website', locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Hot','Website')
   };
   if (data.investing_with)   payload.customFields.push({ id: FIELD_IDS.investing_with,   field_value: INVESTING_WITH_MAP[data.investing_with] || data.investing_with });
   if (data.investment_range) payload.customFields.push({ id: FIELD_IDS.investment_range, field_value: INVESTMENT_RANGE_MAP[data.investment_range] || data.investment_range });
@@ -104,7 +108,7 @@ async function handleCalculator(data){
   const payload = {
     email: data.email, firstName: n.first, lastName: n.last,
     source: 'Calculator', locationId: GHL_LOCATION_ID,
-    customFields: baseFields('Investor','Warm','Calculator')
+    customFields: baseFields('Investor','Hot','Calculator')
   };
   const notes = utmNote(data); if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
   return submit(payload, ['source-calculator', ...laneTags(data)]);
