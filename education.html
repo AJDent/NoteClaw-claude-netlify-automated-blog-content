@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Note Investing 101 | Take Notes Capital</title>
+<meta name="description" content="A plain-language primer on mortgage note investing: what a note is, why banks sell them, performing vs non-performing, and how downside protection works."/>
+<link rel="canonical" href="https://takenotescapital.com/education"/>
+<style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
+  :root{ --ground:#0A0E1A; --band:#0E1424; --hairline:#202B45; --text:#E8ECF4; --muted:#94A3B8; --dim:#5F7191; --blue:#5ba4e6; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-optical-sizing:auto;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--ground);color:var(--text);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .shell{width:min(900px,calc(100% - 48px));margin-inline:auto;}
+  header{border-bottom:1px solid var(--hairline);padding:18px 0;}
+  header .shell{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);}
+  .logo img{height:54px;width:auto;object-fit:contain;}
+  .back{color:var(--blue);text-decoration:none;font-size:14px;font-weight:600;}
+  .hero{padding:70px 0 20px;}
+  .kicker{color:var(--blue);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(38px,6vw,60px);line-height:1.02;letter-spacing:-.02em;}
+  h1 span{color:var(--blue);}
+  .lead{color:var(--muted);max-width:640px;margin-top:18px;font-size:clamp(16px,2vw,19px);}
+  .topics{padding:48px 0 20px;display:grid;gap:44px;}
+  .topic{border-top:1px solid var(--hairline);padding-top:26px;}
+  .topic .n{font-family:'Fraunces',Georgia,serif;font-size:15px;color:var(--dim);}
+  .topic h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.1;letter-spacing:-.01em;margin:8px 0 14px;}
+  .topic p{color:var(--muted);max-width:680px;}
+  .topic p strong{color:var(--text);font-weight:600;}
+  .cta{border-top:1px solid var(--hairline);margin:56px 0;padding-top:40px;text-align:center;}
+  .cta h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,34px);margin-bottom:20px;}
+  .btn{display:inline-block;background:var(--blue);color:#fff;font-weight:700;padding:15px 40px;border-radius:50px;text-decoration:none;}
+  footer{border-top:1px solid var(--hairline);padding:28px 0;color:var(--dim);font-size:13px;}
+  a:focus-visible,.btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+  .faq{padding:20px 0 8px;}
+  .faq h2{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,36px);line-height:1.1;margin-bottom:8px;}
+  .faq .faq-intro{color:var(--muted);margin-bottom:22px;max-width:640px;}
+  .faq details{border-top:1px solid var(--hairline);padding:18px 0;}
+  .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:clamp(16px,2vw,19px);color:var(--text);line-height:1.5;}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+";color:var(--blue);font-size:22px;line-height:1;flex-shrink:0;}
+  .faq details[open] summary::after{content:"\2212";}
+  .faq details p{color:var(--muted);max-width:680px;margin-top:12px;line-height:1.75;}
+  .primer{padding:8px 0 26px;}
+  .primer .hook{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(24px,3.5vw,34px);color:var(--blue);line-height:1.15;margin-bottom:18px;}
+  .primer p{color:var(--muted);max-width:680px;line-height:1.75;margin-bottom:12px;}
+  .primer p.close{color:var(--text);font-style:italic;}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly is a mortgage note, and what do I actually own?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You own the loan, not the house. A mortgage note is the contract a borrower signed for their home loan: the balance, the rate, the schedule, and your legal claim to the property if they stop paying. You step into the bank's seat and collect the payment, holding a recorded lien against the house without ever owning, insuring, or maintaining it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I invest using my IRA or 401(k)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and it is one of the most common ways people do this. A Self-Directed IRA or Solo 401(k) holds a mortgage note the way it holds a stock, with the interest flowing back tax-deferred or tax-free. The note is titled to your custodian, so the account is the lender of record. You need a custodian that allows alternative assets, and the account cannot lend to you or close family."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is my investment protected if something goes wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your first protection is the price paid. Notes are bought at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less, so there is real equity before any loss. Every note is a first lien on a physical property, and title plus tax liens are checked up front since tax liens outrank a mortgage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a borrower stops paying?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We work a plan, not panic. First we reach the borrower through the servicer; often a loan modification gets them paying again and turns the note back to performing. If not, we pursue deed-in-lieu or foreclosure through local attorneys. Timelines run from a few months to a couple of years by state, and the property secures your position the entire way."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a performing and non-performing note?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A performing note is current and pays you on time. A non-performing note is 90+ days behind, which is our edge: banks dump them at steep discounts, often 20 to 70 percent below the unpaid balance. We buy at that discount and work the borrower back to paying. The discount plus that rehab work is the engine of the returns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this actually generate monthly income for me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The borrower's monthly payment is your income: principal and interest lands with you, the note holder, the way a bank gets paid. A licensed servicer handles collection and borrower contact. What a note pays depends on the rate, the discount you bought at, and the time left on the term. Inside an IRA, those payments compound without the yearly tax drag."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What funds can I use to invest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More sources than most people realize: cash, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, HSAs, Coverdell accounts, a line of credit against property you own, and joint ventures where investors pool capital on one note. Money sitting idle, especially in a retirement account, can hold a note instead."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is note investing better than being a landlord?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Honestly, it depends on what you want. Both are backed by real estate, but a rental brings vacancies, repairs, tenants, taxes, and insurance, while a note brings the payment and none of that. The trade-off: a note holder does not get appreciation or depreciation write-offs. For real-estate-backed income you do not manage, especially in a retirement account, notes are hard to beat."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header>
+<div class="shell">
+<a class="logo" href="/"><img src="logo.png" alt="Take Notes Capital"/></a>
+<a class="back" href="/">&#8592; Back to home</a>
+</div>
+</header>
+<main>
+<section class="hero">
+<div class="shell">
+<div class="kicker">Note Investing 101</div>
+<h1>Mortgage notes,<br/><span>in plain words.</span></h1>
+<p class="lead">Four short answers to the questions every new note investor asks. No jargon, no pitch, just how the instrument actually works.</p>
+</div>
+</section>
+<section class="primer">
+<div class="shell">
+<p class="hook">A note is the loan on a house.</p>
+<p>When someone buys a house, they sign two papers. The deed says who owns the house. The note is the loan, the written promise to pay it back. TNC buys the note, not the house.</p>
+<p>Banks and funds sell these notes all the time, to other banks, to funds, and to regular investors. It is a normal, everyday market most people never hear about.</p>
+<p>When you hold the note, the monthly payment comes to you instead of the bank. The house stands behind it as collateral. You never own it, fix it, or manage it.</p>
+<p>Banks often sell at a discount, especially when a borrower has fallen behind. They would rather take cash today than chase the payment for years. That discount is your margin going in.</p>
+<p class="close">Seems hard to believe, right? Same thing I said a couple years ago.</p>
+</div>
+</section>
+<section class="topics">
+<div class="shell" style="display:grid;gap:44px;">
+<article class="topic">
+<div class="n">01</div>
+<h2>What is a mortgage note?</h2>
+<p>A mortgage note is the legal IOU a borrower signs when they take out a home loan. It outlines the loan amount, interest rate, and repayment terms. When you invest in a note, you buy the right to receive those payments. You step into the lender's seat, backed by the real estate as collateral.</p>
+</article>
+<article class="topic">
+<div class="n">02</div>
+<h2>Why do banks sell notes?</h2>
+<p>Banks routinely sell mortgage notes to free up capital for new lending. Notes on delinquent borrowers are bundled and sold at steep discounts. That discount is the point: you acquire real-estate-backed debt below what the property is worth, and the gap between the two is what stands behind your position.</p>
+</article>
+<article class="topic">
+<div class="n">03</div>
+<h2>Performing vs. non-performing</h2>
+<p>A <strong>performing note</strong> pays on time every month: steady, passive income. A <strong>non-performing note</strong> is 90+ days behind and sells at a deep discount. TNC buys the non-performing ones, then works the borrower back to paying. You get the discount going in and the cash flow coming out, secured by real property the whole way.</p>
+</article>
+<article class="topic">
+<div class="n">04</div>
+<h2>What's your downside protection?</h2>
+<p>Every note we buy is backed by a physical property, and we buy below what the property is worth. That gap is what stands behind your position if a borrower stops paying. Foreclosure is the last resort, not the plan, and how long it takes depends on the state.</p>
+</article>
+</div>
+</section>
+<section class="faq" id="faq">
+<div class="shell">
+<div class="kicker">More questions</div>
+<h2>Answered in full.</h2>
+<p class="faq-intro">Every question worth asking before you invest, answered in full and in one place.</p>
+<details>
+<summary>What exactly is a mortgage note, and what do I actually own?</summary>
+<p>You own the loan, not the house. A mortgage note is the contract a borrower signed for their home loan: the balance, the rate, the payment schedule, and your legal claim to the property if they stop paying. Buy the note and you step into the bank's seat, collecting the payment they already agreed to make. The house is your collateral, not your responsibility: you hold a recorded lien against it, but you never own, insure, or maintain it. That's the whole difference between holding paper and being a landlord.</p>
+</details>
+<details>
+<summary>Can I invest using my IRA or 401(k)?</summary>
+<p>Yes, and it's one of the most common ways people do this. A Self-Directed IRA or Solo 401(k) holds a mortgage note the same way it holds a stock, except the interest flows back in tax-deferred (Traditional) or completely tax-free (Roth). The note is titled to your custodian, so your retirement account is the lender of record. You'll need a custodian that allows alternative assets, since the big-box brokerages don't. One IRS line you can't cross: the account can't lend to you or close family. We help you set it up correctly before any money moves.</p>
+</details>
+<details>
+<summary>How is my investment protected if something goes wrong?</summary>
+<p>Your first protection is the price we pay. We buy at a strict discount, typically 30 to 60 cents on the dollar at 70 percent loan-to-value or less, so there's real equity between your position and a loss before anything goes wrong. Every note is a first lien recorded against a physical property. We pull title and check for tax liens up front, because tax liens outrank a mortgage and missing one is the classic rookie mistake. If the worst happens, the house is still there and you're first in line against it.</p>
+</details>
+<details>
+<summary>What happens if a borrower stops paying?</summary>
+<p>We work a plan, we don't panic. Step one is always to reach the borrower through the servicer and find out what changed, because most people want to keep their home. Often a loan modification, a lower rate or a longer term, gets them paying again and turns the note back to performing. If they can't or won't, we move to deed-in-lieu or foreclosure through local attorneys who know that state's timeline, which runs from a few months to a couple of years. The property secures your position the entire way.</p>
+</details>
+<details>
+<summary>What's the difference between a performing and non-performing note?</summary>
+<p>A performing note is current: the borrower pays on time and it comes straight to you. A non-performing note is one where they're 90+ days behind, which is where our edge is. Banks dump these at steep discounts, often 20 to 70 percent below the unpaid balance, because a delinquent loan is a headache they want gone. We buy at that discount, then do the active work of getting the borrower back to paying. The discount going in plus that rehab work is the engine of the returns, which is why we underwrite both the payment history and the property value before bringing you a deal.</p>
+</details>
+<details>
+<summary>How does this actually generate monthly income for me?</summary>
+<p>The borrower's monthly payment is your income. When they pay, that principal and interest lands with the note holder, which is you, the way a bank gets paid. A licensed servicer handles collection, statements, and borrower contact, so the money shows up without you chasing it. What a note pays comes down to three things: the rate on the loan, the discount you bought at, and the time left on the term, and we lay all three out before you commit. Inside an IRA, those payments flow back into the account and compound without the yearly tax drag.</p>
+</details>
+<details>
+<summary>What funds can I use to invest?</summary>
+<p>More sources than most people realize: cash and savings, Self-Directed IRAs (Traditional or Roth), Solo 401(k)s, HSAs, Coverdell accounts, a line of credit against property you already own, and joint ventures where a few investors pool capital on one note. The theme is simple: money sitting idle, especially in a retirement account earning next to nothing, can hold a note instead. If you're not sure which of your buckets qualifies, that's exactly what the discovery call sorts out.</p>
+</details>
+<details>
+<summary>Is note investing better than being a landlord?</summary>
+<p>Honestly, it depends on what you want. Both are backed by real estate, but holding them feels nothing alike. A rental hands you vacancies, repairs, tenants, taxes, insurance, and the 2AM call. A note hands you the payment and none of that. The honest trade-off: as the note holder you don't get the property's appreciation and can't write off depreciation, so a landlord chasing a tax shelter or a long-term flip may still prefer owning. But if you want real-estate-backed income you don't have to manage, especially in a retirement account, notes are hard to beat. I did the landlord years. I just know which one lets me sleep.</p>
+</details>
+</div>
+</section>
+<section class="cta">
+<div class="shell">
+<h3>Ready to run your own numbers?</h3>
+<a class="btn" href="/#calc">Run the numbers</a>
+</div>
+</section>
+</main>
+<footer>
+<div class="shell">&#169; 2026 Take Notes Capital. Educational content only. Not an offer, solicitation, or investment advice.</div>
+</footer>
+</body>
+</html>
