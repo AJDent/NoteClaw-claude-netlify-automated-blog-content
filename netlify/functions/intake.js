@@ -70,6 +70,44 @@ function baseFields(contactType, temp, source){
     { id: FIELD_IDS.contact_source,   field_value: source }
   ];
 }
+// Best-effort Discord ping for HOT leads -> #new-lead channel. No-op if the webhook env var is
+// unset. Never throws (a Discord hiccup must not fail the form submit).
+async function notifyDiscord(id, payload, tags){
+  const url = process.env.DISCORD_WEBHOOK_NEW_LEAD;
+  if (!url) return;
+  const cf = (fid) => { const f = (payload.customFields || []).find(x => x.id === fid); return f && f.field_value; };
+  const name  = [payload.firstName, payload.lastName].filter(Boolean).join(' ') || '(no name given)';
+  const lane  = (tags || []).find(t => t.startsWith('lane-'));
+  const src   = cf(FIELD_IDS.contact_source) || payload.source || 'Website';
+  const iw    = cf(FIELD_IDS.investing_with);
+  const range = cf(FIELD_IDS.investment_range);
+  const notes = cf(FIELD_IDS.deal_notes) || cf(FIELD_IDS.buy_box_details);
+  const behav = (tags || []).filter(t => !t.startsWith('lane-') && !['hot','warm','cold'].includes(t));
+  const link  = id ? `https://app.gohighlevel.com/v2/location/${GHL_LOCATION_ID}/contacts/detail/${id}` : '';
+  const fields = [
+    { name: 'Email', value: payload.email || '—', inline: true },
+    { name: 'Phone', value: payload.phone || '—', inline: true },
+    { name: 'Source', value: src, inline: true }
+  ];
+  if (lane)  fields.push({ name: 'Lane', value: lane.replace('lane-', ''), inline: true });
+  if (iw)    fields.push({ name: 'Investing with', value: iw, inline: true });
+  if (range) fields.push({ name: 'Range', value: range, inline: true });
+  if (behav.length) fields.push({ name: 'Did', value: behav.join(', ') });
+  if (notes) fields.push({ name: 'Notes', value: String(notes).slice(0, 1000) });
+  const embed = {
+    title: `🔥 New HOT lead — ${name}`,
+    color: 0xE85D5D,
+    description: link ? `[Open in GHL →](${link})` : undefined,
+    fields,
+    timestamp: new Date().toISOString(),
+    footer: { text: 'Take Notes Capital' }
+  };
+  try {
+    await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'TNC Lead Alert', embeds: [embed] }) });
+  } catch (e) {}
+}
+
 // Upsert by email (merges fields into the existing contact), THEN add tags via the dedicated
 // endpoint so tags ACCUMULATE. GHL's upsert overwrites a tags[] in the payload, so tags never
 // go in the upsert body -- they are added separately and additively.
@@ -85,6 +123,7 @@ async function submit(payload, tags){
   if (id && Array.isArray(tags) && tags.length) {
     try { await fetch(GHL_BASE + '/contacts/' + encodeURIComponent(id) + '/tags', { method:'POST', headers: GHL_HEADERS, body: JSON.stringify({ tags }) }); } catch (e) {}
   }
+  if (id && tempTag === 'hot') await notifyDiscord(id, payload, tags);
   return { ok: true, status: 200, json: async () => ({ contact: { id } }), text: async () => '' };
 }
 
