@@ -24,8 +24,10 @@ const INVESTING_WITH_MAP = {
   'traditional_ira': 'Traditional IRA',
   'roth_ira':        'Roth IRA',
   '401k':            '401(k) / Solo 401(k)',
+  'solo_401k':       '401(k) / Solo 401(k)',
   'cash':            'Cash / Savings',
   'entity':          'LLC / Business Entity',
+  'business_capital':'LLC / Business Entity',
   'not_sure':        'Not sure yet'
 };
 const INVESTMENT_RANGE_MAP = {
