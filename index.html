@@ -84,10 +84,10 @@
   /* SECTIONS */
   section { min-height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 72px 24px; position: relative; }
   .section-short { min-height: auto; padding: 72px 24px; }
-  #hero { padding: 150px 24px 84px; }
+  #hero { padding: 120px 24px 24px; }
   .hero-orient { margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--hairline); }
   .hero-eyebrow { text-align: center; margin-bottom: 16px; }
-  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 96px 24px 56px; } .hero-orient { margin-top: 40px; } }
+  @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 88px 24px 20px; } .hero-orient { margin-top: 40px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
 
@@ -716,6 +716,7 @@
     font-weight: 400;
   }
   /* [BTB] Be the bank section */
+  #be-the-bank { padding-top: 44px; } /* tighten gap under the slim hero (overrides .lay top only) */
   #be-the-bank .btb-shell { text-align: center; }
   .btb-h { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'wght' 400, 'SOFT' 30, 'WONK' 0; font-weight: 400; font-size: clamp(30px, 4.2vw, 48px); line-height: 1.05; letter-spacing: -0.01em; margin: 0 auto 22px; max-width: 22ch; }
   .btb-frame { font-size: 15.5px; line-height: 1.7; color: var(--muted); max-width: 64ch; margin: 0 auto 26px; }
