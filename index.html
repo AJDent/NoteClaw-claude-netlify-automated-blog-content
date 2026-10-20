@@ -86,7 +86,8 @@
   .section-short { min-height: auto; padding: 72px 24px; }
   #hero { padding: 120px 24px 24px; }
   .hero-orient { margin-top: 60px; padding-top: 34px; border-top: 1px solid var(--hairline); }
-  .hero-eyebrow { text-align: center; margin-bottom: 16px; font-size: 18px; letter-spacing: 0.16em; }
+  .hero-eyebrow { text-align: center; margin-bottom: 16px; }
+  #hero .hero-eyebrow { font-size: 18px; letter-spacing: 0.16em; } /* beat .kicker (same specificity, defined later) */
   @media (max-width: 600px) { section, .section-short { padding: 48px 24px; } #hero { padding: 88px 24px 20px; } .hero-orient { margin-top: 40px; } }
   .scroll-arrow { position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; opacity: 0.35; font-size: 26px; }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)} }
