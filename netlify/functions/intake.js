@@ -161,7 +161,12 @@ async function handleNewsletter(data){
     source: 'TNC Newsletter', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor','Cold','Newsletter')
   };
-  return submit(payload, ['source-newsletter', 'consent-newsletter']);
+  // Optional self-ID on the signup form -> write situation to the investing_with custom field +
+  // avatar tag (reuses the blog form's maps so the welcome emails can merge the situation back).
+  if (data.situation && BLOG_INVESTOR_TYPE_MAP[data.situation])
+    payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.situation] });
+  const avatarTag = BLOG_AVATAR_TAG[data.situation];
+  return submit(payload, ['source-newsletter', 'consent-newsletter', ...(avatarTag ? [avatarTag] : [])]);
 }
 
 async function handleVideo(data){
