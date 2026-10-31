@@ -424,7 +424,6 @@
   /* NOTE BUYERS */
   /* note-buyer entry block (R14 B3) */
   .nbf-block { text-align: center; }
-  .nbf-lead { color: var(--muted); font-size: 15px; margin-bottom: 12px; }
   .nbf-links { display: inline-flex; flex-wrap: wrap; gap: 8px 14px; justify-content: center; align-items: center; }
   .nbf-links a { color: var(--blue); text-decoration: none; font-weight: 600; font-size: 15px; }
   .nbf-links a:hover { text-decoration: underline; }
@@ -1286,9 +1285,9 @@ window.TNC.enrich=function(p){p=p||{};p._elapsed=Date.now()-(window.TNC._loadedA
 </section>
 
 <!-- [NBF] NOTE-BUYER ENTRY BLOCK (R14 B3) -->
-<section class="bg-black section-short" id="note-buyers">
+<section class="bg-black section-short" id="note-buyers" style="padding-bottom:36px">
 <div class="shell nbf-block fade-in">
-<p class="nbf-lead">Already buying notes?</p>
+<p class="dd-eyebrow">Already buying notes?</p>
 <div class="nbf-paths">
 <p class="nbf-path"><a href="/buy-box">Send us your buy box &rarr;</a> <span class="nbf-desc">We'll reach out when a deal fits your criteria.</span></p>
 <p class="nbf-path"><a href="#formWrap" onclick="tncNoteBuyerAsk(event)">Ask us something specific &rarr;</a> <span class="nbf-desc">For anything that isn't a buy box.</span></p>
@@ -1313,9 +1312,9 @@ function tncNoteBuyerAsk(e){
 </script>
 
 <!-- [DD] DEAL DESK NEWSLETTER (R11 §8 — bottom rung of the CTA ladder) -->
-<section class="bg-black section-short" id="deal-desk">
+<section class="bg-black section-short" id="deal-desk" style="padding-top:36px">
 <div class="shell dd-wrap">
-<div class="dd-eyebrow">Not ready to talk?</div>
+<div class="dd-eyebrow">Just curious about notes?</div>
 <h3 class="rail-h">Stay in the loop.</h3>
 <p class="dd-sub">The <strong>TNC Newsletter</strong>. Notes, markets, and what we're learning. Unsubscribe whenever.</p>
 <form class="dd-form" onsubmit="return dealDeskSubmit(event)">
