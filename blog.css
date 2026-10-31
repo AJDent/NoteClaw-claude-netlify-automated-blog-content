@@ -43,7 +43,7 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   height: 68px;
 }
-.nav-logo img { height: 44px; width: auto; object-fit: contain; }
+.nav-logo img { height: 54px; width: auto; object-fit: contain; }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: var(--gray-light); text-decoration: none; font-size: 0.875rem;
