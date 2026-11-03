@@ -151,7 +151,17 @@ async function handleCalculator(data){
     source: 'Calculator', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor','Hot','Calculator')
   };
-  const notes = utmNote(data); if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
+  // Log the figures the lead actually ran, so a booked call opens with their numbers in hand.
+  const inp = data.inputs || {};
+  const calcParts = [];
+  if (inp.bal   != null) calcParts.push('Balance/cash: $' + inp.bal);
+  if (inp.rate  != null) calcParts.push('Current return: ' + inp.rate + '%');
+  if (inp.rent  != null) calcParts.push('Monthly rent: $' + inp.rent);
+  if (inp.costs != null) calcParts.push('Costs: $' + inp.costs);
+  if (inp.cash  != null) calcParts.push('Cash in: $' + inp.cash);
+  const calcNote = calcParts.length ? ('Calculator inputs — ' + calcParts.join(' · ')) : '';
+  const notes = [calcNote, utmNote(data)].filter(Boolean).join('\n');
+  if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
   return submit(payload, ['source-calculator', ...laneTags(data)]);
 }
 

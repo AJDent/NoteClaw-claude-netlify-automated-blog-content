@@ -97,6 +97,27 @@
   .toast-bar{height:3px;background:var(--green);width:100%;transform-origin:left;}
   .toast.run .toast-bar{animation:drain 8s linear forwards;}
   @keyframes drain{from{transform:scaleX(1);}to{transform:scaleX(0);}}
+  /* exits (what the money could do in a note) */
+  section.exits{padding:44px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;}
+  .exits h2{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;margin-bottom:20px;max-width:18ch;}
+  .exits h2 b{color:var(--green);font-weight:inherit;}
+  .ex-frame{color:var(--muted);max-width:64ch;line-height:1.75;margin-bottom:12px;}
+  .ex-frame b{color:var(--text);font-weight:600;}
+  .ex-list{display:flex;flex-direction:column;gap:16px;margin:28px 0 8px;}
+  .ex-item{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:20px 22px;}
+  .ex-item h3{font-size:19px;margin-bottom:9px;}
+  .ex-item p{color:var(--muted);line-height:1.72;margin:0 0 8px;}
+  .ex-item p:last-child{margin-bottom:0;}
+  .ex-item b{color:var(--text);font-weight:600;}
+  .ex-item .fig{color:var(--green);font-weight:700;white-space:nowrap;}
+  .ex-split{list-style:none;margin:8px 0;padding:0;}
+  .ex-split li{color:var(--muted);line-height:1.72;padding-left:18px;position:relative;margin-bottom:4px;}
+  .ex-split li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue);}
+  .ex-split li b{color:var(--text);}
+  .ex-close{margin:26px 0 0;color:var(--text);max-width:64ch;line-height:1.75;font-size:clamp(16px,1.9vw,19px);}
+  .ex-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:50px;padding:15px 32px;font-weight:700;font-size:16px;text-decoration:none;margin-top:18px;box-shadow:0 12px 34px rgba(91,164,230,.22);transition:background .2s;}
+  .ex-cta:hover{background:#6fb2ec;}
+  .ex-disc{margin-top:16px;font-size:12.5px;color:var(--dim);font-style:italic;max-width:64ch;}
   /* footer */
   footer.yn{background:#050505;padding:40px 0;border-top:1px solid var(--hairline);margin-top:40px;}
   .disclaimer{font-size:11px;color:rgba(255,255,255,.35);max-width:900px;margin:0 auto;line-height:1.7;letter-spacing:.4px;text-align:center;}
@@ -122,9 +143,13 @@
 </div>
 </header>
 
+<section class="exits">
+<div class="shell"><div id="exitBlock"></div></div>
+</section>
+
 <section class="vid">
 <div class="shell">
-<h2>This is a brief hello.</h2>
+<h2>The formal walkthrough.</h2>
 <p class="vid-copy">Who I am, what we actually do at TNC, and how we operate start to finish. Watch it and take three minutes to see where this could be a good fit for you. Then catch up with me here <a class="gate-link" id="inlineLink" href="https://talkwithajdent.com" target="_blank" rel="noopener">Talkwithajdent.com</a></p>
 <p class="vid-sub" id="vidSub">The link goes live a few minutes in.</p>
 
@@ -204,6 +229,7 @@ Your browser does not support embedded video.
   };
   function g(id){return document.getElementById(id);}
   function fmt(n){return Math.round(n).toLocaleString('en-US');}
+  function num(x){x=parseFloat(x);return isFinite(x)?x:0;}
 
   /* ---- STUB: GHL tag writes (parked wiring). On real build POST /.netlify/functions/intake. ---- */
   var fired = {};
@@ -218,10 +244,25 @@ Your browser does not support embedded video.
 
   /* ---- merge data: localStorage (from the calculator) with example fallback for standalone review ---- */
   function readData(){
-    var d = null;
-    try{ d = JSON.parse(localStorage.getItem('tncCalc')||'null'); }catch(e){}
-    if(d && d.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){ hasRealLead = true; }
-    if(!d){ d = {lane:'income', email:'you@email.com', bal:60000, rate:6.5, recap:null}; }
+    var ls = null;
+    try{ ls = JSON.parse(localStorage.getItem('tncCalc')||'null'); }catch(e){}
+    // URL params win over localStorage so the email link rebuilds THEIR numbers on any device.
+    var qs = new URLSearchParams(location.search);
+    var hasQ = qs.has('lane') || qs.has('bal') || qs.has('cash');
+    var d;
+    if(hasQ){
+      d = { lane: qs.get('lane') || (ls&&ls.lane) || 'income',
+            bal:num(qs.get('bal')), rate:num(qs.get('rate')),
+            rent:num(qs.get('rent')), costs:num(qs.get('costs')), cash:num(qs.get('cash')) };
+    } else if(ls){
+      d = ls;
+    } else {
+      d = {lane:'income', email:'you@email.com', bal:60000, rate:6.5, recap:null};
+    }
+    // email/name never ride in the URL -> only ever from localStorage (same device)
+    if(ls){ if(!d.email) d.email = ls.email; if(!d.name) d.name = ls.name; }
+    if(d.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){ hasRealLead = true; }
+    if(!d.email) d.email = 'you@email.com';
     return d;
   }
   var DATA = readData();
@@ -236,9 +277,44 @@ Your browser does not support embedded video.
     var line = DATA.recap;
     if(!line && DATA.bal && DATA.rate){
       var up = DATA.bal*DATA.rate/100 - DATA.bal*0.03;
-      line = 'You ran the numbers: <b>$'+fmt(DATA.bal)+' at '+DATA.rate+'%</b>, up <b>$'+fmt(up)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.';
+      line = 'You ran the numbers: <b>$'+fmt(DATA.bal)+' at '+DATA.rate+'%</b>, up <b>$'+fmt(up)+' a year after inflation</b>. Here is the other side, below.';
+    }
+    if(!line && DATA.lane==='operator' && DATA.cash){
+      var res=(DATA.rent||0)*0.28, net=(DATA.rent||0)-(DATA.costs||0)-res;
+      line = 'You ran the numbers: <b>$'+fmt(net)+' a month net</b> on $'+fmt(DATA.cash)+' deployed, after reserves. Here is the other side, below.';
     }
     if(line) g('recap').innerHTML = line;
+  })();
+
+  /* ---- exit block: what their capital could do in a note (illustrative, Option B) ---- */
+  (function(){
+    var el = g('exitBlock'); if(!el) return;
+    var lane = DATA.lane || 'income';
+    var capital = (lane==='operator') ? (DATA.cash||0) : (DATA.bal||0);
+    if(!capital || capital<=0) capital = 50000;           // safety fallback for a bare visit
+    var YIELD=0.10, ITV=0.65;                             // illustrative education figures (AJ-approved)
+    var monthly = capital*YIELD/12;
+    var propValue = capital/ITV;
+    var C = function(n){ return '$'+fmt(n); };
+    el.innerHTML =
+      '<h2>What your <b>'+C(capital)+'</b> could do in a note</h2>'
+      + '<p class="ex-frame"><b>First off, honesty.</b> The numbers below are examples built on what you entered, just to show how a note works for someone in your spot. They aren\'t a promise, and yes, TNC makes money on these too. No mystery there, we can get into the mumbo jumbo on a call down the road.</p>'
+      + '<p class="ex-frame">And this is one way to invest, not the only way, and not automatically the right one for you. We\'re just showing how it works so you can weigh it for yourself.</p>'
+      + '<p class="ex-frame">Here\'s the idea in plain English: you own the mortgage on a real house, so the payment that used to go to the bank comes to you instead. Three ways it can play out.</p>'
+      + '<div class="ex-list">'
+      +   '<div class="ex-item"><h3>1. It keeps paying.</h3>'
+      +     '<p>The homeowner makes their payment, same as always, and it lands in your account every month. On '+C(capital)+', that\'s about <span class="fig">'+C(monthly)+' a month</span> coming to you. No tenants. No repairs. No random call or email about what broke now.</p></div>'
+      +   '<div class="ex-item"><h3>2. It gets paid off early.</h3>'
+      +     '<p>The homeowner sells the house or refinances and pays the whole thing off. Two separate things come back to you:</p>'
+      +     '<ul class="ex-split"><li><b>Your principal</b> — the full '+C(capital)+' you put in comes back.</li>'
+      +     '<li><b>Your income</b> — every payment it already made you is yours to keep.</li></ul>'
+      +     '<p>So you walk away with your money back, plus what it earned you while you held it.</p></div>'
+      +   '<div class="ex-item"><h3>3. It stops paying.</h3>'
+      +     '<p>This is the part that makes a note different from a stock or a savings account. There\'s a real house standing behind your money. You put in '+C(capital)+', but the house is worth about <span class="fig">'+C(propValue)+'</span>. That difference is your safety net. If the homeowner stops paying, the house is what pays you back, and it\'s worth more than you put in.</p></div>'
+      + '</div>'
+      + '<p class="ex-close">A real house stands behind all three. But these are just examples. Your situation is the conversation we\'d clear up on a quick call, to see how this could actually be a fit for you.</p>'
+      + '<a class="ex-cta" href="https://talkwithajdent.com" target="_blank" rel="noopener">Book a call</a>'
+      + '<p class="ex-disc">These are example numbers to show how a note works, not a promise of returns or an offer.</p>';
   })();
 
   /* ---- chapter list ---- */
