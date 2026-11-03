@@ -16,7 +16,8 @@ const FIELD_IDS = {
   lien_position:      'WmIwBeFqDCtgVVIk49Qb',
   target_state:       '5AtOBCG5D48tPMPVqDAV',
   decision_speed:     'lGuYsUdaLx1gSV4Rsxwl',
-  max_ltv:            'loRbnFa67biv3fxegt4i'
+  max_ltv:            'loRbnFa67biv3fxegt4i',
+  numbers_link:       'uKqvJ8w1qEbDaUVw9KJc'
 };
 
 const INVESTING_WITH_MAP = {
@@ -162,6 +163,13 @@ async function handleCalculator(data){
   const calcNote = calcParts.length ? ('Calculator inputs — ' + calcParts.join(' · ')) : '';
   const notes = [calcNote, utmNote(data)].filter(Boolean).join('\n');
   if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
+  // Personalized results link: the same encoded URL the page builds, so Email 1 deep-links to THEIR numbers on any device.
+  const L = data.lane || 'income';
+  const q = (L === 'operator')
+    ? ('lane=operator&rent=' + (inp.rent||0) + '&costs=' + (inp.costs||0) + '&cash=' + (inp.cash||0))
+    : ('lane=' + encodeURIComponent(L) + '&bal=' + (inp.bal||0) + '&rate=' + (inp.rate||0));
+  payload.customFields.push({ id: FIELD_IDS.numbers_link,
+    field_value: 'https://takenotescapital.com/your-numbers.html?' + q });
   return submit(payload, ['source-calculator', ...laneTags(data)]);
 }
 
