@@ -1,3 +1,6 @@
 
 # auto-draft routine bytecode
 queue/__pycache__/
+
+# Local Netlify folder
+.netlify
