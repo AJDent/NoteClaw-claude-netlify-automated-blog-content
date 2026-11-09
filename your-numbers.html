@@ -28,20 +28,22 @@
   .ynav .back{color:var(--muted);text-decoration:none;font-size:14px;}
   .ynav .back:hover{color:var(--blue);}
   /* header + recap */
-  header.yn{padding:52px 0 8px;}
+  header.yn{padding:52px 0 8px;text-align:center;}
   .kicker{color:var(--blue);font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
-  header.yn h1{font-size:clamp(32px,5vw,50px);line-height:1.05;letter-spacing:-.02em;max-width:16ch;}
+  header.yn h1{font-size:clamp(32px,5vw,50px);line-height:1.05;letter-spacing:-.02em;max-width:18ch;margin-inline:auto;}
   header.yn h1 span{color:var(--blue);}
-  .recap{margin-top:20px;font-size:clamp(15px,1.8vw,18px);line-height:1.7;color:var(--muted);max-width:64ch;border-left:3px solid var(--blue);padding-left:16px;}
+  .recap{margin:20px auto 0;font-size:clamp(15px,1.8vw,18px);line-height:1.7;color:var(--muted);max-width:58ch;}
   .recap b{color:var(--text);font-weight:600;}
   /* exits (what the money could do in a note) */
-  section.exits{padding:44px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;}
-  .exits h2{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;margin-bottom:20px;max-width:18ch;}
+  section.exits{padding:44px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;text-align:center;}
+  .exits h2{font-size:clamp(26px,3.6vw,40px);line-height:1.08;letter-spacing:-.02em;margin:0 auto 20px;max-width:20ch;}
   .exits h2 b{color:var(--green);font-weight:inherit;}
-  .ex-frame{color:var(--muted);max-width:64ch;line-height:1.75;margin-bottom:12px;}
+  .ex-frame{color:var(--muted);max-width:60ch;line-height:1.75;margin:0 auto 12px;}
   .ex-frame b{color:var(--text);font-weight:600;}
+  .ex-frame .nt{color:var(--blue);}
+  .ex-lead{color:var(--text);font-weight:600;line-height:1.75;margin:6px auto 12px;max-width:60ch;}
   .ex-list{display:flex;flex-direction:column;gap:16px;margin:28px 0 8px;}
-  .ex-item{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:20px 22px;}
+  .ex-item{background:var(--card);border:1px solid var(--hairline);border-radius:14px;padding:20px 22px;text-align:left;}
   .ex-item h3{font-size:19px;margin-bottom:9px;}
   .ex-item p{color:var(--muted);line-height:1.72;margin:0 0 8px;}
   .ex-item p:last-child{margin-bottom:0;}
@@ -51,16 +53,18 @@
   .ex-split li{color:var(--muted);line-height:1.72;padding-left:18px;position:relative;margin-bottom:4px;}
   .ex-split li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--blue);}
   .ex-split li b{color:var(--text);}
-  .ex-close{margin:26px 0 0;color:var(--text);max-width:64ch;line-height:1.75;font-size:clamp(16px,1.9vw,19px);}
+  .ex-close{margin:26px auto 0;color:var(--text);max-width:60ch;line-height:1.75;font-size:clamp(16px,1.9vw,19px);}
   .ex-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:50px;padding:15px 32px;font-weight:700;font-size:16px;text-decoration:none;margin-top:18px;box-shadow:0 12px 34px rgba(91,164,230,.22);transition:background .2s;}
   .ex-cta:hover{background:#6fb2ec;}
-  .ex-disc{margin-top:16px;font-size:12.5px;color:var(--dim);font-style:italic;max-width:64ch;}
+  .ex-disc{margin:16px auto 0;font-size:12.5px;color:var(--dim);font-style:italic;max-width:60ch;}
   /* walkthrough pointer -> pitch page */
-  section.walk{padding:40px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;}
+  section.walk{padding:40px 0 8px;border-top:1px solid var(--hairline);margin-top:36px;text-align:center;}
   .walk h2{font-size:clamp(22px,3vw,30px);margin-bottom:12px;}
-  .walk p{color:var(--muted);max-width:64ch;line-height:1.75;margin-bottom:20px;}
-  .walk-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:50px;padding:15px 30px;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 12px 34px rgba(91,164,230,.22);transition:background .2s;}
+  .walk p{color:var(--muted);max-width:60ch;line-height:1.75;margin:0 auto 20px;}
+  .walk-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;border-radius:50px;padding:15px 32px;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 12px 34px rgba(91,164,230,.22);transition:background .2s;}
   .walk-cta:hover{background:#6fb2ec;}
+  .walk-secondary{display:block;margin:18px auto 0;color:#AEBAD0;font-size:16px;font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(174,186,208,.4);transition:color .2s;}
+  .walk-secondary:hover{color:var(--blue);text-decoration-color:var(--blue);}
   /* footer */
   footer.yn{background:#050505;padding:40px 0;border-top:1px solid var(--hairline);margin-top:40px;}
   .disclaimer{font-size:11px;color:rgba(255,255,255,.35);max-width:900px;margin:0 auto;line-height:1.7;letter-spacing:.4px;text-align:center;}
@@ -92,8 +96,10 @@
 <section class="walk">
 <div class="shell">
 <h2>Want it straight from me?</h2>
-<p>The three-minute walkthrough is who I am, what we actually do at TNC, and how a note works start to finish. Watch it and see for yourself where this could be a good fit for you.</p>
-<a class="walk-cta" href="pitch.html">Watch the walkthrough &rarr;</a>
+<p>Your situation is the conversation we'd clear up on a quick call, to see how this could actually be a fit for you. Rather see it first? The three-minute walkthrough is who I am, what we do at TNC, and how a note works start to finish.</p>
+<a class="walk-cta" href="https://talkwithajdent.com" target="_blank" rel="noopener">Book a call</a>
+<a class="walk-secondary" href="pitch.html">Watch the walkthrough instead &rarr;</a>
+<p class="ex-disc">These are example numbers to show how a note works, not a promise of returns or an offer.</p>
 </div>
 </section>
 
@@ -151,23 +157,22 @@
     var C = function(n){ return '$'+fmt(n); };
     el.innerHTML =
       '<h2>What your <b>'+C(capital)+'</b> could do in a note</h2>'
-      + '<p class="ex-frame"><b>First off, honesty.</b> The numbers below are examples built on what you entered, just to show how a note works for someone in your spot. They aren\'t a promise, and yes, TNC makes money on these too. No mystery there, we can get into the mumbo jumbo on a call down the road.</p>'
-      + '<p class="ex-frame">And this is one way to invest, not the only way, and not automatically the right one for you. We\'re just showing how it works so you can weigh it for yourself.</p>'
-      + '<p class="ex-frame">Here\'s the idea in plain English: you own the mortgage on a real house, so the payment that used to go to the bank comes to you instead. Three ways it can play out.</p>'
+      + '<p class="ex-frame"><b>First off, honesty.</b> The numbers below are examples from what you entered, not a promise, and yes, TNC makes money on these too. No mystery there.</p>'
+      + '<p class="ex-frame"><b>Quick <span class="nt">note:</span></b> this is just one way to invest, not automatically the right one for you. We\'re showing how it works so you can weigh it yourself.</p>'
+      + '<p class="ex-lead">Instead of buying the house, you own the mortgage on it. The homeowner\'s payment comes to you, not the bank.</p>'
+      + '<p class="ex-lead">Here are three ways it could play out:</p>'
       + '<div class="ex-list">'
-      +   '<div class="ex-item"><h3>1. It keeps paying.</h3>'
+      +   '<div class="ex-item"><h3>1. The note keeps paying.</h3>'
       +     '<p>The homeowner makes their payment, same as always, and it lands in your account every month. On '+C(capital)+', that\'s about <span class="fig">'+C(monthly)+' a month</span> coming to you. No tenants. No repairs. No random call or email about what broke now.</p></div>'
-      +   '<div class="ex-item"><h3>2. It gets paid off early.</h3>'
+      +   '<div class="ex-item"><h3>2. The note gets paid off early.</h3>'
       +     '<p>The homeowner sells the house or refinances and pays the whole thing off. Two separate things come back to you:</p>'
-      +     '<ul class="ex-split"><li><b>Your principal</b> — the full '+C(capital)+' you put in comes back.</li>'
-      +     '<li><b>Your income</b> — every payment it already made you is yours to keep.</li></ul>'
+      +     '<ul class="ex-split"><li><b>Your principal:</b> the full '+C(capital)+' you put in comes back.</li>'
+      +     '<li><b>Your income:</b> every payment it already made you is yours to keep.</li></ul>'
       +     '<p>So you walk away with your money back, plus what it earned you while you held it.</p></div>'
-      +   '<div class="ex-item"><h3>3. It stops paying.</h3>'
+      +   '<div class="ex-item"><h3>3. The note stops paying.</h3>'
       +     '<p>This is the part that makes a note different from a stock or a savings account. There\'s a real house standing behind your money. You put in '+C(capital)+', but the house is worth about <span class="fig">'+C(propValue)+'</span>. That difference is your safety net. If the homeowner stops paying, the house is what pays you back, and it\'s worth more than you put in.</p></div>'
       + '</div>'
-      + '<p class="ex-close">A real house stands behind all three. But these are just examples. Your situation is the conversation we\'d clear up on a quick call, to see how this could actually be a fit for you.</p>'
-      + '<a class="ex-cta" href="https://talkwithajdent.com" target="_blank" rel="noopener">Book a call</a>'
-      + '<p class="ex-disc">These are example numbers to show how a note works, not a promise of returns or an offer.</p>';
+      + '<p class="ex-close">A real house backs all three as your collateral, worth more than you put in. But these are just examples built on your numbers.</p>';
   })();
 })();
 </script>
