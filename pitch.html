@@ -112,7 +112,7 @@
 <div class="guidebar" id="guidebar">
 <div class="shell">
 <span class="gb-check">&#10003;</span>
-<span class="gb-text"><b>Your guide is on the way to your inbox.</b> Give it about ten minutes, then check your spam folder if it has not shown up. In the meantime, here is the full picture below.</span>
+<span class="gb-text"><b>Your guide is on the way to your inbox.</b> Give it about ten minutes, then check your spam folder if it has not shown up. In the meantime, the walkthrough is right below.</span>
 <button class="gb-x" id="gbX" type="button" aria-label="Dismiss">&times;</button>
 </div>
 </div>
@@ -203,7 +203,7 @@ Your browser does not support embedded video.
   ];
   function g(id){return document.getElementById(id);}
 
-  /* ---- STUB: GHL tag writes (parked wiring). On real build POST /.netlify/functions/intake. ---- */
+  /* ---- GHL tag writes: POST gate/completed/declined to /.netlify/functions/intake when an identified lead is on this device (localStorage tncCalc). ---- */
   var fired = {};
   var hasRealLead = false;
   var EVENT_MAP = { 'gate-reached-280':'gate', 'video-completed':'completed', 'declined':'declined', 'page-reached':'landed' };
@@ -224,7 +224,7 @@ Your browser does not support embedded video.
   }
   var DATA = readData();
 
-  /* ---- guide banner: only on the fresh post-submit landing ---- */
+  /* ---- guide banner: shows on the fresh post-submit landing (calculator -> pitch?justsubmitted) ---- */
   (function(){
     var qs=new URLSearchParams(location.search);
     if(qs.has('justsubmitted')){ g('guidebar').classList.add('show'); }

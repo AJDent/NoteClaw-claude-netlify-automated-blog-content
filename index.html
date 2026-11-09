@@ -484,22 +484,6 @@
   .calc-gate-row input { flex: 1; min-width: 180px; font: inherit; font-size: 15px; color: var(--white); background: #080b14; border: 1px solid rgba(91,164,230,0.25); border-radius: 8px; padding: 12px 14px; }
   .calc-gate-row .cta-btn { margin: 0; }
   .calc-gate-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 10px; }
-  .calc-stage2 { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(78,203,113,0.25); font-size: 16px; line-height: 1.6; color: rgba(255,255,255,0.9); }
-  .calc-s2-head { font-weight: 700; color: var(--green); margin-bottom: 10px; }
-  .calc-stage2 b { color: var(--green); }
-  .calc-secured { margin: 16px 0; }
-  .calc-secured-bar { display: flex; height: 34px; border-radius: 7px; overflow: hidden; font-size: 11px; font-weight: 700; }
-  .calc-secured-bar .seg-note { background: var(--blue); color: #fff; flex: 62; display: flex; align-items: center; justify-content: center; }
-  .calc-secured-bar .seg-eq { background: #3fae5f; color: #06210f; flex: 38; display: flex; align-items: center; justify-content: center; }
-  .calc-secured-cap { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 8px; }
-  .calc-guide { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 12px; }
-  .calc-disc { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 10px; font-style: italic; }
-  .calc-next { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-  .calc-next-btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 24px; border-radius: 50px; font-weight: 700; font-size: 15px; text-decoration: none; border: 1px solid var(--hairline); color: var(--text); background: rgba(255,255,255,0.04); transition: background .2s, border-color .2s, transform .2s; }
-  .calc-next-btn:hover { border-color: rgba(91,164,230,0.5); transform: translateY(-2px); }
-  .calc-next-btn.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
-  .calc-next-btn.primary:hover { background: var(--gold-light); }
-  .calc-next-note { font-size: 12px; color: var(--dim); margin-top: 12px; }
   .legal-pending { border-bottom: 1px dashed var(--red); cursor: help; }
   .calc-intro { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 4px; line-height: 1.5; }
   .calc-intro b { color: var(--blue); }
@@ -1044,7 +1028,6 @@ window.TNC.enrich=function(p){p=p||{};p._elapsed=Date.now()-(window.TNC._loadedA
 <input type="text" id="calcHp" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
 <p class="calc-gate-sub" id="calcGuideLine">Plus a free guide written for investors like you.</p>
 </div>
-<div class="calc-stage2" id="calcStage2" hidden=""></div>
 </div>
 <div class="calc-infl" id="calcInflation" hidden="">
 <p class="calc-infl-head">Meanwhile, the cash you did not move.</p>
@@ -1452,14 +1435,13 @@ function tncNoteBuyerAsk(e){
   };
   var state={lane:null,v:{}};
   var g=function(id){return document.getElementById(id);};
-  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elS2=g('calcStage2'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
+  var elInputs=g('calcInputs'),elFrame=g('calcFrame'),elS1=g('calcStage1'),elGate=g('calcGate'),elGateQ=g('calcGateQ'),elEmail=g('calcEmail'),elBtn=g('calcGateBtn');
   function cfg(){return LANES[state.lane]||LANES.income;}
   function isMoney(f){return f.step>=1;}
   function fmtMoney(x){x=(''+x).replace(/[^\d]/g,'');return x?(+x).toLocaleString('en-US'):'';}
   function readVals(){var v={};cfg().fields.forEach(function(f){var el=g('cf_'+f.id);var raw=el?(''+el.value).replace(/,/g,''):'';v[f.id]=el?(parseFloat(raw)||0):f.val;});state.v=v;return v;}
   function renderInputs(){var c=cfg();elInputs.innerHTML=c.fields.map(function(f){var dv=isMoney(f)?(+f.val).toLocaleString('en-US'):f.val;var im=isMoney(f)?'numeric':'decimal';return "<label class='calc-fld'>"+f.label+"<input type='text' inputmode='"+im+"' id='cf_"+f.id+"' value='"+dv+"'></label>";}).join('');c.fields.forEach(function(f){var el=g('cf_'+f.id);el.addEventListener('input',function(){if(isMoney(f)){el.value=fmtMoney(el.value);}update();});});}
   function update(){var c=cfg(),v=readVals();elS1.innerHTML=c.stage1(v);elGateQ.innerHTML=c.gate(v);elGate.hidden=false;var gl=g('calcGuideLine');if(gl){if(state.lane){gl.textContent='Plus a free guide written for '+(c.aud||'investors')+' like you.';gl.hidden=false;}else{gl.hidden=true;}}}
-  function showStage2(){var c=cfg(),v=state.v,base=c.base(v);var L=state.lane||'income';var nhref='your-numbers.html?lane='+encodeURIComponent(L)+(L==='operator'?('&rent='+(v.rent||0)+'&costs='+(v.costs||0)+'&cash='+(v.cash||0)):('&bal='+(v.bal||0)+'&rate='+(v.rate||0)));elS2.hidden=false;elS2.innerHTML="<div class='calc-s2-head'>Here's the other side ↓</div><p>That same <b>$"+fmt(base)+"</b> could be doing what the bank does: holding the loan on a real house, the monthly payment coming to you, the property standing behind it.</p><div class='calc-secured'><div class='calc-secured-bar'><span class='seg-note'>your note</span><span class='seg-eq'>equity cushion</span></div><p class='calc-secured-cap'>And it's <b>secured</b>: every note is backed by real property we bought below its value. That gap stands behind your position, first in line to get paid.</p></div><p class='calc-guide'>On its way to your inbox: <b>"+c.guide+"</b></p><p class='calc-disc'>Notes carry risk, including possible loss of principal. Not an offer, projection, or investment advice.</p><div class='calc-next'><a class='calc-next-btn primary' href='"+nhref+"'>See the full breakdown of how this works &rarr;</a><a class='calc-next-btn' href='https://talkwithajdent.com' target='_blank' rel='noopener'>Book a call</a></div><p class='calc-next-note'>Your guide is on its way to your inbox. Watch, book, or keep exploring below.</p>";elS2.scrollIntoView({behavior:'smooth',block:'nearest'});}
   function submitGate(){var email=(elEmail.value||'').trim();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){elEmail.focus();elEmail.style.borderColor='var(--red)';return;}
     var name=((g('calcName')&&g('calcName').value)||'').trim();
     var realLane=state.lane, lane=realLane||'income', v=state.v, c=cfg(), recap;
@@ -1467,12 +1449,12 @@ function tncNoteBuyerAsk(e){
     else { var a=v.bal*v.rate/100, r=a-v.bal*INFLATION; recap='You ran the numbers: <b>$'+fmt(v.bal)+' at '+v.rate+'%</b>, up <b>$'+fmt(r)+' a year after inflation</b>. The full breakdown and your guide are in your inbox.'; }
     window.TNC=window.TNC||{};window.TNC.calcLead={lane:realLane,email:email,inputs:v,guide:c.guide};
     try{ localStorage.setItem('tncCalc', JSON.stringify({lane:realLane,email:email,name:name,bal:v.bal,rate:v.rate,recap:recap,guide:c.guide})); }catch(e){}
-    try{ var hp=((g('calcHp')&&g('calcHp').value)||''); var p=(window.TNC.enrich?window.TNC.enrich({}):{}); p._form='calculator'; p.email=email; p.name=name; p.lane=realLane||''; p.inputs=v; p._hp=hp; fetch('/.netlify/functions/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}); }catch(e){}
-    showStage2();}
+    try{ var hp=((g('calcHp')&&g('calcHp').value)||''); var p=(window.TNC.enrich?window.TNC.enrich({}):{}); p._form='calculator'; p.email=email; p.name=name; p.lane=realLane||''; p.inputs=v; p._hp=hp; fetch('/.netlify/functions/intake',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json'},body:JSON.stringify(p)}); }catch(e){}
+    window.location.href='pitch.html?justsubmitted=1&lane='+encodeURIComponent(lane);}
   elBtn.addEventListener('click',submitGate);
   function inflToggle(lane){var inf=g('calcInflation');if(inf)inf.hidden=(lane!=='income');}
-  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(lane);};
-  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();elS2.hidden=true;elS2.innerHTML='';update();inflToggle(null);};
+  window.tncCalcSetLane=function(lane){if(!LANES[lane])return;state.lane=lane;elFrame.textContent=cfg().frame;renderInputs();update();inflToggle(lane);};
+  window.tncCalcReset=function(){state.lane=null;elFrame.textContent="So what's your money doing right now?";renderInputs();update();inflToggle(null);};
   renderInputs();update();
   if(window.TNC&&window.TNC.lane&&LANES[window.TNC.lane]) window.tncCalcSetLane(window.TNC.lane); // apply ?lane= preset regardless of script order
 })();
