@@ -18,7 +18,16 @@ body { font-family: "Inter", -apple-system, sans-serif; background: var(--black)
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 12px 48px; background: rgba(8,8,8,0.94); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(91,164,230,0.15); }
 .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--white); font-family: "Playfair Display", serif; font-weight: 700; font-size: 20px; }
-.nav-logo-mark { width: 42px; height: 42px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: 1px; }
+.nav-logo-img { height: 44px; width: auto; display: block; }
+/* Deal breakdown dropdown */
+.deal-details { max-width: 520px; margin: 18px auto 0; text-align: left; background: rgba(255,255,255,0.03); border: 1px solid rgba(91,164,230,0.18); border-radius: 12px; overflow: hidden; }
+.deal-details summary { cursor: pointer; list-style: none; padding: 14px 20px; font-weight: 600; font-size: 15px; color: var(--blue); display: flex; align-items: center; justify-content: space-between; }
+.deal-details summary::-webkit-details-marker { display: none; }
+.deal-details summary::after { content: "+"; font-size: 20px; line-height: 1; color: var(--blue); }
+.deal-details[open] summary::after { content: "\2212"; }
+.deal-details .dd-body { padding: 2px 20px 20px; }
+.deal-details .dd-body p { margin: 12px 0 0; font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,0.72); }
+.deal-details .dd-body p strong { color: var(--white); display: block; margin-bottom: 2px; }
 .nav-cta { background: var(--blue); color: #fff; padding: 10px 22px; border-radius: 50px; font-weight: 600; font-size: 14px; text-decoration: none; transition: all 0.3s; }
 .nav-cta:hover { background: var(--blue-light); }
 
@@ -173,7 +182,7 @@ footer { background: #040404; border-top: 1px solid rgba(91,164,230,0.1); paddin
 /* RESPONSIVE */
 @media (max-width: 900px) {
   nav { padding: 12px 20px; }
-  .nav-logo span:last-child { display: none; }
+  .nav-logo-img { height: 38px; }
   section { padding: 70px 20px; }
   .problem-grid, .inside-grid, .compare-grid, .dual-cta, .stat-row, .pillars-grid { grid-template-columns: 1fr; }
   .about-row { grid-template-columns: 1fr; text-align: center; }
@@ -189,7 +198,7 @@ footer { background: #040404; border-top: 1px solid rgba(91,164,230,0.1); paddin
 /* ── Pitch video: custom player (no timeline, length hidden) ── */
 .pitch-player{position:relative;max-width:880px;margin:32px auto 0;border-radius:14px;overflow:hidden;background:#0A0E1A;box-shadow:0 24px 60px rgba(0,0,0,.5);aspect-ratio:16/9}
 .pitch-video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0A0E1A;object-fit:contain}
-.pitch-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;cursor:pointer;background:radial-gradient(circle at 50% 42%,#182444 0%,#0A0E1A 78%);z-index:2}
+.pitch-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;cursor:pointer;background:radial-gradient(circle at 50% 42%,#0E1220 0%,#000 78%);z-index:2}
 .pitch-logo{width:min(52%,360px);height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45))}
 .pitch-playbtn{width:74px;height:74px;border-radius:50%;background:var(--blue,#5ba4e6);color:#fff;display:flex;align-items:center;justify-content:center;padding-left:5px;box-shadow:0 10px 30px rgba(91,164,230,.5);transition:transform .15s}
 .pitch-poster:hover .pitch-playbtn,.pitch-poster:focus-visible .pitch-playbtn{transform:scale(1.08)}

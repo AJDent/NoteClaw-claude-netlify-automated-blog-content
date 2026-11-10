@@ -11,6 +11,7 @@
 3. **ALWAYS verify each chunk compiled correctly before moving to the next.**
 4. **ALWAYS run the SEO smoke test before pushing to Netlify.**
 5. **Use `edit` tool for incremental additions — NOT one giant `write`.**
+6. **PILLAR-CLUSTER RULE (added 2026-09-21 — HARD RULE).** No post ships as an orphan. Every post is assigned to one of the 7 categories AND that category's **pillar** (its flagship post) during CHUNK 0, and it ships with a **"Related Reading" block linking UP to its pillar + 2 sibling posts**; the pillar gets a **DOWN link** back to it in the same change. And it must target a **primary query no live post already owns** (if it does, pick a distinct angle or fold into that post — never publish a second page chasing the same query). This is why Google was crawling posts but not indexing them; the full map + rationale live in the vault: `business/blog-seo-cluster-plan.md`.
 
 ---
 
@@ -34,6 +35,9 @@ Before ANY code is written, produce and confirm:
 □ Quiz questions (3 questions, 4 options each, correct answer + explanation)
 □ CLAIM → SOURCE table: every factual claim / number / rate / stat you'll assert, each paired with its
   authoritative source + URL (the Backbone Rule). Anonymized deal-math figures are exempt; external facts are not.
+□ CATEGORY PILLAR + CLUSTER LINKS (Pillar-Cluster Rule): name this post's category pillar + the 2 sibling posts
+  it will link to (the "Related Reading" block), and the DOWN link the pillar will add back. Confirm the primary
+  query is NOT already owned by a live post (if it is: distinct angle, or fold into that post — no duplicate-query pages).
 □ Publish date
 ```
 
@@ -403,6 +407,7 @@ Before EVERY blog deploy:
 □ Div open/close count matches
 □ No placeholder text remaining
 □ blog.html updated with new card
+□ INTERNAL LINKS (Pillar-Cluster Rule): a "Related Reading" block links UP to the category pillar + 2 sibling posts, and the pillar has a DOWN link back to this post. NEVER ship orphaned (0 in-body post-to-post links).
 □ sitemap.xml updated with new URL
 □ Sitemap entry count verified (blog files + 2 = total <loc> entries)
 □ Git committed and pushed

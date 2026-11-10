@@ -55,6 +55,7 @@ jobs:
         run: python3 queue/publish_next.py
 
       - name: Commit & push (triggers Netlify deploy)
+        id: push
         if: steps.gate.outputs.go == '1'
         env:
           PUBLISHED: ${{ steps.pub.outputs.published || 'post' }}
@@ -68,3 +69,25 @@ jobs:
           git add -A
           git commit -m "Auto-publish (Friday cadence): $PUBLISHED"
           git push
+          echo "did_publish=1" >> "$GITHUB_OUTPUT"
+          echo "published_file=$PUBLISHED" >> "$GITHUB_OUTPUT"
+
+      # Pings Discord #tech-wizard on a real publish, via the TNC bot (the bot can't
+      # create webhooks, so we post as the bot). Safe: skips if the token secret isn't
+      # set, and continue-on-error means a notify hiccup never fails the publish.
+      - name: Notify Discord on publish
+        if: steps.gate.outputs.go == '1' && steps.push.outputs.did_publish == '1'
+        continue-on-error: true
+        env:
+          BOT_TOKEN: ${{ secrets.DISCORD_BLOG_BOT_TOKEN }}
+          FILE: ${{ steps.push.outputs.published_file }}
+        run: |
+          if [ -z "$BOT_TOKEN" ]; then
+            echo "DISCORD_BLOG_BOT_TOKEN secret not set — skipping Discord notify."
+            exit 0
+          fi
+          URL="https://takenotescapital.com/$FILE"
+          curl -s -H "Authorization: Bot $BOT_TOKEN" -H "Content-Type: application/json" \
+            -d "{\"content\":\"✅ **Blog published (Friday cadence)**: \`$FILE\` is now live — $URL\"}" \
+            "https://discord.com/api/v10/channels/1534245663133667389/messages"
+          echo "Discord notified (#tech-wizard)."

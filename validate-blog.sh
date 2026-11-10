@@ -110,6 +110,11 @@ CLOSES=$(grep -o "</div>" "$FILE" | wc -l)
 [ "$OPENS" -eq "$CLOSES" ]; check $? "Div tags balanced (open=$OPENS close=$CLOSES)"
 echo ""
 
+echo "🔗 INTERNAL LINKS (Pillar-Cluster Rule)"
+INT_LINKS=$(grep -oE 'href="[a-z0-9-]+\.html"' "$FILE" | grep -viE 'href="(index|blog|thank-you|404|privacy-policy|cookie-policy|terms-and-conditions|terms|contact|about|sitemap)\.html"' | sort -u | wc -l)
+[ "$INT_LINKS" -ge 3 ]; check $? "Links to >=3 sibling posts ($INT_LINKS found) — no orphan posts (pillar + 2 siblings)"
+echo ""
+
 echo "═══════════════════════════════════════"
 echo "  RESULTS: $PASS passed / $FAIL failed"
 if [ "$FAIL" -eq 0 ]; then
