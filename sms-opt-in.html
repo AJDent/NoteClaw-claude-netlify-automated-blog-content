@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Contact Take Notes Capital and opt in to receive calls and text messages about your mortgage note investing inquiry." name="description"/>
+<title>Contact &amp; SMS Opt-In — Take Notes Capital</title>
+<link rel="canonical" href="https://takenotescapital.com/sms-opt-in"/>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23212c52'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Georgia%2C serif' font-weight='700' font-size='11' fill='%235ba4e6'%3ETNC%3C/text%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<style>
+  @font-face{font-family:'Fraunces';src:url('fonts/fraunces.woff2') format('woff2');font-weight:200 700;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Figtree';src:url('fonts/figtree.woff2') format('woff2');font-weight:300 900;font-style:normal;font-display:swap;}
+  :root{
+    --black:#0A0E1A; --band:#0E1424; --card:#131A2B; --hairline:#202B45;
+    --text:#E8ECF4; --muted:#94A3B8; --dim:#5F7191; --blue:#5ba4e6; --blue-light:#7bbef0; --green:#4ecb71;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Figtree',system-ui,sans-serif;background:var(--black);color:var(--text);-webkit-font-smoothing:antialiased;font-size:17px;line-height:1.6;}
+  a{color:var(--blue);}
+  .site-header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--hairline);}
+  .site-header img{height:46px;width:auto;}
+  .site-header .back{font-size:14px;font-weight:600;text-decoration:none;color:var(--muted);}
+  .site-header .back:hover{color:var(--blue);}
+  .wrap{width:min(600px,calc(100% - 32px));margin:0 auto;padding:48px 0 24px;}
+  .kicker{color:var(--blue);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:12px;}
+  h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(30px,5vw,42px);line-height:1.08;letter-spacing:-0.02em;margin-bottom:14px;}
+  .lede{color:var(--muted);margin-bottom:32px;max-width:520px;}
+  .card{background:var(--card);border:1px solid var(--hairline);border-radius:16px;padding:28px 24px;}
+  .form-row{display:flex;gap:14px;}
+  .form-row .form-group{flex:1;}
+  .form-group{margin-bottom:16px;}
+  label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:0.01em;}
+  input,select,textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(91,164,230,0.2);border-radius:10px;padding:13px 15px;color:var(--text);font:inherit;font-size:15px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);}
+  select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;}
+  textarea{min-height:92px;resize:vertical;}
+  .sms-terms{background:var(--band);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;margin:4px 0 16px;font-size:12.5px;line-height:1.6;color:var(--muted);}
+  .sms-terms strong{color:var(--text);font-weight:600;}
+  .sms-consent{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;}
+  .sms-consent input{width:17px;height:17px;flex-shrink:0;margin-top:3px;accent-color:var(--blue);cursor:pointer;}
+  .sms-consent label{font-size:12.5px;line-height:1.55;color:var(--muted);font-weight:400;margin:0;cursor:pointer;}
+  .sms-consent label .opt{color:var(--dim);font-style:italic;}
+  .sms-consent a{color:var(--blue);text-decoration:underline;}
+  .form-submit{width:100%;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:15px;font:inherit;font-size:16px;font-weight:700;cursor:pointer;transition:background 0.2s;}
+  .form-submit:hover{background:var(--blue-light);}
+  .form-submit:disabled{opacity:0.6;cursor:default;}
+  .form-success{display:none;text-align:center;padding:16px 0;}
+  .form-success .ico{font-size:34px;}
+  .form-success h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:24px;margin:10px 0 8px;}
+  .form-success p{color:var(--muted);font-size:15px;}
+  .alt-book{text-align:center;margin-top:18px;font-size:14px;color:var(--muted);}
+  footer{border-top:1px solid var(--hairline);margin-top:40px;padding:28px 24px 40px;text-align:center;}
+  .footer-contact{font-size:13px;line-height:1.7;color:rgba(232,236,244,0.5);}
+  .footer-contact strong{color:rgba(232,236,244,0.7);font-weight:600;}
+  .footer-contact a{color:rgba(232,236,244,0.6);text-decoration:none;}
+  .footer-contact a:hover{color:var(--blue);}
+  .footer-legal{margin-top:14px;font-size:12px;}
+  .footer-legal a{color:var(--dim);text-decoration:none;margin:0 8px;}
+  .footer-legal a:hover{color:var(--blue);}
+  .footer-copy{margin-top:14px;font-size:12px;color:var(--dim);}
+  @media (max-width:520px){.form-row{flex-direction:column;gap:0;}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="/"><img alt="Take Notes Capital" src="logo.png"/></a>
+  <a class="back" href="/">&larr; Back to site</a>
+</header>
+
+<main class="wrap">
+  <div class="kicker">Take Notes Capital</div>
+  <h1>Contact us &amp; get text updates</h1>
+  <p class="lede">Send us a message about mortgage note investing. Share your mobile number and opt in below if you'd like us to text you about your inquiry.</p>
+
+  <div class="card">
+    <div id="formWrap">
+      <form class="contact-form" id="intakeForm" onsubmit="submitToGHL(event)">
+        <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
+        <input type="hidden" name="_src" value="sms-opt-in"/>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input name="first_name" placeholder="John" required="" type="text"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input name="last_name" placeholder="Smith" required="" type="text"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input name="email" placeholder="john@example.com" required="" type="email"/>
+        </div>
+        <div class="form-group">
+          <label>Phone Number (mobile, for text updates)</label>
+          <input name="phone" placeholder="(555) 000-0000" type="tel"/>
+        </div>
+        <div class="form-group">
+          <label>I'm Investing With</label>
+          <select name="investing_with">
+            <option disabled="" selected="" value="">Select...</option>
+            <option value="sdira">Self-Directed IRA (SDIRA)</option>
+            <option value="traditional_ira">Traditional IRA</option>
+            <option value="roth_ira">Roth IRA</option>
+            <option value="solo_401k">Solo 401(k) / 401(k)</option>
+            <option value="cash">Cash / Personal Savings</option>
+            <option value="business_capital">Business Capital</option>
+            <option value="not_sure">Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (optional)</label>
+          <textarea name="message" placeholder="Tell us about your goals or any questions you have..."></textarea>
+        </div>
+
+        <div class="sms-terms">
+          <strong>SMS terms.</strong> Take Notes Capital sends calls and text messages about your inquiry, scheduling, and information you request. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time. Consent is not a condition of any purchase. See our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-and-conditions">Terms &amp; Conditions</a>.
+        </div>
+
+        <div class="sms-consent">
+          <input type="checkbox" id="sms_consent" name="sms_consent" value="yes"/>
+          <label for="sms_consent">I agree to receive calls and text messages from Take Notes Capital at the number I provide, about my inquiry, scheduling, and the information I request. Consent is not a condition of any purchase. Message frequency varies. Message and data rates may apply. Reply STOP to opt out. See our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-and-conditions">Terms</a>. <span class="opt">(Optional — you can submit without checking this.)</span></label>
+        </div>
+
+        <button class="form-submit" type="submit">Send message</button>
+      </form>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="ico">✅</div>
+      <h3>Message received</h3>
+      <p>We'll be in touch within 48 hours. You can also book a call directly.</p>
+      <p class="alt-book"><a href="https://talkwithajdent.com" target="_blank" rel="noopener">Book a call &rarr;</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-contact">
+    <strong>Take Notes Capital</strong><br/>
+    30 N Gould St Ste R, Sheridan, WY 82801<br/>
+    <a href="mailto:ajdent@takenotescapital.com">ajdent@takenotescapital.com</a> · <a href="tel:+13075541431">(307) 554-1431</a><br/>
+    <a href="https://talkwithajdent.com">talkwithajdent.com</a>
+  </div>
+  <div class="footer-legal">
+    <a href="/privacy-policy">Privacy Policy</a>·<a href="/terms-and-conditions">Terms &amp; Conditions</a>
+  </div>
+  <div class="footer-copy">© 2026 Take Notes Capital. All rights reserved.</div>
+</footer>
+
+<script>
+  async function submitToGHL(event){
+    event.preventDefault();
+    const form = event.target;
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    const fd = new FormData(form);
+    const payload = (window.TNC && window.TNC.enrich) ? window.TNC.enrich({}) : {};
+    payload.first_name = fd.get('first_name') || '';
+    payload.last_name = fd.get('last_name') || '';
+    payload.email = fd.get('email') || '';
+    payload.phone = fd.get('phone') || '';
+    payload.investing_with = fd.get('investing_with') || '';
+    payload.message = fd.get('message') || '';
+    payload.sms_consent = fd.get('sms_consent') ? 'yes' : 'no';
+    payload._src = fd.get('_src') || 'sms-opt-in';
+    payload._hp = fd.get('_hp') || '';
+    try{
+      const res = await fetch('/.netlify/functions/intake', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error('Submission failed');
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }catch(err){
+      alert('Something went wrong. Please try again or email us directly.');
+      console.error(err);
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
+  }
+</script>
+</body>
+</html>
