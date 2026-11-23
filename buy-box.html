@@ -437,7 +437,8 @@
       first_name: firstName,
       last_name: lastName,
       phone: phone,
-      email: email
+      email: email,
+      sms_consent: (document.querySelector('input[name="sms_consent"]') || {}).checked ? 'yes' : 'no'
     };
 
     try {

@@ -394,7 +394,8 @@
       last_name:  fd.get('lastName')  || '',
       email:      fd.get('email')     || '',
       phone:      fd.get('phone')     || '',
-      qualifier:  qualifier
+      qualifier:  qualifier,
+      sms_consent: fd.get('sms_consent') ? 'yes' : 'no'
     };
     fetch('/.netlify/functions/intake', {
       method: 'POST',

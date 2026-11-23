@@ -1592,6 +1592,7 @@ function tncNoteBuyerAsk(e){
     payload.message = fd.get('message') || '';
     payload._src = fd.get('_src') || '';
     payload.lane = (window.TNC && window.TNC.lane) || '';
+    payload.sms_consent = fd.get('sms_consent') ? 'yes' : 'no';
     payload._hp = fd.get('_hp') || '';
 
     try {
