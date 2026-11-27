@@ -119,11 +119,15 @@ async function submit(payload, tags, data){
   // tag so workflows gate SMS to consented contacts only, plus a server-stamped audit note
   // (when / where / client IP) on the contact. Absence of the tag already means "do not text", so
   // only YES is recorded: a decline leaves no tag and no note.
-  if (data && data.sms_consent === 'yes') {
+  // Bind consent to a real phone number (>= 10 digits). This also structurally excludes the
+  // email-only forms (newsletter / calculator / blog / video collect no phone), so a stray or
+  // forged sms_consent can never stamp the tag onto an existing contact matched by email.
+  const consentPhone = String(payload.phone || data.phone || '').replace(/\D/g, '');
+  if (data && data.sms_consent === 'yes' && consentPhone.length >= 10) {
     tags = Array.from(new Set([...(tags || []), 'sms-consent-yes']));
     const via = data._src || data._form || payload.source || 'website';
     const ip  = data._ip ? ` from IP ${data._ip}` : '';
-    const line = `SMS/calls consent: YES at ${new Date().toISOString()}${ip} via ${via} (opt-in checkbox, not pre-checked; consent language versioned in site Terms).`;
+    const line = `SMS/calls consent: YES at ${new Date().toISOString()}${ip} for phone ${consentPhone} via ${via} (opt-in checkbox, not pre-checked; consent language versioned in site Terms).`;
     payload.customFields = payload.customFields || [];
     const dn = payload.customFields.find(f => f.id === FIELD_IDS.deal_notes);
     if (dn) dn.field_value = [dn.field_value, line].filter(Boolean).join('\n');
