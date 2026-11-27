@@ -114,7 +114,25 @@ async function notifyDiscord(id, payload, tags){
 // Upsert by email (merges fields into the existing contact), THEN add tags via the dedicated
 // endpoint so tags ACCUMULATE. GHL's upsert overwrites a tags[] in the payload, so tags never
 // go in the upsert body -- they are added separately and additively.
-async function submit(payload, tags){
+async function submit(payload, tags, data){
+  // SMS/calls consent capture (TCPA proof-of-consent). On an affirmative opt-in, add a filterable
+  // tag so workflows gate SMS to consented contacts only, plus a server-stamped audit note
+  // (when / where / client IP) on the contact. Absence of the tag already means "do not text", so
+  // only YES is recorded: a decline leaves no tag and no note.
+  // Bind consent to a real phone number (>= 10 digits). This also structurally excludes the
+  // email-only forms (newsletter / calculator / blog / video collect no phone), so a stray or
+  // forged sms_consent can never stamp the tag onto an existing contact matched by email.
+  const consentPhone = String(payload.phone || data.phone || '').replace(/\D/g, '');
+  if (data && data.sms_consent === 'yes' && consentPhone.length >= 10) {
+    tags = Array.from(new Set([...(tags || []), 'sms-consent-yes']));
+    const via = data._src || data._form || payload.source || 'website';
+    const ip  = data._ip ? ` from IP ${data._ip}` : '';
+    const line = `SMS/calls consent: YES at ${new Date().toISOString()}${ip} for phone ${consentPhone} via ${via} (opt-in checkbox, not pre-checked; consent language versioned in site Terms).`;
+    payload.customFields = payload.customFields || [];
+    const dn = payload.customFields.find(f => f.id === FIELD_IDS.deal_notes);
+    if (dn) dn.field_value = [dn.field_value, line].filter(Boolean).join('\n');
+    else payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: line });
+  }
   // Mirror the lead-temperature field as a hot/warm/cold tag so workflows can trigger on it.
   const tf = (payload.customFields || []).find(f => f.id === FIELD_IDS.lead_temperature);
   const tempTag = tf && { Hot:'hot', Warm:'warm', Cold:'cold' }[tf.field_value];
@@ -142,7 +160,7 @@ async function handleIntake(data){
   if (data.investment_range) payload.customFields.push({ id: FIELD_IDS.investment_range, field_value: INVESTMENT_RANGE_MAP[data.investment_range] || data.investment_range });
   const notes = [data.message||'', utmNote(data)].filter(Boolean).join('\n');
   if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
-  return submit(payload, tags);
+  return submit(payload, tags, data);
 }
 
 async function handleCalculator(data){
@@ -170,7 +188,7 @@ async function handleCalculator(data){
     : ('lane=' + encodeURIComponent(L) + '&bal=' + (inp.bal||0) + '&rate=' + (inp.rate||0));
   payload.customFields.push({ id: FIELD_IDS.numbers_link,
     field_value: 'https://takenotescapital.com/your-numbers.html?' + q });
-  return submit(payload, ['source-calculator', ...laneTags(data)]);
+  return submit(payload, ['source-calculator', ...laneTags(data)], data);
 }
 
 async function handleNewsletter(data){
@@ -184,7 +202,7 @@ async function handleNewsletter(data){
   if (data.situation && BLOG_INVESTOR_TYPE_MAP[data.situation])
     payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.situation] });
   const avatarTag = BLOG_AVATAR_TAG[data.situation];
-  return submit(payload, ['source-newsletter', 'consent-newsletter', ...(avatarTag ? [avatarTag] : [])]);
+  return submit(payload, ['source-newsletter', 'consent-newsletter', ...(avatarTag ? [avatarTag] : [])], data);
 }
 
 async function handleVideo(data){
@@ -196,7 +214,7 @@ async function handleVideo(data){
     source: 'Pitch Video', locationId: GHL_LOCATION_ID,
     customFields: baseFields('Investor', temp, 'Pitch Video')
   };
-  return submit(payload, ['source-pitch-video', tag, ...laneTags(data)]);
+  return submit(payload, ['source-pitch-video', tag, ...laneTags(data)], data);
 }
 
 async function handleBlog(data){
@@ -210,7 +228,7 @@ async function handleBlog(data){
     source: 'Blog', locationId: GHL_LOCATION_ID, customFields: baseFields('Investor','Warm','Blog')
   };
   if (data.investor_type) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: BLOG_INVESTOR_TYPE_MAP[data.investor_type] || data.investor_type });
-  return submit(payload, tags);
+  return submit(payload, tags, data);
 }
 
 async function handleLanding(data){
@@ -223,7 +241,7 @@ async function handleLanding(data){
   if (LANDING_INVESTING_WITH[page]) payload.customFields.push({ id: FIELD_IDS.investing_with, field_value: LANDING_INVESTING_WITH[page] });
   const notes = [ data.qualifier ? `Landing (${page}) qualifier: ${data.qualifier}` : '', utmNote(data) ].filter(Boolean).join('\n');
   if (notes) payload.customFields.push({ id: FIELD_IDS.deal_notes, field_value: notes });
-  return submit(payload, [`source-landing-${page}`, 'landing-lead']);
+  return submit(payload, [`source-landing-${page}`, 'landing-lead'], data);
 }
 
 async function handleBuyBox(data){
@@ -266,13 +284,16 @@ async function handleBuyBox(data){
   if (data.preferences)   payload.customFields.push({ id: FIELD_IDS.deal_notes,         field_value: data.preferences });
   if (decisionSpeedValue) payload.customFields.push({ id: FIELD_IDS.decision_speed,     field_value: decisionSpeedValue });
   if (maxLtvValue)        payload.customFields.push({ id: FIELD_IDS.max_ltv,            field_value: maxLtvValue });
-  return submit(payload, ['source-buybox', 'buybox-submission', 'note-buyer']);
+  return submit(payload, ['source-buybox', 'buybox-submission', 'note-buyer'], data);
 }
 
 exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
   let data;
   try { data = JSON.parse(event.body); } catch { return { statusCode: 400, body: JSON.stringify({ error: 'Bad request' }) }; }
+
+  // Real client IP (server-side, from Netlify's edge header) for the SMS/calls consent audit trail.
+  data._ip = event.headers['x-nf-client-connection-ip'] || (event.headers['x-forwarded-for'] || '').split(',')[0].trim() || '';
 
   // Bot traps: respond 200 so bots get no signal, but do nothing.
   if (data._hp) return { statusCode: 200, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ success: true }) };

@@ -1233,7 +1233,7 @@ window.TNC.enrich=function(p){p=p||{};p._elapsed=Date.now()-(window.TNC._loadedA
 </div>
 <div class="form-group">
 <label>Phone Number</label>
-<input name="phone" placeholder="(555) 000-0000" type="tel"/>
+<input name="phone" placeholder="(555) 000-0000" required="" type="tel"/>
 </div>
 <div class="form-group">
 <label>I'm Investing With</label>
@@ -1592,6 +1592,7 @@ function tncNoteBuyerAsk(e){
     payload.message = fd.get('message') || '';
     payload._src = fd.get('_src') || '';
     payload.lane = (window.TNC && window.TNC.lane) || '';
+    payload.sms_consent = fd.get('sms_consent') ? 'yes' : 'no';
     payload._hp = fd.get('_hp') || '';
 
     try {

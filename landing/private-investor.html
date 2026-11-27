@@ -226,7 +226,7 @@
           <input type="text" name="firstName" placeholder="First Name" required>
           <input type="text" name="lastName" placeholder="Last Name" required>
           <input type="email" name="email" placeholder="Email Address" required>
-          <input type="tel" name="phone" placeholder="Phone (optional)">
+          <input type="tel" name="phone" placeholder="Phone" required>
           <select name="capitalRange" required>
             <option value="">Where are you in your journey?</option>
             <option>Just learning about notes</option>
@@ -394,7 +394,8 @@
       last_name:  fd.get('lastName')  || '',
       email:      fd.get('email')     || '',
       phone:      fd.get('phone')     || '',
-      qualifier:  qualifier
+      qualifier:  qualifier,
+      sms_consent: fd.get('sms_consent') ? 'yes' : 'no'
     };
     fetch('/.netlify/functions/intake', {
       method: 'POST',
